@@ -482,7 +482,7 @@ export function ProfileStepper({
 
           <p className="mt-6 flex items-start gap-2 text-sm text-muted">
             <LockKeyhole size={17} className="mt-0.5 shrink-0" aria-hidden="true" />
-            Your answers stay in your browser.
+            Your answers are saved in this browser. To pick your best matches, a summary of them (never a name or contact details) is sent to our AI service when you see your results. We do not keep it.
           </p>
           {storageWarning && (
             <p role="status" className="mt-2 text-sm text-status-amber">{storageWarning}</p>

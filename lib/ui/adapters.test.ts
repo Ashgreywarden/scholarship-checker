@@ -192,3 +192,24 @@ describe("no demo or sample-data text is left in the app", () => {
     expect(hits.map((h) => path.relative(root, h))).toEqual([]);
   });
 });
+
+
+describe("navigation and landing wording", () => {
+  const read = (...p: string[]) => readFileSync(path.join(root, ...p), "utf8");
+  it("the landing page shows no scheme counts", () => {
+    const landing = read("components", "Landing.tsx");
+    expect(landing).not.toMatch(/schemeCount|loadPayload|totals\./);
+    expect(landing).not.toMatch(/\d[\d,]*\s+(Indian\s+)?schemes/i);
+    expect(read("app", "page.tsx")).not.toMatch(/loadPayload|count/i);
+  });
+  it("the paste-a-notice page is not in the main navigation or on the landing page", () => {
+    expect(read("components", "SiteHeader.tsx")).not.toMatch(/href:\s*"\/notice"/);
+    expect(read("components", "Landing.tsx")).not.toContain("/notice");
+  });
+  it("it is linked at the bottom of the results page with the WhatsApp wording", () => {
+    const results = read("components", "ResultsPage.tsx");
+    expect(results).toContain("Got a scholarship message on WhatsApp?");
+    expect(results).toContain('href="/notice"');
+    expect(results).toContain("Check it here");
+  });
+});

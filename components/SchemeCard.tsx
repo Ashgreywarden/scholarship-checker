@@ -24,9 +24,12 @@ function Quote({ text, flagged = false }: { text: string | null; flagged?: boole
 export function SchemeCard({
   scheme,
   initiallyExpanded = false,
+  insight,
 }: {
   scheme: Scheme;
   initiallyExpanded?: boolean;
+  // A short reason this scheme fits the student, plus one thing to confirm.
+  insight?: { why: string; confirm: string };
 }) {
   const [expanded, setExpanded] = useState(initiallyExpanded);
   const [have, setHave] = useState<Set<number>>(new Set());
@@ -93,6 +96,23 @@ export function SchemeCard({
             </p>
           </div>
         </div>
+
+        {insight && (
+          <div
+            className="mt-4 rounded-xl border border-brand/25 bg-brand-light p-3"
+            data-testid="insight"
+          >
+            <p className="text-sm font-semibold text-brand">Why it fits you</p>
+            <p className="mt-0.5 text-ink" data-testid="why-it-fits">
+              {insight.why}
+            </p>
+            {insight.confirm && (
+              <p className="mt-1 text-sm text-muted" data-testid="to-confirm">
+                <span className="font-semibold">To confirm:</span> {insight.confirm}
+              </p>
+            )}
+          </div>
+        )}
 
         <div className="mt-4 rounded-xl bg-paper p-3">
           <p className="text-sm text-ink" data-testid="reason">

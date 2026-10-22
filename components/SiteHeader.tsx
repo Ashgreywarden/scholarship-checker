@@ -4,9 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Route } from "lucide-react";
 
+// The paste-a-notice tool is not in the main navigation: it is linked only at
+// the bottom of the results page.
 const LINKS = [
   { href: "/results", label: "Scholarships" },
-  { href: "/notice", label: "Check a notice" },
   { href: "/coverage", label: "Coverage" },
 ];
 

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Check, LockKeyhole, Route } from "lucide-react";
 
-export function Landing({ schemeCount }: { schemeCount: number | null }) {
+// No scheme counts here: the landing page makes no numeric claims about the data.
+export function Landing() {
   return (
     <main id="main-content" className="page">
       <section className="grid items-center gap-10 py-6 lg:grid-cols-[1.15fr_0.85fr] lg:py-14">
@@ -17,15 +18,10 @@ export function Landing({ schemeCount }: { schemeCount: number | null }) {
             and know where to apply.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/profile" className="btn-primary">
-              Find my scholarships
-              <ArrowRight size={20} aria-hidden="true" />
-            </Link>
-            <Link href="/notice" className="btn-secondary">
-              Check a notice I found
-            </Link>
-          </div>
+          <Link href="/profile" className="btn-primary mt-8">
+            Find my scholarships
+            <ArrowRight size={20} aria-hidden="true" />
+          </Link>
 
           <div className="mt-5 space-y-2 text-sm text-muted">
             <p className="flex items-start gap-2">
@@ -33,8 +29,8 @@ export function Landing({ schemeCount }: { schemeCount: number | null }) {
               Every rule is quoted from the official source
             </p>
             <p className="flex items-start gap-2">
-              <LockKeyhole size={17} className="shrink-0" aria-hidden="true" />
-              No login. Your answers stay in your browser.
+              <LockKeyhole size={17} className="mt-0.5 shrink-0" aria-hidden="true" />
+              No login, no name, no phone number. Your answers are saved only in your browser.
             </p>
           </div>
         </div>
@@ -53,7 +49,7 @@ export function Landing({ schemeCount }: { schemeCount: number | null }) {
             <ol className="mt-8">
               {[
                 ["Tell us about you", "A short profile. One step at a time."],
-                ["Understand your options", "See the rules behind every result."],
+                ["Understand your options", "See the best matches and the rules behind them."],
                 ["Take your next step", "Apply through the official portal."],
               ].map(([title, description], index) => (
                 <li key={title} className="relative flex gap-4 pb-8 last:pb-0">
@@ -74,18 +70,9 @@ export function Landing({ schemeCount }: { schemeCount: number | null }) {
               ))}
             </ol>
 
-            <div className="mt-8 flex items-end justify-between gap-4 border-t border-line pt-6">
-              <div>
-                <p
-                  className="font-display text-4xl font-semibold text-brand"
-                  data-testid="scheme-count"
-                >
-                  {schemeCount === null ? "…" : schemeCount.toLocaleString("en-IN")}
-                </p>
-                <p className="mt-1 text-sm text-muted">Indian schemes in the data bank</p>
-              </div>
+            <div className="mt-8 border-t border-line pt-6">
               <Link href="/coverage" className="text-link text-sm">
-                See coverage
+                See what the data bank covers
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>

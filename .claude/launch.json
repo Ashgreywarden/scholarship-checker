@@ -8,6 +8,12 @@
       "port": 3000
     },
     {
+      "name": "scholarship-checker-badkey",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "set OPENROUTER_API_KEY=not-a-real-key&& npm run dev"],
+      "port": 3000
+    },
+    {
       "name": "scholarship-checker-tamper",
       "runtimeExecutable": "cmd",
       "runtimeArgs": ["/c", "set MOCK_AI=tamper&& npm run dev"],

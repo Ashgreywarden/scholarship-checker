@@ -86,12 +86,16 @@ interface Completion {
 async function callOpenRouter(
   body: unknown,
   startedAt: number,
+  // The notice reader uses the defaults; other callers can set a shorter deadline.
+  opts: { deadlineMs?: number; maxRetries?: number } = {},
 ): Promise<Completion> {
   const key = getKey();
+  const deadlineMs = opts.deadlineMs ?? OVERALL_DEADLINE_MS;
+  const maxRetries = opts.maxRetries ?? MAX_TRANSPORT_RETRIES;
   let lastStatus = 0;
 
-  for (let attempt = 0; attempt <= MAX_TRANSPORT_RETRIES; attempt++) {
-    const remaining = OVERALL_DEADLINE_MS - (Date.now() - startedAt);
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    const remaining = deadlineMs - (Date.now() - startedAt);
     if (remaining < 3000) break;
 
     let status = 0;
@@ -134,7 +138,7 @@ async function callOpenRouter(
       );
     }
     if (status === 429 || status >= 500) {
-      if (attempt < MAX_TRANSPORT_RETRIES) {
+      if (attempt < maxRetries) {
         await sleep(backoffMs(attempt, retryAfter));
         continue;
       }
@@ -255,4 +259,46 @@ async function requestExtraction(
     "bad_output",
     "The AI gave an answer we couldn't read. Please try again.",
   );
+}
+
+
+// A second, general entry point: one structured-JSON question to Gemini through
+// the same OpenRouter setup (google/ models only, the two Google backends only,
+// no fallbacks, key from OPENROUTER_API_KEY, server side). Returns the model's
+// raw text; the caller must validate it. Used by the results ranking, with a
+// short deadline so the page can fall back to code ranking quickly.
+export async function chatJson(opts: {
+  system: string;
+  user: string;
+  schemaName: string;
+  schema: Record<string, unknown>;
+  deadlineMs: number;
+  maxRetries?: number;
+  maxTokens?: number;
+}): Promise<string> {
+  const startedAt = Date.now();
+  const body = {
+    model: getModel(),
+    messages: [
+      { role: "system", content: opts.system },
+      { role: "user", content: opts.user },
+    ],
+    provider: PROVIDER,
+    response_format: {
+      type: "json_schema",
+      json_schema: { name: opts.schemaName, strict: true, schema: opts.schema },
+    },
+    temperature: 0,
+    max_tokens: opts.maxTokens ?? 3000,
+    reasoning: { effort: "low" },
+  };
+  const completion = await callOpenRouter(body, startedAt, {
+    deadlineMs: opts.deadlineMs,
+    maxRetries: opts.maxRetries,
+  });
+  const choice = completion.choices?.[0];
+  if (!choice?.message?.content || choice.finish_reason === "length") {
+    throw new AiError("bad_output", "The AI gave an answer we couldn't read.");
+  }
+  return choice.message.content;
 }
