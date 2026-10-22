@@ -171,16 +171,29 @@ export function profileFromUi(p: StudentProfile): Profile {
     courseLevel: p.level === "UG" ? "undergraduate" : p.level === "PG" ? "postgraduate" : null,
     age: num(p.age),
     state: p.state || null,
-    category: p.category ? (p.category.toLowerCase() as Profile["category"]) : null,
+    category:
+      p.category && p.category !== "Not sure"
+        ? (p.category.toLowerCase() as Profile["category"])
+        : null,
     annualIncomeInr: num(p.annualIncome),
     marksPercent: num(p.marksPercent),
-    workExperienceYears: num(p.workYears),
+    // Work experience is not a profile question (no domestic scheme needs it).
+    // The notice checker asks for it when you paste a notice.
+    workExperienceYears: null,
     // ScholarPath is for students in India; the form does not ask.
     nationality: "Indian",
     gender,
     hasDisability: p.disability === "yes" ? true : p.disability === "no" ? false : null,
     courseType: p.courseType || null,
+    yearOfStudy: yearNumber(p.year),
+    specialGroups: p.specialGroups,
   };
+}
+
+// "1" -> 1, "4 or later" -> 4, "" -> null.
+function yearNumber(year: string): number | null {
+  const m = /^\s*(\d)/.exec(year);
+  return m ? Number(m[1]) : null;
 }
 
 // --- a pasted notice -> a UI scheme -----------------------------------------

@@ -61,10 +61,12 @@ export async function rankForProfile(
   });
   if (candidates.length === 0) return { source: "fallback", ranked: [], note: FALLBACK_NOTE };
 
-  // Cache by a hash of the profile (plus the day and the candidate list).
+  // Cache by a hash of the profile, the day and the full candidate list (ids AND
+  // their rule results), so ticking an optional group that changes a rule result
+  // never returns an old ranking.
   const student = compactProfile(profile);
   const key = createHash("sha256")
-    .update(JSON.stringify([student, today.toISOString().slice(0, 10), candidates.map((c) => c.id)]))
+    .update(JSON.stringify([student, today.toISOString().slice(0, 10), candidates]))
     .digest("hex");
   const hit = cache.get(key);
   if (hit && now() - hit.at < CACHE_MS) return hit.value;

@@ -15,13 +15,11 @@ const deps = (chat: ChatFn, now = () => 0) => ({ chat, now, today: () => today }
 
 const scUp: StudentProfile = {
   ...EMPTY_PROFILE, state: "Uttar Pradesh", category: "SC", annualIncome: "180000", level: "UG",
-  year: "1", courseType: "Science", gender: "Woman", disability: "no", minorityCommunity: "None",
-  parentOccupation: "Farming", firstGeneration: "yes", marksPercent: "70", age: "19",
+  year: "1", courseType: "Science", gender: "Woman", disability: "no", marksPercent: "70", age: "19",
 };
 const generalMh: StudentProfile = {
   ...EMPTY_PROFILE, state: "Maharashtra", category: "General", annualIncome: "900000", level: "PG",
   year: "1", courseType: "Engineering and technology", gender: "Man", disability: "no",
-  minorityCommunity: "None", parentOccupation: "Salaried — private sector", firstGeneration: "no",
   marksPercent: "68", age: "23",
 };
 
@@ -229,5 +227,45 @@ describe("the ranking route has its own per-IP rate limit", () => {
     expect(rankLimiter.check("8.8.8.8", 1000).ok).toBe(true);
     expect(rankLimiter.check("9.9.9.9", 1000 + RANK_RATE_LIMIT.WINDOW_MS + 1).ok).toBe(true);
     expect(RANK_RATE_LIMIT.LIMIT).toBe(20);
+  });
+});
+
+
+describe("sensitive answers never reach the AI", () => {
+  it("the AI gets only state, category, income, course details, marks and age", async () => {
+    const sensitive: StudentProfile = {
+      ...generalMh, gender: "Woman", disability: "yes", specialGroups: ["minority:muslim", "dnt", "parent_beedi_cine_mine"],
+    };
+    const chat = vi.fn<ChatFn>().mockResolvedValue(answer([]));
+    await rankForProfile(sensitive, schemes, deps(chat));
+    const call = chat.mock.calls[0][0] as { user: string; system: string };
+    const data = JSON.parse(call.user.replace(/^<data>\n/, "").replace(/\n<\/data>$/, ""));
+    expect(Object.keys(data.student).sort()).toEqual(
+      ["age", "annual_family_income_inr", "category", "course_type", "current_year", "marks_percent", "state", "study_level"],
+    );
+    const studentText = JSON.stringify(data.student);
+    for (const secret of ["Woman", "disab", "muslim", "Muslim", "dnt", "beedi", "minority"]) {
+      expect(studentText).not.toContain(secret);
+    }
+    expect(call.system).not.toMatch(/disab|religio|minority community/i);
+  });
+  it("but the rule checker still uses them: ticking a group changes which schemes are candidates", async () => {
+    const chat = vi.fn<ChatFn>().mockResolvedValue(answer([]));
+    await rankForProfile(generalMh, schemes, deps(chat));
+    clearRankCache();
+    await rankForProfile({ ...generalMh, specialGroups: ["minority:muslim", "dnt", "ebc"] }, schemes, deps(chat));
+    const a = sentIds(chat.mock.calls[0][0]);
+    const b = sentIds(chat.mock.calls[1][0]);
+    expect(b.length).toBeGreaterThanOrEqual(a.length);
+  });
+});
+
+describe("the AI cache does not hide a changed rule result", () => {
+  it("ticking a group that changes a rule result is a new cache entry", async () => {
+    const chat = vi.fn<ChatFn>().mockResolvedValue(answer([]));
+    const base: StudentProfile = { ...generalMh, specialGroups: [] };
+    await rankForProfile(base, schemes, deps(chat));
+    await rankForProfile({ ...base, specialGroups: ["minority:muslim", "dnt", "ebc"] }, schemes, deps(chat));
+    expect(chat).toHaveBeenCalledTimes(2);
   });
 });

@@ -1,3 +1,4 @@
+import { ALL_GROUP_IDS } from "../match/groups";
 import type { StudentProfile } from "./types";
 
 export const PROFILE_KEY = "scholarpath.profile.v1";
@@ -9,15 +10,28 @@ export const EMPTY_PROFILE: StudentProfile = {
   level: "",
   year: "",
   courseType: "",
-  gender: "",
-  disability: "",
-  minorityCommunity: "",
-  parentOccupation: "",
-  firstGeneration: "",
   marksPercent: "",
+  gender: "",
   age: "",
-  workYears: "",
+  disability: "",
+  specialGroups: [],
 };
+
+// The course types offered in the form. The matcher groups them (courseType.ts).
+export const COURSE_TYPES = [
+  "Arts and humanities",
+  "Science",
+  "Commerce",
+  "Engineering and technology",
+  "Medicine and health",
+  "Law",
+  "Management",
+  "Agriculture",
+  "Education",
+  "Fine arts, performing arts or film",
+  "Sports",
+  "Other",
+];
 
 export const STATES = [
   "Andaman and Nicobar Islands",
@@ -86,11 +100,19 @@ export function parseProfile(raw: string | null): StudentProfile | null {
     const parsed: unknown = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object") return null;
 
-    const result = { ...EMPTY_PROFILE };
+    const result: StudentProfile = { ...EMPTY_PROFILE, specialGroups: [] };
 
     for (const key of Object.keys(EMPTY_PROFILE) as (keyof StudentProfile)[]) {
       const value = (parsed as Record<string, unknown>)[key];
       if (value === undefined) continue;
+      if (key === "specialGroups") {
+        // Only ids we know; anything else is dropped.
+        if (!Array.isArray(value)) return null;
+        result.specialGroups = value.filter(
+          (v): v is string => typeof v === "string" && ALL_GROUP_IDS.includes(v),
+        );
+        continue;
+      }
       if (typeof value !== "string") return null;
       Object.assign(result, { [key]: value });
     }

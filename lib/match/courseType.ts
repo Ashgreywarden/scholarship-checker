@@ -15,7 +15,8 @@ export type CourseGroup =
   | "commerce"
   | "arts_humanities"
   | "science"
-  | "niche"; // performing arts, film, sport, design ...: no profile answer covers these
+  | "creative_arts" // music, dance, theatre, visual arts, film, design
+  | "sports";
 
 // First match wins, so more specific words come before general ones
 // (for example "B.Tech Computer Science" is engineering, not science).
@@ -29,7 +30,8 @@ const GROUP_PATTERNS: [CourseGroup, RegExp][] = [
   ["commerce", /\bcommerce\b|\bB\.?\s?Com\b|\baccountancy\b/i],
   ["arts_humanities", /\bhumanit|\bsocial science|\bliterature\b|\bhistory\b|\bsociology\b|\bpolitical\b|\beconomics\b|\bpsychology\b|\bB\.?\s?A\b|\bM\.?\s?A\b/i],
   ["science", /\bscience|\bB\.?\s?Sc\b|\bM\.?\s?Sc\b|\bmathematic|\bphysics\b|\bchemistry\b|\bbiolog|\bstatistics\b|\bastronom/i],
-  ["niche", /\bmusic\b|\bdance\b|\btheatre\b|\bmime\b|\bvisual art|\bfolk\b|\bclassical\b|\bfilm\b|\btelevision\b|\bsport|\bathlet|\bdesign\b|\bjournalism\b|\bcraft|\bpainting\b|\bsculpture\b/i],
+  ["sports", /\bsport|\bathlet/i],
+  ["creative_arts", /\bmusic\b|\bdance\b|\btheatre\b|\bmime\b|\bvisual art|\bfolk\b|\bclassical\b|\bfilm\b|\btelevision\b|\bdesign\b|\bjournalism\b|\bcraft|\bpainting\b|\bsculpture\b/i],
 ];
 
 // Words that describe HOW a course is studied, not WHAT. A rule made only of
@@ -52,6 +54,8 @@ const STUDENT_GROUPS: Record<string, CourseGroup | null> = {
   Management: "management",
   Agriculture: "agriculture",
   Education: "education",
+  "Fine arts, performing arts or film": "creative_arts",
+  Sports: "sports",
   Other: null, // can never be a "clear fit"
 };
 

@@ -30,7 +30,6 @@ const ui: StudentProfile = {
   ...EMPTY_PROFILE,
   state: "Bihar", category: "SC", annualIncome: "200000", level: "UG", year: "1",
   courseType: "Science", gender: "Woman", disability: "no", marksPercent: "72", age: "19",
-  workYears: "", minorityCommunity: "None", parentOccupation: "Farming", firstGeneration: "yes",
 };
 
 describe("provider types map to the UI's, with labels for every one", () => {
@@ -71,6 +70,7 @@ describe("profile form -> engine profile", () => {
       courseLevel: "undergraduate", age: 19, state: "Bihar", category: "sc",
       annualIncomeInr: 200000, marksPercent: 72, workExperienceYears: null,
       nationality: "Indian", gender: "female", hasDisability: false, courseType: "Science",
+      yearOfStudy: 1, specialGroups: [],
     });
   });
   it("blank or skipped answers become null, never a guess", () => {
@@ -211,5 +211,37 @@ describe("navigation and landing wording", () => {
     expect(results).toContain("Got a scholarship message on WhatsApp?");
     expect(results).toContain('href="/notice"');
     expect(results).toContain("Check it here");
+  });
+});
+
+
+import { parseProfile } from "./profile";
+
+describe("profile storage and the trimmed question list", () => {
+  it("an old saved profile (with the removed questions) still loads", () => {
+    const old = JSON.stringify({
+      state: "Bihar", category: "SC", annualIncome: "200000", level: "UG", year: "1", courseType: "Science",
+      gender: "Woman", disability: "no", minorityCommunity: "Muslim", parentOccupation: "Farming",
+      firstGeneration: "yes", marksPercent: "70", age: "19", workYears: "2",
+    });
+    const p = parseProfile(old)!;
+    expect(p.state).toBe("Bihar");
+    expect(p.specialGroups).toEqual([]);
+    expect(Object.keys(p)).not.toEqual(expect.arrayContaining(["minorityCommunity", "parentOccupation", "firstGeneration", "workYears"]));
+  });
+  it("special groups: unknown ids are dropped and a non-list is rejected", () => {
+    expect(parseProfile(JSON.stringify({ specialGroups: ["dnt", "made_up", 5] }))?.specialGroups).toEqual(["dnt"]);
+    expect(parseProfile(JSON.stringify({ specialGroups: "dnt" }))).toBeNull();
+  });
+  it("'Not sure' category and 'Prefer not to say' answers become skipped, not guesses", () => {
+    const p = profileFromUi({ ...EMPTY_PROFILE, category: "Not sure", gender: "Prefer not to say", disability: "prefer_not" });
+    expect(p.category).toBeNull();
+    expect(p.gender).toBeNull();
+    expect(p.hasDisability).toBeNull();
+  });
+  it("the form has no religion, parent-job, first-generation or work-experience question", () => {
+    expect(Object.keys(EMPTY_PROFILE).sort()).toEqual(
+      ["age", "annualIncome", "category", "courseType", "disability", "gender", "level", "marksPercent", "specialGroups", "state", "year"],
+    );
   });
 });

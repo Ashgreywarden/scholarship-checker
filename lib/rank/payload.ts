@@ -27,6 +27,11 @@ const cut = (s: string, n: number): string => (s.length > n ? `${s.slice(0, n - 
 const MAX_CANDIDATES = 40;
 const MAX_RULES = 5;
 
+// What the AI may see about the student: only answers that help it order and
+// explain schemes. Gender, disability and the optional groups (minority
+// community, tribe, family occupation ...) are used by the rule checker on our
+// server but are NEVER passed on to the AI. The rule results in each scheme's
+// entry already say whether those rules were met.
 export function compactProfile(p: StudentProfile): Record<string, string | number> {
   const out: Record<string, string | number> = {};
   const put = (k: string, v: string, skip: string[] = []) => {
@@ -34,23 +39,16 @@ export function compactProfile(p: StudentProfile): Record<string, string | numbe
     if (t && !skip.includes(t)) out[k] = t;
   };
   put("state", p.state);
-  put("category", p.category);
+  put("category", p.category, ["Not sure"]);
   const inc = Number(p.annualIncome);
   if (p.annualIncome.trim() !== "" && Number.isFinite(inc)) out.annual_family_income_inr = inc;
   put("study_level", p.level);
   put("current_year", p.year);
   put("course_type", p.courseType);
-  put("gender", p.gender, ["Prefer not to say"]);
-  if (p.disability) out.has_disability = p.disability;
-  put("minority_community", p.minorityCommunity, ["None", "Prefer not to say"]);
-  put("parent_occupation", p.parentOccupation, ["Prefer not to say"]);
-  if (p.firstGeneration) out.first_generation_student = p.firstGeneration;
   put("marks_percent", p.marksPercent);
   put("age", p.age);
-  put("years_of_work_experience", p.workYears);
   return out;
 }
-
 // Drops every scheme the rules clearly rule out, keeps Eligible and Can't tell,
 // and caps the list so the request stays small (best code-ranked first).
 export function buildCandidates(matches: SchemeMatch[]): Candidate[] {

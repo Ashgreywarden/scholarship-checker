@@ -3,6 +3,7 @@ import { formatNumber, normalizeNationality, normalizeWord, parseNumber } from "
 import type { Profile } from "../types";
 import { CATEGORY_LABELS, HOURS_PER_YEAR, STATES, type Category } from "../vocab";
 import { groupOfStudent, readCourseRule } from "./courseType";
+import { groupIdForOccupation, groupIdsForCategoryToken, labelOfGroup } from "./groups";
 
 // Compares ONE published rule with the student's answers, in plain code.
 // Anything the code does not fully understand becomes "can't tell"; it is never
@@ -153,26 +154,82 @@ function evalCategory(rule: Rule, p: Profile): RuleEval {
   if (rule.op !== "in" && rule.op !== "==") {
     return note(label, `Stated in words: ${listed}. Please read the quote.`);
   }
-  if (!p.category) return missing(label, `Open to: ${listed}. You skipped "Category".`);
 
   const known = tokens.map((t) => CATEGORY_TOKENS[t]).filter(Boolean) as Category[];
-  const hasUnknown = tokens.some((t) => !CATEGORY_TOKENS[t]);
-  const mine = CATEGORY_LABELS[p.category];
+  const mine = p.category ? CATEGORY_LABELS[p.category] : null;
 
-  if (known.includes(p.category)) return pass(label, `Open to: ${listed}. You are ${mine}.`);
+  if (p.category && known.includes(p.category)) return pass(label, `Open to: ${listed}. You are ${mine}.`);
+
+  // Groups the profile's five categories can't express (minority community, DNT,
+  // EBC ...) can be settled by the optional "Anything else that applies?" ticks.
+  const ticked = new Set(p.specialGroups ?? []);
+  const settled = tokens
+    .map((t) => groupIdsForCategoryToken(t))
+    .flatMap((ids) => ids ?? [])
+    .find((id) => ticked.has(id));
+  if (settled) {
+    return pass(label, `Open to: ${listed}. You told us: ${labelOfGroup(settled)}.`);
+  }
+
+  if (!p.category) return missing(label, `Open to: ${listed}. You skipped "Category".`);
+
   // EWS students are part of the general category in many schemes; we can't be sure.
   if (p.category === "ews" && known.includes("general")) {
     return missing(label, `Open to: ${listed}. You chose EWS; please check whether it counts as General for this scheme.`);
   }
-  if (hasUnknown) {
+  if (tokens.some((t) => !CATEGORY_TOKENS[t])) {
+    const askable = tokens.some((t) => groupIdsForCategoryToken(t));
     return missing(
       label,
-      `Open to: ${listed}. Your profile only records General/EWS/OBC/SC/ST, so we can't tell whether you are in the other groups listed.`,
+      `Open to: ${listed}. Your category (${mine}) doesn't settle the other groups listed, so we can't tell.${
+        askable ? ' You can say if one applies in "Anything else that applies?" on your profile.' : ""
+      }`,
     );
   }
   return fail(label, `Open to: ${listed}. You are ${mine}.`);
 }
 
+// --- parent's occupation ("beedi worker", "manual scavenger") ---------------
+
+function evalParentOccupation(rule: Rule, p: Profile): RuleEval {
+  const label = "Parent's occupation";
+  const values = (Array.isArray(rule.value) ? rule.value : [rule.value]).map(String);
+  const listed = values.join("; ");
+  const ticked = new Set(p.specialGroups ?? []);
+  const settled = values.map(groupIdForOccupation).find((id) => id && ticked.has(id));
+  if (settled) return pass(label, `This scheme is for: ${listed}. You told us: ${labelOfGroup(settled)}.`);
+  return missing(
+    label,
+    `This scheme is for: ${listed}. We can't tell from your answers.${
+      values.some(groupIdForOccupation)
+        ? ' You can say if this applies in "Anything else that applies?" on your profile.'
+        : " Please check the quote."
+    }`,
+  );
+}
+
+// --- year of study ("first year", "1", "2 (lateral entry)") -----------------
+
+// A year is a clear fit only when the rule names the same year number, or a
+// first-year rule meets a first-year student. "Lateral entry" and "final year"
+// can't be known from a year number, so those stay "Can't tell".
+function evalYearOfStudy(rule: Rule, p: Profile): RuleEval {
+  const label = "Year of study";
+  const values = (Array.isArray(rule.value) ? rule.value : [rule.value]).map(String);
+  const listed = values.join("; ");
+  if (!p.yearOfStudy) return missing(label, `This scheme is for: ${listed}. You skipped "Current year".`);
+
+  const fits = values.some((v) => {
+    const t = v.trim().toLowerCase();
+    if (/lateral|final|last year|graduating/.test(t)) return false;
+    if (/^(1|1st|first)\b/.test(t)) return p.yearOfStudy === 1;
+    const n = /^(\d)\b/.exec(t);
+    return n ? p.yearOfStudy === Number(n[1]) : false;
+  });
+  return fits
+    ? pass(label, `This scheme is for: ${listed}. You are in year ${p.yearOfStudy}.`)
+    : missing(label, `This scheme is for: ${listed}. We can't tell whether year ${p.yearOfStudy} fits. Please check.`);
+}
 // --- domicile state ---------------------------------------------------------
 
 function normalizeState(s: string): string {
@@ -205,16 +262,36 @@ function evalState(rule: Rule, p: Profile): RuleEval {
 
 function evalGender(rule: Rule, p: Profile): RuleEval {
   const label = "Gender";
-  const v = typeof rule.value === "string" ? normalizeWord(rule.value) : "";
-  if (rule.op !== "==" || (v !== "female" && v !== "male")) {
-    return note(label, `Stated in words: ${valueText(rule.value)}. Please read the quote.`);
-  }
-  if (!p.gender) return missing(label, `Open to ${v} students. You skipped "Gender".`);
-  return p.gender === v
-    ? pass(label, `Open to ${v} students.`)
-    : fail(label, `Open to ${v} students. You chose ${p.gender}.`);
-}
+  const text = typeof rule.value === "string" ? normalizeWord(rule.value) : "";
+  const stated = `Stated in words: ${valueText(rule.value)}. Please read the quote.`;
+  if (rule.op !== "==") return note(label, stated);
 
+  // "female" / "male", or one of them followed by extra words:
+  //   "female (single girl child of her parents)", "female (women scientists)".
+  // Text that mentions BOTH ("Female students get 100% ...; male 50%") is a
+  // benefit difference, not a restriction, so it stays a note.
+  const m = /^(female|male)\b\s*(.*)$/.exec(text);
+  if (!m || (/\bfemale\b/.test(text) && /\bmale\b/.test(text.replace(/\bfemale\b/g, "")))) {
+    return note(label, stated);
+  }
+  const wanted = m[1] as "female" | "male";
+  const extra = m[2].trim();
+  // "(girl students)" only repeats the gender; anything else is an extra condition.
+  const exact = extra === "" || /^\(\s*(girl|girls|boy|boys|women|woman|male|female)?\s*students?\s*\)$/.test(extra);
+
+  if (!p.gender) return missing(label, `Open to ${wanted} students. You skipped "Gender".`);
+  // The profile only asks woman / man / another identity; "another" can't be
+  // settled against a male-only or female-only rule, so it is "Can't tell".
+  if (p.gender === "other") {
+    return missing(label, `Open to ${wanted} students. We can't tell from your answer; please check the quote.`);
+  }
+  if (p.gender !== wanted) {
+    return fail(label, `Open to ${wanted} students. You chose ${p.gender === "female" ? "woman" : "man"}.`);
+  }
+  return exact
+    ? pass(label, `Open to ${wanted} students.`)
+    : missing(label, `Open to ${wanted} students, with one more condition: ${extra}. Please check it.`);
+}
 function evalCitizenship(rule: Rule, p: Profile): RuleEval {
   const label = "Citizenship";
   const text = valueText(rule.value);
@@ -281,6 +358,8 @@ export function evaluateRule(rule: Rule, p: Profile): RuleEval {
   if ((field === "course_type" || field === "field_of_study") && (rule.op === "in" || rule.op === "==")) {
     return evalCourseType(rule, p);
   }
+  if (field === "parent_occupation" && (rule.op === "in" || rule.op === "==")) return evalParentOccupation(rule, p);
+  if (field === "year_of_study" && (rule.op === "in" || rule.op === "==")) return evalYearOfStudy(rule, p);
 
   switch (field) {
     case "income_annual_inr":

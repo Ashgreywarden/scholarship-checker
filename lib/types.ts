@@ -19,6 +19,10 @@ export interface Profile {
   // What the student studies, as chosen in the profile ("Science", "Law" ...).
   // Optional so older callers keep working; missing means skipped.
   courseType?: string | null;
+  // Current year of the course (1 = first year); null / missing = skipped.
+  yearOfStudy?: number | null;
+  // Ids from the optional "Anything else that applies?" step (lib/match/groups.ts).
+  specialGroups?: string[];
 }
 
 export type RowStatus = "pass" | "fail" | "unknown";

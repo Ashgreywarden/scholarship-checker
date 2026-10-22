@@ -16,12 +16,19 @@ export class NoticeCheckError extends Error {}
 export function NoticeChecker({
   onCheck,
 }: {
-  onCheck: (notice: string, profile: StudentProfile) => Promise<Scheme>;
+  onCheck: (
+    notice: string,
+    profile: StudentProfile,
+    // Asked here, not in the profile, because no Indian scheme in the data bank
+    // needs it; only some notices (for example Chevening) do.
+    extras: { workYears: string },
+  ) => Promise<Scheme>;
 }) {
   const stored = useStoredProfile(); // undefined until the browser has been read
   const ready = stored !== undefined;
   const profile = stored ?? null;
   const [notice, setNotice] = useState("");
+  const [workYears, setWorkYears] = useState("");
   const [result, setResult] = useState<Scheme | null>(null);
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [validation, setValidation] = useState("");
@@ -63,7 +70,7 @@ export function NoticeChecker({
     setState("loading");
 
     try {
-      const nextResult = await onCheck(notice.trim(), profile);
+      const nextResult = await onCheck(notice.trim(), profile, { workYears });
       if (current !== requestId.current) return;
       setResult(nextResult);
       setState("success");
@@ -134,6 +141,28 @@ export function NoticeChecker({
             {validation}
           </p>
         )}
+
+        <div className="mt-5">
+          <label htmlFor="workYears" className="field-label">
+            Years of full-time work <span className="font-normal text-muted">(optional)</span>
+          </label>
+          <p id="work-hint" className="mb-2 text-sm text-muted">
+            Only needed if the notice asks for work experience. Use 0 if none.
+          </p>
+          <input
+            id="workYears"
+            type="number"
+            inputMode="decimal"
+            min="0"
+            max="80"
+            step="any"
+            value={workYears}
+            disabled={state === "loading"}
+            onChange={(event) => setWorkYears(event.target.value)}
+            className="field sm:max-w-48"
+            aria-describedby="work-hint"
+          />
+        </div>
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <button

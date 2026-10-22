@@ -7,15 +7,22 @@ import {
   type FormEvent,
 } from "react";
 import { ArrowLeft, ArrowRight, Check, LockKeyhole } from "lucide-react";
-import { EMPTY_PROFILE, saveProfile, STATES } from "@/lib/ui/profile";
+import { MINORITY_GROUPS, OTHER_GROUPS } from "@/lib/match/groups";
+import { COURSE_TYPES, EMPTY_PROFILE, saveProfile, STATES } from "@/lib/ui/profile";
 import type { StudentProfile } from "@/lib/ui/types";
 
 const STEPS = [
-  { title: "Where are you from?", hint: "Use the state where you hold domicile." },
+  { title: "Where are you from?", hint: "Use the state where you are a permanent resident (your domicile)." },
   { title: "Your family and category", hint: "Use the details on your certificates." },
   { title: "What are you studying?", hint: "Tell us about your current course." },
-  { title: "A few more details", hint: "Some schemes support specific student groups." },
-  { title: "Your family’s work and education", hint: "This helps check more published rules." },
+  {
+    title: "A few more details",
+    hint: "Optional. Some schemes are only for girls, for students with a disability, or for an age group. Skip anything you prefer not to share.",
+  },
+  {
+    title: "Anything else that applies?",
+    hint: "Optional. Tick only what is true for you. Leaving this empty never counts against you.",
+  },
 ];
 
 type Errors = Partial<Record<keyof StudentProfile, string>>;
@@ -57,8 +64,7 @@ export function ProfileStepper({
     headingRef.current?.focus();
   }, [step]);
 
-  // Every answer is saved in this browser only (localStorage) the moment it
-  // changes. Nothing is sent anywhere.
+  // Every answer is saved in this browser (localStorage) the moment it changes.
   function update<K extends keyof StudentProfile>(
     key: K,
     value: StudentProfile[K],
@@ -85,7 +91,7 @@ export function ProfileStepper({
     }
 
     if (step === 1) {
-      requireField("category", "Choose your category.");
+      requireField("category", "Choose your category, or \"Not sure\".");
       const income = Number(profile.annualIncome);
       if (
         profile.annualIncome.trim() === "" ||
@@ -106,21 +112,8 @@ export function ProfileStepper({
       }
     }
 
-    if (step === 3) {
-      requireField("gender", "Choose an answer.");
-      requireField("disability", "Choose yes or no.");
-      requireField("minorityCommunity", "Choose an answer.");
-      if (!checkOptionalNumber(profile.age, 0, 120)) {
-        next.age = "Enter your age in years, or leave it blank.";
-      }
-      if (!checkOptionalNumber(profile.workYears, 0, 80)) {
-        next.workYears = "Enter years from 0 to 80 (for example 1.5), or leave it blank.";
-      }
-    }
-
-    if (step === 4) {
-      requireField("parentOccupation", "Choose the closest occupation.");
-      requireField("firstGeneration", "Choose yes or no.");
+    if (step === 3 && !checkOptionalNumber(profile.age, 0, 120)) {
+      next.age = "Enter your age in years, or leave it blank.";
     }
 
     return next;
@@ -155,14 +148,18 @@ export function ProfileStepper({
   }
 
   function select(
-    key: keyof StudentProfile,
+    key: "state" | "category" | "year" | "courseType" | "gender",
     label: string,
     options: string[],
-    hint?: string,
+    opts: { hint?: string; optional?: boolean; placeholder?: string } = {},
   ) {
+    const { hint, optional = false, placeholder = "Choose an option" } = opts;
     return (
       <div>
-        <label htmlFor={key} className="field-label">{label}</label>
+        <label htmlFor={key} className="field-label">
+          {label}
+          {optional && <span className="font-normal text-muted"> (optional)</span>}
+        </label>
         {hint && (
           <p id={`${key}-hint`} className="mb-2 text-sm text-muted">{hint}</p>
         )}
@@ -174,14 +171,14 @@ export function ProfileStepper({
             update(key, event.target.value as StudentProfile[typeof key])
           }
           className="field"
-          required
+          required={!optional}
           aria-invalid={Boolean(errors[key])}
           aria-describedby={[
             hint ? `${key}-hint` : "",
             errors[key] ? `${key}-error` : "",
           ].filter(Boolean).join(" ") || undefined}
         >
-          <option value="">Choose an option</option>
+          <option value="">{placeholder}</option>
           {options.map((option) => (
             <option key={option} value={option}>{option}</option>
           ))}
@@ -192,7 +189,7 @@ export function ProfileStepper({
   }
 
   function optionalNumber(
-    key: "marksPercent" | "age" | "workYears",
+    key: "marksPercent" | "age",
     label: string,
     hint: string,
     step = "any",
@@ -221,42 +218,64 @@ export function ProfileStepper({
     );
   }
 
-  function yesNo(key: "disability" | "firstGeneration", label: string, hint?: string) {
+  function disabilityQuestion() {
+    const options = [
+      ["yes", "Yes"],
+      ["no", "No"],
+      ["prefer_not", "Prefer not to say"],
+    ] as const;
     return (
-      <fieldset
-        id={key}
-        tabIndex={-1}
-        aria-describedby={errors[key] ? `${key}-error` : undefined}
-      >
-        <legend className="field-label">{label}</legend>
-        {hint && <p className="mb-3 text-sm text-muted">{hint}</p>}
-        <div className="grid grid-cols-2 gap-3">
-          {(["yes", "no"] as const).map((answer) => (
+      <fieldset id="disability" tabIndex={-1}>
+        <legend className="field-label">
+          Do you have a disability? <span className="font-normal text-muted">(optional)</span>
+        </legend>
+        <p className="mb-3 text-sm text-muted">
+          Only a few schemes ask for this, and some need a certificate of 40% or more.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {options.map(([value, label]) => (
             <label
-              key={answer}
+              key={value}
               className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border p-4 ${
-                profile[key] === answer
+                profile.disability === value
                   ? "border-brand bg-brand-light"
                   : "border-muted bg-white"
               }`}
             >
               <input
                 type="radio"
-                name={key}
-                value={answer}
-                checked={profile[key] === answer}
-                onChange={() => update(key, answer)}
+                name="disability"
+                value={value}
+                checked={profile.disability === value}
+                onChange={() => update("disability", value)}
                 className="size-5 accent-brand"
-                required
               />
-              {answer === "yes" ? "Yes" : "No"}
+              {label}
             </label>
           ))}
         </div>
-        <FieldError id={key} message={errors[key]} />
       </fieldset>
     );
   }
+
+  const ticked = new Set(profile.specialGroups);
+  const minority = Object.keys(MINORITY_GROUPS).find((id) => ticked.has(id)) ?? "";
+
+  function setMinority(id: string) {
+    const rest = profile.specialGroups.filter((g) => !(g in MINORITY_GROUPS));
+    update("specialGroups", id ? [...rest, id] : rest);
+  }
+
+  function toggleGroup(id: string) {
+    update(
+      "specialGroups",
+      ticked.has(id)
+        ? profile.specialGroups.filter((g) => g !== id)
+        : [...profile.specialGroups, id],
+    );
+  }
+
+  const last = step === STEPS.length - 1;
 
   return (
     <main id="main-content" className="page">
@@ -316,173 +335,183 @@ export function ProfileStepper({
             <p className="mt-2 text-muted">{STEPS[step].hint}</p>
           </div>
 
-          {(
-            <form onSubmit={submit} noValidate aria-busy={busy}>
-              <fieldset disabled={busy} className="mt-7">
-                <legend className="sr-only">{STEPS[step].title}</legend>
-                <div key={step} className="animate-enter space-y-6">
-                  {step === 0 && select("state", "State or union territory", STATES)}
+          <form onSubmit={submit} noValidate aria-busy={busy}>
+            <fieldset disabled={busy} className="mt-7">
+              <legend className="sr-only">{STEPS[step].title}</legend>
+              <div key={step} className="animate-enter space-y-6">
+                {step === 0 &&
+                  select("state", "State or union territory", STATES, {
+                    placeholder: "Choose your state",
+                  })}
 
-                  {step === 1 && (
-                    <>
-                      {select("category", "Category", ["General", "OBC", "SC", "ST", "EWS"])}
-                      <div>
-                        <label htmlFor="annualIncome" className="field-label">
-                          Family income per year
-                        </label>
-                        <p id="income-hint" className="mb-2 text-sm text-muted">
-                          Enter the total in rupees, for example 240000.
-                        </p>
-                        <div className="relative">
-                          <span aria-hidden="true" className="absolute left-4 top-3">₹</span>
-                          <input
-                            id="annualIncome"
-                            name="annualIncome"
-                            type="number"
-                            inputMode="numeric"
-                            min="0"
-                            step="1"
-                            value={profile.annualIncome}
-                            onChange={(event) => update("annualIncome", event.target.value)}
-                            className="field pl-9"
-                            required
-                            aria-invalid={Boolean(errors.annualIncome)}
-                            aria-describedby={`income-hint${errors.annualIncome ? " annualIncome-error" : ""}`}
-                          />
-                        </div>
-                        <FieldError id="annualIncome" message={errors.annualIncome} />
-                      </div>
-                    </>
-                  )}
-
-                  {step === 2 && (
-                    <>
-                      <div>
-                        <label htmlFor="level" className="field-label">Study level</label>
-                        <select
-                          id="level"
-                          value={profile.level}
-                          onChange={(event) => {
-                            update("level", event.target.value as StudentProfile["level"]);
-                            update("year", "");
-                          }}
-                          className="field"
+                {step === 1 && (
+                  <>
+                    {select("category", "Category", ["General", "OBC", "SC", "ST", "EWS", "Not sure"])}
+                    <div>
+                      <label htmlFor="annualIncome" className="field-label">
+                        Family income per year
+                      </label>
+                      <p id="income-hint" className="mb-2 text-sm text-muted">
+                        Enter the total in rupees, for example 240000.
+                      </p>
+                      <div className="relative">
+                        <span aria-hidden="true" className="absolute left-4 top-3">₹</span>
+                        <input
+                          id="annualIncome"
+                          name="annualIncome"
+                          type="number"
+                          inputMode="numeric"
+                          min="0"
+                          step="1"
+                          value={profile.annualIncome}
+                          onChange={(event) => update("annualIncome", event.target.value)}
+                          className="field pl-9"
                           required
-                          aria-invalid={Boolean(errors.level)}
-                          aria-describedby={errors.level ? "level-error" : undefined}
-                        >
-                          <option value="">Choose a level</option>
-                          <option value="UG">UG — undergraduate</option>
-                          <option value="PG">PG — postgraduate</option>
-                        </select>
-                        <FieldError id="level" message={errors.level} />
+                          aria-invalid={Boolean(errors.annualIncome)}
+                          aria-describedby={`income-hint${errors.annualIncome ? " annualIncome-error" : ""}`}
+                        />
                       </div>
-                      {select(
-                        "year",
-                        "Current year",
-                        profile.level === "PG"
-                          ? ["1", "2", "3", "4 or later"]
-                          : ["1", "2", "3", "4", "5", "6 or later"],
-                      )}
-                      {select("courseType", "Course type", [
-                        "Arts and humanities",
-                        "Science",
-                        "Commerce",
-                        "Engineering and technology",
-                        "Medicine and health",
-                        "Law",
-                        "Management",
-                        "Agriculture",
-                        "Education",
-                        "Other",
-                      ])}
-                      {optionalNumber(
-                        "marksPercent",
-                        "Marks in your last exam (%)",
-                        "Percentage, not CGPA. Many schemes have a minimum.",
-                      )}
-                    </>
-                  )}
+                      <FieldError id="annualIncome" message={errors.annualIncome} />
+                    </div>
+                  </>
+                )}
 
-                  {step === 3 && (
-                    <>
-                      {select("gender", "Gender", [
-                        "Woman", "Man", "Transgender", "Another identity", "Prefer not to say",
-                      ])}
-                      {yesNo("disability", "Do you have a disability?")}
-                      {select("minorityCommunity", "Minority community", [
-                        "None", "Muslim", "Christian", "Sikh", "Buddhist", "Jain", "Parsi",
-                        "Another community", "Prefer not to say",
-                      ], "This answer alone does not confirm eligibility. Each scheme has its own rules.")}
-                      {optionalNumber(
-                        "age",
-                        "Your age in years",
-                        "Some schemes have an age limit.",
-                        "1",
-                      )}
-                      {optionalNumber(
-                        "workYears",
-                        "Years of full-time work",
-                        "After your degree. Use 0 if none. Needed for notices that ask for work experience.",
-                      )}
-                    </>
-                  )}
+                {step === 2 && (
+                  <>
+                    <div>
+                      <label htmlFor="level" className="field-label">Study level</label>
+                      <select
+                        id="level"
+                        value={profile.level}
+                        onChange={(event) => {
+                          update("level", event.target.value as StudentProfile["level"]);
+                          update("year", "");
+                        }}
+                        className="field"
+                        required
+                        aria-invalid={Boolean(errors.level)}
+                        aria-describedby={errors.level ? "level-error" : undefined}
+                      >
+                        <option value="">Choose a level</option>
+                        <option value="UG">UG — undergraduate</option>
+                        <option value="PG">PG — postgraduate</option>
+                      </select>
+                      <FieldError id="level" message={errors.level} />
+                    </div>
+                    {select(
+                      "year",
+                      "Current year",
+                      profile.level === "PG"
+                        ? ["1", "2", "3", "4 or later"]
+                        : ["1", "2", "3", "4", "5", "6 or later"],
+                    )}
+                    {select("courseType", "Course type", COURSE_TYPES)}
+                    {optionalNumber(
+                      "marksPercent",
+                      "Marks in your last exam (%)",
+                      "Percentage, not CGPA. Many schemes have a minimum.",
+                    )}
+                  </>
+                )}
 
-                  {step === 4 && (
-                    <>
-                      {select("parentOccupation", "Parent or guardian’s main occupation", [
-                        "Farming",
-                        "Daily-wage or construction work",
-                        "Artisan or craft work",
-                        "Self-employed or small business",
-                        "Salaried — private sector",
-                        "Salaried — government",
-                        "Defence or ex-service",
-                        "Not currently working",
-                        "Other",
-                        "Prefer not to say",
-                      ])}
-                      {yesNo(
-                        "firstGeneration",
-                        "Are you the first generation in your family to attend college?",
-                        "For this profile, choose Yes if neither parent has attended college. A scheme may use a different definition.",
-                      )}
-                    </>
-                  )}
-                </div>
+                {step === 3 && (
+                  <>
+                    {select(
+                      "gender",
+                      "Gender",
+                      ["Woman", "Man", "Transgender", "Another identity", "Prefer not to say"],
+                      { optional: true, placeholder: "Skip" },
+                    )}
+                    {optionalNumber("age", "Your age in years", "Some schemes have an age limit.", "1")}
+                    {disabilityQuestion()}
+                  </>
+                )}
 
-                <div className="mt-8 flex items-center justify-between gap-3 border-t border-line pt-6">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setErrors({});
-                      setSubmitError("");
-                      setStep((value) => value - 1);
-                    }}
-                    disabled={step === 0}
-                    className="btn-secondary"
-                  >
-                    <ArrowLeft size={18} aria-hidden="true" />
-                    Back
-                  </button>
-                  <button type="submit" className="btn-primary">
-                    {busy
-                      ? "Please wait…"
-                      : step === STEPS.length - 1
-                        ? "See my scholarships"
-                        : "Continue"}
-                    {!busy && <ArrowRight size={18} aria-hidden="true" />}
-                  </button>
-                </div>
-              </fieldset>
+                {step === 4 && (
+                  <>
+                    <div>
+                      <label htmlFor="minority" className="field-label">
+                        Minority community <span className="font-normal text-muted">(optional)</span>
+                      </label>
+                      <p id="minority-hint" className="mb-2 text-sm text-muted">
+                        Some schemes are for notified minority communities. Skip this if it does not apply or you prefer not to say.
+                      </p>
+                      <select
+                        id="minority"
+                        value={minority}
+                        onChange={(event) => setMinority(event.target.value)}
+                        className="field"
+                        aria-describedby="minority-hint"
+                      >
+                        <option value="">Skip</option>
+                        {Object.entries(MINORITY_GROUPS).map(([id, label]) => (
+                          <option key={id} value={id}>{label}</option>
+                        ))}
+                      </select>
+                    </div>
 
-              {submitError && <p role="alert" className="mt-4 text-status-red">{submitError}</p>}
-            </form>
-          )}
+                    <fieldset>
+                      <legend className="field-label">
+                        Does any of these apply? <span className="font-normal text-muted">(optional)</span>
+                      </legend>
+                      <div className="space-y-3">
+                        {Object.entries(OTHER_GROUPS).map(([id, label]) => (
+                          <label
+                            key={id}
+                            className={`flex min-h-12 cursor-pointer items-start gap-3 rounded-xl border p-4 ${
+                              ticked.has(id) ? "border-brand bg-brand-light" : "border-muted bg-white"
+                            }`}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={ticked.has(id)}
+                              onChange={() => toggleGroup(id)}
+                              className="mt-1 size-5 shrink-0 accent-brand"
+                            />
+                            <span>{label}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </fieldset>
+                  </>
+                )}
+              </div>
 
-          <p className="mt-6 flex items-start gap-2 text-sm text-muted">
+              <div className="mt-8 flex items-center justify-between gap-3 border-t border-line pt-6">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setErrors({});
+                    setSubmitError("");
+                    setStep((value) => value - 1);
+                  }}
+                  disabled={step === 0}
+                  className="btn-secondary"
+                >
+                  <ArrowLeft size={18} aria-hidden="true" />
+                  Back
+                </button>
+                <button type="submit" className="btn-primary">
+                  {busy
+                    ? "Please wait…"
+                    : last
+                      ? "See my scholarships"
+                      : "Continue"}
+                  {!busy && <ArrowRight size={18} aria-hidden="true" />}
+                </button>
+              </div>
+            </fieldset>
+
+            {submitError && <p role="alert" className="mt-4 text-status-red">{submitError}</p>}
+          </form>
+
+          <p className="mt-6 flex items-start gap-2 text-sm text-muted" data-testid="privacy-note">
             <LockKeyhole size={17} className="mt-0.5 shrink-0" aria-hidden="true" />
-            Your answers are saved in this browser. To pick your best matches, a summary of them (never a name or contact details) is sent to our AI service when you see your results. We do not keep it.
+            <span>
+              Your answers are saved in this browser. When you see your results they are sent to our server to check the
+              rules, and we do not keep them. Only your state, category, income, course details, marks and age go on to
+              our AI. Your gender, disability and anything from the last two steps never do.
+            </span>
           </p>
           {storageWarning && (
             <p role="status" className="mt-2 text-sm text-status-amber">{storageWarning}</p>

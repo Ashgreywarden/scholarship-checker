@@ -30,7 +30,7 @@ export function Landing() {
             </p>
             <p className="flex items-start gap-2">
               <LockKeyhole size={17} className="mt-0.5 shrink-0" aria-hidden="true" />
-              No login, no name, no phone number. Your answers are saved only in your browser.
+              No login, no name, no phone number. Your answers are saved in your browser, not on our server.
             </p>
           </div>
         </div>

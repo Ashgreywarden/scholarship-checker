@@ -166,7 +166,8 @@ describe("course-type rules give Can't tell unless the student's course type cle
     expect(groupOfCourseText("B.E./B.Tech Computer Science and allied branches")).toBe("engineering");
     expect(groupOfCourseText("5-year Integrated LL.B.")).toBe("law");
     expect(groupOfCourseText("Bachelor and Masters in natural sciences (BSc/integrated MSc/MSc)")).toBe("science");
-    expect(groupOfCourseText("Indian classical music")).toBe("niche");
+    expect(groupOfCourseText("Indian classical music")).toBe("creative_arts");
+    expect(groupOfCourseText("Khelo India athletes")).toBe("sports");
     expect(groupOfCourseText("Social science and humanities")).toBe("arts_humanities");
     expect(groupOfCourseText("Master of Business Administration (PGP)")).toBe("management");
     expect(groupOfCourseText("something we cannot read")).toBeNull();
@@ -179,12 +180,13 @@ describe("course-type rules give Can't tell unless the student's course type cle
     expect(readCourseRule(["B.Tech full time"]).kind).toBe("subject");
   });
 
-  it("Young Artistes: never a clear fit, for any course type", () => {
+  it("Young Artistes: a clear fit only for fine / performing arts students", () => {
     for (const t of ["Science", "Arts and humanities", "Engineering and technology", "Other", null]) {
       const r = row("arts_moc_young_artists", student(t));
       expect(r.status).toBe("unknown");
       expect(r.checkable).toBe(true);
     }
+    expect(row("arts_moc_young_artists", student("Fine arts, performing arts or film")).status).toBe("pass");
     expect(matchScheme(byId.arts_moc_young_artists, student("Science"), today).verdict).toBe("cant_tell");
   });
   it("Amazon Future Engineer: passes for Engineering only", () => {
@@ -220,5 +222,96 @@ describe("course-type rules give Can't tell unless the student's course type cle
   });
   it("earlier behaviour is unchanged: PMS-SC is still likely eligible for the SC student", () => {
     expect(matchScheme(byId.pms_sc, student("Science"), today).verdict).toBe("eligible");
+  });
+});
+
+
+describe("year of study, special groups and parent occupation", () => {
+  const base: Profile = { ...sc, courseType: "Science" };
+  const rowBy = (id: string, p: Profile, label: string) =>
+    matchScheme(byId[id], p, today).rows.find((r) => r.label === label);
+  const valueText = (v: unknown) => (Array.isArray(v) ? String(v[0]) : String(v));
+
+  it("year of study: a first-year rule passes for a first-year student, Can't tell otherwise", () => {
+    const s = all.find((x) => x.region === "india" && x.rules.some((r) =>
+      r.field === "year_of_study" && (r.op === "in" || r.op === "==") && !r.condition && /^(1|first)/i.test(valueText(r.value))))!;
+    expect(s).toBeTruthy();
+    expect(rowBy(s.id, { ...base, yearOfStudy: 1 }, "Year of study")?.status).toBe("pass");
+    expect(rowBy(s.id, { ...base, yearOfStudy: 3 }, "Year of study")?.status).toBe("unknown");
+    const skipped = rowBy(s.id, { ...base, yearOfStudy: null }, "Year of study");
+    expect(skipped?.status).toBe("unknown");
+    expect(skipped?.explanation).toMatch(/skipped/i);
+  });
+  it("lateral-entry and final-year rules are never a clear fit", () => {
+    const s = all.find((x) => x.rules.some((r) => r.field === "year_of_study" && /lateral/i.test(valueText(r.value)) && !/^(1|first)/i.test(valueText(r.value)) && !Array.isArray(r.value)));
+    if (s) expect(rowBy(s.id, { ...base, yearOfStudy: 2 }, "Year of study")?.status).not.toBe("pass");
+  });
+
+  it("a ticked DNT / EBC / minority group turns Can't tell into a pass; unticked stays Can't tell", () => {
+    const general: Profile = { ...base, category: "general" };
+    const withToken = (token: string) => all.find((x) => x.region === "india" && x.rules.some((r) =>
+      r.field === "category" && r.op === "in" && !r.condition && Array.isArray(r.value) && (r.value as string[]).map((v) => v.toLowerCase()).includes(token)));
+    const dnt = withToken("dnt")!;
+    expect(dnt).toBeTruthy();
+    expect(rowBy(dnt.id, general, "Category")?.status).toBe("unknown");
+    expect(rowBy(dnt.id, { ...general, specialGroups: ["dnt"] }, "Category")?.status).toBe("pass");
+    // a tick that has nothing to do with this rule settles nothing
+    expect(rowBy(dnt.id, { ...general, specialGroups: ["manual_scavenging"] }, "Category")?.status).toBe("unknown");
+
+    const minority = withToken("minority")!;
+    expect(minority).toBeTruthy();
+    expect(rowBy(minority.id, general, "Category")?.status).toBe("unknown");
+    expect(rowBy(minority.id, { ...general, specialGroups: ["minority:sikh"] }, "Category")?.status).toBe("pass");
+    // never turns into a fail just because nothing was ticked
+    expect(rowBy(minority.id, { ...general, specialGroups: [] }, "Category")?.status).not.toBe("fail");
+  });
+  it("a ticked group can settle a skipped category", () => {
+    const minority = all.find((x) => x.rules.some((r) => r.field === "category" && Array.isArray(r.value) && (r.value as string[]).includes("minority")))!;
+    const row = rowBy(minority.id, { ...base, category: null, specialGroups: ["minority:muslim"] }, "Category");
+    expect(row?.status).toBe("pass");
+  });
+
+  it("parent occupation: ticking the beedi / cine / mine box settles that rule only", () => {
+    const s = all.find((x) => x.rules.some((r) => r.field === "parent_occupation" && /beedi/i.test(valueText(r.value))))!;
+    expect(s).toBeTruthy();
+    expect(rowBy(s.id, base, "Parent's occupation")?.status).toBe("unknown");
+    expect(rowBy(s.id, { ...base, specialGroups: ["parent_beedi_cine_mine"] }, "Parent's occupation")?.status).toBe("pass");
+    expect(rowBy(s.id, { ...base, specialGroups: ["manual_scavenging"] }, "Parent's occupation")?.status).toBe("unknown");
+    // police / armed forces rules need exact conditions, so no tick settles them
+    const police = all.find((x) => x.rules.some((r) => r.field === "parent_occupation" && /police|CAPF/i.test(valueText(r.value)) && !/beedi|mine|cine|scaveng/i.test(valueText(r.value))));
+    if (police) expect(rowBy(police.id, { ...base, specialGroups: ["parent_beedi_cine_mine", "manual_scavenging"] }, "Parent's occupation")?.status).toBe("unknown");
+  });
+});
+
+describe("gender rules (girls-only, boys-only, and extra conditions)", () => {
+  const girlsOnly = () => all.filter((s) => s.region === "india").filter((s) =>
+    s.rules.some((r) => r.field === "gender" && r.op === "==" && !r.condition && /^female/i.test(String(r.value))));
+  const rowOf = (id: string, g: Profile["gender"]) =>
+    matchScheme(byId[id], { ...sc, gender: g, courseLevel: "postgraduate" }, today).rows.find((r) => r.label === "Gender");
+
+  it("a man is Not eligible for girls-only schemes, including 'female (women scientists)' wording", () => {
+    const list = girlsOnly();
+    expect(list.length).toBeGreaterThan(5);
+    for (const s of list) expect(rowOf(s.id, "male")?.status).toBe("fail");
+    const wos = byId.stem_dst_wos_a;
+    expect(matchScheme(wos, { ...sc, gender: "male", courseLevel: "postgraduate" }, today).verdict).toBe("not_eligible");
+    const single = byId.ugc_pg_indira_gandhi_sgc;
+    expect(matchScheme(single, { ...sc, gender: "male", courseLevel: "postgraduate" }, today).verdict).toBe("not_eligible");
+  });
+  it("a woman passes plain girls-only rules but only 'Can't tell' when there is an extra condition", () => {
+    expect(rowOf("aicte_pragati_degree", "female")?.status).toBe("pass");
+    expect(rowOf("ugc_pg_indira_gandhi_sgc", "female")?.status).toBe("unknown");
+    expect(rowOf("stem_dst_wos_a", "female")?.status).toBe("unknown");
+  });
+  it("another identity or a skipped answer is Can't tell, never a guess", () => {
+    expect(rowOf("aicte_pragati_degree", "other")?.status).toBe("unknown");
+    expect(rowOf("aicte_pragati_degree", null)?.status).toBe("unknown");
+  });
+  it("'Female students get 100% ...; male 50%' is a benefit note, not a restriction", () => {
+    const s = all.find((x) => x.rules.some((r) => r.field === "gender" && /male 50%/i.test(String(r.value))));
+    if (s) {
+      const r = matchScheme(s, { ...sc, gender: "male" }, today).rows.find((x) => x.label === "Gender" && /50%/.test(x.explanation));
+      expect(r?.checkable).toBe(false);
+    }
   });
 });

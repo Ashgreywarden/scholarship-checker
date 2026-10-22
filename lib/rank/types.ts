@@ -1,28 +1,26 @@
 import { z } from "zod";
 
 // What the browser sends: the profile form's answers (all text). Nothing here
-// is a name, phone number or ID; every field is a short choice or number.
+// is a name, phone number or ID; every field is a short choice or number. Our
+// server needs all of them to run the rule checker. Only the non-sensitive ones
+// are ever passed on to the AI (see payload.ts).
 const short = z.string().max(120);
 
 export const RankRequestSchema = z.object({
   profile: z.object({
     state: short,
-    category: z.enum(["", "General", "OBC", "SC", "ST", "EWS"]),
+    category: z.enum(["", "General", "OBC", "SC", "ST", "EWS", "Not sure"]),
     annualIncome: short,
     level: z.enum(["", "UG", "PG"]),
     year: short,
     courseType: short,
-    gender: short,
-    disability: z.enum(["", "yes", "no"]),
-    minorityCommunity: short,
-    parentOccupation: short,
-    firstGeneration: z.enum(["", "yes", "no"]),
     marksPercent: short,
+    gender: short,
     age: short,
-    workYears: short,
+    disability: z.enum(["", "yes", "no", "prefer_not"]),
+    specialGroups: z.array(z.string().max(40)).max(12).default([]),
   }),
 });
-
 // What Gemini must return (checked again in code).
 export const RankedSchema = z.object({
   ranked: z.array(

@@ -9,7 +9,11 @@ import type { Scheme, StudentProfile } from "@/lib/ui/types";
 // Sends ONLY the pasted text to the existing /api/analyze route (Gemini reads
 // the notice). The comparing happens here, in the browser, with plain code, so
 // the profile is never sent anywhere.
-async function checkNotice(notice: string, profile: StudentProfile): Promise<Scheme> {
+async function checkNotice(
+  notice: string,
+  profile: StudentProfile,
+  extras: { workYears: string },
+): Promise<Scheme> {
   let res: Response;
   try {
     res = await fetch("/api/analyze", {
@@ -36,7 +40,12 @@ async function checkNotice(notice: string, profile: StudentProfile): Promise<Sch
   }
 
   const today = new Date();
-  const analysis = analyze(parsed.data, notice, profileFromUi(profile), today);
+  const years = extras.workYears.trim() === "" ? NaN : Number(extras.workYears);
+  const engineProfile = {
+    ...profileFromUi(profile),
+    workExperienceYears: Number.isFinite(years) && years >= 0 ? years : null,
+  };
+  const analysis = analyze(parsed.data, notice, engineProfile, today);
   return noticeToUiScheme(analysis, parsed.data.scholarship_name, today);
 }
 

@@ -81,23 +81,23 @@ export interface Scheme {
   states: string[]; // ["All India"] for nationwide schemes
 }
 
+// The questions the platform asks. Each one decides eligibility for at least one
+// scheme in the data bank. Gender, disability and the optional groups are
+// sensitive: they are optional, and they are never sent to the AI.
 export interface StudentProfile {
   state: string;
-  category: "" | "General" | "OBC" | "SC" | "ST" | "EWS";
+  category: "" | "General" | "OBC" | "SC" | "ST" | "EWS" | "Not sure";
   annualIncome: string;
   level: "" | Level;
   year: string;
   courseType: string;
-  gender: string;
-  disability: "" | "yes" | "no";
-  minorityCommunity: string;
-  parentOccupation: string;
-  firstGeneration: "" | "yes" | "no";
-  // Optional. The matching engine uses them when a scheme has a marks, age or
-  // work-experience rule; if left blank those rules say "Can't tell".
+  // Optional; blank = skipped, "Prefer not to say" = skipped on purpose.
   marksPercent: string;
+  gender: string;
   age: string;
-  workYears: string;
+  disability: "" | "yes" | "no" | "prefer_not";
+  // Optional ticks from "Anything else that applies?" (ids in lib/match/groups.ts).
+  specialGroups: string[];
 }
 
 export type AsyncState = "idle" | "loading" | "success" | "error";
