@@ -1,0 +1,60 @@
+import type { Category, CourseLevel } from "./vocab";
+import type { Extraction } from "./schema";
+
+// What the student typed. null = skipped ("not sure"), which makes related
+// rules "can't tell" instead of guessing.
+export interface Profile {
+  courseLevel: CourseLevel | null;
+  age: number | null;
+  state: string | null;
+  category: Category | null;
+  annualIncomeInr: number | null;
+  marksPercent: number | null;
+  workExperienceYears: number | null;
+  nationality: string | null;
+}
+
+export type RowStatus = "pass" | "fail" | "unknown";
+
+export type Verdict =
+  | "eligible"
+  | "not_eligible"
+  | "passes_checkable"
+  | "cant_tell";
+
+export type Criterion = Extraction["criteria"][number];
+
+// One line of the on-screen criteria table.
+export interface EvaluatedRow {
+  criterion: Criterion;
+  // false = the quote is NOT in the pasted text. Such rows are flagged and
+  // never counted toward the verdict.
+  quoteVerified: boolean;
+  status: RowStatus;
+  // Plain-language explanation shown to the student.
+  explanation: string;
+}
+
+export interface VerdictResult {
+  verdict: Verdict;
+  headline: string;
+  subtitle: string;
+  failedCount: number;
+  judgementCount: number;
+}
+
+export interface DocumentRow {
+  name: string;
+  quote: string;
+  quoteVerified: boolean;
+}
+
+export interface DeadlineRow {
+  label: string;
+  dateIso: string | null;
+  quote: string;
+  quoteVerified: boolean;
+  // e.g. "12 days left", "Closed 3 days ago", "Date unclear"
+  status: string;
+  closed: boolean;
+}
