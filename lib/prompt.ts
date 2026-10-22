@@ -20,6 +20,7 @@ STEP 1. Decide is_scholarship_notice.
 STEP 2. If it is a scholarship notice, extract three lists. NEVER invent anything. If something is not written in the notice, leave it out. If you are unsure whether a rule exists, leave it out.
 
 QUOTES (most important rule). Every item needs a "quote": text copied EXACTLY, character for character, from inside the <notice>. Do not paraphrase, summarise, translate, fix spelling, merge two places, add "...", or add brackets. Use one continuous piece of text, normally one sentence or one bullet point, and include the words that carry the rule (numbers, units, names). Ignore menus, cookie banners and navigation text.
+The text may be pasted from a PDF or a table, so words that belong together can be split across lines or columns, with other columns' words in between. NEVER join pieces that are not next to each other in the text, and never tidy up a row number, column gap or line break. In that case quote only the longest run of words that sits uninterrupted in the text (for a table row, just the item's own words, e.g. "Fee Receipt", or one line of a split phrase, or a numbered row exactly as printed). A shorter exact quote is always better than a longer inexact one. A quote of at least 8 characters is required.
 
 CRITERIA: one item per distinct eligibility rule.
 - id: "c1", "c2", ...
