@@ -2,6 +2,7 @@ import type { Rule } from "../databank/types";
 import { formatNumber, normalizeNationality, normalizeWord, parseNumber } from "../normalize";
 import type { Profile } from "../types";
 import { CATEGORY_LABELS, HOURS_PER_YEAR, STATES, type Category } from "../vocab";
+import { groupOfStudent, readCourseRule } from "./courseType";
 
 // Compares ONE published rule with the student's answers, in plain code.
 // Anything the code does not fully understand becomes "can't tell"; it is never
@@ -238,6 +239,33 @@ function evalDisability(rule: Rule, p: Profile): RuleEval {
   return missing(label, `Needs ${need}, shown by a disability certificate. We can't check the percentage.`);
 }
 
+// --- course type / field of study --------------------------------------------
+
+// "Can't tell" unless the student's course type clearly fits (see courseType.ts).
+// A clear mismatch is also "Can't tell", never "Not eligible": the course lists
+// are free text read with keywords, and a wrong "Not eligible" would hide a scheme.
+function evalCourseType(rule: Rule, p: Profile): RuleEval {
+  const label = labelFor(rule.field);
+  const values = (Array.isArray(rule.value) ? rule.value : [rule.value]).map(String);
+  const listed = values.join("; ");
+  const reading = readCourseRule(values);
+
+  // Only about how the course is studied (regular, not distance ...): a note.
+  if (reading.kind === "format-only") return note(label, listed);
+
+  if (!p.courseType) {
+    return missing(label, `This scheme is for: ${listed}. You skipped "Course type".`);
+  }
+  const mine = groupOfStudent(p.courseType);
+  if (mine && reading.groups.includes(mine)) {
+    return pass(label, `This scheme is for: ${listed}. You chose ${p.courseType}.`);
+  }
+  return missing(
+    label,
+    `This scheme is for: ${listed}. Your course type (${p.courseType}) doesn't clearly match, so we can't tell. Please check.`,
+  );
+}
+
 // --- the entry point --------------------------------------------------------
 
 export function evaluateRule(rule: Rule, p: Profile): RuleEval {
@@ -248,6 +276,10 @@ export function evaluateRule(rule: Rule, p: Profile): RuleEval {
   // must not be applied to everybody, so we don't decide it.
   if (rule.condition && rule.op !== "note") {
     return missing(label, `This rule applies only when: ${rule.condition}. Please check whether that is you.`);
+  }
+
+  if ((field === "course_type" || field === "field_of_study") && (rule.op === "in" || rule.op === "==")) {
+    return evalCourseType(rule, p);
   }
 
   switch (field) {

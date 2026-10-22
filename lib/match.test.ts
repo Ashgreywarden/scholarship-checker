@@ -153,3 +153,72 @@ describe("coverage", () => {
     expect(c.rulesWithQuote).toBeGreaterThan(0);
   });
 });
+
+
+import { groupOfCourseText, groupOfStudent, readCourseRule } from "./match/courseType";
+
+describe("course-type rules give Can't tell unless the student's course type clearly fits", () => {
+  const student = (courseType: string | null): Profile => ({ ...sc, courseType });
+  const row = (id: string, p: Profile) =>
+    matchScheme(byId[id], p, today).rows.find((r) => r.label === "Course type" || r.label === "Field of study")!;
+
+  it("reads course text with keywords (specific words first)", () => {
+    expect(groupOfCourseText("B.E./B.Tech Computer Science and allied branches")).toBe("engineering");
+    expect(groupOfCourseText("5-year Integrated LL.B.")).toBe("law");
+    expect(groupOfCourseText("Bachelor and Masters in natural sciences (BSc/integrated MSc/MSc)")).toBe("science");
+    expect(groupOfCourseText("Indian classical music")).toBe("niche");
+    expect(groupOfCourseText("Social science and humanities")).toBe("arts_humanities");
+    expect(groupOfCourseText("Master of Business Administration (PGP)")).toBe("management");
+    expect(groupOfCourseText("something we cannot read")).toBeNull();
+    expect(groupOfStudent("Engineering and technology")).toBe("engineering");
+    expect(groupOfStudent("Other")).toBeNull();
+    expect(groupOfStudent(null)).toBeNull();
+  });
+  it("a list that only says how the course is studied is a note, not a subject restriction", () => {
+    expect(readCourseRule(["regular degree (not correspondence/distance, not diploma)"]).kind).toBe("format-only");
+    expect(readCourseRule(["B.Tech full time"]).kind).toBe("subject");
+  });
+
+  it("Young Artistes: never a clear fit, for any course type", () => {
+    for (const t of ["Science", "Arts and humanities", "Engineering and technology", "Other", null]) {
+      const r = row("arts_moc_young_artists", student(t));
+      expect(r.status).toBe("unknown");
+      expect(r.checkable).toBe(true);
+    }
+    expect(matchScheme(byId.arts_moc_young_artists, student("Science"), today).verdict).toBe("cant_tell");
+  });
+  it("Amazon Future Engineer: passes for Engineering only", () => {
+    expect(row("eng_amazon_future_engineer", student("Engineering and technology")).status).toBe("pass");
+    for (const t of ["Science", "Commerce", "Law", "Other", null]) {
+      expect(row("eng_amazon_future_engineer", student(t)).status).toBe("unknown");
+    }
+  });
+  it("CAN Eklavya: passes for Law only", () => {
+    expect(row("law_can_eklavya", student("Law")).status).toBe("pass");
+    expect(row("law_can_eklavya", student("Science")).status).toBe("unknown");
+    expect(matchScheme(byId.law_can_eklavya, student("Science"), today).verdict).not.toBe("eligible");
+  });
+  it("INSPIRE SHE: passes for Science, Can't tell for Commerce", () => {
+    expect(row("inspire_she", student("Science")).status).toBe("pass");
+    expect(row("inspire_she", student("Commerce")).status).toBe("unknown");
+    expect(row("inspire_she", student(null)).explanation).toMatch(/skipped/i);
+  });
+  it("PM-USP: 'regular degree' is a note, so it does not block", () => {
+    const r = row("pm_usp_csss", student("Science"));
+    expect(r.checkable).toBe(false);
+  });
+  it("a Can't tell course-type row stops the verdict from being 'eligible'", () => {
+    for (const m of matchAll(all.filter((s) => s.region === "india"), student("Science"), today)) {
+      const blocking = m.rows.some(
+        (r) => (r.label === "Course type" || r.label === "Field of study") && r.checkable && r.status === "unknown",
+      );
+      if (blocking) expect(m.verdict).not.toBe("eligible");
+    }
+  });
+  it("a skipped course type is Can't tell, not a guess", () => {
+    expect(matchScheme(byId.eng_amazon_future_engineer, student(null), today).verdict).toBe("cant_tell");
+  });
+  it("earlier behaviour is unchanged: PMS-SC is still likely eligible for the SC student", () => {
+    expect(matchScheme(byId.pms_sc, student("Science"), today).verdict).toBe("eligible");
+  });
+});

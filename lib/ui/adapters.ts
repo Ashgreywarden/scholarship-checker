@@ -179,6 +179,7 @@ export function profileFromUi(p: StudentProfile): Profile {
     nationality: "Indian",
     gender,
     hasDisability: p.disability === "yes" ? true : p.disability === "no" ? false : null,
+    courseType: p.courseType || null,
   };
 }
 

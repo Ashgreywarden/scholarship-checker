@@ -16,6 +16,9 @@ export interface Profile {
   // girls, or for students with a disability). null = skipped.
   gender: "female" | "male" | "other" | null;
   hasDisability: boolean | null;
+  // What the student studies, as chosen in the profile ("Science", "Law" ...).
+  // Optional so older callers keep working; missing means skipped.
+  courseType?: string | null;
 }
 
 export type RowStatus = "pass" | "fail" | "unknown";

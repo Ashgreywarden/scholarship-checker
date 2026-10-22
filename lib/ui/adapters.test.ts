@@ -70,7 +70,7 @@ describe("profile form -> engine profile", () => {
     expect(profileFromUi(ui)).toEqual({
       courseLevel: "undergraduate", age: 19, state: "Bihar", category: "sc",
       annualIncomeInr: 200000, marksPercent: 72, workExperienceYears: null,
-      nationality: "Indian", gender: "female", hasDisability: false,
+      nationality: "Indian", gender: "female", hasDisability: false, courseType: "Science",
     });
   });
   it("blank or skipped answers become null, never a guess", () => {
