@@ -1,0 +1,71 @@
+{
+  "id": "stem_dst_vigyan_jyoti",
+  "name": "Vigyan Jyoti",
+  "provider": "Department of Science & Technology (DST), Govt. of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://www.indiascienceandtechnology.gov.in/programme-schemes/human-resource-and-development/vigyan-jyoti",
+      "fetched_at": "2026-10-23T01:35Z",
+      "raw_file": "raw/dst_vigyan_jyoti.txt",
+      "sha256": "6b31f2d5485a0d04880b48136558004aeabb0a45fa862d26799a449b07d36ed0"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female (girl students)",
+      "quote": "Eligibility: All girl students studying in class 9th or above who are planning to pursue career in any of STEM fields.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "STEM"
+      ],
+      "quote": "Focus Area: Science, Technology, Engineering, Mathematics",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "outreach/hand-holding programme (camps, counselling, role-model interaction), not a cash scholarship",
+      "quote": "Various activities such as science camps, special lectures/ classes, counselling of students and parents, interaction with role models",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "No cash amount stated; programme of science camps, counselling and mentoring",
+    "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "No application deadline stated on the page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://www.indiascienceandtechnology.gov.in/programme-schemes/human-resource-and-development/vigyan-jyoti",
+  "confidence": "medium",
+  "review_flags": [
+    "no_deadline",
+    "no_amount_stated",
+    "programme_not_cash_scholarship"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

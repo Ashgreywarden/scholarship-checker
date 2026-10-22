@@ -499,6 +499,114 @@
   "verified_on": "2026-10-22"
  },
  {
+  "region": "india",
+  "state": null,
+  "provider_type": "central",
+  "target_group": [
+   "general"
+  ],
+  "documents": [
+   {
+    "name": "Age proof (Matriculation or equivalent certificate)",
+    "quote": "One self-attested copy of the Matriculation or equivalent certificate or other admissible evidence of age."
+   },
+   {
+    "name": "Education qualification copies",
+    "quote": "One self-attested copy of Education Qualifications (Degrees, Diplomas etc.), experiences etc."
+   },
+   {
+    "name": "Guru/Institute training certificate (Part II of proforma)",
+    "quote": "The Certificate to this effect in Part II of the Proforma duly signed by the present Guru / Institute"
+   }
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23",
+  "id": "arts_moc_young_artists",
+  "name": "Scheme for Scholarships to Young Artistes in Different Cultural Fields",
+  "provider": "Ministry of Culture, Government of India (administered with CCRT)",
+  "level": [
+   "any"
+  ],
+  "sources": [
+   {
+    "url": "https://culture.gov.in/offering/schemes-services/award-scholarships-young-artists-different-cultural-fields",
+    "fetched_at": "2026-10-22T20:05Z",
+    "raw_file": "raw/arts_moc_young_artists.txt",
+    "sha256": "d3e3ec5ad7a528852b0f293fb4906c02f071ed4af92335c3764fb64d7b0e5673"
+   }
+  ],
+  "cycle_named": null,
+  "rules": [
+   {
+    "field": "age_max",
+    "op": "<=",
+    "value": 25,
+    "quote": "The candidate's age should not be less than 18 years and not more than 25 years as on 1st April of the year in which the application is being made.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "Indian nationals only",
+    "quote": "Candidates should be Indian Nationals.",
+    "quote_verified": true
+   },
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "Indian classical music",
+     "Indian classical dance",
+     "Theatre",
+     "Mime",
+     "Visual arts",
+     "Folk, traditional and indigenous arts",
+     "Light classical music"
+    ],
+    "quote": "Indian Classical Music, Indian Classical Dance, Theatre, Mime, Visual art, Folk, Traditional and Indigenous Arts and Light Classical Music.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "minimum 5 years of training under a Guru/institute",
+    "quote": "The candidate should have undergone a minimum of 5 years training with their Guru/Institutes.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "visual arts applicants: minimum qualification BFA or equivalent",
+    "quote": "The minimum qualification for Visual Arts is BFA or equivalent.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "selection by interview/performance before expert committee, purely on merit",
+    "quote": "The selection will be made purely on merit.",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Rs 5,000 per month for two years; 400 scholarships in total",
+   "quote": "Each scholar will be paid Rs. 5000/- per month for a period of two years"
+  },
+  "deadline": {
+   "date": null,
+   "text": "No date on page; advertisement is issued each year by CCRT",
+   "quote": "An advertisement inviting applications will be issued by Centre for Cultural Resources and Training (CCRT), 15-A, Sector-7, Dwarka, New Delhi-110075.",
+   "status": "unknown"
+  },
+  "apply_url": "https://culture.gov.in/offering/schemes-services/award-scholarships-young-artists-different-cultural-fields",
+  "confidence": "high",
+  "review_flags": [
+   "no_deadline",
+   "check_current_cycle_advertisement",
+   "advanced_training_not_a_degree_course_scholarship"
+  ]
+ },
+ {
   "id": "azim_premji_scholarship",
   "name": "Azim Premji Scholarship (for girl students) 2026 Cohort",
   "provider": "Azim Premji Foundation",
@@ -1294,6 +1402,83 @@
   "verified_on": "2026-10-22"
  },
  {
+  "id": "eng_amazon_future_engineer",
+  "name": "Amazon Future Engineer Scholarship (India)",
+  "provider": "Amazon India, implemented with Foundation for Excellence",
+  "provider_type": "corporate",
+  "region": "india",
+  "state": null,
+  "level": [
+   "UG"
+  ],
+  "target_group": [
+   "girls"
+  ],
+  "sources": [
+   {
+    "url": "https://press.aboutamazon.com/in/2026/5/amazon-future-engineer-program-expands-to-2-200-scholars-with-500-new-scholarships-for-women-in-computer-science",
+    "fetched_at": "2026-10-22T20:10Z",
+    "raw_file": "raw/eng_amazon_future_engineer.txt",
+    "sha256": "1a0632f70a21375eb2528aaa940f0922a5148e16b78329f73396a3235ba2c453"
+   }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+   {
+    "field": "gender",
+    "op": "==",
+    "value": "female",
+    "quote": "The AFE scholarship provides \u20b92 lakh in financial assistance over four years to female students pursuing B.E. or B.Tech degrees in computer science or allied branches, from low-income backgrounds.",
+    "quote_verified": true
+   },
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "B.E./B.Tech Computer Science and allied branches"
+    ],
+    "quote": "female students pursuing B.E. or B.Tech degrees in computer science or allied branches",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "low-income families (no numeric limit in source)",
+    "quote": "providing female engineering students from low-income families with financial support, mentorship, and career opportunities in technology",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "selection on merit, financial need and leadership",
+    "quote": "Scholars are selected through a rigorous process evaluating academic merit, financial need, and leadership potential.",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Rs 2 lakh over four years, plus laptop, bootcamps, mentorship and paid internship after second year",
+   "quote": "The AFE scholarship provides \u20b92 lakh in financial assistance over four years"
+  },
+  "documents": [],
+  "deadline": {
+   "date": null,
+   "text": "No application dates in the press release",
+   "quote": "",
+   "status": "unknown"
+  },
+  "apply_url": "https://press.aboutamazon.com/in/2026/5/amazon-future-engineer-program-expands-to-2-200-scholars-with-500-new-scholarships-for-women-in-computer-science",
+  "confidence": "medium",
+  "review_flags": [
+   "no_deadline",
+   "press_release_only",
+   "application_portal_url_not_verified",
+   "income_limit_not_stated",
+   "raw_is_excerpt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+ },
+ {
   "id": "ffe_scholarship",
   "name": "Foundation For Excellence (FFE) Scholarship Program",
   "provider": "Foundation For Excellence India Trust",
@@ -1443,6 +1628,85 @@
   ],
   "extracted_by": "claude (this session), no Gemini",
   "verified_on": "2026-10-22"
+ },
+ {
+  "region": "india",
+  "state": null,
+  "provider_type": "institute",
+  "target_group": [
+   "general"
+  ],
+  "documents": [],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23",
+  "id": "film_ftii_scholarships",
+  "name": "FTII Scholarships (merit and merit-cum-means) for Film and Television Wing students",
+  "provider": "Film and Television Institute of India (FTII), Pune",
+  "level": [
+   "PG"
+  ],
+  "sources": [
+   {
+    "url": "https://ftii.ac.in/scholarships",
+    "fetched_at": "2026-10-22T20:13Z",
+    "raw_file": "raw/film_ftii_scholarships.txt",
+    "sha256": "ca7b4d9d1954798881f52cd04ba50c6be462246887777f802d3478da6851e2bf"
+   }
+  ],
+  "cycle_named": null,
+  "rules": [
+   {
+    "field": "institution",
+    "op": "in",
+    "value": [
+     "Film and Television Institute of India"
+    ],
+    "quote": "The Film and Television Institute of India (FTII) provides scholarships and financial assistance to support meritorious and financially deserving students pursuing film and television education.",
+    "quote_verified": true
+   },
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "Film Wing courses",
+     "Television Wing courses"
+    ],
+    "quote": "Scholarships are awarded to eligible students of Film Wing and Television Wing courses based on merit, financial need, and prescribed eligibility criteria.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "most awards are by rank (topper) in entrance exam or semester SGPA/CGPA",
+    "quote": "SEMESTER-WISE SCHOLARSHIPS STRUCTURE (AS PER ACADEMIC COUNCIL MEETING DATED 07.04.2026)",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "Kaifi Azmi award is merit plus income based",
+    "quote": "Kaifi Azmi 1 Merit + Income basis 1) 50,000/- Income + 2nd semester SGPA",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Varies by award, roughly Rs 6,000 to Rs 1,00,000 per scholarship (e.g. Rs 25,000 / 22,500 for toppers)",
+   "quote": "SWA-SWAdhyay 1 Selection by SWA Committee 1) SPW 1) 1,00,000/- Selection by SWA Committee"
+  },
+  "deadline": {
+   "date": null,
+   "text": "No application deadline on page; awards are given on entrance and semester results",
+   "quote": "",
+   "status": "unknown"
+  },
+  "apply_url": "https://ftii.ac.in/scholarships",
+  "confidence": "medium",
+  "review_flags": [
+   "no_deadline",
+   "awards_are_for_enrolled_ftii_students",
+   "rules_and_regulation_pdf_not_fetched",
+   "cycle_not_named"
+  ]
  },
  {
   "id": "free_coaching_sc_obc",
@@ -1772,6 +2036,100 @@
   ],
   "extracted_by": "claude (this session), no Gemini",
   "verified_on": "2026-10-22"
+ },
+ {
+  "id": "hum_icssr_doctoral",
+  "name": "ICSSR Full-Term Doctoral Fellowship (Social and Human Sciences)",
+  "provider": "Indian Council of Social Science Research (Ministry of Education)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+   "PhD"
+  ],
+  "target_group": [
+   "general"
+  ],
+  "sources": [
+   {
+    "url": "https://icssr.org/sites/default/files/2026-06/Guidelines-for-ICSSR-Doctoral-Fellowships-2026-27-N15-06-26.pdf",
+    "fetched_at": "2026-10-22T20:13Z",
+    "raw_file": "raw/hum_icssr_doctoral.txt",
+    "sha256": "a7ded6eafe6367b44dc5a50a01a1d7ed2308413784d7c3da95a886790b1cab53"
+   },
+   {
+    "url": "https://www.icssr.org/node/624",
+    "fetched_at": "2026-10-22T20:07Z",
+    "raw_file": "raw/hum_icssr_doctoral_call.txt",
+    "sha256": "40615dd94e26cf63203b516938be1e4a8ee41cab9c7b921d817be905ff98ac1c"
+   }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+   {
+    "field": "course_level",
+    "op": "==",
+    "value": "PhD (full-time, registered at UGC-recognised institution)",
+    "quote": "Doctoral Fellow should be a full-time bonafide Ph.D. student at the affiliating university/ institution throughout the duration of fellowship tenure.",
+    "quote_verified": true
+   },
+   {
+    "field": "age_max",
+    "op": "<=",
+    "value": 40,
+    "quote": "The candidate must not be more than 40 years of age on the last date of application.",
+    "quote_verified": true
+   },
+   {
+    "field": "marks_pct",
+    "op": ">=",
+    "value": 55,
+    "quote": "The candidate must have secured a minimum of 55% marks in Post-Graduation or equivalent grades in any social science discipline.",
+    "quote_verified": true
+   },
+   {
+    "field": "exam_qualified",
+    "op": "in",
+    "value": [
+     "UGC NET (up to 10% of awards may go to non-NET candidates)"
+    ],
+    "quote": "UGC NET will be mandatory for applying for ICSSR Doctoral Fellowship Schemes.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "not for those who already hold JRF/RGNF/MANF/ICSSR/ICAR/CSIR/ICPR/ICMR/ICHR/JNMF or similar major doctoral fellowship",
+    "quote": "Candidates who have already availed UGC Junior Research Fellowship (JRF) / Rajiv Gandhi National Fellowship (RGNF) / Maulana Azad National Fellowship (MANF) / ICSSR / ICAR / CSIR/ ICPR / ICMR / ICHR / Jawaharlal Nehru Memorial Foundation Fund Fellowship (JNMF) or any such major doctoral fellowship are not eligible to apply.",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Rs 20,000 per month plus Rs 20,000 contingency per annum for two years",
+   "quote": "The value of Full-Term Doctoral Fellowship is Rs 20,000 per month plus Rs 20,000 contingency grant per annum."
+  },
+  "documents": [
+   {
+    "name": "Self-attested educational qualification (incl. UGC NET) and proof of date of birth",
+    "quote": "Self-attested copies of educational qualification (including UGC NET) and proof of date of birth (Birth Certificate/Secondary School Certificate /Higher Secondary School Certificate) must be uploaded with the application form."
+   }
+  ],
+  "deadline": {
+   "date": "2026-08-04",
+   "text": "Last date extended to 4 August 2026 (FY 2026-27 call)",
+   "quote": "Extension of Last Date for Online Application Submission to August 04, 2026",
+   "status": "closed"
+  },
+  "apply_url": "https://app.icssr.org/",
+  "confidence": "high",
+  "review_flags": [
+   "closed_2026_27_call",
+   "next_call_expected_mid_2027",
+   "PhD_level_only",
+   "second_source_raw_hum_icssr_doctoral_call.txt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
  },
  {
   "id": "icar_jrf_srf_phd",
@@ -3502,6 +3860,97 @@
   "verified_on": "2026-10-22"
  },
  {
+  "id": "law_can_eklavya",
+  "name": "CAN Foundation Project Eklavya Scholarship (NLU students)",
+  "provider": "Confederation of Alumni for National Law Universities (CAN Foundation)",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+   "UG"
+  ],
+  "target_group": [
+   "general"
+  ],
+  "sources": [
+   {
+    "url": "https://canfoundation.in/project-eklavya",
+    "fetched_at": "2026-10-22T20:08Z",
+    "raw_file": "raw/law_can_eklavya.txt",
+    "sha256": "e2b6544a76574cf2ce634ce8d75fab718370336713efb075a08a5212c8785eb4"
+   }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "5-year Integrated LL.B.",
+     "3-year LL.B. at a National Law University"
+    ],
+    "quote": "Students must be enrolled in 5-year Integrated or 3-year LL.B. programmes at any National Law University.",
+    "quote_verified": true
+   },
+   {
+    "field": "marks_pct",
+    "op": ">=",
+    "value": 70,
+    "quote": "An average of 70% aggregate marks in the last three semesters.",
+    "quote_verified": true
+   },
+   {
+    "field": "income_annual_inr",
+    "op": "<",
+    "value": 800000,
+    "quote": "Annual cumulative family income below \u20b98 Lakhs (of Father, Mother, unmarried Brother, and/or unmarried Sister) in the last 3 Financial Years.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "75% attendance in last three semesters",
+    "quote": "A minimum of 75% attendance in the last three semesters.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "first-year students not eligible",
+    "quote": "First-year students (Batch of 2026-2031 or 2026-2029) are not eligible to apply.",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Annual scholarships; 2024-25: 48 scholars from 18 NLUs, INR 46 lakh total (per-scholar amount not stated)",
+   "quote": "the Foundation granted Scholarships to 48 Scholars from 18 NLUs across the nation, amounting to INR 46 Lakhs."
+  },
+  "documents": [
+   {
+    "name": "Notarised affidavit on Rs 100 stamp paper",
+    "quote": "Duly notarised affidavit on \u20b9100/- Non-Judicial Stamp Paper."
+   },
+   {
+    "name": "Vice-Chancellor recommendation letter",
+    "quote": "Personalised Letter of Recommendation of the Vice-Chancellor (with University's Account Number and PAN)"
+   }
+  ],
+  "deadline": {
+   "date": "2026-09-11",
+   "text": "Deadline to apply for Eklavya 2026-27 is 11th September 2026",
+   "quote": "The deadline to apply for Eklavya 2026-27 is 11th September 2026.",
+   "status": "closed"
+  },
+  "apply_url": "https://canfoundation.in/project-eklavya",
+  "confidence": "high",
+  "review_flags": [
+   "closed_cycle_check_next_edition",
+   "per_scholar_amount_not_stated"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+ },
+ {
   "id": "lt_build_india_scholarship",
   "name": "L&T Build India Scholarship (BIS) 2026",
   "provider": "Larsen & Toubro Limited (L&T Construction)",
@@ -3664,6 +4113,170 @@
   ],
   "extracted_by": "claude (this session), no Gemini",
   "verified_on": "2026-10-22"
+ },
+ {
+  "id": "mba_iima_snbs",
+  "name": "IIMA Special Need Based Scholarship (PGP and PGP-FABM)",
+  "provider": "Indian Institute of Management Ahmedabad",
+  "provider_type": "institute",
+  "region": "india",
+  "state": null,
+  "level": [
+   "PG"
+  ],
+  "target_group": [
+   "general"
+  ],
+  "sources": [
+   {
+    "url": "https://www.iima.ac.in/sites/default/files/2024-06/Point%2013%20Rules%20and%20Regulations%20for%20Financial%20AssistanceScholarships.pdf",
+    "fetched_at": "2026-10-22T20:11Z",
+    "raw_file": "raw/mba_iima_snbs.txt",
+    "sha256": "3bdbbf60a1d13851860d36ec915f329e6b552e265e8fe5c886b34ca2740d2f12"
+   }
+  ],
+  "cycle_named": "2024",
+  "rules": [
+   {
+    "field": "institution",
+    "op": "in",
+    "value": [
+     "IIM Ahmedabad"
+    ],
+    "quote": "IIMA offers a need-based scholarship over and above the scholarships provided by the alumni, industry, and government.",
+    "quote_verified": true
+   },
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "PGP",
+     "PGP-FABM"
+    ],
+    "quote": "All students admitted to the two-year postgraduate programmes (PGP & PGP-FABM) in the year 2024",
+    "quote_verified": true
+   },
+   {
+    "field": "income_annual_inr",
+    "op": "<=",
+    "value": 1500000,
+    "quote": "whose gross annual family income is below INR 15 Lakh during the previous financial year are eligible to apply for this scholarship",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "aid amount set by IIMA after assessing assets, dependants and other criteria",
+    "quote": "IIMA shall determine the financial assistance required for each applicant based on its assessment of the applicant\u2019s economic status",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "SNBS application also used to shortlist alumni and company means / merit-cum-means scholarships",
+    "quote": "The shortlisting for various Means and Merit-cum-Means scholarships will be done through the Institute\u2019s Special Need Based Scholarship applications",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Need-based; amount determined per applicant (alumni endowment awards INR 1-3 lakh via SNBS)",
+   "quote": "IIMA shall determine the financial assistance required for each applicant"
+  },
+  "documents": [],
+  "deadline": {
+   "date": null,
+   "text": "No dates in the rules document",
+   "quote": "",
+   "status": "unknown"
+  },
+  "apply_url": "https://www.iima.ac.in",
+  "confidence": "medium",
+  "review_flags": [
+   "stale_cycle",
+   "document_dated_June_2024",
+   "no_deadline",
+   "income_limit_may_have_changed",
+   "raw_is_excerpt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+ },
+ {
+  "id": "mba_iimb_financial_aid",
+  "name": "IIMB Financial Aid (PGP)",
+  "provider": "Indian Institute of Management Bangalore",
+  "provider_type": "institute",
+  "region": "india",
+  "state": null,
+  "level": [
+   "PG"
+  ],
+  "target_group": [
+   "general"
+  ],
+  "sources": [
+   {
+    "url": "https://www.iimb.ac.in/programmes/pgp/financial-aid-scholarships",
+    "fetched_at": "2026-10-22T20:12Z",
+    "raw_file": "raw/mba_iimb_financial_aid.txt",
+    "sha256": "d964e2daee8fe92eab2127643d7189a4f6e4eec7b4c692c920bdccc62c76f82f"
+   }
+  ],
+  "cycle_named": "2026-28",
+  "rules": [
+   {
+    "field": "institution",
+    "op": "in",
+    "value": [
+     "IIM Bangalore"
+    ],
+    "quote": "IIMB extends financial aid to students in need of assistance.",
+    "quote_verified": true
+   },
+   {
+    "field": "income_annual_inr",
+    "op": "<=",
+    "value": 800000,
+    "quote": "All PGP students with annual household income below INR 800,000 are eligible to apply for financial aid.",
+    "quote_verified": true
+   },
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "PGP"
+    ],
+    "quote": "All PGP students with annual household income below INR 800,000 are eligible to apply for financial aid.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "two-step need assessment: financial status score then faculty interaction",
+    "quote": "The Financial Aid Committee undertakes a two-step process for deciding the number of awardees and quantum of aid.",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "100%, 80%, 60%, 40% or 20% financial aid (PGP 2026-28 fee Rs 26,00,000)",
+   "quote": "applicants are provided 100%, 80%, 60%, 40% or 20% financial aid."
+  },
+  "documents": [],
+  "deadline": {
+   "date": null,
+   "text": "No application dates on the page",
+   "quote": "",
+   "status": "unknown"
+  },
+  "apply_url": "https://www.iimb.ac.in/programmes/pgp/financial-aid-scholarships",
+  "confidence": "high",
+  "review_flags": [
+   "no_deadline",
+   "applies_after_admission_to_IIMB_PGP",
+   "raw_is_excerpt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
  },
  {
   "extracted_by": "claude (this session), no Gemini",
@@ -7330,6 +7943,104 @@
   "verified_on": "2026-10-22"
  },
  {
+  "id": "sci_nbhm",
+  "name": "NBHM Master's Scholarship and Doctoral Scholarship (Mathematics)",
+  "provider": "National Board for Higher Mathematics, Department of Atomic Energy, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+   "PG",
+   "PhD"
+  ],
+  "target_group": [
+   "general"
+  ],
+  "sources": [
+   {
+    "url": "https://www.imsc.res.in/~nbhm/ST_2026/advert.pdf",
+    "fetched_at": "2026-10-22T20:07Z",
+    "raw_file": "raw/sci_nbhm.txt",
+    "sha256": "e79ca08390237566052ff8d4e6c3309ea21904ffd0bb65fcfe4deb16339fe8b9"
+   }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "Mathematics",
+     "Statistics",
+     "Mathematical Science(s)"
+    ],
+    "quote": "The name of the degree that it leads to contains at least one of: \u201cMathematics\u201d, \u201cStatistics\u201d, \u201cMathematical Science(s)\u201d.",
+    "quote_verified": true
+   },
+   {
+    "field": "course_level",
+    "op": "in",
+    "value": [
+     "PG (Master's)",
+     "PhD"
+    ],
+    "quote": "The test serves as the first stage of a two-stage selection process for the following scholarships",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "full-time qualifying programme at accredited Indian institution",
+    "quote": "It is a recognised full-time programme offered by an accredited university or institution in India",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "Indian nationals only",
+    "quote": "It is open only to Indian nationals and is administered through the scholar\u2019s institution.",
+    "quote_verified": true
+   },
+   {
+    "field": "exam_qualified",
+    "op": "in",
+    "value": [
+     "NBHM Scholarship Written Test and interview"
+    ],
+    "quote": "Be selected via the written test and Master\u2019s interview, and",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "not for those who previously drew the Master's Scholarship",
+    "quote": "Not have previously drawn the NBHM Master\u2019s Scholarship.",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Master's: Rs 8,000 per month for up to two years. Doctoral: Rs 37,000 per month (first two years), Rs 42,000 thereafter, plus Rs 40,000 yearly contingency",
+   "quote": "A monthly stipend Rs 8,000 is payable for up to two years."
+  },
+  "documents": [],
+  "deadline": {
+   "date": "2025-12-21",
+   "text": "21 Dec 2025 (2026 cycle; next cycle not yet announced)",
+   "quote": "21 Dec 2025 Deadline for applications; end of the day (23:59 hrs, IST)",
+   "status": "stale_cycle"
+  },
+  "apply_url": "https://nbhmexam.puchd.ac.in/",
+  "confidence": "high",
+  "review_flags": [
+   "stale_cycle",
+   "next_cycle_notice_expected_Dec_2026",
+   "raw_is_excerpt",
+   "scheme_covers_PG_and_PhD"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+ },
+ {
   "id": "sdef_india_scholarship",
   "name": "SDEF India Scholarship Program 2026-27 (Swami Dayanand Education Foundation)",
   "provider": "Swami Dayanand Education Foundation",
@@ -7573,6 +8284,236 @@
   "review_flags": [],
   "extracted_by": "claude (this session), no Gemini",
   "verified_on": "2026-10-22"
+ },
+ {
+  "region": "india",
+  "state": null,
+  "provider_type": "central",
+  "target_group": [
+   "general"
+  ],
+  "documents": [],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23",
+  "id": "sports_khelo_india_athlete_support",
+  "name": "Khelo India Athletes (KIA / E-KIA) support under the Khelo India Scheme (2026-27 to 2030-31)",
+  "provider": "Ministry of Youth Affairs and Sports, Department of Sports (via Sports Authority of India)",
+  "level": [
+   "any"
+  ],
+  "sources": [
+   {
+    "url": "https://sportsauthorityofindia.nic.in/sai_new/public/assets/uploads/news/da4aa056-bd5c-464f-ba29-a5cc0afbcff5.pdf",
+    "fetched_at": "2026-10-22T20:07Z",
+    "raw_file": "raw/sports_khelo_india_scheme_guidelines.txt",
+    "sha256": "eafad8d95e8fb002df84857991fa0978c03c5718b5459ff7048a430482069890"
+   }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+   {
+    "field": "other",
+    "op": "note",
+    "value": "athletes enter as KIA/E-KIA by meeting sport-specific benchmarks and being recommended by TIDC and approved by HPC",
+    "quote": "Athletes who meet the approved protocols and benchmarks.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "benefit is by selection/induction, not an open application",
+    "quote": "Athlete recommended by TIDC and approved by HPC as per suitable criteria in sports specific protocols.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "athletes must be registered on Khel Setu",
+    "quote": "All the athletes in Khelo India Training Facilities shall be mandatorily registered on Khel Setu.",
+    "quote_verified": true
+   },
+   {
+    "field": "course_type",
+    "op": "note",
+    "value": "sports (athletes)",
+    "quote": "Each KIA/E-KIA shall be eligible for training, competition, boarding and lodging, sports kit, sports science, equipment, education, medical & insurance support etc. as per approved funding norms and suitable Out of Pocket Allowance (OPA).",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Training, boarding/lodging, kit, education, medical and insurance support plus Out of Pocket Allowance paid by DBT; amounts per DPAC-approved norms (not stated in guidelines)",
+   "quote": "Out-of-Pocket Allowance (OPA) for the athletes, remuneration of the coaches and support staff engaged under this scheme and other admissible athlete-centric support"
+  },
+  "deadline": {
+   "date": null,
+   "text": "No application window; induction through assessment camps and TIDC recommendation",
+   "quote": "",
+   "status": "unknown"
+  },
+  "apply_url": "https://www.kheloindia.gov.in/",
+  "confidence": "medium",
+  "review_flags": [
+   "not_an_open_application_scholarship",
+   "no_deadline",
+   "amount_not_in_guidelines",
+   "guideline_pdf_published_30_09_2026"
+  ]
+ },
+ {
+  "id": "stem_dst_vigyan_jyoti",
+  "name": "Vigyan Jyoti",
+  "provider": "Department of Science & Technology (DST), Govt. of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+   "school",
+   "UG",
+   "PG",
+   "PhD"
+  ],
+  "target_group": [
+   "girls"
+  ],
+  "sources": [
+   {
+    "url": "https://www.indiascienceandtechnology.gov.in/programme-schemes/human-resource-and-development/vigyan-jyoti",
+    "fetched_at": "2026-10-23T01:35Z",
+    "raw_file": "raw/dst_vigyan_jyoti.txt",
+    "sha256": "6b31f2d5485a0d04880b48136558004aeabb0a45fa862d26799a449b07d36ed0"
+   }
+  ],
+  "cycle_named": null,
+  "rules": [
+   {
+    "field": "gender",
+    "op": "==",
+    "value": "female (girl students)",
+    "quote": "Eligibility: All girl students studying in class 9th or above who are planning to pursue career in any of STEM fields.",
+    "quote_verified": true
+   },
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "STEM"
+    ],
+    "quote": "Focus Area: Science, Technology, Engineering, Mathematics",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "outreach/hand-holding programme (camps, counselling, role-model interaction), not a cash scholarship",
+    "quote": "Various activities such as science camps, special lectures/ classes, counselling of students and parents, interaction with role models",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "No cash amount stated; programme of science camps, counselling and mentoring",
+   "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+   "date": null,
+   "text": "No application deadline stated on the page",
+   "quote": "",
+   "status": "unknown"
+  },
+  "apply_url": "https://www.indiascienceandtechnology.gov.in/programme-schemes/human-resource-and-development/vigyan-jyoti",
+  "confidence": "medium",
+  "review_flags": [
+   "no_deadline",
+   "no_amount_stated",
+   "programme_not_cash_scholarship"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+ },
+ {
+  "id": "stem_dst_wos_a",
+  "name": "Women Scientist Scheme-A (WOS-A)",
+  "provider": "Department of Science & Technology (DST), Govt. of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+   "PG"
+  ],
+  "target_group": [
+   "girls"
+  ],
+  "sources": [
+   {
+    "url": "https://www.indiascienceandtechnology.gov.in/nurturing-minds/scholarships/women/women-scientist-scheme-wos",
+    "fetched_at": "2026-10-23T01:35Z",
+    "raw_file": "raw/dst_wos_a.txt",
+    "sha256": "c12ef930ea358aeb69e126c1abc4d0756dfe34d8a9efc9819280ac374581eeab"
+   }
+  ],
+  "cycle_named": null,
+  "rules": [
+   {
+    "field": "gender",
+    "op": "==",
+    "value": "female (women scientists/technologists)",
+    "quote": "Women Scientists Scheme-A (WOS-A) provides platform to women scientists and technologists for pursuing research in basic or applied sciences",
+    "quote_verified": true
+   },
+   {
+    "field": "course_level",
+    "op": "in",
+    "value": [
+     "M.Sc",
+     "M.Tech",
+     "M.Phil",
+     "M.Pharm",
+     "M.VSc",
+     "B.Tech",
+     "MBBS",
+     "PhD"
+    ],
+    "quote": "(iii) M.Sc in Basic or Applied Sciences/B.Tech/MBBS or equivalent degree",
+    "quote_verified": true
+   },
+   {
+    "field": "course_type",
+    "op": "in",
+    "value": [
+     "Basic or Applied Sciences",
+     "Engineering"
+    ],
+    "quote": "for pursuing research in basic or applied sciences in frontier areas of science and engineering",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "open throughout the year",
+    "quote": "The Scheme is open throughout the year.",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Rs 55,000/month (PhD group), Rs 40,000/month (M.Phil/M.Tech/M.Pharm/M.VSc group), Rs 30,000/month (M.Sc/B.Tech/MBBS group)",
+   "quote": "Rs.55,000/- per month for first eligibility group, Rs.40,000/- per month for second eligibility group and Rs.30,000/- per month for third eligibility group"
+  },
+  "documents": [],
+  "deadline": {
+   "date": null,
+   "text": "Open throughout the year",
+   "quote": "The Scheme is open throughout the year.",
+   "status": "unknown"
+  },
+  "apply_url": "https://www.indiascienceandtechnology.gov.in/nurturing-minds/scholarships/women/women-scientist-scheme-wos",
+  "confidence": "medium",
+  "review_flags": [
+   "rolling_application",
+   "research_fellowship_not_tuition_scholarship",
+   "summary_page_only"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
  },
  {
   "id": "tata_trusts_means_grant",
@@ -8724,6 +9665,95 @@
    "no_deadline",
    "age_limit_for_JRF_(30_years_with_relaxations)_is_in_NTA_bulletin_not_on_this_page"
   ]
+ },
+ {
+  "id": "ugc_pg_indira_gandhi_sgc",
+  "name": "P.G. Indira Gandhi Scholarship for Single Girl Child",
+  "provider": "University Grants Commission (UGC)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+   "PG"
+  ],
+  "target_group": [
+   "girls"
+  ],
+  "sources": [
+   {
+    "url": "https://www.ugc.gov.in/Scholarships/stu_Scholarship4",
+    "fetched_at": "2026-10-23T01:35Z",
+    "raw_file": "raw/ugc_pg_indira_gandhi_sgc.txt",
+    "sha256": "5f0f387596adedcc6b1e6b293347540dcb27381c301f028a6dc19c43d5872cf9"
+   }
+  ],
+  "cycle_named": null,
+  "rules": [
+   {
+    "field": "gender",
+    "op": "==",
+    "value": "female (single girl child)",
+    "quote": "To provide financial assistance to selected candidates being Single Girl Child for pursuing Post-graduation on full time/regular basis",
+    "quote_verified": true
+   },
+   {
+    "field": "course_level",
+    "op": "in",
+    "value": [
+     "PG"
+    ],
+    "quote": "has taken admission in regular, full-time 1st year Masters Degree course in any recognized university or a post graduate college",
+    "quote_verified": true
+   },
+   {
+    "field": "year_of_study",
+    "op": "==",
+    "value": "PG 1st year only",
+    "quote": "This scholarship is available to PG-I year student only.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "distance mode not covered",
+    "quote": "Admission to PG Course in Distance education mode is not covered under the scheme.",
+    "quote_verified": true
+   },
+   {
+    "field": "age_max",
+    "op": "<=",
+    "value": 30,
+    "quote": "Girl students up to the age of 30 years at the time of admission in PG courses are eligible.",
+    "quote_verified": true
+   },
+   {
+    "field": "other",
+    "op": "note",
+    "value": "tenure 2 years",
+    "quote": "Tenure:\n2 years",
+    "quote_verified": true
+   }
+  ],
+  "amount": {
+   "text": "Rs. 36,200 per annum for 2 years",
+   "quote": "Rs. 36,200/- per annum"
+  },
+  "documents": [],
+  "deadline": {
+   "date": null,
+   "text": "No application deadline stated on the page",
+   "quote": "",
+   "status": "unknown"
+  },
+  "apply_url": "https://scholarship.canarabank.in",
+  "confidence": "medium",
+  "review_flags": [
+   "no_deadline",
+   "secondary_portal_apply_via_canara_bank",
+   "verify_current_cycle"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
  },
  {
   "extracted_by": "claude (this session), no Gemini",

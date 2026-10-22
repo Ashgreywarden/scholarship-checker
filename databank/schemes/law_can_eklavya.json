@@ -1,0 +1,91 @@
+{
+  "id": "law_can_eklavya",
+  "name": "CAN Foundation Project Eklavya Scholarship (NLU students)",
+  "provider": "Confederation of Alumni for National Law Universities (CAN Foundation)",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://canfoundation.in/project-eklavya",
+      "fetched_at": "2026-10-22T20:08Z",
+      "raw_file": "raw/law_can_eklavya.txt",
+      "sha256": "e2b6544a76574cf2ce634ce8d75fab718370336713efb075a08a5212c8785eb4"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "5-year Integrated LL.B.",
+        "3-year LL.B. at a National Law University"
+      ],
+      "quote": "Students must be enrolled in 5-year Integrated or 3-year LL.B. programmes at any National Law University.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 70,
+      "quote": "An average of 70% aggregate marks in the last three semesters.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<",
+      "value": 800000,
+      "quote": "Annual cumulative family income below ₹8 Lakhs (of Father, Mother, unmarried Brother, and/or unmarried Sister) in the last 3 Financial Years.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "75% attendance in last three semesters",
+      "quote": "A minimum of 75% attendance in the last three semesters.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "first-year students not eligible",
+      "quote": "First-year students (Batch of 2026-2031 or 2026-2029) are not eligible to apply.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Annual scholarships; 2024-25: 48 scholars from 18 NLUs, INR 46 lakh total (per-scholar amount not stated)",
+    "quote": "the Foundation granted Scholarships to 48 Scholars from 18 NLUs across the nation, amounting to INR 46 Lakhs."
+  },
+  "documents": [
+    {
+      "name": "Notarised affidavit on Rs 100 stamp paper",
+      "quote": "Duly notarised affidavit on ₹100/- Non-Judicial Stamp Paper."
+    },
+    {
+      "name": "Vice-Chancellor recommendation letter",
+      "quote": "Personalised Letter of Recommendation of the Vice-Chancellor (with University's Account Number and PAN)"
+    }
+  ],
+  "deadline": {
+    "date": "2026-09-11",
+    "text": "Deadline to apply for Eklavya 2026-27 is 11th September 2026",
+    "quote": "The deadline to apply for Eklavya 2026-27 is 11th September 2026.",
+    "status": "closed"
+  },
+  "apply_url": "https://canfoundation.in/project-eklavya",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle_check_next_edition",
+    "per_scholar_amount_not_stated"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

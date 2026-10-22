@@ -1,0 +1,6 @@
+name,url,reason
+NIFT scholarships / fee waiver,https://nift.ac.in/sites/default/files/2026-08/Revised%20Fee%20Circular%20July-Dec%202020%20and%20Jan-June%202021.pdf,PDF extracted empty text (and stale 2020-21 fee circular); only aggregator pages surfaced for NIFT scholarship rules
+NID scholarships (design),,No official nid.edu page surfaced in search; only aggregators (careers360, pw.live etc.)
+CCRT Cultural Talent Search Scholarship (arts),https://ccrtindia.gov.in/activities/scholarship-schemes/,HTTP 500 on fetch; also school-level (not UG/PG)
+IIMC / journalism scholarships,https://iimc.gov.in/downloads,No scholarship scheme page found; only downloads/annual report pages
+Council of Architecture scholarships,,Not searched successfully; no official URL surfaced

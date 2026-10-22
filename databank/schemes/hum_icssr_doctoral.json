@@ -1,0 +1,94 @@
+{
+  "id": "hum_icssr_doctoral",
+  "name": "ICSSR Full-Term Doctoral Fellowship (Social and Human Sciences)",
+  "provider": "Indian Council of Social Science Research (Ministry of Education)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://icssr.org/sites/default/files/2026-06/Guidelines-for-ICSSR-Doctoral-Fellowships-2026-27-N15-06-26.pdf",
+      "fetched_at": "2026-10-22T20:13Z",
+      "raw_file": "raw/hum_icssr_doctoral.txt",
+      "sha256": "a7ded6eafe6367b44dc5a50a01a1d7ed2308413784d7c3da95a886790b1cab53"
+    },
+    {
+      "url": "https://www.icssr.org/node/624",
+      "fetched_at": "2026-10-22T20:07Z",
+      "raw_file": "raw/hum_icssr_doctoral_call.txt",
+      "sha256": "40615dd94e26cf63203b516938be1e4a8ee41cab9c7b921d817be905ff98ac1c"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "course_level",
+      "op": "==",
+      "value": "PhD (full-time, registered at UGC-recognised institution)",
+      "quote": "Doctoral Fellow should be a full-time bonafide Ph.D. student at the affiliating university/ institution throughout the duration of fellowship tenure.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 40,
+      "quote": "The candidate must not be more than 40 years of age on the last date of application.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 55,
+      "quote": "The candidate must have secured a minimum of 55% marks in Post-Graduation or equivalent grades in any social science discipline.",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "UGC NET (up to 10% of awards may go to non-NET candidates)"
+      ],
+      "quote": "UGC NET will be mandatory for applying for ICSSR Doctoral Fellowship Schemes.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "not for those who already hold JRF/RGNF/MANF/ICSSR/ICAR/CSIR/ICPR/ICMR/ICHR/JNMF or similar major doctoral fellowship",
+      "quote": "Candidates who have already availed UGC Junior Research Fellowship (JRF) / Rajiv Gandhi National Fellowship (RGNF) / Maulana Azad National Fellowship (MANF) / ICSSR / ICAR / CSIR/ ICPR / ICMR / ICHR / Jawaharlal Nehru Memorial Foundation Fund Fellowship (JNMF) or any such major doctoral fellowship are not eligible to apply.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 20,000 per month plus Rs 20,000 contingency per annum for two years",
+    "quote": "The value of Full-Term Doctoral Fellowship is Rs 20,000 per month plus Rs 20,000 contingency grant per annum."
+  },
+  "documents": [
+    {
+      "name": "Self-attested educational qualification (incl. UGC NET) and proof of date of birth",
+      "quote": "Self-attested copies of educational qualification (including UGC NET) and proof of date of birth (Birth Certificate/Secondary School Certificate /Higher Secondary School Certificate) must be uploaded with the application form."
+    }
+  ],
+  "deadline": {
+    "date": "2026-08-04",
+    "text": "Last date extended to 4 August 2026 (FY 2026-27 call)",
+    "quote": "Extension of Last Date for Online Application Submission to August 04, 2026",
+    "status": "closed"
+  },
+  "apply_url": "https://app.icssr.org/",
+  "confidence": "high",
+  "review_flags": [
+    "closed_2026_27_call",
+    "next_call_expected_mid_2027",
+    "PhD_level_only",
+    "second_source_raw_hum_icssr_doctoral_call.txt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

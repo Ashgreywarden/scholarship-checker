@@ -1,0 +1,89 @@
+{
+  "id": "ugc_pg_indira_gandhi_sgc",
+  "name": "P.G. Indira Gandhi Scholarship for Single Girl Child",
+  "provider": "University Grants Commission (UGC)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://www.ugc.gov.in/Scholarships/stu_Scholarship4",
+      "fetched_at": "2026-10-23T01:35Z",
+      "raw_file": "raw/ugc_pg_indira_gandhi_sgc.txt",
+      "sha256": "5f0f387596adedcc6b1e6b293347540dcb27381c301f028a6dc19c43d5872cf9"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female (single girl child)",
+      "quote": "To provide financial assistance to selected candidates being Single Girl Child for pursuing Post-graduation on full time/regular basis",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "PG"
+      ],
+      "quote": "has taken admission in regular, full-time 1st year Masters Degree course in any recognized university or a post graduate college",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "PG 1st year only",
+      "quote": "This scholarship is available to PG-I year student only.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "distance mode not covered",
+      "quote": "Admission to PG Course in Distance education mode is not covered under the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 30,
+      "quote": "Girl students up to the age of 30 years at the time of admission in PG courses are eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "tenure 2 years",
+      "quote": "Tenure:\n2 years",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs. 36,200 per annum for 2 years",
+    "quote": "Rs. 36,200/- per annum"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "No application deadline stated on the page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarship.canarabank.in",
+  "confidence": "medium",
+  "review_flags": [
+    "no_deadline",
+    "secondary_portal_apply_via_canara_bank",
+    "verify_current_cycle"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

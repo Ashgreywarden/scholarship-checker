@@ -1,0 +1,6 @@
+name,url,reason
+DST WISE-KIRAN,https://dst.gov.in/scientific-programmes/wise-kiran,"dst.gov.in returned empty text via Apify rag-web-browser"
+DST WISE-PhD,https://dst.gov.in/wise-fellowship-phd-wise-phd,"empty text via Apify"
+RMEWF Financial Assistance for Education of Children/Widows of ESM (Kendriya Sainik Board),https://ksb.gov.in/education-of-Children-Widows-of-esm.htm,"HTTP 500 / crawl failed via Apify (also online.ksb.gov.in and desw.gov.in/ksb-welfare-schemes failed)"
+Himachal Pradesh SOP scholarship from RR Fund (ex-servicemen wards),https://swd.hp.gov.in/wp-content/uploads/2024/09/2017_7_SOP-for-grant-of-scholarship-from-RR-Fund.pdf,"pdf extractor: fetch failed"
+Delhi Rajya Sainik Board scholarship page,https://rsb.delhi.gov.in/hi/node/8288,"crawl failed via Apify"

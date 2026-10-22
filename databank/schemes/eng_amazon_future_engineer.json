@@ -1,0 +1,77 @@
+{
+  "id": "eng_amazon_future_engineer",
+  "name": "Amazon Future Engineer Scholarship (India)",
+  "provider": "Amazon India, implemented with Foundation for Excellence",
+  "provider_type": "corporate",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://press.aboutamazon.com/in/2026/5/amazon-future-engineer-program-expands-to-2-200-scholars-with-500-new-scholarships-for-women-in-computer-science",
+      "fetched_at": "2026-10-22T20:10Z",
+      "raw_file": "raw/eng_amazon_future_engineer.txt",
+      "sha256": "1a0632f70a21375eb2528aaa940f0922a5148e16b78329f73396a3235ba2c453"
+    }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "quote": "The AFE scholarship provides ₹2 lakh in financial assistance over four years to female students pursuing B.E. or B.Tech degrees in computer science or allied branches, from low-income backgrounds.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "B.E./B.Tech Computer Science and allied branches"
+      ],
+      "quote": "female students pursuing B.E. or B.Tech degrees in computer science or allied branches",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "low-income families (no numeric limit in source)",
+      "quote": "providing female engineering students from low-income families with financial support, mentorship, and career opportunities in technology",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "selection on merit, financial need and leadership",
+      "quote": "Scholars are selected through a rigorous process evaluating academic merit, financial need, and leadership potential.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 2 lakh over four years, plus laptop, bootcamps, mentorship and paid internship after second year",
+    "quote": "The AFE scholarship provides ₹2 lakh in financial assistance over four years"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "No application dates in the press release",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://press.aboutamazon.com/in/2026/5/amazon-future-engineer-program-expands-to-2-200-scholars-with-500-new-scholarships-for-women-in-computer-science",
+  "confidence": "medium",
+  "review_flags": [
+    "no_deadline",
+    "press_release_only",
+    "application_portal_url_not_verified",
+    "income_limit_not_stated",
+    "raw_is_excerpt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

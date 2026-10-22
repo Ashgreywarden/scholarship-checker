@@ -1,0 +1,7 @@
+name,url,reason
+Sasakawa India Leprosy Foundation Nursing Scholarship (nursing),https://www.facebook.com/silfindia/videos/nursing-scholarship/249272726931634/,"only a Facebook post and aggregator pages found; official foundation site not surfaced by search so no official raw text"
+NLU Delhi scholarships page (law),https://nludelhi.ac.in/students/scholarships/,"fetched but page lists 2023-24 cycle and generic NSP schemes only; no own rules/amount/deadline; skipped as weak"
+National Law Scholarship Program NLSP (law),https://nlsp.in/,"fetched but targets JNV 12th-pass gap-year CLAT prep (not UG/PG) and page names 2022-23 with 'Applications Opens Soon'; skipped"
+CAN Foundation Project Dhananjay (law),https://canfoundation.in/project-dhananjay,"fetched but last edition 2023 and it is a post-graduation litigation stipend not a student scholarship; skipped as stale"
+Pharmacy scholarship (pharmacy),https://scholarships.gov.in/,"no pharmacy-specific official scheme found; results were aggregators/college pages or Sun Pharma Science Foundation researcher fellowships (not student scholarships)"
+Teacher education / B.Ed scholarship (teacher education),https://www.education.gov.in/en/scholarship%C2%A0,"no field-specific currently running official scheme found; only generic MoE pages"

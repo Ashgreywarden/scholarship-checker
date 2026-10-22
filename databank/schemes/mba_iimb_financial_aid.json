@@ -1,0 +1,77 @@
+{
+  "id": "mba_iimb_financial_aid",
+  "name": "IIMB Financial Aid (PGP)",
+  "provider": "Indian Institute of Management Bangalore",
+  "provider_type": "institute",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.iimb.ac.in/programmes/pgp/financial-aid-scholarships",
+      "fetched_at": "2026-10-22T20:12Z",
+      "raw_file": "raw/mba_iimb_financial_aid.txt",
+      "sha256": "d964e2daee8fe92eab2127643d7189a4f6e4eec7b4c692c920bdccc62c76f82f"
+    }
+  ],
+  "cycle_named": "2026-28",
+  "rules": [
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "IIM Bangalore"
+      ],
+      "quote": "IIMB extends financial aid to students in need of assistance.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "All PGP students with annual household income below INR 800,000 are eligible to apply for financial aid.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "PGP"
+      ],
+      "quote": "All PGP students with annual household income below INR 800,000 are eligible to apply for financial aid.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "two-step need assessment: financial status score then faculty interaction",
+      "quote": "The Financial Aid Committee undertakes a two-step process for deciding the number of awardees and quantum of aid.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "100%, 80%, 60%, 40% or 20% financial aid (PGP 2026-28 fee Rs 26,00,000)",
+    "quote": "applicants are provided 100%, 80%, 60%, 40% or 20% financial aid."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "No application dates on the page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://www.iimb.ac.in/programmes/pgp/financial-aid-scholarships",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "applies_after_admission_to_IIMB_PGP",
+    "raw_is_excerpt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

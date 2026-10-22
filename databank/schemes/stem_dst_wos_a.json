@@ -1,0 +1,85 @@
+{
+  "id": "stem_dst_wos_a",
+  "name": "Women Scientist Scheme-A (WOS-A)",
+  "provider": "Department of Science & Technology (DST), Govt. of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://www.indiascienceandtechnology.gov.in/nurturing-minds/scholarships/women/women-scientist-scheme-wos",
+      "fetched_at": "2026-10-23T01:35Z",
+      "raw_file": "raw/dst_wos_a.txt",
+      "sha256": "c12ef930ea358aeb69e126c1abc4d0756dfe34d8a9efc9819280ac374581eeab"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female (women scientists/technologists)",
+      "quote": "Women Scientists Scheme-A (WOS-A) provides platform to women scientists and technologists for pursuing research in basic or applied sciences",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "M.Sc",
+        "M.Tech",
+        "M.Phil",
+        "M.Pharm",
+        "M.VSc",
+        "B.Tech",
+        "MBBS",
+        "PhD"
+      ],
+      "quote": "(iii) M.Sc in Basic or Applied Sciences/B.Tech/MBBS or equivalent degree",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "Basic or Applied Sciences",
+        "Engineering"
+      ],
+      "quote": "for pursuing research in basic or applied sciences in frontier areas of science and engineering",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "open throughout the year",
+      "quote": "The Scheme is open throughout the year.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 55,000/month (PhD group), Rs 40,000/month (M.Phil/M.Tech/M.Pharm/M.VSc group), Rs 30,000/month (M.Sc/B.Tech/MBBS group)",
+    "quote": "Rs.55,000/- per month for first eligibility group, Rs.40,000/- per month for second eligibility group and Rs.30,000/- per month for third eligibility group"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Open throughout the year",
+    "quote": "The Scheme is open throughout the year.",
+    "status": "unknown"
+  },
+  "apply_url": "https://www.indiascienceandtechnology.gov.in/nurturing-minds/scholarships/women/women-scientist-scheme-wos",
+  "confidence": "medium",
+  "review_flags": [
+    "rolling_application",
+    "research_fellowship_not_tuition_scholarship",
+    "summary_page_only"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

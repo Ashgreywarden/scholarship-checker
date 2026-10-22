@@ -1,0 +1,87 @@
+{
+  "id": "mba_iima_snbs",
+  "name": "IIMA Special Need Based Scholarship (PGP and PGP-FABM)",
+  "provider": "Indian Institute of Management Ahmedabad",
+  "provider_type": "institute",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.iima.ac.in/sites/default/files/2024-06/Point%2013%20Rules%20and%20Regulations%20for%20Financial%20AssistanceScholarships.pdf",
+      "fetched_at": "2026-10-22T20:11Z",
+      "raw_file": "raw/mba_iima_snbs.txt",
+      "sha256": "3bdbbf60a1d13851860d36ec915f329e6b552e265e8fe5c886b34ca2740d2f12"
+    }
+  ],
+  "cycle_named": "2024",
+  "rules": [
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "IIM Ahmedabad"
+      ],
+      "quote": "IIMA offers a need-based scholarship over and above the scholarships provided by the alumni, industry, and government.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "PGP",
+        "PGP-FABM"
+      ],
+      "quote": "All students admitted to the two-year postgraduate programmes (PGP & PGP-FABM) in the year 2024",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 1500000,
+      "quote": "whose gross annual family income is below INR 15 Lakh during the previous financial year are eligible to apply for this scholarship",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "aid amount set by IIMA after assessing assets, dependants and other criteria",
+      "quote": "IIMA shall determine the financial assistance required for each applicant based on its assessment of the applicant’s economic status",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "SNBS application also used to shortlist alumni and company means / merit-cum-means scholarships",
+      "quote": "The shortlisting for various Means and Merit-cum-Means scholarships will be done through the Institute’s Special Need Based Scholarship applications",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Need-based; amount determined per applicant (alumni endowment awards INR 1-3 lakh via SNBS)",
+    "quote": "IIMA shall determine the financial assistance required for each applicant"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "No dates in the rules document",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://www.iima.ac.in",
+  "confidence": "medium",
+  "review_flags": [
+    "stale_cycle",
+    "document_dated_June_2024",
+    "no_deadline",
+    "income_limit_may_have_changed",
+    "raw_is_excerpt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

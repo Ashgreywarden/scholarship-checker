@@ -1,0 +1,98 @@
+{
+  "id": "sci_nbhm",
+  "name": "NBHM Master's Scholarship and Doctoral Scholarship (Mathematics)",
+  "provider": "National Board for Higher Mathematics, Department of Atomic Energy, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.imsc.res.in/~nbhm/ST_2026/advert.pdf",
+      "fetched_at": "2026-10-22T20:07Z",
+      "raw_file": "raw/sci_nbhm.txt",
+      "sha256": "e79ca08390237566052ff8d4e6c3309ea21904ffd0bb65fcfe4deb16339fe8b9"
+    }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "Mathematics",
+        "Statistics",
+        "Mathematical Science(s)"
+      ],
+      "quote": "The name of the degree that it leads to contains at least one of: “Mathematics”, “Statistics”, “Mathematical Science(s)”.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "PG (Master's)",
+        "PhD"
+      ],
+      "quote": "The test serves as the first stage of a two-stage selection process for the following scholarships",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "full-time qualifying programme at accredited Indian institution",
+      "quote": "It is a recognised full-time programme offered by an accredited university or institution in India",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Indian nationals only",
+      "quote": "It is open only to Indian nationals and is administered through the scholar’s institution.",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "NBHM Scholarship Written Test and interview"
+      ],
+      "quote": "Be selected via the written test and Master’s interview, and",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "not for those who previously drew the Master's Scholarship",
+      "quote": "Not have previously drawn the NBHM Master’s Scholarship.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Master's: Rs 8,000 per month for up to two years. Doctoral: Rs 37,000 per month (first two years), Rs 42,000 thereafter, plus Rs 40,000 yearly contingency",
+    "quote": "A monthly stipend Rs 8,000 is payable for up to two years."
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2025-12-21",
+    "text": "21 Dec 2025 (2026 cycle; next cycle not yet announced)",
+    "quote": "21 Dec 2025 Deadline for applications; end of the day (23:59 hrs, IST)",
+    "status": "stale_cycle"
+  },
+  "apply_url": "https://nbhmexam.puchd.ac.in/",
+  "confidence": "high",
+  "review_flags": [
+    "stale_cycle",
+    "next_cycle_notice_expected_Dec_2026",
+    "raw_is_excerpt",
+    "scheme_covers_PG_and_PhD"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23"
+}

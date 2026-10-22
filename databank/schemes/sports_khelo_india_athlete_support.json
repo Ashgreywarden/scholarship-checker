@@ -1,0 +1,74 @@
+{
+  "region": "india",
+  "state": null,
+  "provider_type": "central",
+  "target_group": [
+    "general"
+  ],
+  "documents": [],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23",
+  "id": "sports_khelo_india_athlete_support",
+  "name": "Khelo India Athletes (KIA / E-KIA) support under the Khelo India Scheme (2026-27 to 2030-31)",
+  "provider": "Ministry of Youth Affairs and Sports, Department of Sports (via Sports Authority of India)",
+  "level": [
+    "any"
+  ],
+  "sources": [
+    {
+      "url": "https://sportsauthorityofindia.nic.in/sai_new/public/assets/uploads/news/da4aa056-bd5c-464f-ba29-a5cc0afbcff5.pdf",
+      "fetched_at": "2026-10-22T20:07Z",
+      "raw_file": "raw/sports_khelo_india_scheme_guidelines.txt",
+      "sha256": "eafad8d95e8fb002df84857991fa0978c03c5718b5459ff7048a430482069890"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "other",
+      "op": "note",
+      "value": "athletes enter as KIA/E-KIA by meeting sport-specific benchmarks and being recommended by TIDC and approved by HPC",
+      "quote": "Athletes who meet the approved protocols and benchmarks.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "benefit is by selection/induction, not an open application",
+      "quote": "Athlete recommended by TIDC and approved by HPC as per suitable criteria in sports specific protocols.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "athletes must be registered on Khel Setu",
+      "quote": "All the athletes in Khelo India Training Facilities shall be mandatorily registered on Khel Setu.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "note",
+      "value": "sports (athletes)",
+      "quote": "Each KIA/E-KIA shall be eligible for training, competition, boarding and lodging, sports kit, sports science, equipment, education, medical & insurance support etc. as per approved funding norms and suitable Out of Pocket Allowance (OPA).",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Training, boarding/lodging, kit, education, medical and insurance support plus Out of Pocket Allowance paid by DBT; amounts per DPAC-approved norms (not stated in guidelines)",
+    "quote": "Out-of-Pocket Allowance (OPA) for the athletes, remuneration of the coaches and support staff engaged under this scheme and other admissible athlete-centric support"
+  },
+  "deadline": {
+    "date": null,
+    "text": "No application window; induction through assessment camps and TIDC recommendation",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://www.kheloindia.gov.in/",
+  "confidence": "medium",
+  "review_flags": [
+    "not_an_open_application_scholarship",
+    "no_deadline",
+    "amount_not_in_guidelines",
+    "guideline_pdf_published_30_09_2026"
+  ]
+}

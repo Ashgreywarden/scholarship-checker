@@ -1,0 +1,79 @@
+{
+  "region": "india",
+  "state": null,
+  "provider_type": "institute",
+  "target_group": [
+    "general"
+  ],
+  "documents": [],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-23",
+  "id": "film_ftii_scholarships",
+  "name": "FTII Scholarships (merit and merit-cum-means) for Film and Television Wing students",
+  "provider": "Film and Television Institute of India (FTII), Pune",
+  "level": [
+    "PG"
+  ],
+  "sources": [
+    {
+      "url": "https://ftii.ac.in/scholarships",
+      "fetched_at": "2026-10-22T20:13Z",
+      "raw_file": "raw/film_ftii_scholarships.txt",
+      "sha256": "ca7b4d9d1954798881f52cd04ba50c6be462246887777f802d3478da6851e2bf"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "Film and Television Institute of India"
+      ],
+      "quote": "The Film and Television Institute of India (FTII) provides scholarships and financial assistance to support meritorious and financially deserving students pursuing film and television education.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "Film Wing courses",
+        "Television Wing courses"
+      ],
+      "quote": "Scholarships are awarded to eligible students of Film Wing and Television Wing courses based on merit, financial need, and prescribed eligibility criteria.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "most awards are by rank (topper) in entrance exam or semester SGPA/CGPA",
+      "quote": "SEMESTER-WISE SCHOLARSHIPS STRUCTURE (AS PER ACADEMIC COUNCIL MEETING DATED 07.04.2026)",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Kaifi Azmi award is merit plus income based",
+      "quote": "Kaifi Azmi 1 Merit + Income basis 1) 50,000/- Income + 2nd semester SGPA",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Varies by award, roughly Rs 6,000 to Rs 1,00,000 per scholarship (e.g. Rs 25,000 / 22,500 for toppers)",
+    "quote": "SWA-SWAdhyay 1 Selection by SWA Committee 1) SPW 1) 1,00,000/- Selection by SWA Committee"
+  },
+  "deadline": {
+    "date": null,
+    "text": "No application deadline on page; awards are given on entrance and semester results",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://ftii.ac.in/scholarships",
+  "confidence": "medium",
+  "review_flags": [
+    "no_deadline",
+    "awards_are_for_enrolled_ftii_students",
+    "rules_and_regulation_pdf_not_fetched",
+    "cycle_not_named"
+  ]
+}
