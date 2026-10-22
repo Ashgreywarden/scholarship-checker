@@ -3,6 +3,7 @@
 import { useId } from "react";
 import type { DeadlineRow, DocumentRow } from "@/lib/types";
 import { parseIsoDate } from "@/lib/normalize";
+import { tidyQuoteForDisplay } from "@/lib/verifyQuote";
 
 function FlagNote() {
   return (
@@ -70,13 +71,12 @@ export function Documents({
                         <span className="ml-2 text-xs font-normal text-slate-500">I have this</span>
                       </label>
                       {!d.quoteVerified && <FlagNote />}
-                      <blockquote
-                        className={`mt-1 border-l-4 pl-3 italic text-slate-600 ${
-                          d.quoteVerified ? "border-slate-300" : "border-orange-400"
-                        }`}
+                      <p
+                        data-testid="source"
+                        className={`mt-1 text-xs ${d.quoteVerified ? "text-slate-500" : "text-orange-800"}`}
                       >
-                        &ldquo;{d.quote}&rdquo;
-                      </blockquote>
+                        Source: <span className="italic">&ldquo;{tidyQuoteForDisplay(d.quote)}&rdquo;</span>
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -90,6 +90,7 @@ export function Documents({
 }
 
 function formatDate(iso: string | null): string | null {
+  // (shown only for dates read by code from the quoted line)
   const d = parseIsoDate(iso);
   return d
     ? d.toLocaleDateString("en-IN", {
@@ -125,7 +126,7 @@ export function Deadlines({ deadlines }: { deadlines: DeadlineRow[] }) {
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <p className="font-medium text-slate-900">{d.label}</p>
-                  {d.quoteVerified && date && (
+                  {d.quoteVerified && date && d.dateIso && (
                     <span className="text-sm text-slate-700" data-testid="deadline-date">
                       {date}
                     </span>
@@ -133,7 +134,7 @@ export function Deadlines({ deadlines }: { deadlines: DeadlineRow[] }) {
                   <span
                     data-testid="deadline-status"
                     className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
-                      !d.quoteVerified
+                      !d.quoteVerified || !d.dateIso
                         ? "bg-orange-100 text-orange-900"
                         : d.closed
                           ? "bg-red-100 text-red-900"
@@ -144,6 +145,14 @@ export function Deadlines({ deadlines }: { deadlines: DeadlineRow[] }) {
                   </span>
                 </div>
                 {!d.quoteVerified && <FlagNote />}
+                {d.dateNote && (
+                  <p
+                    data-testid="date-note"
+                    className="mt-2 rounded-md border border-orange-300 bg-orange-100 px-2 py-1 text-xs font-semibold text-orange-900"
+                  >
+                    ⚠ {d.dateNote}
+                  </p>
+                )}
                 <blockquote
                   className={`mt-2 border-l-4 pl-3 text-sm italic text-slate-600 ${
                     d.quoteVerified ? "border-slate-300" : "border-orange-400"

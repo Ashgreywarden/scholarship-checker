@@ -57,7 +57,13 @@ export interface DocumentRow {
 
 export interface DeadlineRow {
   label: string;
+  // The date we show: always read by plain code from the quoted line, never
+  // taken on trust from the AI. null when the quote has no complete date.
   dateIso: string | null;
+  // What the AI said the date was (shown only when it disagrees with the quote).
+  aiDateIso: string | null;
+  // Plain-language note when the AI's date and the quote disagree or are unclear.
+  dateNote: string | null;
   quote: string;
   quoteVerified: boolean;
   // e.g. "12 days left", "Closed 3 days ago", "Date unclear"

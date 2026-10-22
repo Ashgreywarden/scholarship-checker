@@ -46,9 +46,9 @@ CRITERIA: one item per distinct eligibility rule.
 - Use field "none", operator "judgement", values [] and unit "none" for: subjective rules (leadership, motivation, essay quality, good character, financial need judged by a committee), rules about anything not in the field list (previous scholarships, offer letters, language tests, returning to home country, specific subjects, first-generation status, disability), and any rule you cannot express with the exact fields, operators and units above. Do not force a rule into a field it does not fit. For example a CGPA or grade-point requirement is NOT marks_percent: use "none" and "judgement". "Citizen of an eligible country" without a list of countries is "none" and "judgement".
 - A cap such as "family income should not exceed" is lte. "Minimum 60% marks" is gte with unit percent. "Between 18 and 25 years" is one between rule.
 
-DOCUMENTS: each document the applicant must submit or upload, with a short plain name (e.g. "Income certificate") and its quote. One item per document. Do not list documents that the notice only mentions in passing as not required.
+DOCUMENTS: each document the applicant must submit or upload, with a short plain name (e.g. "Income certificate") and its quote. One item per document. The quote is the shortest uninterrupted run of text that names the document (for example "Fee Receipt" or "Income Certificate"), never a whole table row and never words from other columns such as "Yes" or "No". Do not list documents that the notice only mentions in passing as not required.
 
-DEADLINES: each date by which the applicant must act (application closing date, document submission, verification). label = short description. date_iso = "YYYY-MM-DD" ONLY if the day, month and year are all written in the notice; otherwise null. quote = the sentence stating the date.
+DEADLINES: each date by which the applicant must act (application closing date, document submission, verification). label = short description. date_iso = "YYYY-MM-DD" ONLY if the day, month and year are all written in the quote itself; otherwise null (for "October 2026" or "7 October" with no year, use null). The year in date_iso must be the year written in the quote. quote = the sentence stating the date.
 
 Write reason and names in plain English. Return only the JSON object.`;
 

@@ -67,6 +67,57 @@ export function normalizeNationality(s: string): string {
   return w;
 }
 
+const MONTHS: Record<string, number> = {
+  january: 1, jan: 1, february: 2, feb: 2, march: 3, mar: 3, april: 4, apr: 4,
+  may: 5, june: 6, jun: 6, july: 7, jul: 7, august: 8, aug: 8,
+  september: 9, sept: 9, sep: 9, october: 10, oct: 10, november: 11, nov: 11,
+  december: 12, dec: 12,
+};
+const MONTH_RE = Object.keys(MONTHS)
+  .sort((a, b) => b.length - a.length)
+  .join("|");
+
+function toIso(y: number, m: number, d: number): string | null {
+  if (y < 1900 || y > 2200 || m < 1 || m > 12 || d < 1 || d > 31) return null;
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  if (dt.getUTCFullYear() !== y || dt.getUTCMonth() !== m - 1 || dt.getUTCDate() !== d) {
+    return null;
+  }
+  return dt.toISOString().slice(0, 10);
+}
+
+// Finds every COMPLETE date (day, month and a 4-digit year) written in a piece
+// of text and returns them as YYYY-MM-DD. A date without a year, like
+// "7 October", is not returned: we never guess the year. Numeric dates are read
+// day-first (7/10/2027 = 7 October 2027), as is usual in India and the UK.
+export function datesInText(text: string): string[] {
+  const t = text.normalize("NFKC");
+  const found = new Set<string>();
+  const add = (iso: string | null) => iso && found.add(iso);
+
+  // 7 October 2027, 7th Oct 2027, 7 Oct, 2027
+  for (const m of t.matchAll(
+    new RegExp(`\\b(\\d{1,2})(?:st|nd|rd|th)?\\s+(?:of\\s+)?(${MONTH_RE})\\.?,?\\s+(\\d{4})\\b`, "gi"),
+  )) {
+    add(toIso(+m[3], MONTHS[m[2].toLowerCase()], +m[1]));
+  }
+  // October 7, 2027 / Oct 7th 2027
+  for (const m of t.matchAll(
+    new RegExp(`\\b(${MONTH_RE})\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)?,?\\s+(\\d{4})\\b`, "gi"),
+  )) {
+    add(toIso(+m[3], MONTHS[m[1].toLowerCase()], +m[2]));
+  }
+  // 2027-10-07
+  for (const m of t.matchAll(/\b(\d{4})-(\d{2})-(\d{2})\b/g)) {
+    add(toIso(+m[1], +m[2], +m[3]));
+  }
+  // 07/10/2027, 7-10-2027, 07.10.2027 (day first)
+  for (const m of t.matchAll(/\b(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})\b/g)) {
+    add(toIso(+m[3], +m[2], +m[1]));
+  }
+  return [...found].sort();
+}
+
 const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 export function parseIsoDate(s: string | null): Date | null {
