@@ -31,6 +31,12 @@ export interface EvaluatedRow {
   // never counted toward the verdict.
   quoteVerified: boolean;
   status: RowStatus;
+  // Only for status "unknown":
+  //   "manual"  = the student must decide (judgement rule, or a rule about
+  //               something outside the 8 profile fields)
+  //   "missing" = we could have checked it but lack data (skipped field,
+  //               unrecognised unit or value)
+  unknownKind?: "manual" | "missing";
   // Plain-language explanation shown to the student.
   explanation: string;
 }
