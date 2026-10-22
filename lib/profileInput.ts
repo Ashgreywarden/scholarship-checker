@@ -17,6 +17,8 @@ export interface ProfileInput {
   marks: string;
   workYears: string;
   nationality: string;
+  gender: string; // "", "female", "male", "other"
+  disability: string; // "", "yes", "no"
 }
 
 export const EMPTY_PROFILE_INPUT: ProfileInput = {
@@ -28,6 +30,8 @@ export const EMPTY_PROFILE_INPUT: ProfileInput = {
   marks: "",
   workYears: "",
   nationality: "Indian",
+  gender: "",
+  disability: "",
 };
 
 function num(s: string, min: number, max: number): { value: number | null; bad: boolean } {
@@ -71,6 +75,11 @@ export function parseProfileInput(input: ProfileInput): ProfileParse {
       marksPercent: marks.value,
       workExperienceYears: work.value,
       nationality: input.nationality.trim() === "" ? null : input.nationality.trim(),
+      gender:
+        input.gender === "female" || input.gender === "male" || input.gender === "other"
+          ? input.gender
+          : null,
+      hasDisability: input.disability === "yes" ? true : input.disability === "no" ? false : null,
     },
     problems,
   };

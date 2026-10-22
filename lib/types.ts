@@ -12,6 +12,10 @@ export interface Profile {
   marksPercent: number | null;
   workExperienceYears: number | null;
   nationality: string | null;
+  // Extra answers used only by "Find my scholarships" (many schemes are for
+  // girls, or for students with a disability). null = skipped.
+  gender: "female" | "male" | "other" | null;
+  hasDisability: boolean | null;
 }
 
 export type RowStatus = "pass" | "fail" | "unknown";

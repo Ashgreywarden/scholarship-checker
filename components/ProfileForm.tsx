@@ -45,10 +45,13 @@ export default function ProfileForm({
   value,
   onChange,
   problems,
+  showExtras = false,
 }: {
   value: ProfileInput;
   onChange: (next: ProfileInput) => void;
   problems: ProfileParse["problems"];
+  // Gender and disability: used only by "Find my scholarships".
+  showExtras?: boolean;
 }) {
   const set = (key: keyof ProfileInput) => (v: string) =>
     onChange({ ...value, [key]: v });
@@ -184,6 +187,41 @@ export default function ProfileForm({
           onChange={(e) => set("nationality")(e.target.value)}
         />
       </Field>
+
+      {showExtras && (
+        <>
+          <Field id="gender" label="Gender" hint="Some schemes are only for girls or only for boys.">
+            <select
+              id="gender"
+              className={inputClass}
+              value={value.gender}
+              onChange={(e) => set("gender")(e.target.value)}
+            >
+              <option value="">Not sure / skip</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
+            </select>
+          </Field>
+
+          <Field
+            id="disability"
+            label="Do you have a disability?"
+            hint="Some schemes need a certificate of 40% or more."
+          >
+            <select
+              id="disability"
+              className={inputClass}
+              value={value.disability}
+              onChange={(e) => set("disability")(e.target.value)}
+            >
+              <option value="">Not sure / skip</option>
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </Field>
+        </>
+      )}
     </div>
   );
 }

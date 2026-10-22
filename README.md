@@ -138,6 +138,17 @@ These are small samples (3–6 runs per page). Response time was 5–21 s; the s
 
 **Known rough edge.** When a pasted PDF table splits a document's name across columns, the only exact quote available is a fragment, such as "the bank passbook" or "qualifying". The document name is always shown clearly, with the quote in a small "Source" line. We trim leading row numbers and trailing column words like "Yes Yes" for display only; checking always uses the full quote.
 
+## Find my scholarships and Coverage
+
+Besides checking one pasted notice, the app can match a student against the **scholarship data bank** in `databank/` (read-only data: one JSON file per scheme, each rule with a verbatim official quote).
+
+- `/find`: the student answers the profile questions (plus gender and disability) and sees every Indian scheme with a verdict (Likely eligible / Can't tell / Not eligible), the deciding rule with its official quote, the amount, the deadline and status, and the official apply link.
+- `/coverage`: counts by provider type, state, level (UG/PG) and status, for the pitch.
+- **No AI in matching.** Plain TypeScript in `lib/match/` compares the rules with your answers. Gemini is used only in the paste-a-notice route.
+- **Loaded at runtime.** `app/api/schemes` reads `databank/schemes/*.json` on each request, so no scheme name or rule is written in the code. Only schemes with `region: "india"` are shown; the abroad ones are hidden for now.
+- **Status is computed in code** from the closing date and today's date: open (date is today or later), closed (passed within a year), stale (more than a year ago). If a scheme has no closing date, we repeat what the source says and label it "as stated by the source".
+- **Rules we don't understand are never guessed.** A rule that applies only in a sub-case ("SC/ST/PwD"), is written in words, or is about something we don't ask (for example "wards of police personnel") gives "Can't tell". "Likely eligible" always means "by the published rules; confirm on the official portal".
+
 ## Run it
 
 1. Copy `.env.example` to `.env.local` and put your OpenRouter key in `OPENROUTER_API_KEY`. This file is git-ignored. Never commit or paste the key anywhere.

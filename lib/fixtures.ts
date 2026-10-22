@@ -71,4 +71,6 @@ export const baseProfile: Profile = {
   marksPercent: 72,
   workExperienceYears: 1,
   nationality: "Indian",
+  gender: null,
+  hasDisability: null,
 };
