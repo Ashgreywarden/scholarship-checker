@@ -142,8 +142,18 @@ These are small samples (3–6 runs per page). Response time was 5–21 s; the s
 
 Besides checking one pasted notice, the app can match a student against the **scholarship data bank** in `databank/` (read-only data: one JSON file per scheme, each rule with a verbatim official quote).
 
-- `/find`: the student answers the profile questions (plus gender and disability) and sees every Indian scheme with a verdict (Likely eligible / Can't tell / Not eligible), the deciding rule with its official quote, the amount, the deadline and status, and the official apply link.
-- `/coverage`: counts by provider type, state, level (UG/PG) and status, for the pitch.
+Pages (the ScholarPath design):
+
+| Route | What it does |
+|---|---|
+| `/` | Landing page with the real scheme count |
+| `/profile` | Five-step profile. Answers are saved in this browser only (localStorage) |
+| `/results` | Every Indian scheme matched against the saved profile: verdict, the deciding rule with its official quote, amount, deadline and status, official apply link. Schemes the rules rule out are hidden until you tick the box |
+| `/notice` | Paste a notice. Gemini reads it through `/api/analyze`; the browser compares it with the saved profile |
+| `/coverage` | Counts by provider type, status, level (UG/PG) and state, from the real data bank |
+| `/find` | Old link; redirects to `/profile` |
+
+How the design connects to the engine: `lib/ui/adapters.ts` is the only place that turns a data-bank scheme plus its match result into the UI's `Scheme` type, the profile form into the engine's profile, and a pasted-notice analysis into a `Scheme`. The UI never decides eligibility. Styling is Tailwind v4 (CSS-first): the theme lives in `app/globals.css`; there is no `tailwind.config.ts`.
 - **No AI in matching.** Plain TypeScript in `lib/match/` compares the rules with your answers. Gemini is used only in the paste-a-notice route.
 - **Loaded at runtime.** `app/api/schemes` reads `databank/schemes/*.json` on each request, so no scheme name or rule is written in the code. Only schemes with `region: "india"` are shown; the abroad ones are hidden for now.
 - **Status is computed in code** from the closing date and today's date: open (date is today or later), closed (passed within a year), stale (more than a year ago). If a scheme has no closing date, we repeat what the source says and label it "as stated by the source".

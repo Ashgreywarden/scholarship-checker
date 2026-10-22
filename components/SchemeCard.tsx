@@ -1,150 +1,288 @@
-import { PROVIDER_TYPE_LABELS } from "@/lib/match/coverage";
-import type { MatchRow, MatchVerdict, SchemeMatch } from "@/lib/match/engine";
-import type { SchemeStatus } from "@/lib/match/status";
+"use client";
 
-const VERDICT: Record<MatchVerdict, { text: string; cls: string }> = {
-  eligible: { text: "Likely eligible", cls: "bg-emerald-100 text-emerald-900 border-emerald-300" },
-  cant_tell: { text: "Can't tell", cls: "bg-amber-100 text-amber-900 border-amber-300" },
-  not_eligible: { text: "Not eligible", cls: "bg-red-100 text-red-900 border-red-300" },
-};
+import { useId, useState } from "react";
+import { ChevronDown, ExternalLink, FileCheck2 } from "lucide-react";
+import { formatDate, officialUrl } from "@/lib/ui/format";
+import { PROVIDER_LABELS } from "@/lib/ui/adapters";
+import type { Scheme } from "@/lib/ui/types";
+import { RuleRow } from "./RuleRow";
+import { StatusBadge } from "./StatusBadge";
 
-const STATUS_CLS: Record<SchemeStatus, string> = {
-  open: "bg-emerald-50 text-emerald-800 border-emerald-200",
-  closed: "bg-red-50 text-red-800 border-red-200",
-  stale: "bg-orange-50 text-orange-800 border-orange-200",
-  unknown: "bg-slate-100 text-slate-700 border-slate-200",
-};
-
-const ROW_PILL: Record<string, string> = {
-  pass: "bg-emerald-100 text-emerald-900",
-  fail: "bg-red-100 text-red-900",
-  unknown: "bg-slate-200 text-slate-800",
-};
-
-function Quote({ quote, note }: { quote: string | null; note?: string | null }) {
-  if (!quote) {
-    return note ? <p className="mt-1 text-xs text-slate-500">Source: {note} (no direct quote)</p> : null;
-  }
+function Quote({ text, flagged = false }: { text: string | null; flagged?: boolean }) {
+  if (!text) return null;
   return (
-    <blockquote className="mt-1 whitespace-pre-line border-l-4 border-slate-300 pl-3 text-xs italic text-slate-600 sm:text-sm">
-      &ldquo;{quote}&rdquo;
+    <blockquote
+      className={`mt-1 whitespace-pre-line border-l-2 pl-3 text-sm text-muted ${
+        flagged ? "border-accent" : "border-line"
+      }`}
+    >
+      “{text}”
     </blockquote>
   );
 }
 
-function RowItem({ row }: { row: MatchRow }) {
-  const pill = !row.checkable ? "Also check" : row.status === "pass" ? "Pass" : row.status === "fail" ? "Fail" : "Can't tell";
-  const cls = !row.checkable ? "bg-slate-100 text-slate-700" : ROW_PILL[row.status];
-  return (
-    <li className="px-3 py-2" data-testid="rule-row">
-      <div className="flex flex-wrap items-center gap-2">
-        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${cls}`}>{pill}</span>
-        <span className="text-sm font-medium text-slate-900">{row.label}</span>
-      </div>
-      <p className="mt-1 text-sm text-slate-700">{row.explanation}</p>
-      <Quote quote={row.quote} note={row.sourceNote} />
-    </li>
-  );
-}
+export function SchemeCard({
+  scheme,
+  initiallyExpanded = false,
+}: {
+  scheme: Scheme;
+  initiallyExpanded?: boolean;
+}) {
+  const [expanded, setExpanded] = useState(initiallyExpanded);
+  const [have, setHave] = useState<Set<number>>(new Set());
+  const id = useId();
+  const titleId = `${id}-title`;
+  const panelId = `${id}-panel`;
 
-function safeUrl(u: string): string | null {
-  return /^https?:\/\//i.test(u) ? u : null;
-}
+  const applyUrl = officialUrl(scheme.apply_url);
+  const sourceUrl = officialUrl(scheme.source_url);
+  const status = scheme.deadline.status;
+  const canApply = Boolean(applyUrl) && status !== "closed";
 
-export default function SchemeCard({ match }: { match: SchemeMatch }) {
-  const { scheme, verdict, reason, deciding, rows, status } = match;
-  const v = VERDICT[verdict];
-  const apply = safeUrl(scheme.apply_url);
-  const where = scheme.state ?? "All India";
-  const levels = scheme.level.join(" · ");
-  const checked = rows.filter((r) => r.checkable);
-  const alsoCheck = rows.filter((r) => !r.checkable);
+  const counted = scheme.documents.filter((d) => d.verified);
+  const stillNeeded = scheme.documents.filter((d, i) => d.verified && !have.has(i)).length;
+
+  function toggleDoc(index: number) {
+    setHave((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
+  }
 
   return (
     <article
+      className="card overflow-hidden"
+      aria-labelledby={titleId}
       data-testid="scheme-card"
-      data-verdict={verdict}
-      data-status={status.status}
       data-id={scheme.id}
-      className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5"
+      data-verdict={scheme.verdict}
+      data-status={status}
     >
-      <div className="flex flex-wrap items-center gap-2">
-        <span data-testid="verdict" className={`rounded-full border px-3 py-1 text-sm font-bold ${v.cls}`}>
-          {v.text}
-        </span>
-        <span
-          data-testid="status"
-          className={`rounded-full border px-3 py-1 text-xs font-semibold ${STATUS_CLS[status.status]}`}
-        >
-          {status.label}
-        </span>
-      </div>
+      <div className="p-5 sm:p-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <StatusBadge status={scheme.verdict} kind="verdict" />
+          <StatusBadge status={status} kind="deadline" />
+        </div>
 
-      <h3 className="mt-3 text-base font-semibold leading-snug text-slate-900 sm:text-lg">{scheme.name}</h3>
-      <p className="mt-1 text-xs text-slate-500">
-        {scheme.provider} · {PROVIDER_TYPE_LABELS[scheme.provider_type] ?? scheme.provider_type} · {where} · {levels}
-      </p>
+        <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row">
+          <div className="min-w-0">
+            <p className="text-sm text-muted">
+              {scheme.provider}
+              {scheme.provider_type !== "notice" && (
+                <> · {PROVIDER_LABELS[scheme.provider_type]}</>
+              )}
+              {scheme.states.length > 0 && <> · {scheme.states.join(", ")}</>}
+            </p>
+            <h2
+              id={titleId}
+              className="mt-1 font-display text-xl font-semibold sm:text-2xl"
+            >
+              {scheme.name}
+            </h2>
+          </div>
 
-      <div className="mt-3 rounded-xl bg-slate-50 p-3">
-        <p className="text-sm text-slate-800" data-testid="reason">
-          {reason}
-        </p>
-        {deciding && <Quote quote={deciding.quote} note={deciding.sourceNote} />}
-        {verdict === "eligible" && (
-          <p className="mt-2 text-xs font-medium text-emerald-800" data-testid="confirm-note">
-            Likely eligible by the published rules. Confirm on the official portal.
+          <div className="sm:max-w-64 sm:text-right">
+            <p className="line-clamp-3 text-base font-semibold text-brand" data-testid="amount">
+              {scheme.amount.text}
+            </p>
+            <p className="mt-1 line-clamp-2 text-sm text-muted" data-testid="deadline">
+              Deadline:{" "}
+              {scheme.deadline.date ? formatDate(scheme.deadline.date) : scheme.deadline.text}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-xl bg-paper p-3">
+          <p className="text-sm text-ink" data-testid="reason">
+            {scheme.summary.text}
           </p>
-        )}
+          <Quote text={scheme.summary.quote} />
+          {!scheme.summary.quote && scheme.summary.sourceNote && (
+            <p className="mt-1 text-sm text-muted">
+              Source: {scheme.summary.sourceNote} (no direct quote)
+            </p>
+          )}
+          {scheme.verdict === "eligible" && (
+            <p className="mt-2 text-sm font-semibold text-status-green" data-testid="confirm-note">
+              Likely eligible by the published rules. Confirm on the official portal.
+            </p>
+          )}
+        </div>
+
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          {canApply ? (
+            <a
+              href={applyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              data-testid="apply"
+            >
+              Apply on official portal
+              <ExternalLink size={17} aria-hidden="true" />
+              <span className="sr-only">Opens in a new tab</span>
+            </a>
+          ) : (
+            <button type="button" disabled className="btn-primary">
+              {status === "closed" ? "Applications closed" : "Official link unavailable"}
+            </button>
+          )}
+
+          {sourceUrl ? (
+            <a
+              href={sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              Read official source
+              <ExternalLink size={16} aria-hidden="true" />
+              <span className="sr-only">Opens in a new tab</span>
+            </a>
+          ) : (
+            <p className="text-sm text-muted">Verify on the official portal before applying.</p>
+          )}
+        </div>
+
+        <button
+          type="button"
+          aria-expanded={expanded}
+          aria-controls={panelId}
+          onClick={() => setExpanded((value) => !value)}
+          className="mt-4 flex min-h-11 w-full items-center justify-between gap-3
+            rounded-lg text-left font-semibold text-brand"
+        >
+          {expanded
+            ? "Hide rules and documents"
+            : `See rules and documents (${scheme.rules.length} rules)`}
+          <ChevronDown
+            size={20}
+            aria-hidden="true"
+            className={`shrink-0 transition-transform ${expanded ? "rotate-180" : ""}`}
+          />
+        </button>
       </div>
 
-      <dl className="mt-3 grid gap-3 text-sm sm:grid-cols-2">
-        <div>
-          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Amount</dt>
-          <dd className="mt-0.5 text-slate-800" data-testid="amount">
-            {scheme.amount.text || "Not stated"}
-          </dd>
-          <Quote quote={scheme.amount.quote.trim() || null} />
-        </div>
-        <div>
-          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Deadline</dt>
-          <dd className="mt-0.5 text-slate-800" data-testid="deadline">
-            {scheme.deadline.date ? `${scheme.deadline.date}. ` : ""}
-            {scheme.deadline.text || "Not stated"}
-          </dd>
-          <Quote quote={scheme.deadline.quote.trim() || null} />
-        </div>
-      </dl>
+      <div id={panelId} hidden={!expanded}>
+        {expanded && (
+          <div className="animate-enter border-t border-line bg-paper/60 p-5 sm:p-6">
+            <h3 className="font-semibold">How your profile fits</h3>
 
-      <div className="mt-4 flex flex-wrap items-center gap-3">
-        {apply ? (
-          <a
-            href={apply}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="apply"
-            className="inline-flex h-10 items-center rounded-lg bg-indigo-600 px-4 text-sm font-semibold text-white hover:bg-indigo-700"
-          >
-            Official apply link ↗
-          </a>
-        ) : (
-          <span className="text-sm text-slate-500">No official apply link in the data bank</span>
+            <ul className="relative mt-2">
+              <span
+                aria-hidden="true"
+                className="absolute bottom-8 left-[17px] top-8 w-px bg-line"
+              />
+              {scheme.rules.map((rule, index) => (
+                <RuleRow key={`${rule.label}-${index}`} rule={rule} />
+              ))}
+            </ul>
+
+            {scheme.amount.quote && (
+              <div className="mt-4 rounded-2xl border border-line bg-white p-4">
+                <h3 className="font-semibold">Amount</h3>
+                <p className="mt-1 text-muted">{scheme.amount.text}</p>
+                <Quote text={scheme.amount.quote} />
+              </div>
+            )}
+
+            {scheme.deadlines && scheme.deadlines.length > 0 && (
+              <div className="mt-4 rounded-2xl border border-line bg-white p-4">
+                <h3 className="font-semibold">Deadline details</h3>
+                <ul className="mt-2 space-y-3">
+                  {scheme.deadlines.map((line, index) => (
+                    <li key={index} data-testid="deadline-line">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="font-medium">{line.label}</span>
+                        {line.date && !line.flagged && (
+                          <span className="text-sm text-muted">{formatDate(line.date)}</span>
+                        )}
+                        <StatusBadge status={line.status} />
+                      </div>
+                      <p className="mt-1 text-sm text-muted">{line.text}</p>
+                      {line.flagged && (
+                        <p
+                          data-testid="flag"
+                          className="mt-1 rounded-lg border border-accent bg-status-amberBg px-3 py-2 text-sm font-semibold text-status-amber"
+                        >
+                          ⚠ Quote not found in your text. Not counted.
+                        </p>
+                      )}
+                      {line.note && (
+                        <p
+                          data-testid="date-note"
+                          className="mt-1 rounded-lg border border-accent bg-status-amberBg px-3 py-2 text-sm font-semibold text-status-amber"
+                        >
+                          ⚠ {line.note}
+                        </p>
+                      )}
+                      <Quote text={line.quote} flagged={line.flagged} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="mt-4 rounded-2xl border border-line bg-white p-4">
+              <h3 className="flex items-center gap-2 font-semibold">
+                <FileCheck2 size={19} aria-hidden="true" />
+                Documents to keep ready
+              </h3>
+              {scheme.documents.length ? (
+                <>
+                  <p className="mt-1 text-sm font-medium text-muted" data-testid="docs-summary">
+                    {counted.length === 0
+                      ? "No documents could be confirmed from the text."
+                      : stillNeeded === 0
+                        ? `You have all ${counted.length} documents.`
+                        : `${stillNeeded} of ${counted.length} documents still needed`}
+                  </p>
+                  <ul className="mt-3 divide-y divide-line">
+                    {scheme.documents.map((doc, index) => {
+                      const boxId = `${id}-doc-${index}`;
+                      return (
+                        <li key={`${doc.name}-${index}`} className="flex items-start gap-3 py-3" data-testid="document">
+                          <input
+                            id={boxId}
+                            type="checkbox"
+                            disabled={!doc.verified}
+                            checked={doc.verified && have.has(index)}
+                            onChange={() => toggleDoc(index)}
+                            className="mt-1 size-5 shrink-0 accent-brand"
+                          />
+                          <div className="min-w-0">
+                            <label htmlFor={boxId} className="font-medium">
+                              {doc.name}
+                              <span className="ml-2 text-sm font-normal text-muted">I have this</span>
+                            </label>
+                            {!doc.verified && (
+                              <p
+                                data-testid="flag"
+                                className="mt-1 rounded-lg border border-accent bg-status-amberBg px-3 py-2 text-sm font-semibold text-status-amber"
+                              >
+                                ⚠ Quote not found in your text. Not counted.
+                              </p>
+                            )}
+                            {doc.quote && (
+                              <p className="mt-0.5 text-sm text-muted" data-testid="source">
+                                Source: <span className="italic">“{doc.quote}”</span>
+                              </p>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              ) : (
+                <p className="mt-2 text-muted">Check the official notice for the document list.</p>
+              )}
+            </div>
+          </div>
         )}
-        <span className="text-xs text-slate-500">Always confirm on the official portal.</span>
       </div>
-
-      <details className="mt-4 rounded-xl border border-slate-200">
-        <summary className="cursor-pointer select-none px-3 py-2 text-sm font-medium text-indigo-800">
-          All rules and quotes ({rows.length})
-        </summary>
-        <ul className="divide-y divide-slate-200 border-t border-slate-200">
-          {checked.map((r, i) => (
-            <RowItem key={`c${i}`} row={r} />
-          ))}
-          {alsoCheck.map((r, i) => (
-            <RowItem key={`a${i}`} row={r} />
-          ))}
-        </ul>
-      </details>
     </article>
   );
 }

@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   // with the /api/schemes function.
   outputFileTracingIncludes: {
     "/api/schemes": ["./databank/schemes/*.json", "./databank/registers/*.csv"],
+    // The landing page reads the scheme count from the data bank too.
+    "/": ["./databank/schemes/*.json", "./databank/registers/*.csv"],
   },
   turbopack: {
     rules: {

@@ -1,21 +1,128 @@
 @import "tailwindcss";
 
-:root {
-  color-scheme: light;
+/*
+  ScholarPath theme, written for Tailwind v4 (CSS-first). The v3 `tailwind.config.ts`
+  from the design is not used: its colours, shadow, radius, fonts and animation are
+  declared here instead, which gives the same class names (bg-brand, text-muted,
+  rounded-card, shadow-card, font-display, animate-enter, text-status-greenBg ...).
+*/
+@theme {
+  --color-brand: #115e59;
+  --color-brand-dark: #0b4541;
+  --color-brand-light: #e8f3f0;
+  --color-accent: #f4b544;
+  --color-paper: #faf8f3;
+  --color-ink: #172b2a;
+  --color-muted: #526260;
+  --color-line: #dce3de;
+
+  --color-status-green: #166534;
+  --color-status-greenBg: #ecfdf3;
+  --color-status-amber: #92400e;
+  --color-status-amberBg: #fffbeb;
+  --color-status-red: #b91c1c;
+  --color-status-redBg: #fef2f2;
+  --color-status-grey: #4b5563;
+  --color-status-greyBg: #f3f4f6;
+  --color-status-blue: #075985;
+  --color-status-blueBg: #f0f9ff;
+
+  --shadow-card: 0 8px 30px -16px rgba(23, 43, 42, 0.18);
+  --radius-card: 1.5rem;
+
+  --animate-enter: enter 180ms ease-out both;
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
-body {
-  background: #f8fafc;
-  color: #0f172a;
-  font-family:
-    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
-  -webkit-text-size-adjust: 100%;
+/* The next/font variables are named *-nf so they don't clash with the theme names. */
+@theme inline {
+  --font-sans: var(--font-body-nf), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-display-nf), Georgia, "Times New Roman", serif;
 }
 
-/* 16px inputs stop iPhones zooming in when a field is tapped. */
-input,
-select,
-textarea {
-  font-size: 16px;
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-sans text-base leading-relaxed text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-balance;
+  }
+
+  /* 16px form text stops phones zooming in when a field is tapped. */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  :focus-visible {
+    outline: 3px solid #115e59;
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: #f4b544;
+    color: #172b2a;
+  }
+}
+
+@layer components {
+  .page {
+    @apply mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-card border border-line bg-white shadow-card;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-widest text-brand;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 font-semibold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-brand bg-white px-5 py-3 font-semibold text-brand transition-colors hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .field {
+    @apply min-h-12 w-full rounded-xl border border-muted bg-white px-4 py-3 text-base text-ink placeholder:text-muted;
+  }
+
+  .field-label {
+    @apply mb-2 block font-semibold;
+  }
+
+  .text-link {
+    @apply inline-flex min-h-11 items-center gap-2 font-semibold text-brand underline decoration-brand/40 underline-offset-4 hover:decoration-brand;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
