@@ -4,6 +4,7 @@ import {
   CATEGORY_LABELS,
   COURSE_LEVELS,
   COURSE_LEVEL_LABELS,
+  FIELD_LABELS,
   STATES,
   type Category,
   type CourseLevel,
@@ -16,17 +17,7 @@ import {
   toCanonical,
 } from "./normalize";
 
-const FIELD_LABEL: Record<Field, string> = {
-  course_level: "Course level",
-  age: "Age",
-  state: "State",
-  category: "Category",
-  annual_income: "Annual family income",
-  marks_percent: "Marks",
-  work_experience: "Work experience",
-  nationality: "Nationality",
-  none: "Other requirement",
-};
+const FIELD_LABEL = FIELD_LABELS;
 
 type Outcome = Pick<EvaluatedRow, "status" | "unknownKind" | "explanation">;
 

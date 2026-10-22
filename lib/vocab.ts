@@ -85,6 +85,18 @@ export const FIELDS = [
 ] as const;
 export type Field = (typeof FIELDS)[number];
 
+export const FIELD_LABELS: Record<Field, string> = {
+  course_level: "Course level",
+  age: "Age",
+  state: "State",
+  category: "Category",
+  annual_income: "Annual family income",
+  marks_percent: "Marks",
+  work_experience: "Work experience",
+  nationality: "Nationality",
+  none: "Other requirement",
+};
+
 export const OPERATORS = [
   "gte", // greater than or equal ("at least")
   "lte", // less than or equal ("not more than")

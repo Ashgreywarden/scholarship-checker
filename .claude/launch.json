@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "scholarship-checker",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "scholarship-checker-tamper",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "set MOCK_AI=tamper&& npm run dev"],
+      "port": 3000
+    }
+  ]
+}
