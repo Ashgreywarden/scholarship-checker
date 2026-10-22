@@ -1,0 +1,128 @@
+{
+  "id": "depwd_post_matric_disabilities",
+  "name": "Post Matric Scholarship for Students with Disabilities (Central Sector Umbrella Scheme 'Scholarships for Students with Disabilities')",
+  "provider": "Department of Empowerment of Persons with Disabilities (Divyangjan), Ministry of Social Justice & Empowerment",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "disability"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/DEPDGuidelines_1.pdf",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/depwd_umbrella_v1.txt",
+      "sha256": "41aa479a1fa147913dfcc7ac69ae134619b163a9725902e40231e0548f637b84"
+    },
+    {
+      "url": "https://depwd.gov.in/en/scholarship-post-matric/",
+      "fetched_at": "2026-10-22T10:21Z",
+      "raw_file": "raw/depwd_post_matric_landing.txt",
+      "sha256": "c0affd03e22dc8a09571bf28f02aa3ae6aba9d73ca3c4c73748d8084ad8342e2"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "disability",
+      "op": ">=",
+      "value": 40,
+      "quote": "All the components of scholarships are open to students with benchmark disability i.e. 40% or more disability as defined in ‘Rights of Persons with Disabilities Act, 2016",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "Post- Matric XI, XII, Post- matriculation Diploma/ Certificates, Bachelor’s Degree or Diploma in India, Master’s Degree/ Diploma from any University recognized by UGC/AICTE. 17,000 (including renewal cases) Rs. 2.5 lakh 50%",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "class 11-12",
+        "diploma",
+        "UG",
+        "PG"
+      ],
+      "quote": "Post- Matric Scholarship will be given for study of all recognized post- matriculation or post-secondary courses (upto Master degree level) pursued in recognized institutions/Universities",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Indian nationals only; UDID and Aadhaar required",
+      "quote": "The scholarships are open only to Indian nationals.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max two children with disabilities per parents",
+      "quote": "Not more than two children with disabilities of the same parents will be entitled to receive benefits of the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other scholarship/stipend",
+      "quote": "A scholarship holder under this scheme will not avail any other scholarship/stipend.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "correspondence/distance students also eligible",
+      "quote": "Students who pursue their studies through correspondence courses are also eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "17,000 slots incl. renewals; 50% for female candidates; merit = disability percentage",
+      "quote": "Merit Criteria for Selection will be Percentage of disability as indicated in the disability certificate.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Tuition/admission fee up to Rs 1.40 lakh p.a., misc fee up to Rs 10,000, maintenance Rs 1,200 pm hosteller / Rs 650 pm day scholar, disability allowance Rs 2,000-4,000 p.a., books Rs 1,500 p.a.",
+    "quote": "Reimbursement of admission fee and tuition fee paid/ payable to the Institution/university Up to Rs. 1.40 lakh – per annum (subject to actual amount)."
+  },
+  "documents": [
+    {
+      "name": "Disability certificate, income certificate, fee receipt, last qualification certificate, photo, proof of age",
+      "quote": "All requisite documents like photograph, proof of age, disability certificate, income certificate of the parent, tuition fees receipt, last academic qualification certificate, etc. duly filled in the prescribed format are required to be uploaded in the on-line system."
+    },
+    {
+      "name": "Income certificate from Revenue Officer (self-employed parents)",
+      "quote": "Income declaration of self-employed parents/guardian should be in the form of a certificate issued by the Revenue Officers authorized by the concerned States/UTs."
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Post Matric Scholarship For Students With Disabilities (Welfare Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "guidelines_revised_25_sep_2024"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

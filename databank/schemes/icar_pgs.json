@@ -1,0 +1,106 @@
+{
+  "id": "icar_pgs",
+  "name": "ICAR Post Graduate Scholarship (PGS) (erstwhile ICAR-JRF (PGS))",
+  "provider": "Indian Council of Agricultural Research (DARE)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/FAQ/FAQsforICAR _PGS_Scholarship_3105.pdf",
+      "fetched_at": "2026-10-22T10:21Z",
+      "raw_file": "raw/icar_pgs_faq.txt",
+      "sha256": "8c03fbe705ad34ab388f6ec973bec8cf6d7d29ce42443dd91f2938061b310e82"
+    },
+    {
+      "url": "https://icar.org.in/sites/default/files/Circulars/Guidelines%20for%20ICAR-JRF%20SRF%20and%20ICAR-PG%20Scholarship.pdf",
+      "fetched_at": "2026-10-22T10:08Z",
+      "raw_file": "raw/icar_jrf_srf_pgs.txt",
+      "sha256": "4305990912cb31ab58893b5764bc3d00612e99382719f6fc787e377a48e339a8"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "ICAR All India Entrance Examination (PG), AIQ seat"
+      ],
+      "quote": "ICAR-Post Graduate Studies (PGS) Scholarship will be awarded on the basis of merit in the All India Entrance Examination (AIEE) in the Agricultural University.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "quote": "Candidates must have obtained 60% marks or Overall Grade Point Average (OGPA) of 6.60/10.00 or 3.25/5.00 or 2.6/4.00 for General, OBC and Under Privileged States (UPS) categories",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 55,
+      "quote": "for SC/ST /Physically Challenged (PC) categories, the candidates must have obtained 55% marks or an OGPA of 5.5/10.00 or 2.75/5.00 or 2.20/4.00",
+      "quote_verified": true,
+      "condition": "SC/ST/PwD"
+    },
+    {
+      "field": "age_min",
+      "op": ">=",
+      "value": 19,
+      "quote": "Minimum age limit shall be 19 years as on the date of the examination.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "600 slots per year; duration 2 years",
+      "quote": "600 fellowships are awarded every year based on the merit obtained through All India Entrance Examination (AIEE).",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other fellowship concurrently",
+      "quote": "A fellow will not be allowed to avail of any other fellowship/scholarship during the tenure of fellowship of the Council.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 12,640 per month plus Rs 6,000 per year contingency",
+    "quote": "awarded @ Rs.12640/- per month & 6000/- per year Contingency to PG students for entire duration of degree programme"
+  },
+  "documents": [
+    {
+      "name": "ICAR award letter",
+      "quote": "Award letter issued by the ICAR may be required:"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Icar Post Graduate Scholarship(Pgs) (Merit Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "icar_guideline_pdf_is_2016_revision",
+    "ocr_doubt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

@@ -1,0 +1,74 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "up_post_matric_general",
+  "name": "Post Matric Scholarship Scheme for General Category (Dashamottar Chhatravritti), Uttar Pradesh",
+  "provider": "Department of Social Welfare, Government of Uttar Pradesh",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Uttar Pradesh",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://samajkalyan.up.gov.in/en/article/scholarship-scheme",
+      "fetched_at": "2026-10-22T10:40Z",
+      "raw_file": "raw/up_post_matric_sc_general.txt",
+      "sha256": "3556bf49f060d3410c1505b03c2f8e319c610eef69add6e3a5c53353b8b5e2e5"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "general"
+      ],
+      "quote": "and for General category 2,00,000/- (Rupees Two lakh only).",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 200000,
+      "quote": "and for General category 2,00,000/- (Rupees Two lakh only).",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Entire process online on scholarship.up.gov.in; paid via PFMS",
+      "quote": "Amount of scholarship is transferred in the bank accounts of students through P.F.M.S.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Not stated on summary page (see scanned niyamavali PDF 'rename-Gen 2023')",
+    "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Not stated; applications on scholarship.up.gov.in",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarship.up.gov.in",
+  "confidence": "medium",
+  "review_flags": [
+    "secondary_page",
+    "no_deadline",
+    "no_amount",
+    "rules_pdf_scanned_hindi_not_extracted",
+    "income_limit_may_have_changed_news_apr_2026_reports_doubling"
+  ]
+}

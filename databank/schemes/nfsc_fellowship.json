@@ -1,0 +1,71 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "nfsc_fellowship",
+  "name": "National Fellowship for Scheduled Caste Students (NFSC)",
+  "provider": "Ministry of Social Justice and Empowerment via NSFDC",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "SC"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/schemes/29",
+      "fetched_at": "2026-10-22T09:19Z",
+      "raw_file": "raw/nfsc_fellowship.txt",
+      "sha256": "c930af61a52123fdaa2e7558c5f2efb4c00bee3657341abb5cd1b556ca355cbf"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC"
+      ],
+      "quote": "financial assistance to students belonging to SC category to pursue higher studies leading to M.Phil/Ph.D",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "UGC NET",
+        "Joint CSIR UGC NET"
+      ],
+      "quote": "who have qualified in the UGC NET / Joint CSIR UGC NET exam",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "PhD"
+      ],
+      "quote": "to undertake advanced studies and research leading to M.Phil/Ph.D Degrees",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "2,000 fellowships a year (1,500 humanities/social science, 500 science); rates per guideline PDF",
+    "quote": "The scheme provides for 2000 new Fellowships (1500 Junior Research Fellows for Humanities/ Social Sciences and 500 Junior Research Fellows for Science stream) per year"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Selection through UGC NET / CSIR NET cycles run by NTA",
+    "quote": "The SC candidates to be awarded with NFSC are selected by National Testing Agency (NTA) through UGC NET and Joint CSIR UGC NET exams.",
+    "status": "unknown"
+  },
+  "apply_url": "https://socialjustice.gov.in/schemes/29",
+  "confidence": "medium",
+  "review_flags": [
+    "fetch_guideline_pdf_for_rates_and_income_rule"
+  ]
+}

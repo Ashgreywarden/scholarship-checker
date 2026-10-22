@@ -1,0 +1,113 @@
+{
+  "id": "pm_usp_csss",
+  "name": "PM-USP Central Sector Scheme of Scholarship for College and University Students (CSSS)",
+  "provider": "Department of Higher Education, Ministry of Education",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_06022024.pdf",
+      "fetched_at": "2026-10-22T10:14Z",
+      "raw_file": "raw/pm_usp_csss_guidelines.txt",
+      "sha256": "0d29f925d41e94e9ea8c8ebb24fe7bb60404a5f3b0a18b3e825a36696a160e9e"
+    },
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/FAQ_DOHE_CSSS.pdf",
+      "fetched_at": "2026-10-22T10:07Z",
+      "raw_file": "raw/pm_usp_csss.txt",
+      "sha256": "0cebb094ca2a975f7a920cd39d3232d063ffdfe4cafb7070942302860ff56246"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": "80th percentile in Class XII board (stream-wise)",
+      "quote": "Students who are above 80 th percentile of successful candidates in the relevant stream from a particular Board of Examination in Class XII",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 450000,
+      "quote": "Having family income upto Rs. 4.5 lakh per annum",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "regular degree (not correspondence/distance, not diploma)"
+      ],
+      "quote": "Students pursuing regular course (not correspondence or distance mode)",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "diploma students and gap-year students not eligible",
+      "quote": "Students who had taken a drop after 12 th class are not eligible under the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other scholarship or fee reimbursement",
+      "quote": "Not receiving any other scholarship or fee reimbursement of any kind",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "renewal needs 50% marks and 75% attendance; max 5 years",
+      "quote": "Student must secure at least 50% marks and maintain adequate attendance of at least 75%.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "50% slots for girls; SC 15%, ST 7.5%, OBC 27%, 5% PwBD horizontal",
+      "quote": "merit list is drawn based on gender (50 boys: 50 girls), stream (3-Science: 1-Commerce: 3-Humanities), Category (SC-15 %, ST-7.5 % and OBC-27 %)",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 12,000 p.a. for first 3 years of graduation; Rs 20,000 p.a. at PG level and in 4th/5th year of professional courses",
+    "quote": "The rate of scholarship is Rs. 12,000/- per annum at Graduation level for first three years of College and University courses and Rs. 20,000/- per annum at Post-Graduation level."
+  },
+  "documents": [
+    {
+      "name": "Income certificate (fresh applicants only)",
+      "quote": "Income certificate will be required onlyforthe fresh applicants"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 lists this scheme for renewal only; student application close 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "PM-USP – Central Sector Scheme Of Scholarship For College And University Students (CSSS) (Merit Based Scheme) Scheme Open from (for Renewal): ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "nsp_2026_27_window_is_renewal_only",
+    "guideline_pdf_text_has_collapsed_spaces"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

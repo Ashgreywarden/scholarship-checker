@@ -1,0 +1,117 @@
+{
+  "id": "pmss_railways_rpf",
+  "name": "Prime Minister's Scholarship Scheme for RPF/RPSF (Ministry of Railways)",
+  "provider": "Ministry of Railways (Railway Board, Security Directorate) under the National Defence Fund",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/MORB_GL.pdf",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/pmss_railways.txt",
+      "sha256": "7a7862449f6b60db2e9e56b36c797e6f08349db3cd83cb25a3c59996564f19b1"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "parent_occupation",
+      "op": "in",
+      "value": [
+        "RPF/RPSF personnel (ex/serving, below gazetted rank); widows"
+      ],
+      "quote": "Category (III): Wards of ex-RPF/RPSF (retired) personnel. Category (IV): Wards of serving RPF/RPSF personnel.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "quote": "Students should have secured 60% and above in Minimum Entry Qualification (MEQ) i.e. 12 th Std., Diploma/Graduation.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "professional degree courses (BE/B.Tech, MBBS, BDS, B.Ed, BBA, BCA, B.Pharma, MBA, MCA, 5-yr integrated law)"
+      ],
+      "quote": "Professional Degree Courses like BE, B.Tech, BDS, MBBS, BEd, BBS, BCA, MCA B. Pharma, etc. duly recognized by the respective Government Regulatory Bodies",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "not_in",
+      "value": [
+        "master's except MBA/MCA",
+        "study abroad",
+        "distance learning"
+      ],
+      "quote": "Master Degree Courses are not eligible for PMSS except MBA, MCA",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "only two wards per family; one course only",
+      "quote": "The scholarship is admissible for only two wards per family",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "150 scholarships per session, 75 reserved for girls",
+      "quote": "A total number of 150 students (from academic session 2015-16) have been earmarked to RPF for an academic session. Half of the scholarships are reserved for female candidates i.e. 75.",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "AISHE-registered institutions"
+      ],
+      "quote": "Only the institutes/universities/colleges having AISHE regulation will be permissible.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 2,500 per month for male students; Rs 3,000 per month for female students; 2 to 5 years",
+    "quote": "(i) 2500/- per month for male students (ii) 3000/- per month for female students"
+  },
+  "documents": [
+    {
+      "name": "Service certificate (serving personnel) or PPO/discharge certificate (ex-personnel)",
+      "quote": "A copy of PPO/Discharge certificate/book for Categories I, II and III."
+    },
+    {
+      "name": "MEQ marksheet / grade card",
+      "quote": "Applicants are required to upload scanned copy of the mark-sheet/Grade card of MEQ i.e. 10+2/ Diploma/Graduation (as the case may be)."
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "Guideline schedule: online application by 31 October; NSP 2026-27 lists student application close 31-10-2026",
+    "quote": "Filling of online application by the applicant on www.scholarship.gov.in 31 October",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "guideline_is_2022_23_and_onwards_version"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

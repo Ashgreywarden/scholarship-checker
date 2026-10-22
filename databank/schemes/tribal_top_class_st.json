@@ -1,0 +1,114 @@
+{
+  "id": "tribal_top_class_st",
+  "name": "National Fellowship and Scholarship for Higher Education of ST Students - Scholarship (formerly Top Class Education for Scheduled Tribe Students)",
+  "provider": "Ministry of Tribal Affairs, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "ST"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/tribalfellowshipfaq.pdf",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/tribal_nfs_faq.txt",
+      "sha256": "ece340abc87f952bd629922218a33e3a10f2b4efe36d05c247018d2d66e3f2f9"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2025-26",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "ST"
+      ],
+      "quote": "ST students of the 265 Institutions, which are identified by Ministry of Tribal Affairs as Top Class Institutions are eligible for the scholarship under the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "265 Top Class Institutions notified by MoTA"
+      ],
+      "quote": "ST students of the 265 Institutions, which are identified by Ministry of Tribal Affairs as Top Class Institutions are eligible for the scholarship under the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 600000,
+      "quote": "The total family income of the student to be eligible for this scholarship from all sources should not exceed Rs.6.0 lakh per annum.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "income = gross income of both parents; spouse income added if married",
+      "quote": "In case of married candidates, the spousal income will also be added to compute total family income.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "income certificate once at admission; increase later does not bar renewal",
+      "quote": "Income certificate is required to be taken once only i.e. at the time of admission to courses which are continuing for more than one year.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "one-time laptop assistance not repeated",
+      "quote": "Any one-time assistance, such as for a laptop, will not be repeated if it has already been availed.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Full tuition and non-refundable fees (ceiling Rs 2.50 lakh p.a. in private institutes), books Rs 5,000 p.a., stipend Rs 3,000 per month, computer Rs 45,000 one-time (Rs 86,000 misc for fresh, Rs 41,000 renewal)",
+    "quote": "There will be a ceiling of Rs. 2.50 lakhs per annum per student for private sector Institutes. 2. Books & Stationery @ Rs.5000/- per annum per annum per student without bills/vouchers. 3. Stipend @ Rs.3000/-per month"
+  },
+  "documents": [
+    {
+      "name": "Family income certificate from State competent authority (not notary)",
+      "quote": "Income Certificate: Fresh applicants should upload latest family Income certificate for the year 2025-26"
+    },
+    {
+      "name": "ST community / PVTG certificate",
+      "quote": "ST Community/PVTG Certificate signed and stamped by Competent Authority (Certificate signed by Notary is not valid)."
+    },
+    {
+      "name": "Bank passbook copy",
+      "quote": "Scanned Copy of the Passbook clearly showing the account number and name of the student"
+    },
+    {
+      "name": "Marksheet of last academic qualification",
+      "quote": "Scanned Copy of Marksheet of Last Academic Qualification"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "National Fellowship And Scholarship For Higher Education Of ST Students - Scholarship (Formally Top Class Education For Schedule Tribe Students) (Merit Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "medium",
+  "review_flags": [
+    "source_is_official_mota_faq_for_2025_26_not_guideline",
+    "tribal_nic_in_guideline_pdf_unreachable"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

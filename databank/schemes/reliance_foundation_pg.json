@@ -1,0 +1,116 @@
+{
+  "id": "reliance_foundation_pg",
+  "name": "Reliance Foundation Postgraduate Scholarships",
+  "provider": "Reliance Foundation",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.reliancefoundation.org/PG_Scholarship.aspx",
+      "fetched_at": "2026-10-22T10:07Z",
+      "raw_file": "raw/reliance_foundation_pg.txt",
+      "sha256": "875018ce08a98a7039a07a55fb43c0057a4164ee46fdb67529248fb476f6083b"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "==",
+      "value": "resident Indian citizen",
+      "quote": "Be a resident Indian citizen",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "1st year PG, full-time",
+      "quote": "Reliance Foundation invites first year postgraduate students who are enrolled full-time in an eligible degree programme",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "note",
+      "value": "GATE score 550-1000 OR UG CGPA >= 7.5",
+      "quote": "First year PG Students who secured a score of 550 - 1,000 in the GATE Examination.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": "note",
+      "value": "UG CGPA 7.5 or above (alternative to GATE)",
+      "quote": "Students who have scored 7.5 or above in their Undergraduate CGPA (or % normalised to CGPA)",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "Computer Science",
+        "Artificial Intelligence",
+        "Mathematics & Computing",
+        "Electrical/Electronics Engg",
+        "Chemical Engg",
+        "Mechanical Engg",
+        "Renewable & New Energy",
+        "Material Science & Engg",
+        "Life Sciences"
+      ],
+      "quote": "Eligible degree programmes – Computer Science, Artificial Intelligence, Mathematics & Computing, Electrical/or Electronics Engg., Chemical Engg., Mechanical Engg., Renewable & New Energy, Material, Science & Engg. and Life Sciences",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "not_in",
+      "value": [
+        "online/remote/distance/hybrid/part-time",
+        "2nd year PG"
+      ],
+      "quote": "Students pursuing their degree through online, remote, distance, hybrid, part-time or any other non-regular modes",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "merit only, all socio-economic backgrounds; aptitude test mandatory",
+      "quote": "We welcome applicants from all socio-economic backgrounds and scholarships will be granted on the basis of merit.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Up to Rs 6 lakh over the degree; up to 100 scholars; 80% advance, 20% on request",
+    "quote": "The total amount of scholarship available over the duration of the degree programme, will be up to Rs/INR 6 Lakhs."
+  },
+  "documents": [
+    {
+      "name": "Two letters of reference",
+      "quote": "Two Letters of Reference: One that attests to your academic capabilities and one that attests to your character and leadership traits"
+    },
+    {
+      "name": "Two essays",
+      "quote": "Two Essays: Personal Statement and Statement of Purpose"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Applications for 2026-27 closed",
+    "quote": "Applications for the 2026-27 scholarships are now closed.",
+    "status": "closed"
+  },
+  "apply_url": "https://scholarships.reliancefoundation.org/PG_Scholarship.aspx",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "no_deadline_date_on_page",
+    "no_income_limit"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

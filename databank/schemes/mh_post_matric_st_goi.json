@@ -1,0 +1,91 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mh_post_matric_st_goi",
+  "name": "Post Matric Scholarship Scheme (Government of India) for ST students - Maharashtra",
+  "provider": "Tribal Development Department, Government of Maharashtra (centrally sponsored, via MahaDBT)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Maharashtra",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "ST"
+  ],
+  "sources": [
+    {
+      "url": "https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51A668ED132B54E2162E54C475F826D85C79DA948301E5F7772",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/mh_post_matric_st_goi.txt",
+      "sha256": "c1b706f7e71958882d0f757e7b898e3f2a91f6b7f11686a1ee367e8049a67609"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "ST"
+      ],
+      "quote": "Scheme of Post Matric Scholarships to the students belonging to Scheduled Tribes for Studies in India",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "If Family Income <= 2,50,000, he will get the scholarship",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "note",
+      "value": "post-matric (minimum 10th pass)",
+      "quote": "Minimum 10th Pass",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Two consecutive drop years disqualify",
+      "quote": "Back to back drop for 2 years he/she will not be allowed to fill form.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Maintenance per month hosteller/day scholar: Group 1 Rs 1200/550, Group 2 Rs 820/530, Group 3 Rs 570/300, Group 4 Rs 380/230; plus book grant Rs 1200 pa, study tour Rs 1600 pa, disability allowances",
+    "quote": "Group 1 : 1200/550Rs,Group 2 :820/530Rs,Group 3 :570/300 Rs,Group 4 :380/230 Rs"
+  },
+  "documents": [
+    {
+      "name": "Caste certificate",
+      "quote": "1.Caste Certificate"
+    },
+    {
+      "name": "Income certificate",
+      "quote": "2.Income Certificate"
+    },
+    {
+      "name": "Caste validity (professional courses)",
+      "quote": "Professional Course selected than caste validity certificate mandatory"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Apply on MahaDBT; no date on scheme page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://mahadbt2.maharashtra.gov.in/",
+  "confidence": "medium",
+  "review_flags": [
+    "no_deadline",
+    "summary_page_terse"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "nec_merit_scholarship",
+  "name": "Financial Support to the Students of NER for Higher Professional Courses (NEC Merit Scholarship)",
+  "provider": "North Eastern Council (NEC), Ministry of Development of North Eastern Region",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/NEC_1234_F.pdf",
+      "fetched_at": "2026-10-22T10:07Z",
+      "raw_file": "raw/nec_merit_scholarship.txt",
+      "sha256": "277c14280dc2e3cb4ec8fcd98e63a2eb5838496a3eb96dadd1288779b87a24fb"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "the scholarship shall be admissible to the students whose parent / guardian’s annual income from all sources shall not exceed Rs 8.0 lakh.",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "in",
+      "value": [
+        "North Eastern Region states"
+      ],
+      "quote": "Students fulfilling the eligibility criteria of the scheme guidelines of NEC Merit Scholarship of Ministry of DoNER are eligible to apply for these scholarships.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "purely merit on qualifying exam marks; no category/religion/gender quota",
+      "quote": "There will not be any reservation/quota on the basis of category/religion/gender.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "fresh only in year of commencement; renewal every year",
+      "quote": "a student shall only be considered for scholarship in the year of commencement of his/her course. For subsequent year of course, only renewal will be allowed.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "MPhil/PhD selection on NER-relevant research topic",
+      "quote": "Selection of students for M. Phil and Ph. D. will be done on the basis of topic of research/Synopsis which has relevance to the problems/issues related to NE Region.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Per annum: Diploma Rs 20,000; Degree Rs 22,000; PG Rs 25,000; MPhil/PhD Rs 30,000",
+    "quote": "Diploma 20,000/-p.a. Degree 22,000/- p.a. Post graduate 25,000/- p.a. M. Phil./Ph D 30,000/- p.a."
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 lists this scheme for renewal only; student application close 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Financial Support To The Students Of NER For Higher Professional Courses(NEC Merit Scholarship) (Merit Based Scheme) Scheme Open from (for Renewal): ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "medium",
+  "review_flags": [
+    "source_is_nsp_faq_not_rules_for_award",
+    "nsp_2026_27_window_is_renewal_only",
+    "domicile_rule_inferred_from_scheme_name"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

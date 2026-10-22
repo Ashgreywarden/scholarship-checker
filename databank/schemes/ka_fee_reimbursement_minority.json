@@ -1,0 +1,78 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ka_fee_reimbursement_minority",
+  "name": "Fee Reimbursement scheme for Minorities - Karnataka",
+  "provider": "Department of Minority Welfare, Government of Karnataka (via SSP)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Karnataka",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "minority"
+  ],
+  "sources": [
+    {
+      "url": "https://ssp.karnataka.gov.in/Schemes.aspx",
+      "fetched_at": "2026-10-22T10:50Z",
+      "raw_file": "raw/ka_ssp_postmatric_schemes.txt",
+      "sha256": "00c7664a8588e66bee3c348017104718636ef577c8ed1914da0b5d427f6e042b"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "minority"
+      ],
+      "quote": "Fee Reimbursement scheme for Minorities — Eligibility\nCaste\nMinority students",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "<= 2.5 lakhs for students studying in MCM courses and <=Rs. 2 lakhs for students studying Postmatric Scholarship courses",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">",
+      "value": 50,
+      "quote": "Previous year percentage\nMore than 50% in previous year",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "Excludes KSOU, residential colleges, internship courses",
+      "quote": "Course Type\nAll excluding internship courses\nCollege Type\nAll except KSOU & residential colleges",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Fee reimbursement (amount not stated)",
+    "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Applications open for FY 2026-27 on SSP",
+    "quote": "Scholarship application is open to submit applications for FY 2026-27.",
+    "status": "open"
+  },
+  "apply_url": "https://ssp.postmatric.karnataka.gov.in/post_sa_2627/login",
+  "confidence": "medium",
+  "review_flags": [
+    "no_amount",
+    "no_closing_date",
+    "income_limit_2_lakh_for_post_matric_courses"
+  ]
+}

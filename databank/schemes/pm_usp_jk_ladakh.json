@@ -1,0 +1,133 @@
+{
+  "id": "pm_usp_jk_ladakh",
+  "name": "PM-USP Special Scholarship Scheme for the Students of UTs of Jammu & Kashmir and Ladakh (SSS J&K and Ladakh, formerly PMSSS)",
+  "provider": "Department of Higher Education, Ministry of Education (implemented by AICTE)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/AICTE/PM_USPY(SSSJKL)SchemeSpecifications.pdf",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/pm_usp_jk_ladakh.txt",
+      "sha256": "faa3b7e688273c0712a721cfbe71943b7d27dbc8b2cdc4f5dd9431f6e5b7cd67"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2025-26",
+  "rules": [
+    {
+      "field": "domicile_state",
+      "op": "in",
+      "value": [
+        "Jammu & Kashmir",
+        "Ladakh"
+      ],
+      "quote": "Candidates should be domicile of Union Territories of J&K and Ladakh.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "class 12 from JKBOSE/CBSE school in J&K or Ladakh",
+      "quote": "Students must have passed 12 th examination from JKBOSE or CBSE affiliated schools located in UTs of J&K and Ladakh.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "Having family income of Rs. 8.00 Lakh or less per annum.",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "outside J&K and Ladakh",
+      "quote": "secure admission in Government colleges/institutions and other select institutions outside the UTs of J&K and Ladakh through AICTE’s counselling process",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "UG"
+      ],
+      "quote": "Candidates pursuing Post-Graduate level studies, in any discipline.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "not_in",
+      "value": [
+        "diploma",
+        "open university",
+        "management quota"
+      ],
+      "quote": "Candidates pursing courses through Open Universities. (ii) Student availing benefit of any other scholarship Scheme",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "apply on AICTE portal, document verification at facilitation centre",
+      "quote": "Candidates are compulsorily required to apply online on the AICTE web-portal and verify their documents through nearest Facilitation Centers of J&K and Ladakh within time frame",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "NSP beneficiaries not eligible",
+      "quote": "STUDENTS ENROLED IN NATIONAL SCHOLARSHIP PORTAL (NSP) AS A BENEFICIARY AND/OR ALREADY AVAILING SCHOLARSHIP ARE NOT ELIGIBLE FOR THE SSSJKL",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Academic fee up to Rs 30,000 (general), Rs 1.25 lakh (professional/engineering), Rs 3 lakh (medical) plus fixed maintenance allowance Rs 1 lakh per annum",
+    "quote": "upper ceiling of Academic Fee inclusive of all admissible components taken together is Rs. 1.25 Lakh for Professional / Engineering Stream; Rs. 30,000/- for General Stream and Rs. 3.00 Lakh for Medical Stream"
+  },
+  "documents": [
+    {
+      "name": "Domicile certificate of UT of J&K or Ladakh",
+      "quote": "Certificate of domicile of the Union Territory of Jammu & Kashmir or Ladakh"
+    },
+    {
+      "name": "Class 12 and 10 certificates / diploma certificate",
+      "quote": "Certificate of Class 12 th and 10 th Examination (for candidates who have passed class 12 th examination)"
+    },
+    {
+      "name": "Income certificate from UT competent authority",
+      "quote": "Income Certificate issued by the competent authority of UT of Jammu & Kashmir or UT of Ladakh."
+    },
+    {
+      "name": "Caste / disability certificate where applicable",
+      "quote": "Students applying under reserved quota must produce Caste Certificate (SC/ST/SEBC/EWS) issued by Union Territory Authorities."
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 lists this scheme for renewal only; student application close 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "PM USP Special Scholarship Scheme For Jammu Kashmir And Ladakh (Merit Based Scheme) Scheme Open from (for Renewal): ",
+    "status": "open"
+  },
+  "apply_url": "https://www.aicte-india.org/bureaus/jk",
+  "confidence": "high",
+  "review_flags": [
+    "specification_is_2025_26_cycle",
+    "nsp_window_is_renewal_only_fresh_applications_on_aicte_portal",
+    "no_deadline_in_guideline"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

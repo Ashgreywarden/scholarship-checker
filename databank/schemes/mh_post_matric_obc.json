@@ -1,0 +1,115 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mh_post_matric_obc",
+  "name": "Post Matric Scholarship to OBC Students (Maharashtra)",
+  "provider": "VJNT, OBC and SBC Welfare Department, Government of Maharashtra (via MahaDBT)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Maharashtra",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "OBC"
+  ],
+  "sources": [
+    {
+      "url": "https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51AB02E984835E89FEFDB316E301CE6A991F41C5D42B01A7D7E",
+      "fetched_at": "2026-10-22T10:25Z",
+      "raw_file": "raw/mh_post_matric_obc.txt",
+      "sha256": "7794e9d792dc78d9a0004d915e47977306e882f65dd437faf45f187352e59e4c"
+    }
+  ],
+  "cycle_named": "2025-26",
+  "rules": [
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "The parents/Guardians annual Income should be less than or equal to Rs.2.50 Lac.",
+      "quote_verified": true
+    },
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "OBC"
+      ],
+      "quote": "Applicant should be belongs to OBC category.",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Maharashtra",
+      "quote": "Applicants must be residents of Maharashtra.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "post-matric (class 11 onwards)",
+        "UG",
+        "PG",
+        "PhD"
+      ],
+      "quote": "Applicants must be pursuing the education course approved by the government from class Post-Matric.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "CAP round admission required for professional courses",
+      "quote": "Applicant should be come through CAP round for only professional courses.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "75% attendance; max 2 boys per family, any number of girls",
+      "quote": "75 % attendance is mandatory for current year.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Maintenance allowance Rs 90-425 per month by course group (hosteller/day scholar); tuition and exam fee 100% in govt/aided, 50% in unaided institutions; 100% benefit for girls per GR 8 July 2024",
+    "quote": "If Applicant select Course Group A - for hostlers Rs.425/p.m. & Day Scholars(Non Hostlers) Rs.190/p.m.",
+    "quote2": "As per the GR dt.8 ’th July 2024, 100 % benefit will be applicable for girl Applicant."
+  },
+  "documents": [
+    {
+      "name": "Caste certificate (Govt of Maharashtra)",
+      "quote": "Caste certificate - should be issued by competent authority(Issued by Govt. of Maharashtra)"
+    },
+    {
+      "name": "Income certificate / declaration",
+      "quote": "Income certificate / Income Declaration - should be issued by competent authority"
+    },
+    {
+      "name": "Caste validity certificate (professional courses)",
+      "quote": "Caste Validity Certificate – (Mandatory for Professional Degree courses, Professional Post Graduate."
+    },
+    {
+      "name": "Last exam / HSC / SSC marksheet",
+      "quote": "HSC or SSC marksheet or last examination marksheet."
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "MahaDBT 1.0 open for AY 2025-26 fresh applications; AY 2026-27 applications only via MahaDBT 2.0 (mahadbt2.maharashtra.gov.in)",
+    "quote": "Fresh and renewal applications for the Academic Year 2026-27 will be accepted only through the MahaDBT 2.0 Portal.",
+    "status": "unknown"
+  },
+  "apply_url": "https://mahadbt2.maharashtra.gov.in/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "portal_migration_mahadbt_2.0"
+  ]
+}

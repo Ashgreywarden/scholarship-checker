@@ -1,0 +1,78 @@
+{
+  "id": "aditya_birla_scholarship",
+  "name": "Aditya Birla Group Scholarships",
+  "provider": "Aditya Birla Group",
+  "provider_type": "corporate",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.adityabirlascholars.net/the-scholarship/eligibility-application-process/",
+      "fetched_at": "2026-10-22T10:22Z",
+      "raw_file": "raw/aditya_birla_scholarship.txt",
+      "sha256": "f52a1147889f36f31e77318aa7cd35efc72175d2c99f99bf2df31b6a3131bf7e"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "IIM Ahmedabad, Bangalore, Kolkata, Lucknow, Kozhikode, Shillong",
+        "XLRI Jamshedpur",
+        "IIT Mumbai, Delhi, Chennai, Kanpur, Kharagpur, Roorkee, Guwahati (B.Tech)",
+        "BITS Pilani campuses",
+        "NLSIU Bangalore",
+        "NALSAR Hyderabad",
+        "WBNUJS Kolkata",
+        "GNLU Gandhinagar",
+        "NLU Jodhpur",
+        "NLU Delhi"
+      ],
+      "quote": "Students from the following institutes can apply for the Scholarship:",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "only top 20 entrance-rank students per institute, invited through the Dean",
+      "quote": "The top 20 students (in terms of their entrance exam ranking at the time of admission) are invited to apply through the Dean of the respective institutes.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "renewal requires top 25% of batch",
+      "quote": "Assessment of certain scholastic standards being met: To belong to the top 25% of the batch population",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "IIMs/XLRI Rs 3,00,000 p.a.; IITs/BITS Pilani Rs 1,50,000 p.a.; Law Rs 1,80,000 p.a. or fees at actuals, whichever lower",
+    "quote": "IIMs/XLRI: INR 3,00,000 p.a."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "No date; scholarship announced in September each year, applications routed via institute Dean",
+    "quote": "As the Scholarship is announced only in September and given that students would have already paid their fees, the institute will refund the amount paid.",
+    "status": "unknown"
+  },
+  "apply_url": "https://www.adityabirlascholars.net/the-scholarship/eligibility-application-process/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "institute_nominated_only",
+    "no_income_criterion"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

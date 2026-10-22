@@ -1,0 +1,72 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "upgradation_merit_sc",
+  "name": "Upgradation of Merit of SC Students",
+  "provider": "Department of Social Justice and Empowerment (via States/UTs)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school"
+  ],
+  "target_group": [
+    "SC"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/schemes/26",
+      "fetched_at": "2026-10-22T09:19Z",
+      "raw_file": "raw/upgradation_merit_sc.txt",
+      "sha256": "efc95f744a8a2a65d480fff66280e20e44613e2cc346f933d22f1cdc35a98f58"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC"
+      ],
+      "quote": "upgrade the merit of SC students by providing them remedial and special coaching in classes IX to XII",
+      "quote_verified": true
+    },
+    {
+      "field": "class",
+      "op": "in",
+      "value": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "quote": "The coaching should start at class IX level and continue till a student completes class XII.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 300000,
+      "quote": "Income Ceiling: Rs. 3.00 Lakh per annum",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Package grant Rs 25,000 per student per year (Rs 15,000 to student incl. boarding, pocket money, books)",
+    "quote": "A package grant of Rs.25,000/- per student per year is provided"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Implemented through States/UTs; 2,050 fresh students a year in 19 States/UTs",
+    "quote": "Maximum 2050 fresh students will be covered under the Scheme annually.",
+    "status": "unknown"
+  },
+  "apply_url": "https://socialjustice.gov.in/schemes/26",
+  "confidence": "medium",
+  "review_flags": [
+    "state_implemented_check_state_portal",
+    "no_deadline"
+  ]
+}

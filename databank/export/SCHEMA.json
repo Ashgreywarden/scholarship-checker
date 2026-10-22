@@ -1,0 +1,23 @@
+{
+  "scheme": {
+    "id": "slug, stable",
+    "name": "official name as printed",
+    "provider": "body that pays",
+    "provider_type": "central | state | foreign_government | foundation | corporate | institute | trust",
+    "region": "india | abroad",
+    "state": "state name or null",
+    "level": ["school","diploma","UG","PG","PhD","any"],
+    "target_group": ["SC","ST","OBC","EBC","DNT","minority","girls","disability","general","first_generation"],
+    "sources": [{"url":"official page or PDF","fetched_at":"ISO","sha256":"of raw text","raw_file":"raw/<id>.txt"}],
+    "cycle_named": "e.g. 2026-27, or null",
+    "rules": [{"field":"income_annual_inr | category | marks_pct | age_max | domicile_state | course_level | gender | work_experience_years | other","op":"<= | >= | in | == | note","value":"number or list","quote":"verbatim from raw text","quote_verified":true}],
+    "amount": {"text":"as printed","quote":"verbatim"},
+    "documents": [{"name":"","quote":""}],
+    "deadline": {"date":"YYYY-MM-DD or null","text":"as printed","quote":"","status":"open | closed | unknown | stale_cycle"},
+    "apply_url": "",
+    "confidence": "high | medium | low",
+    "review_flags": ["stale_cycle","ocr_doubt","no_deadline","contradiction"],
+    "verified_on": "ISO date",
+    "extracted_by": "claude (this session) — no Gemini"
+  }
+}

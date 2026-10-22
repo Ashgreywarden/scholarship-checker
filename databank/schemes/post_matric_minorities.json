@@ -1,0 +1,154 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "post_matric_minorities",
+  "name": "Post-matric Scholarship Scheme for Minorities",
+  "provider": "Ministry of Minority Affairs, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "minority"
+  ],
+  "sources": [
+    {
+      "url": "https://www.indiascienceandtechnology.gov.in/nurturing-minds/scholarships/school/post-matric-scholarship-scheme-minorities",
+      "fetched_at": "2026-10-22T09:07Z",
+      "raw_file": "raw/post_matric_minorities.txt",
+      "sha256": "259f2c8d279d2419f3bd528d731c66adaa3e945356c6e36e008072d1216e53cf"
+    },
+    {
+      "url": "https://www.megeducation.gov.in/dhte/other_docs/guidelines/Guidelines Post Matric Scholarship of MOMA.pdf",
+      "fetched_at": "2026-10-22T10:27Z",
+      "raw_file": "raw/post_matric_minorities_guidelines.txt",
+      "sha256": "78993647832d5a1beac1a089980ddc27cea88d57a6f44945bf4a49c4a8254d54"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "minority"
+      ],
+      "quote": "meritorious students belonging to economically weaker sections of minority community",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 50,
+      "quote": "secured not less than 50% marks or equivalent grade in the previous final examination",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 200000,
+      "quote": "the annual income of whose parents/guardian from all sources does not exceed Rs. 2 Lakh",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "India",
+      "quote": "The scholarship is to be awarded for studies in India",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "30% earmarked for girls",
+      "quote": "30% of scholarship would be earmarked for girl students.",
+      "quote_verified": true
+    },
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "Muslim",
+        "Sikh",
+        "Christian",
+        "Buddhist",
+        "Jain",
+        "Parsi"
+      ],
+      "quote": "Muslims, Sikhs, Christians, Buddhists, Jain and Zoroastrians (Parsis) have been notified as minority communities under Section 2 (c) of the National Commission for Minorities Act, 1992.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "note",
+      "value": "courses under one year and certificate courses not covered",
+      "quote": "any course of less than one year duration is not covered under this scheme; Certificate courses are also not covered",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "selection weightage to lower income over marks",
+      "quote": "Inter-se selection weightage is to be given to poverty rather than marks",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max two students per family across MoMA scholarships",
+      "quote": "Scholarship will not be given to more than two students from a family (applicable for all Scholarship schemes meant for minorities under this Ministry taken together).",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "only one central scholarship for SC/ST/OBC/minority",
+      "quote": "A student shall be eligible for only one scholarship out of all the available Scholarships of Central Government meant for SC/ST/OBC/ minority.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "renewal needs 50% in previous year, same course and institute",
+      "quote": "The continuance of award (for Renewal applicants) will be subject to securing 50% marks in the previous year’s examination (provided the students pursues the same course and same Institute/School).",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Admission/tuition fee: Class XI-XII Rs 7,000 pa, technical/vocational XI-XII level Rs 10,000 pa, UG & PG Rs 3,000 pa (subject to actuals); maintenance allowance for 10 months: XI-XII Rs 380/230 pm (hosteller/day scholar), UG-PG non-technical Rs 570/300 pm, MPhil/PhD Rs 1,200/550 pm (2017-20 rates)",
+    "quote": "Admission and tuition fee for UG & PG level: Rs. 3,000/- per annum subject to actuals (both Hosteller & Day Scholar)"
+  },
+  "documents": [
+    {
+      "name": "Income certificate of parent/guardian",
+      "quote": "An Income Certificate, issued from a Competent Authority in the State/UT Governments is required in respect of parent/guardian of the student."
+    },
+    {
+      "name": "Self-certified community certificate",
+      "quote": "A Self-Certified Community Certificate is required from the student who has attained 18 years of age."
+    },
+    {
+      "name": "Aadhaar number",
+      "quote": "It will be necessary for the eligible applicants to provide Aadhaar number while applying for the scholarship"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "Apply on NSP; 2026-27 NSP student close 31-10-2026 per registers/nsp_central_2026_27.csv",
+    "quote": "It is mandatory for all students to apply online on the website i.e. www.scholarships.gov.in.",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "guidelines_are_2017_20_cycle_rates_may_be_revised",
+    "guideline_pdf_hosted_by_meghalaya_govt_original_moma_url_unreachable",
+    "deadline_from_nsp_register"
+  ]
+}

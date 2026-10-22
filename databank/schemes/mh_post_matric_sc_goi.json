@@ -1,0 +1,99 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mh_post_matric_sc_goi",
+  "name": "Government of India Post-Matric Scholarship (SC) - Maharashtra implementation",
+  "provider": "Social Justice and Special Assistance Department, Government of Maharashtra (centrally sponsored, via MahaDBT)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Maharashtra",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "SC"
+  ],
+  "sources": [
+    {
+      "url": "https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51ACE99921E698B1EE85995B38445F14746E1B0DD7E66FFF88B",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/mh_post_matric_sc_goi.txt",
+      "sha256": "4acd7ac75d69001939131d0e7e2cb6bbca1e08a181890aac6067ccff8199b145"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "The parents/Guardian annual income shall be less than or equal to Rs. 2,50,000.",
+      "quote_verified": true
+    },
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC",
+        "Neo-Buddhist"
+      ],
+      "quote": "Student category shall belong to Scheduled caste or Navbouddha",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Maharashtra",
+      "quote": "Student shall belong to resident of Maharashtra",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "note",
+      "value": "post-matric (passed SSC)",
+      "quote": "Student should be passes SSC/equivalent Matric.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Max two professional courses",
+      "quote": "Only 2 professional Courses are allowed.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Maintenance allowance per month (max 10 months): day scholar Rs 550/530/300/230, hosteller Rs 1200/820/570/380 by Group I-IV, plus all compulsory fees (tuition, exam, other)",
+    "quote": "all mandatory fees/ compulsory payable fees i.e. (Tuition Fees, Exam Fees & other Fees) by the student to the institutes are covered under this scheme."
+  },
+  "documents": [
+    {
+      "name": "Income certificate (Tahsildar)",
+      "quote": "Income Certificate(Provided by Tahesildar)"
+    },
+    {
+      "name": "Caste certificate",
+      "quote": "Cast Certificate."
+    },
+    {
+      "name": "Last exam marksheet",
+      "quote": "Mark sheet for last appeared examination"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Apply on MahaDBT; no date on scheme page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://mahadbt2.maharashtra.gov.in/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "portal_migration_mahadbt_2.0"
+  ]
+}

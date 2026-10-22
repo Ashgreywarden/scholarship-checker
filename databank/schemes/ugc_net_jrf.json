@@ -1,0 +1,78 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ugc_net_jrf",
+  "name": "Junior Research Fellowship in Science, Humanities and Social Sciences (UGC NET-JRF)",
+  "provider": "University Grants Commission (UGC)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.ugc.gov.in/Fellowship/stu_Fellowship1",
+      "fetched_at": "2026-10-22T10:15Z",
+      "raw_file": "raw/ugc_net_jrf.txt",
+      "sha256": "03806e000da0955fdffc8b882d1bf675cfd1ed4b74da8e3346d282352ffa8f02"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "UGC NET-JRF",
+        "UGC-CSIR joint test (JRF)"
+      ],
+      "quote": "Candidates who have qualified in NET-JRF or the UGC-CSIR joint test.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "MPhil",
+        "PhD"
+      ],
+      "quote": "to undertake advanced studies and research leading to M. Phil. / Ph. D. Degree in Humanities and Social Sciences including Languages and Sciences.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "must register for MPhil/PhD within 2 years of result/award letter",
+      "quote": "the registration for the M.Phil/PhD is made by the Universities/Institutions/Colleges within stipulated period of two years from the date of declaration of result or date of issue of award letter/date of joining the fellowship.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "tenure 5 years or thesis submission; 11,750 slots",
+      "quote": "5 years or submission of thesis whichever is earlier",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "JRF Rs 37,000 pm for 2 years; SRF Rs 42,000 pm thereafter; contingency Rs 10,000/20,500 pa (Humanities & Social Sciences) or Rs 12,000/25,000 pa (Science)",
+    "quote": "JRF @Rs. 37,000/-pm for 2 years SRF @Rs. 42,000/- pm for remaining period"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Governed by the UGC NET exam cycle conducted by NTA (June and December sessions); no date on this page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://ugcnet.nta.nic.in/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "age_limit_for_JRF_(30_years_with_relaxations)_is_in_NTA_bulletin_not_on_this_page"
+  ]
+}

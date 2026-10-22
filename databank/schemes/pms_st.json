@@ -1,0 +1,161 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "pms_st",
+  "name": "Post Matric Scholarship Scheme for ST students (Centrally Sponsored Scheme)",
+  "provider": "Ministry of Tribal Affairs, Government of India (implemented through States/UTs)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "ST"
+  ],
+  "sources": [
+    {
+      "url": "https://tribal.nic.in/Scholarship.aspx",
+      "fetched_at": "2026-10-22T10:06Z",
+      "raw_file": "raw/pms_st.txt",
+      "sha256": "af7dfba7fc96a203f007ce8381e52efc422f18059793324a5fa13b3aba40ff32"
+    },
+    {
+      "url": "https://megeducation.gov.in/dhte/other_docs/guidelines/Guidelines%20for%20PostMatric%20Umbrella%20Scheme%20of%20scholarships%20for%20ST%20students.pdf",
+      "fetched_at": "2026-10-22T10:25Z",
+      "raw_file": "raw/pms_st_regulations_2010.txt",
+      "sha256": "20d9007be65327e51527ac4b07f1278dcd7dd47aec2e8f5bcdb8300b3a52c40b"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "ST"
+      ],
+      "quote": "disbursement of scholarship to eligible ST students directly to their bank accounts through DBT",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "post-matric (any recognised course requiring Class X or above)"
+      ],
+      "quote": "Applicable to students who are pursuing any recognized course from a recognized institution for which qualification is Matriculation/Class X or above.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "Parental income from all sources should not exceed Rs.2.50 lakhs per annum.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "apply through State portal or National Scholarship Portal; State verifies eligibility",
+      "quote": "Inviting applications from students online through State Portal or National Scholarship Portal, check eligibility verification and disbursement of scholarship to eligible ST students",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Indian nationals; must have passed Matriculation/Higher Secondary or higher; ST of the State where permanently settled",
+      "quote": "Only those candidates who belong to Scheduled Tribes so specified in relation to the State/Union Territory to which the applicant actually belongs (i.e. permanently settled) and who have passed the Matriculation or Higher",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "India",
+      "quote": "These scholarships are available for studies in India only and are awarded by the Government of the State/Union Territory Administration to which the applicant actually belongs i.e. where permanently settled.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "same-stage repeat course not eligible",
+      "quote": "Candidates who after passing one stage of education are studying in the same stage of education in a different subject e.g. I.Sc after I.A. or B.Com after B.A. or M.A. in other subject will not be eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other scholarship/stipend concurrently",
+      "quote": "A scholarship holder under this scheme will not hold any other scholarship/stipend.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "all children of same parents eligible",
+      "quote": "All children of the same parents/guardians will be entitled to receive benefits of the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "correspondence/distance students eligible",
+      "quote": "Students who pursue their studies through correspondence courses are also eligible. The term correspondence includes distant and continuing education.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "2010 regulation income ceiling was Rs 2,00,000; since revised (tribal.nic.in states Rs 2.50 lakh)",
+      "quote": "Scholarships will be paid to the students whose parents/guardians’ income from all sources does not exceed Rs. 2,00,000/- (Rs. two lakh only) per annum",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "renewal on promotion to next class; one failure condoned for Group I",
+      "quote": "It will be renewed from year to year provided that within a course which is continuous for a number of years, the scholar secures promotion to the next higher class",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Compulsory non-refundable fees plus maintenance allowance per month (2010 rates, hosteller/day scholar): Group I Rs 1200/550, Group II Rs 820/530, Group III Rs 570/300, Group IV Rs 380/230; plus disability allowances, study tour and thesis charges",
+    "quote": "Scholarship has 2 components. First is payment of compulsory fees charged by educational institutions subject to the limit fixed by the concerned State. Second is payment of Maintenance amount varying from Rs .230 to Rs.1200 per month, depending upon the course of study pursued by the student."
+  },
+  "documents": [
+    {
+      "name": "Passport size photograph (fresh)",
+      "quote": "One copy of the passport size photograph with signatures of the student thereon (for fresh scholarship)."
+    },
+    {
+      "name": "Attested copies of all certificates/degrees",
+      "quote": "One attested copy of certificates, diploma, degree etc. in respect of all examinations passed."
+    },
+    {
+      "name": "Caste (ST) certificate from Revenue Officer not below Tahsildar",
+      "quote": "A certificate (in original) of Caste duly signed by an authorised Revenue Officer not below the rank of Tahsildar."
+    },
+    {
+      "name": "Income declaration / income certificate of parents",
+      "quote": "An income declaration by the self-employed parents/guardians, stating definite income from all sources by way of an affidavit on non- judicial stamp paper."
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "States announce in May-June and fix the last date; apply via State portal or NSP",
+    "quote": "All the State Governments will announce in May-June, the details of the scheme and invite applications by issuing an advertisement in the leading newspapers of the State and through other media outfits.",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "income_limit_contradiction_2010_regulation_2_lakh_vs_tribal_nic_in_2_5_lakh",
+    "maintenance_rates_2010_may_be_revised",
+    "regulation_pdf_hosted_by_meghalaya_govt",
+    "state_portal_deadlines_vary"
+  ]
+}

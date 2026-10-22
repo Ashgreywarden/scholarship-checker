@@ -1,0 +1,98 @@
+{
+  "id": "idfc_first_mba_scholarship",
+  "name": "IDFC FIRST Bank MBA Scholarship Program (2026-28 batch)",
+  "provider": "IDFC FIRST Bank Limited (CSR)",
+  "provider_type": "corporate",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "low_income",
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.idfcfirst.bank.in/csr-activities/educational-initiatives/mba-scholarship",
+      "fetched_at": "2026-10-22T11:12Z",
+      "raw_file": "raw/idfc_first_mba_scholarship.txt",
+      "sha256": "6cbaed82433f75fe2234feb60e792b2db73197edb5fcf041622ec3e6b3d1364c"
+    }
+  ],
+  "cycle_named": "2026-28",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "==",
+      "value": "Indian national residing in India",
+      "quote": "Open for Indian Nationals, residing in India only",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 600000,
+      "quote": "Gross annual family income from all sources should be less than or equal to ₹6 Lakhs p.a.*",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "first year of two-year full-time MBA or equivalent, class of 2026-28",
+      "quote": "Applicable for students enrolled in first year of the two-year MBA program or its equivalent of the class of 2026 – 2028",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "only MBA colleges on the bank's eligible list (255 colleges)",
+      "quote": "Enrolled in any of the MBA colleges mentioned in the below list",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Aadhaar-linked mobile number required",
+      "quote": "The applicant must have a valid mobile number linked to Aadhaar card",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 2,00,000 over two years (Rs 1 lakh p.a.); 700 scholarships",
+    "quote": "INR 2,00,000 for two years of full-time MBA studies ( 1 Lakh p.a. subject to T&C)"
+  },
+  "documents": [
+    {
+      "name": "Income certificate or ITR intimation u/s 143(1)",
+      "quote": "Income Certificate or intimation u/s 143(1) document of earning members."
+    },
+    {
+      "name": "Birth certificate",
+      "quote": "Birth Certificate."
+    },
+    {
+      "name": "Admission letter (first year MBA)",
+      "quote": "Admission letter of enrolment into first year of two-year full-time MBA program"
+    },
+    {
+      "name": "Fee payment receipt",
+      "quote": "Confirmation letter of Fees paid to the college/ Fee Payment receipt."
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Applications for 2026-28 batch closed; results last week of October",
+    "quote": "Applications for the MBA Scholarship Program (2026-28 Batch) are now closed.",
+    "status": "closed"
+  },
+  "apply_url": "https://www.idfcfirst.bank.in/csr-activities/educational-initiatives/mba-scholarship",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "college_list_not_captured",
+    "faq_mentions_2025-27_batch"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

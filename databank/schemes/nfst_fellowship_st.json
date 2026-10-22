@@ -1,0 +1,91 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "nfst_fellowship_st",
+  "name": "National Fellowship Scheme For Higher Education of ST Students (National Fellowship and Scholarship for Higher Education of ST Students - Fellowship component)",
+  "provider": "Ministry of Tribal Affairs, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "ST"
+  ],
+  "sources": [
+    {
+      "url": "https://tribal.nic.in/Scholarship.aspx",
+      "fetched_at": "2026-10-22T10:06Z",
+      "raw_file": "raw/pms_st.txt",
+      "sha256": "af7dfba7fc96a203f007ce8381e52efc422f18059793324a5fa13b3aba40ff32"
+    }
+  ],
+  "cycle_named": "2025-26",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "ST"
+      ],
+      "quote": "Scholarship is provided to 750 fresh ST students every year each year for pursing M Phil and PhD selected on merit based on marks of Master Degree.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "MPhil",
+        "PhD"
+      ],
+      "quote": "This is a Central Sector Scheme fully funded and implemented by Central Govt for pursuing MPhil and PhD in following:",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "UGC 2(f)/12(B) universities, colleges and institutions",
+        "deemed universities under s.3 UGC Act eligible for UGC grants",
+        "Central/State funded universities, institutions, colleges",
+        "Institutes of National Importance"
+      ],
+      "quote": "Universities/Institutions/Colleges included under section 2(f) /12(B) or 2(D) and 12(B) of UGC Act",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "750 fellowships per year; selection on merit of Master's degree marks",
+      "quote": "750 fresh ST students every year each year for pursing M Phil and PhD selected on merit based on marks of Master Degree",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "preference to girls, Divyangjan and PVTGs",
+      "quote": "Preference is given to girls, Divyangan and PVTGs.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 25,000 per month (MPhil), Rs 28,000 per month (PhD) plus contingency and HRA as per guidelines (page also mentions a revised rate w.e.f. 1.1.2023)",
+    "quote": "Fellowship for M.Phil is provided @ Rs. 25000/- per month and for Ph.D @ Rs.28000/- per month."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Applications for 2025-26 were invited and the deadline extended; no current date on the page",
+    "quote": "Extension of deadline for application Submission - National Fellowship for Higher Education of ST Students (NFST) 2025-26",
+    "status": "stale_cycle"
+  },
+  "apply_url": "https://fellowship.tribal.gov.in/",
+  "confidence": "medium",
+  "review_flags": [
+    "official_summary_page_not_full_guidelines",
+    "stale_cycle",
+    "fellowship_rate_revised_wef_2023_check_current_rate",
+    "selection_criteria_changed_from_2025_26_check_notice"
+  ]
+}

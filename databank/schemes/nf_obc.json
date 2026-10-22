@@ -1,0 +1,88 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "nf_obc",
+  "name": "National Fellowship for OBC Students (NF-OBC)",
+  "provider": "Ministry of Social Justice and Empowerment, Government of India (UGC nodal agency; NBCFDC portal)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "OBC"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/schemes/7",
+      "fetched_at": "2026-10-22T10:11Z",
+      "raw_file": "raw/nf_obc.txt",
+      "sha256": "d475b5bd515eceb555e9b8d08489c6cddcc90e5b9583a95713a5a706f5e3e2d8"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "OBC"
+      ],
+      "quote": "An OBC student admitted to M.Phil./Ph.D. course in a University or academic institution after completing the required formalities of admission, is eligible for the award of Fellowship",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "MPhil",
+        "PhD"
+      ],
+      "quote": "Only those, doing regular and full time M.Phil./Ph.D. course of a University/Research Institution shall be eligible for the fellowship.",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "universities/institutions recognised by UGC"
+      ],
+      "quote": "The scheme covers all universities/institutions recognized by the University Grants Commission (UGC).",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "300 JRF per year; total JRF+SRF period max 5 years",
+      "quote": "The total period of award of JRF and SRF shall not exceed a period of 5 years.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "UGC notifies through advertisement; eligibility subject to the advertisement",
+      "quote": "The UGC is the nodal agency for implementing the scheme and notifies the scheme through advertisements in the media at a suitable date.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "JRF Rs 25,000 per month; SRF Rs 28,000 per month (page rates; current UGC rates may be higher)",
+    "quote": "The rate of fellowship for JRF level is Rs. 25000 per month and for SRF level, it is Rs. 28000 per month."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Not stated; announced through UGC/NBCFDC advertisement",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://nbcfdc.gov.in/NF-OBC",
+  "confidence": "medium",
+  "review_flags": [
+    "official_summary_page_not_full_guidelines",
+    "no_deadline",
+    "fellowship_rates_may_have_been_revised",
+    "scheme_document_pdfs_linked_not_fetched"
+  ]
+}

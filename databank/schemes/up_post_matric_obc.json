@@ -1,0 +1,92 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "up_post_matric_obc",
+  "name": "Post-matric Scholarship Scheme (Other Backward Classes), Uttar Pradesh",
+  "provider": "Backward Classes Welfare Department, Government of Uttar Pradesh (centrally assisted)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Uttar Pradesh",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "OBC"
+  ],
+  "sources": [
+    {
+      "url": "https://backwardwelfareup.gov.in/en/page/post-matric-scholarship-scheme",
+      "fetched_at": "2026-10-22T10:15Z",
+      "raw_file": "raw/up_post_matric_obc.txt",
+      "sha256": "cedca093455ba430dc34c983e6b19dcd09169d505d825a3294ef7ff940ae1dd1"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "OBC"
+      ],
+      "quote": "Students belonging to Other Backward Classes studying in all the government  aided and recognized educational institutes of the state",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Uttar Pradesh",
+      "quote": "Native and under study in Uttar Pradesh.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 200000,
+      "quote": "Annual income of parents/guardian of the student is upto Rs. 2 Lakh.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Priority order by merit (50% merit first) subject to budget availability",
+      "quote": "eligible upto the 50 % merit according to the last year examination, subject to availability of the budget",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "class 11-12",
+        "diploma",
+        "UG",
+        "PG",
+        "PhD"
+      ],
+      "quote": "Degree and Master Degree Courses, M. Fil.-Ph.D., Courses of all medical therapies, Technology, Engineering",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Monthly rates by course group: Group-1 Rs 1200 (hosteller)/Rs 550 (day scholar); Group-2 Rs 820/530; Group-3 Rs 570/300; Group-4 Rs 380/230",
+    "quote": "Group-3\tAll graduate level courses which are not included in Group-I and II, like B.A., B. Sc. and B. Com./B.T.C etc. \t570.00\t300.00"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Online application opens 01 July each year on scholarship.up.gov.in; disbursement 02 October and 26 January",
+    "quote": "Process of online application by the students is started with effect from 01 July.",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarship.up.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "check_current_cycle_dates_on_scholarship.up.gov.in",
+    "rate_table_flattened"
+  ]
+}

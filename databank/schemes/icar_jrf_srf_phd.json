@@ -1,0 +1,118 @@
+{
+  "id": "icar_jrf_srf_phd",
+  "name": "ICAR Junior Research Fellowship (JRF) and Senior Research Fellowship (SRF) for Ph.D. (ICAR-SRF (PGS))",
+  "provider": "Indian Council of Agricultural Research (DARE)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/FAQ/FAQsforICAR_JRF(PGS)_SRF(PGS)forPh.Dstudents_3106.pdf",
+      "fetched_at": "2026-10-22T10:21Z",
+      "raw_file": "raw/icar_jrf_srf_faq.txt",
+      "sha256": "9f01e78abe7082b9b7455de26c0d975f192cd60b15409d7d6f7537d95a228bc2"
+    },
+    {
+      "url": "https://icar.org.in/sites/default/files/Circulars/Guidelines%20for%20ICAR-JRF%20SRF%20and%20ICAR-PG%20Scholarship.pdf",
+      "fetched_at": "2026-10-22T10:08Z",
+      "raw_file": "raw/icar_jrf_srf_pgs.txt",
+      "sha256": "4305990912cb31ab58893b5764bc3d00612e99382719f6fc787e377a48e339a8"
+    },
+    {
+      "url": "https://icar.org.in/sites/default/files/Circulars/Revision%20of%20emoluments%20of%20JRF%20SRF%20and%20RA%202024.pdf",
+      "fetched_at": "2026-10-22T10:08Z",
+      "raw_file": "raw/icar_jrf_srf_rates_2024.txt",
+      "sha256": "7775754900e475ba79f57cb9bd75b47d7beedca5d581954e3727327efbb5c6bd"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "ICAR All India Competitive Examination for SRF (PGS) / AIEE PhD"
+      ],
+      "quote": "ICAR-Junior Research Fellowship/Senior Research Fellowship (JRF/SRF) will be awarded on the basis of merit in the All India Entrance Examination (AIEE) in the Agricultural University.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "quote": "the candidate must have secured at least 60% marks for General/OBC Category. For SC/ST /Physically Challenged (PC) candidates, the minimum percentage of marks will be 50%.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "OGPA at least 6.50/10 (5.50 for SC/ST/PC) in Master's",
+      "quote": "securing Overall Grade Point Average (OGPA) of at least 6.50/10.00 scale, 3.25/5.00 scale, 2.60/4.00 scale for General and OBC Categories and 5.50/10.00, 2.75/5.00, 2.20/4.00 scale for SC/ST /Physically Challenged (PC) candidates",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 30,
+      "quote": "The upper age limit would be 30 years as on the date of the examination for General category.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "age relaxation 5 years for SC/ST/women/PC/OBC-NCL; 45 for in-service AU candidates",
+      "quote": "The upper age limit for candidates belonging to SCI ST / Women/PC/aBC (Non-creamy layer as per the Central list of aBC) categories shall be relaxable by 5 years.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "3-year bachelor's degree holders not eligible",
+      "quote": "The candidates having passed with Bachelor's degree of 3 years' duration are not eligible",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "300 fellowships per year; duration 3 years",
+      "quote": "300 fellowships are awarded every year based on the merit obtained through All India Entrance Examination (AIEE).",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 37,000 per month (years 1-2) and Rs 42,000 per month (year 3) w.e.f. 15.10.2024, plus Rs 10,000 per year contingency",
+    "quote": "Fellowship amount for the first and second year is ₹37,000 per month & for the third year is ₹42,000 per month with effect from October 15,2024. The contingency amount is ₹10,000 per year."
+  },
+  "documents": [
+    {
+      "name": "ICAR award letter",
+      "quote": "Award letter issued by the ICAR may be required:"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Icar Junior Research Fellowships(Jrf) And Senior Research Fellowships(Srf) (Merit Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "icar_guideline_pdf_is_2016_revision",
+    "ocr_doubt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

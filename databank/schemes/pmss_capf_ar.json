@@ -1,0 +1,129 @@
+{
+  "id": "pmss_capf_ar",
+  "name": "Prime Minister's Scholarship Scheme for Central Armed Police Forces and Assam Rifles (PMSS-MHA)",
+  "provider": "Ministry of Home Affairs (Welfare and Rehabilitation Board) under the National Defence Fund",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/warb/G_1197_3001.pdf",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/pmss_police_wards.txt",
+      "sha256": "ea239516e5fbdd8cf82d3e64831c02d3b6329d1a6aeff859b1015ed10d061fe3"
+    },
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/MoHA-(WARB)-RevisedGuidelines_PMSS(MHA).pdf",
+      "fetched_at": "2026-10-22T10:07Z",
+      "raw_file": "raw/pmss_capf_police.txt",
+      "sha256": "8d1612712c4d20e3f3df80fa08dad2d0e5a0b25f2f2e8c7fb95764ac04a5c309"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "parent_occupation",
+      "op": "in",
+      "value": [
+        "CAPF / Assam Rifles personnel (PBOR), deceased/disabled/retired/serving; widows"
+      ],
+      "quote": "Wards/widows of retired and serving CAPFs & AR Personnel. (Personnel below Officer Rank)",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "first professional degree (Engg, Medicine, Dental, Veterinary, BBA, BCA, B.Pharma, B.Sc Nursing/Agri, MBA, MCA)"
+      ],
+      "quote": "Pursuing first professional degree programme in the field of Engineering, Medicine, Dental, Veterinary, BBA, BCA, B. Pharma, B.SC (Nursing, Agriculture, etc.), MBA and MCA etc.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "quote": "Having minimum 60% marks in Minimum Entry Qualification (MEQ) i.e. 10+2/Diploma/Graduation or equivalent in case of new applicant.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "renewal needs 50% each year",
+      "quote": "it is mandatory to pass the each subsequent academic year of the professional courses being pursued by them with minimum 50% marks",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "only two children per family",
+      "quote": "This scholarship is admissible for only two Children per family",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "2000 scholarships for CAPF/AR wards; order of preference categories A-G",
+      "quote": "PMSS is meant for wards/widows of uniformed / combat CAPFs, AR & States/UTs Police personnel",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "not_in",
+      "value": [
+        "correspondence/distance",
+        "diploma",
+        "master's except MBA/MCA",
+        "study abroad"
+      ],
+      "quote": "Applicants pursuing courses, such as Diploma courses, not leading to award of a degree or pursuing master degree programme except MBA, MCA subject to first professional course.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other scholarship/stipend",
+      "quote": "Applicants availing benefit of other scholarship scheme/getting stipend and financial assistance.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 3,000 per month for girls (Rs 36,000 p.a.); Rs 2,500 per month for boys (Rs 30,000 p.a.); up to 5 years",
+    "quote": "Rs. 3000/-per month for girls . To be paid annually after selection. II. Rs. 2500/- per month for boys @ Rs 36,000/-to each girl & Rs 30,000/- to each boy"
+  },
+  "documents": [
+    {
+      "name": "Service certificate from Head of Office (serving personnel)",
+      "quote": "Service Certificate to be issued by the H.O.O in case of serving personnel as per Annexure- A."
+    },
+    {
+      "name": "MEQ marksheet plus PPO/discharge, disability, death or gallantry certificate as applicable",
+      "quote": "PPO/Discharge Certificate/Book (Mandatory for category A to F) b) Disability Certificate (Mandatory for category B & D) c) Death Certificate (Mandatory for category A & C) d) Certificate of Gallantry award (Mandatory for category E)"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Prime Minister'S Scholarship Scheme For Central Armed Police Forces And Assam Rifles (Merit Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "guideline_pdf_is_2022_23_version"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

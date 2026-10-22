@@ -1,0 +1,119 @@
+{
+  "id": "sdef_shiksha_shakti",
+  "name": "SDEF Shiksha Shakti Scholarship 2026-27 (girls, non-technical UG)",
+  "provider": "Swami Dayanand Education Foundation",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "girls",
+    "low_income",
+    "first_generation"
+  ],
+  "sources": [
+    {
+      "url": "https://www.swamidayanand.org/overview-and-eligibility-shiksha-shakti",
+      "fetched_at": "2026-10-22T10:55Z",
+      "raw_file": "raw/sdef_shiksha_shakti.txt",
+      "sha256": "79d4de7a8c144a3bcff5063dfe6b8a35554466c6d3505dfb42179048e87688fd"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "quote": "Male applicants, since this scholarship is for female students only.",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "first year full-time non-technical UG in India, 2026-27",
+      "quote": "Enroll as a first-year, full-time undergraduate student in a non-technical programme in India for 2026–27.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "B.A.",
+        "B.Com",
+        "B.Sc (non-engineering)",
+        "BBA",
+        "BCA",
+        "BA JMC/BJMC",
+        "BHM",
+        "BA LLB / BBA LLB",
+        "other approved integrated courses"
+      ],
+      "quote": "Arts & Humanities — B.A. (all streams)",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 80,
+      "quote": "Have secured a minimum of 80% marks or equivalent CGPA in Class XII.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 1200000,
+      "quote": "Have an annual family income of ₹12,00,000 or less from all sources.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no drop/gap year after class XII; no part-time",
+      "quote": "Drop/ Gap Year after Class XII is not eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "preference to first-generation students and government/government-aided school alumni",
+      "quote": "Preference may be given to applicants who studied in Government or Government-aided schools.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Up to Rs 20,000 per academic year, up to Rs 1,00,000 over five years; 150-200 scholarships a year",
+    "quote": "Annual Award: Up to ₹20,000 per academic year"
+  },
+  "documents": [
+    {
+      "name": "Photograph, Aadhaar, Class X and XII marksheets",
+      "quote": "Class XII Marksheet"
+    },
+    {
+      "name": "Admission letter, college ID, fee receipt",
+      "quote": "Latest College Fee Receipt"
+    },
+    {
+      "name": "Family income proof, utility bill, three residence photographs",
+      "quote": "Utility Bill — Electricity, Water or Gas"
+    },
+    {
+      "name": "SDEF Scholar Pledge form",
+      "quote": "SDEF Scholar Pledge Form"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "Applications open 5 Sept 2026; deadline 31 Oct 2026",
+    "quote": "Applications Open\nSeptember 5th, 2026",
+    "status": "open"
+  },
+  "apply_url": "https://www.swamidayanand.org/shiksha-shakti-scholarship-2026-27",
+  "confidence": "high",
+  "review_flags": [],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

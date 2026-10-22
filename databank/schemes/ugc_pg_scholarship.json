@@ -1,0 +1,90 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ugc_pg_scholarship",
+  "name": "National Scholarship for Post Graduate Studies",
+  "provider": "University Grants Commission (UGC)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.ugc.gov.in/Scholarships/stu_Scholarship6",
+      "fetched_at": "2026-10-22T10:17Z",
+      "raw_file": "raw/ugc_pg_scholarship.txt",
+      "sha256": "55517e9b7355cf0ba9ba5de3af99beb0b86b62101d6eb1b1e8f0119bc4ad751d"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "first year PG (regular/full time)",
+      "quote": "Students who are admitted in the first year of PG degree programme through ‘Regular/Full Time’ mode in an eligible university/ college/institution are eligible to apply.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 30,
+      "quote": "The age limit is 30 years.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "PG"
+      ],
+      "quote": "In case of integrated programmes, the scholarship shall be given for PG component only.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "PG degrees notified under UGC Specification of Degrees 2014"
+      ],
+      "quote": "the nomenclature and duration of course should be as per UGC Notification on Specification of Degrees, 2014, as amended from time to time.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "10,000 slots per annum; tenure 2 years",
+      "quote": "10,000 per annum",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 1,50,000 per annum for 2 years",
+    "quote": "Rs. 1,50,000/- per annum"
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window 16-09-2026 to 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in/",
+  "confidence": "high",
+  "review_flags": [
+    "deadline_from_nsp_register_not_ugc_page",
+    "may_duplicate_nsp_batch_entry",
+    "successor_of_PG_Indira_Gandhi_SGC_PG_rank_holders_PG_prof_SC_ST"
+  ]
+}

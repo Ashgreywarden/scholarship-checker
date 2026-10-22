@@ -1,0 +1,83 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ugc_sjpf_single_girl_child",
+  "name": "Savitribai Jyotirao Phule Fellowship For Single Girl Child",
+  "provider": "University Grants Commission (UGC)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://www.ugc.gov.in/Fellowship/stu_Fellowship3",
+      "fetched_at": "2026-10-22T10:14Z",
+      "raw_file": "raw/ugc_sjpf_single_girl_child.txt",
+      "sha256": "62df7609972cf963d35c70a0042ec940677cfa2fcc221a755e135f765d1c0c36"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female (single girl child of her parents)",
+      "quote": "Any single girl child of her parents pursuing Ph.D. in any stream/subject in recognised Universities/Colleges/ Institutes is eligible to apply under the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "PhD"
+      ],
+      "quote": "Fellowship is available for pursuing research work leading to award of Ph.D degree",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "recognised universities/colleges/institutes"
+      ],
+      "quote": "pursuing Ph.D. in any stream/subject in recognised Universities/Colleges/ Institutes",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "tenure up to PhD thesis submission or 5 years, whichever earlier",
+      "quote": "Fellowship will be granted upto the date of submission of Ph.D. Thesis or 5 years of tenure whichever is earlier.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "slots decided yearly on eligible online applications",
+      "quote": "The number of slots for fellowship will be decided every year on the basis of eligible applications complete in all respects, received through online mode.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "JRF Rs 37,000 pm for 2 years; SRF Rs 42,000 pm for remaining period; contingency Rs 10,000/20,500 pa (Humanities & Social Sciences) or Rs 12,000/25,000 pa (Science)",
+    "quote": "JRF @Rs. 37,000/-pm for 2 years SRF @Rs. 42,000/- pm for remaining period"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Not stated; applications online through the UGC fellowship portal",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://frg.ugc.ac.in/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "check_whether_scheme_still_invites_applications"
+  ]
+}

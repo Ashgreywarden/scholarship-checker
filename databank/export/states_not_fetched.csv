@@ -1,0 +1,2 @@
+name,best_official_url,reason
+"UP Scholarship portal (scholarship.up.gov.in) - Post-matric SC/ST/General dashamottar schemes and fee reimbursement (Social Welfare Dept)",https://scholarship.up.gov.in/,"portal unreachable: Apify 500/timeout (geo-block), remote browser navigation denied/failed, WebFetch robots_disallowed; Social Welfare dept URL socialwelfareup.upsdc.gov.in redirects to coaching page with no scheme rules"

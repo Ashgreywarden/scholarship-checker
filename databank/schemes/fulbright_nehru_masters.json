@@ -1,0 +1,88 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "fulbright_nehru_masters",
+  "name": "Fulbright-Nehru Master's Fellowships",
+  "provider": "United States-India Educational Foundation (USIEF)",
+  "provider_type": "foreign_government",
+  "region": "abroad",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.usief.org.in/fulbright-fellowships/fellowships-for-indian-citizen/fulbright-nehru-masters-fellowships/",
+      "fetched_at": "2026-10-22T07:13Z",
+      "raw_file": "raw/fulbright_nehru_masters.txt",
+      "sha256": "e883eb2764297003d89ab3c968edff58510c031d7f5f12118190aa5b05935ba0"
+    }
+  ],
+  "cycle_named": "2026-2027 (page) / deadline printed 2025",
+  "rules": [
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 55,
+      "quote": "Must have completed an equivalent of a U.S. bachelor's degree from a recognized Indian university with at least 55% marks.",
+      "quote_verified": true
+    },
+    {
+      "field": "work_experience_years",
+      "op": ">=",
+      "value": 3,
+      "quote": "Must have at least three years' full-time (paid) professional work experience relevant to the proposed field of study by the application deadline;",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "exclude",
+      "value": "no US degree / enrolment",
+      "quote": "Must not have another degree from a U.S. university or be enrolled in a U.S. degree program;",
+      "quote_verified": true
+    },
+    {
+      "field": "employment",
+      "op": "exclude",
+      "value": "Government of India / State Government employees",
+      "quote": "Employees of the Government of India and Indian State Governments are not eligible for any Fulbright-Nehru Fellowships.",
+      "quote_verified": true
+    },
+    {
+      "field": "field_of_study",
+      "op": "in",
+      "value": [
+        "Economics",
+        "Environmental Science/Studies",
+        "Higher Education Administration",
+        "International Legal Studies",
+        "Journalism and Mass Communication",
+        "Public Health",
+        "Sustainable Development/Sustainability",
+        "Urban and Regional Planning"
+      ],
+      "quote": "Applications are invited in the following fields only:",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "J-1 visa support, round-trip airfare, tuition and fees, living costs, accident and sickness coverage; no dependant support",
+    "quote": "funding for tuition and fees, living and related costs, and accident and sickness coverage per U.S. Government guidelines."
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2025-05-14",
+    "text": "Page shows May 14, 2025 deadline under a 2026-27 heading; current-cycle date not confirmed",
+    "quote": "Application Deadline: May 14, 2025, 23:59:59 hrs (IST)",
+    "status": "stale_cycle"
+  },
+  "apply_url": "https://apply.iie.org/ffsp2026",
+  "confidence": "medium",
+  "review_flags": [
+    "stale_cycle",
+    "page_title_and_deadline_disagree"
+  ]
+}

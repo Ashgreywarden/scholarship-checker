@@ -1,0 +1,123 @@
+{
+  "id": "kotak_kanya",
+  "name": "Kotak Kanya Scholarship 2026-27",
+  "provider": "Kotak Mahindra Group companies via Kotak Education Foundation",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "girls",
+    "low_income"
+  ],
+  "sources": [
+    {
+      "url": "https://www.kotakeducationfoundation.org/kotak-kanya-scholarship",
+      "fetched_at": "2026-10-22T10:24Z",
+      "raw_file": "raw/kotak_kanya.txt",
+      "sha256": "49d0f7d0dc37a316624fbf589fee888ead7932c4ce4b8b3fab4a88328f4edb2a"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "quote": "Open for meritorious girl students across India.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 75,
+      "quote": "Applicants must have scored at least 75% or more marks or equivalent CGPA in Class 12 board examinations.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<",
+      "value": 600000,
+      "quote": "Applicant's annual family income must be less than INR 6,00,000.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "Engineering",
+        "MBBS",
+        "Integrated LLB (5 years)",
+        "Integrated BS-MS/BS-Research",
+        "Design",
+        "Architecture",
+        "other professional courses"
+      ],
+      "quote": "professional graduation degrees such as Engineering, MBBS, Integrated LLB (5 Years), Integrated BS-MS/BS-Research, in ISER, IISC(Bangalore), or other professional courses (Design, Architecture, etc.).",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "first year of graduation, admitted in 2026-27",
+      "quote": "secured admission to the first year of graduation programs in the academic year 2026-27 in institutes of repute like NIRF/NAAC accredited",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "children of Kotak Group / KEF / Buddy4Study employees excluded",
+      "quote": "Children of employees of Kotak Mahindra Group, Kotak Education Foundation and Buddy4Study are not eligible to apply for the Kotak Kanya Scholarship 2026-27.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "renewal needs CGPA 6 or promotion each year",
+      "quote": "Students should receive at least 6 CGPA yearly or should be promoted by the Institute to the next Academic Year.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 1.5 lakh per year till completion of the professional graduation degree",
+    "quote": "A scholarship amount of INR 1.5 lakh* per year will be given to each selected scholar till completion of her professional graduation course/degree."
+  },
+  "documents": [
+    {
+      "name": "Class 12 marksheet",
+      "quote": "Marksheet of previous qualifying examination (Class 12)"
+    },
+    {
+      "name": "Income proof of parents/guardians",
+      "quote": "Income proof of parents/guardians"
+    },
+    {
+      "name": "Fee structure, bonafide certificate, seat allocation, entrance scorecard",
+      "quote": "Bonafide student certificate/letter from college"
+    },
+    {
+      "name": "Aadhaar, bank passbook, photograph",
+      "quote": "Aadhaar card"
+    },
+    {
+      "name": "Photographs of the house",
+      "quote": "Photographs of the house"
+    }
+  ],
+  "deadline": {
+    "date": "2026-09-30",
+    "text": "Application Deadline: 30-09-2026 (start 14-07-2026)",
+    "quote": "Application Deadline: 30-09-2026",
+    "status": "closed"
+  },
+  "apply_url": "https://www.kotakeducationfoundation.org/kotak-kanya-scholarship",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "applied_via_buddy4study"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

@@ -1,0 +1,121 @@
+{
+  "id": "free_coaching_sc_obc",
+  "name": "Free Coaching Scheme for SCs, OBCs and Beneficiaries of PM CARES Children Scheme",
+  "provider": "Department of Social Justice & Empowerment (through Dr. Ambedkar Foundation and empanelled Central Universities)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "any"
+  ],
+  "target_group": [
+    "SC",
+    "OBC"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/public/ckeditor/upload/69491687240203.pdf",
+      "fetched_at": "2026-10-22T10:09Z",
+      "raw_file": "raw/free_coaching_sc_obc.txt",
+      "sha256": "98f7958e5695d3ba67e29722fdbc909428e539c38d317188602c4599b2c95d01"
+    },
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/faq_3108.pdf",
+      "fetched_at": "2026-10-22T10:07Z",
+      "raw_file": "raw/free_coaching_sc_obc_faq.txt",
+      "sha256": "eb0ca2df343b5f4c6654364949b008e0434adafe734cfd2a71876c6eda760644"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC",
+        "OBC",
+        "PM CARES children beneficiaries"
+      ],
+      "quote": "Only students belonging to SCs and OBCs, having total family income of Rs. 8.00 lakh or less per annum from all sources will be eligible for bene fi ts under the Scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "For SC and OBC candidates, the annual family income from all sources should not exceed ₹8 lakh . This condition does not apply to PM CARES beneficiaries.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 50,
+      "quote": "Students having less than 50% marks in their class X exam, shall not be considered under the scheme.",
+      "quote_verified": true,
+      "condition": "coaching for exams whose qualifying exam is class XII (class X marks)"
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 50,
+      "quote": "Students having less than 50% marks in their class XII exam, shall not be considered under the scheme.",
+      "quote_verified": true,
+      "condition": "coaching for exams whose qualifying exam is UG (class XII marks)"
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "benefit at most twice; no other govt coaching scheme",
+      "quote": "Bene fi t under the Scheme can be availed by a particular student not more than twice",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "3500 students p.a.; SC not less than 70%; 30% slots for women",
+      "quote": "3500 students will be selected under this scheme annually. The percentage of SC students shall not be less than 70%.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "SC/OBC minority candidates to apply under Minority Affairs schemes",
+      "quote": "SC/OBC candidates belonging to a Minority community may apply under the similar scheme(s) of Ministry of Minority Affairs",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Course fee up to Rs 75,000 (course-wise ceilings), stipend Rs 4,000 per month up to 12 months, Rs 15,000 interview incentive for civil services mains qualifiers",
+    "quote": "Stipend @ Rs. 4000 per month for full duration of the course not exceeding 12 months"
+  },
+  "documents": [
+    {
+      "name": "Income certificate from Revenue Officer not below Tehsildar / employer certificate",
+      "quote": "Income declaration of self-employed parents/guardian should be in the form of a certificate issued by a Revenue Officer not below the rank of Tehsildar."
+    },
+    {
+      "name": "Aadhaar and Aadhaar-seeded bank account",
+      "quote": "The student should have a valid Aadhar number and a bank account seeded therewith, allotted to him/her"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Free Coaching For Scs OBCs And Beneficiaries Of PM Cares Children Scheme (Welfare Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "guidelines_applicable_from_2023_24",
+    "pm_cares_component_from_faq_only"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

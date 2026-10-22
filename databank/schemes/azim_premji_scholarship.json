@@ -1,0 +1,128 @@
+{
+  "id": "azim_premji_scholarship",
+  "name": "Azim Premji Scholarship (for girl students) 2026 Cohort",
+  "provider": "Azim Premji Foundation",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "diploma"
+  ],
+  "target_group": [
+    "girls",
+    "low_income"
+  ],
+  "sources": [
+    {
+      "url": "https://azimpremjifoundation.org/what-we-do/education/azim-premji-scholarship/applications/",
+      "fetched_at": "2026-10-22T10:29Z",
+      "raw_file": "raw/azim_premji_scholarship.txt",
+      "sha256": "9f218986f30df143009c7d3bbfd92e4f3ebf6d51e08831c844198c845e783374"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "quote": "An initiative to support girl students to pursue their college education",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "Class 10 and 12 passed as regular student from a government school/college in an eligible state",
+      "quote": "Passed both Class 10 and Class 12 as a regular student from a government school or college in any of the eligible States or Union Territories*",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "first year UG degree or diploma (2-5 years), regular, 2026-27",
+      "quote": "Have taken admission in the first year (for academic session 2026–27) as a regular student of a recognised undergraduate degree or diploma course (2 to 5 years duration)",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "in",
+      "value": [
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chhattisgarh",
+        "Delhi (NCT)",
+        "Jharkhand",
+        "Karnataka",
+        "Madhya Pradesh",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Odisha",
+        "Puducherry",
+        "Rajasthan",
+        "Sikkim",
+        "Telangana",
+        "Tripura",
+        "Uttar Pradesh",
+        "Uttarakhand"
+      ],
+      "quote": "Andhra Pradesh, Arunachal Pradesh, Assam, Bihar, Chhattisgarh, Delhi (NCT), Jharkhand, Karnataka, Madhya Pradesh, Manipur, Meghalaya, Mizoram, Nagaland, Odisha, Puducherry, Rajasthan, Sikkim, Telangana, Tripura, Uttar Pradesh, and Uttarakhand",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "anywhere in India (government or bona fide private college/university)",
+      "quote": "at a government or a (credible and bona fide) private college or university, anywhere in India.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 30,000 per year for the full duration of the first UG degree or diploma",
+    "quote": "an annual scholarship of INR 30,000 awarded for the full duration of their first undergraduate degree or diploma course."
+  },
+  "documents": [
+    {
+      "name": "Passport photograph",
+      "quote": "A 2X2 inch recent coloured photo of your front-face view taken in last 6 months"
+    },
+    {
+      "name": "Aadhaar card",
+      "quote": "A clear, coloured, and unedited soft copy of the front side of your AADHAAR card"
+    },
+    {
+      "name": "Bank passbook first page",
+      "quote": "A clear and unedited soft copy of the first page of your bank account passbook"
+    },
+    {
+      "name": "Class 10 marksheet",
+      "quote": "A clear and unedited soft copy of the front side of your Class 10 marksheet"
+    },
+    {
+      "name": "Class 12 marksheet",
+      "quote": "A clear and unedited soft copy of the front side of your Class 12 marksheet"
+    },
+    {
+      "name": "College admission proof (bonafide or fee receipt)",
+      "quote": "A clear and unedited soft copy of either your Bonafide Certificate OR Tuition Fee Receipt"
+    }
+  ],
+  "deadline": {
+    "date": "2027-01-31",
+    "text": "Round 1 for 2026 cohort closed; Round 2 submission window 10-31 Jan 2027",
+    "quote": "Application submission to be done during Round 2 (10-31 Jan 2027).",
+    "status": "open"
+  },
+  "apply_url": "https://azimpremjifoundation.org/what-we-do/education/azim-premji-scholarship/applications/",
+  "confidence": "high",
+  "review_flags": [
+    "round1_closed_round2_upcoming",
+    "state_list_changes_yearly"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

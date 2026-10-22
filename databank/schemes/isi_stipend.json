@@ -1,0 +1,100 @@
+{
+  "id": "isi_stipend",
+  "name": "Stipend Scheme for Under Graduate and Post Graduate Studies in Indian Statistical Institute, Kolkata",
+  "provider": "Indian Statistical Institute (Ministry of Statistics and Programme Implementation)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG",
+    "diploma"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/STIPEND_STATICAL_GUIDLLINES.pdf",
+      "fetched_at": "2026-10-22T10:30Z",
+      "raw_file": "raw/isi_stipend_nsp.txt",
+      "sha256": "274b0c230f30a2367478e784975ad6de8c15018ed4f2d2ef04fa34e09d3ae477"
+    },
+    {
+      "url": "https://admission.isical.ac.in/Documents/IsiAdmission2026/Admission-Notice-2026.pdf",
+      "fetched_at": "2026-10-22T10:26Z",
+      "raw_file": "raw/isi_stipend.txt",
+      "sha256": "9736cc05e79895d31ff0cc6e660cccb285d27bd3b0ec001565f00e54820c42a9"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "Indian Statistical Institute"
+      ],
+      "quote": "A monthly Stipend is awarded at the time of admission to each student, which is valid initially for the first semester only.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "B.Stat/B.Math",
+        "M.Stat/M.Math/MS(QE)/MS(LIS)/MS(QMS)",
+        "M.Tech (CS/CrS/QROR)",
+        "PG Diploma SMA (NE domiciles)"
+      ],
+      "quote": "Sl. No. Programme Stipend (Rs./Month) 1 B.Stat/B.Math 5000 2 PG Diploma in Statistical Methods and Analytics (For students domiciled in the North East States of India) 3000 3 M.Stat/M.Math/MS(QE)/ MS(LIS)/MS(QMS) 8000 4 M.Tech(CS)/M. Tech (CrS)/M.Tech(QROR) 12400",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other government scholarship",
+      "quote": "If a student is getting a scholarship from another government agency then the stipend will be discontinued.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "continuation needs average composite score >= 60% for full stipend (45-60% half)",
+      "quote": "the average composite score is at least 45% but less than 60% , and the number of",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "75% attendance",
+      "quote": "If the overall attendance in all courses in any semester is less than 75% , no stipend is awarded in the following semester.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Monthly stipend Rs 5,000 (B.Stat/B.Math), Rs 8,000 (M.Stat/M.Math/MS), Rs 12,400 (M.Tech), Rs 3,000 (PGDSMA NE domiciles) plus annual contingency Rs 5,000-8,000",
+    "quote": "Stipends are given after the end of each month for twelve months in each academic year."
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Stipend Scheme For Under Graduate And Post Graduate Studies In Indian Statistical Institute-Kolkata (Merit Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "stipend_is_institutional_tied_to_isi_admission",
+    "no_deadline_in_guideline"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

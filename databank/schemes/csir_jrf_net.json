@@ -1,0 +1,109 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "csir_jrf_net",
+  "name": "CSIR Junior Research Fellowship (JRF through Joint CSIR-UGC NET) - revised guidelines w.e.f. 1 March 2023",
+  "provider": "Council of Scientific & Industrial Research (CSIR), Human Resource Development Group",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://csirhrdg.res.in/Home/Index/1/Default/3384/60",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/csir_jrf_net.txt",
+      "sha256": "b73dfa0edde48351844cb1b1b58083b16ae94c7903ac9f2a685d1f8ecc1ddfa4"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "Joint CSIR-UGC NET (JRF)"
+      ],
+      "quote": "The stipend of a JRF selected through CSIR-UGC National Eligibility Test (NET) will be Rs 37,000/ p.m for the first two years.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 55,
+      "quote": "General/ Unreserved/ General-EWS candidates who have secured at least 55% marks (without rounding off) in Master’s Degree or equivalent examination from recognized universities/ institutions are eligible for this Test.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 50,
+      "quote": "Scheduled Caste (SC)/ Scheduled Tribe (ST)/ Persons with Disability (PwD)/ Third gender category candidates who have secured at least 50% marks (without rounding off) in Master’s degree or equivalent examination are eligible for this Test.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 75,
+      "quote": "The candidates having passed a 4-year/8-semester bachelor’s degree programme should have a minimum of 75% marks in aggregate or its equivalent grade on a point scale wherever the grading system is followed.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 30,
+      "quote": "JRF: Not more than 30 years as on the 1st day of the month in which the examination is concluded. A relaxation of upto 5 years is provided to the candidates belonging to OBC-NCL",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Indian citizens residing in India; tenable in India",
+      "quote": "The CSIR Fellowships/Associateships are tenable in India. Only bonafide Indian citizens, residing in India are eligible for the award of research Fellowship/Associateships.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "must register for PhD within 2 years; JRF+SRF total max 5 years",
+      "quote": "CSIR Junior Research Fellows should register for PhD within a period of two year (PhD registration certificate is at Annexure-III) from the date of joining their fellowship, failing which they will not be upgraded to SRF on completion of two years.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "exam held twice a year via NTA",
+      "quote": "On-line applications for Joint CSIR UGC NET Examination are invited normally twice a year on all India basis. The information with respect to inviting applications is notified on https://csirnet.nta.ac.in.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no employment or private practice during tenure",
+      "quote": "Any kind of paid or honorary, part-or-full-time employment or private practice even in honorary capacity is not permissible during the tenure of Fellowship/ Associateship.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "JRF Rs 37,000 pm for first two years; SRF Rs 42,000 pm from 3rd year; annual contingency Rs 20,000; HRA as per host institution rules",
+    "quote": "the JRF will be upgraded to the position of SRF on the monthly stipend of Rs. 42,000/- for the 3rd and subsequent years."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "As per NTA CSIR-NET notification (two cycles a year); JRF-NET certificate valid 2 years",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://csirnet.nta.ac.in",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "marks_rules_differ_by_category_and_route"
+  ]
+}

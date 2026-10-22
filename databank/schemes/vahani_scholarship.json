@@ -1,0 +1,73 @@
+{
+  "id": "vahani_scholarship",
+  "name": "Vahani Scholarship (Vahani Scholarship Trust)",
+  "provider": "Vahani Scholarship Trust",
+  "provider_type": "trust",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "low_income",
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.vahanischolarship.com/admission",
+      "fetched_at": "2026-10-22T11:16Z",
+      "raw_file": "raw/vahani_scholarship.txt",
+      "sha256": "7154c8c11d07c928b3af2460edfa53f204500125b767545120aefc1d43a2eb16"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "class",
+      "op": "==",
+      "value": "Class 12 students (applying before UG admission)",
+      "quote": "This opportunity is open to Class 12 students who meet the criteria, with selection based on individual merit",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 85,
+      "quote": "requiring a minimum of 85% in Class 10 board exams and a family income of less than ₹3 lakhs per annum.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<",
+      "value": 300000,
+      "quote": "a family income of less than ₹3 lakhs per annum",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "two rounds of interviews; essay written by candidate",
+      "quote": "The essay section in the form has to be filled by the candidate and candidate alone.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Full financial aid for UG plus laptop, book and travel stipends and scholar housing",
+    "quote": "Full Financial Aid\nLaptop Stipend\nBook Stipend\nTravel Stipend\nScholar Housing"
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2026-11-01",
+    "text": "Applications open 1 Aug to 1 Nov every year; results first week of February",
+    "quote": "The application will be open from Aug 1st to Nov 1st of every year.",
+    "status": "open"
+  },
+  "apply_url": "https://admin.vahanischolarship.in/register",
+  "confidence": "high",
+  "review_flags": [
+    "year_not_named_on_page",
+    "deadline_is_recurring_annual_date"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

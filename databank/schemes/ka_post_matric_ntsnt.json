@@ -1,0 +1,72 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ka_post_matric_ntsnt",
+  "name": "Post Matric Scholarship for NT/SNT Students - Karnataka",
+  "provider": "Backward Classes Welfare Department, Government of Karnataka (via SSP)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Karnataka",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "DNT",
+    "OBC"
+  ],
+  "sources": [
+    {
+      "url": "https://ssp.karnataka.gov.in/Schemes.aspx",
+      "fetched_at": "2026-10-22T10:50Z",
+      "raw_file": "raw/ka_ssp_postmatric_schemes.txt",
+      "sha256": "00c7664a8588e66bee3c348017104718636ef577c8ed1914da0b5d427f6e042b"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "NT",
+        "SNT"
+      ],
+      "quote": "POST MATRIC SCHOLARSHIP FOR NTSNT STUDENTS — Eligibility\nCaste\nStudents belonging to NT-SNT category only",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "Students belonging to NT-SNT category only\nFamily annual income\n<= Rs. 2.5 lakhs for Category 1 students and <=1 lakhs for other categories",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Must pass all subjects; max 2 boys per family; excludes KSOU/evening/management seats",
+      "quote": "College Type\nExcept KSOU and Evening colleges",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Not stated on eligibility page",
+    "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Applications open for FY 2026-27 on SSP",
+    "quote": "Scholarship application is open to submit applications for FY 2026-27.",
+    "status": "open"
+  },
+  "apply_url": "https://ssp.postmatric.karnataka.gov.in/post_sa_2627/login",
+  "confidence": "medium",
+  "review_flags": [
+    "no_amount",
+    "no_closing_date"
+  ]
+}

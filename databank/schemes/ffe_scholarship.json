@@ -1,0 +1,151 @@
+{
+  "id": "ffe_scholarship",
+  "name": "Foundation For Excellence (FFE) Scholarship Program",
+  "provider": "Foundation For Excellence India Trust",
+  "provider_type": "trust",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "low_income",
+    "general",
+    "first_generation"
+  ],
+  "sources": [
+    {
+      "url": "https://ffe.org/scholarships/",
+      "fetched_at": "2026-10-22T10:40Z",
+      "raw_file": "raw/ffe_scholarship.txt",
+      "sha256": "51e49dc077867b9a981920c150dfeeec2e65f8d237d6e11fea98e8958ddfc623"
+    }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "B.E./B.Tech",
+        "Integrated 5-year dual-degree M.Tech",
+        "MBBS",
+        "LLB (5-year integrated)"
+      ],
+      "quote": "Only Professional Degree Courses Eligible For Scholarships Are B.E./B.Tech, Integrated 5-Year Dual-Degree M.Tech, MBBS And LLB.",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "first year",
+      "quote": "Only First-Year Applicants Beginning Their Studies In B.E., B.Tech, Integrated 5-Year Dual-Degree M.Tech ,MBBS And LLB Are Eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "qualifying board exam passed after 2024",
+      "quote": "Applicants Are Expected To Have Passed Their Higher Secondary / Pre-University / Intermediate / CBSE/ISC Or Equivalent Board Qualifying Examination After 2024.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "not_in",
+      "value": [
+        "lateral-entry diploma holders",
+        "B.Arch",
+        "BDS"
+      ],
+      "quote": "Note: Diploma Students Admitted To B.E., B.Tech Courses On A Lateral Basis. B.Arch, BDS Students Are Not Eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "note",
+      "value": "JEE Main AIR up to 1,30,000 (northern states list); JEE Advanced up to 30,000 for IITs; state ranks 10,000 (TN/AP/MH/TS/KA), 4,000 (KL/GJ/WB/CG/BR), 1,000, 500",
+      "quote": "For students joining IITs, the additional eligibility criteria will be the Cut off Rank, at the JEE (Advanced) – General Category",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "note",
+      "value": "NEET overall rank up to 50,000 for MBBS",
+      "quote": "Applicants admitted based on NEET (Overall, All India General/Common Merit Rank – Not Category Rank)",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "note",
+      "value": "CLAT rank up to 7,000; state law CETs up to 2,500; others 1,000; CUET >65%",
+      "quote": "CLAT [27 NLU Colleges]",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<",
+      "value": 400000,
+      "quote": "The gross family income criteria: Annual Income should be less than Rs 4.00 Lacs",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "first graduates in family preferred",
+      "quote": "Applicants who are the first graduates of the family will be preferred over applicants who are the second or third child of the family taking up graduation.",
+      "quote_verified": true
+    },
+    {
+      "field": "category",
+      "op": "note",
+      "value": "open irrespective of caste, community, gender, religion",
+      "quote": "This assistance is available irrespective of the applicant’s caste, community, gender or religion.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Financial support for the professional degree plus mentoring (amount not printed on page)",
+    "quote": "FFE’s assistance extends beyond finances and includes training, mentorship and advice from a vast network of donors and alumni."
+  },
+  "documents": [
+    {
+      "name": "XII marksheet",
+      "quote": "XII Marksheet"
+    },
+    {
+      "name": "Entrance rank certificate",
+      "quote": "Entrance Rank Certificate"
+    },
+    {
+      "name": "Counselling seat allotment letter",
+      "quote": "Counselling Letter For Seat Allotment"
+    },
+    {
+      "name": "Income certificate / salary slips / ITR",
+      "quote": "Family Income Certificate Or Salary Slip (For 3 Months) Or IT Return Form"
+    },
+    {
+      "name": "Aadhaar",
+      "quote": "E-Aadhaar Or Scanned Copy Of Your Original Aadhaar"
+    },
+    {
+      "name": "Fee receipts, bank passbook, bonafide, fee structure, parent declaration",
+      "quote": "Bonafide Certificate Issued By College"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Scholarship season begins 1 Aug 2026; no closing date printed",
+    "quote": "Scholarship season will begin on Aug 1st, 2026.",
+    "status": "unknown"
+  },
+  "apply_url": "https://ffe.org/scholarships/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "amount_not_stated",
+    "rank_cutoffs_by_state"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

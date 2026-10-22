@@ -1,0 +1,78 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "tn_tamil_pudhalvan",
+  "name": "Tamil Pudhalvan Scheme",
+  "provider": "Social Welfare & Women Empowerment Department, Government of Tamil Nadu",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Tamil Nadu",
+  "level": [
+    "diploma",
+    "UG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://tnsocialwelfare.tn.gov.in/en/specilisationswoman-welfare/tamil-pudhalvan",
+      "fetched_at": "2026-10-22T11:00Z",
+      "raw_file": "raw/tn_tamil_pudhalvan.txt",
+      "sha256": "c8ffb0c2f1f155717f5df40f1588421e9df76c76ae660de96552db0e404fddf2"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "male",
+      "quote": "All boy students who studied from Classes 6 to 12 in Government schools and Government aided schools in tamil medium will be paid Rs.1,000/- per month",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "Studied classes 6-12 in Government or Government-aided (Tamil medium) schools",
+      "quote": "paid on a monthly basis to all eligible boy students who have studied from 6th 12th Std. in Government schools and Government aided schools in tamil medium.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "UG",
+        "diploma",
+        "ITI"
+      ],
+      "quote": "till the uninterrupted completion of their undergraduate degree, diploma and ITI courses",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Only first course of higher education; other scholarships allowed concurrently",
+      "quote": "The boy students availing other scholarships are also eligible to enroll in this scheme.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 1,000 per month via DBT till completion of first higher-education course",
+    "quote": "Cash incentive of Rs.1000/month per beneficiary as DBT will be sanctioned till the competition of their first higher education."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Rolling; apply on the UMIS portal",
+    "quote": "This scheme activity is implemented through online portal 'UMIS' wherein the boy students themselves can apply for the scheme directly.",
+    "status": "unknown"
+  },
+  "apply_url": "https://tnsocialwelfare.tn.gov.in/en/specilisationswoman-welfare/tamil-pudhalvan",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "no_income_limit_stated",
+    "apply_portal_url_not_on_page"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "commonwealth_masters_uk",
+  "name": "Commonwealth Master’s Scholarships (UK)",
+  "provider": "Commonwealth Scholarship Commission in the UK (FCDO)",
+  "provider_type": "foreign_government",
+  "region": "abroad",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general",
+    "low_income"
+  ],
+  "sources": [
+    {
+      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+      "fetched_at": "2026-10-22T09:07Z",
+      "raw_file": "raw/commonwealth_masters_uk.txt",
+      "sha256": "9ce7228715bf5e2791518361201df40c8908a565ec70af664ce32f18dff48789"
+    }
+  ],
+  "cycle_named": "2027/28",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "in",
+      "value": [
+        "India (eligible Commonwealth country)"
+      ],
+      "quote": "Be a citizen of or have been granted refugee status by an eligible Commonwealth country, or be a British Protected Person.",
+      "quote_verified": true
+    },
+    {
+      "field": "residence",
+      "op": "note",
+      "value": "permanently resident in eligible Commonwealth country",
+      "quote": "Be permanently resident in an eligible Commonwealth country.",
+      "quote_verified": true
+    },
+    {
+      "field": "degree_class",
+      "op": ">=",
+      "value": "2:1 (or 2:2 plus relevant PG)",
+      "quote": "hold a first degree of at least upper second-class (2:1) honours standard, or a lower second-class degree and a relevant postgraduate qualification",
+      "quote_verified": true
+    },
+    {
+      "field": "financial_need",
+      "op": "note",
+      "value": "cannot afford UK study otherwise",
+      "quote": "Be unable to afford to study in the UK without this scholarship.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "none",
+      "value": null,
+      "quote": "There is no age limit for CSC applications.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "PG one-year taught"
+      ],
+      "quote": "The CSC funds one-year taught Master’s programmes only and does not fund MBA degrees.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "apply via national nominating agency, not directly",
+      "quote": "The CSC does not accept direct applications for these scholarships.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Full tuition, airfare, stipend GBP 1,712/month (GBP 2,000 London), study travel grant",
+    "quote": "Stipend (living allowance) at the rate of £1,712 per month, or £2,000 per month for those at universities in the London metropolitan area"
+  },
+  "documents": [
+    {
+      "name": "Passport or national ID",
+      "quote": "a copy of a valid passport (or national ID card) showing a photograph, date of birth, and country of citizenship."
+    },
+    {
+      "name": "Full transcripts",
+      "quote": "Full transcripts detailing all higher education qualifications"
+    },
+    {
+      "name": "Two references",
+      "quote": "References from at least two individuals, in PDF format"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-20",
+    "text": "Closed 16:00 BST Tuesday 20 October (2027/28 cycle)",
+    "quote": "The closing date for applications was 16:00 BST on Tuesday 20 October.",
+    "status": "closed"
+  },
+  "apply_url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "vidyadhan_scholarship",
+  "name": "Vidyadhan Scholarship Program (Sarojini Damodaran Foundation) - incl. Vidyadhan Mathura Scholarship for Women in STEM 2026-27",
+  "provider": "Sarojini Damodaran Foundation (Shibulal family)",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "UG"
+  ],
+  "target_group": [
+    "low_income",
+    "general",
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://www.vidyadhan.org/apply",
+      "fetched_at": "2026-10-22T10:43Z",
+      "raw_file": "raw/vidyadhan_scholarship.txt",
+      "sha256": "9d60343692546bd9fbc75e27189ee53b247ef4cf9277e703d829cfd0b99fa814"
+    }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+    {
+      "field": "other",
+      "op": "note",
+      "value": "main programme selects students after class 10 (state-wise 11th/plus-1 programmes, all closed for 2026); continued through degree if performance is good",
+      "quote": "The students are selected after completion of 10th grade /SSLC through a rigorous selection process including test and interview.",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "in",
+      "value": [
+        "Kerala",
+        "Karnataka",
+        "Tamil Nadu",
+        "Puducherry",
+        "Andhra Pradesh",
+        "Telangana",
+        "Gujarat",
+        "Maharashtra",
+        "Goa",
+        "Odisha",
+        "Delhi",
+        "Ladakh",
+        "Bihar",
+        "Jharkhand",
+        "Punjab",
+        "Himachal Pradesh",
+        "Uttar Pradesh",
+        "Haryana",
+        "Chandigarh",
+        "West Bengal",
+        "Meghalaya",
+        "Rajasthan"
+      ],
+      "quote": "Kerala, Karnataka, Tamil Nadu, Puducherry, Andhra Pradesh, Telangana, Gujarat, Maharashtra, Goa, Odisha, New Delhi, Ladhak, Bihar, Jharkhand, Punjab, Himachal Pradesh, Uttar Pradesh, Haryana, Chandigarh, West Bengal, Meghalaya and Rajasthan.",
+      "quote_verified": true
+    },
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "condition": "mathura_women_stem",
+      "quote": "Female students from Mathura District, Uttar Pradesh, pursuing STEM courses such as MBBS, Engineering, BSc, or other STEM programs are eligible to apply.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 70,
+      "condition": "mathura_women_stem",
+      "quote": "Applicants must have secured a minimum of 70% marks in Class 12 (60% for students with disabilities)",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "first year degree/professional programme 2026-27",
+      "condition": "mathura_women_stem",
+      "quote": "have gained admission to the first year of a degree or professional program in the Academic Year 2026–27",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Mathura district, Uttar Pradesh (class XII from Mathura school or studying at Mathura institution)",
+      "condition": "mathura_women_stem",
+      "quote": "have either completed Class XII from a school in Mathura District or be currently studying at an institution located there.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<",
+      "value": 300000,
+      "condition": "mathura_women_stem",
+      "quote": "The annual family income must be less than ₹3 Lakhs.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Graduation: Rs 10,000 to Rs 75,000 per year depending on state/course; Mathura STEM: Rs 15,000 to Rs 75,000 per year till course completion",
+    "quote": "The scholarship amount for graduation courses varies from Rs 10,000 to Rs 75,000 per year depending on the state, course, duration etc."
+  },
+  "documents": [
+    {
+      "name": "12th marksheet",
+      "quote": "12th Marksheet"
+    },
+    {
+      "name": "Income certificate from competent authority",
+      "quote": "Income Certificate   (from a competent authority; ration card not accepted.)"
+    },
+    {
+      "name": "Photograph",
+      "quote": "Photograph"
+    },
+    {
+      "name": "10th marksheet",
+      "quote": "10th Marksheet"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "Mathura Women in STEM: application last date 31 October 2026; all state 11th-standard programmes for 2026 closed",
+    "quote": "31st October 2026: Application last date",
+    "status": "open"
+  },
+  "apply_url": "https://www.vidyadhan.org/apply",
+  "confidence": "high",
+  "review_flags": [
+    "only_one_subprogramme_open",
+    "state_programmes_select_at_class_10",
+    "amount_varies"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

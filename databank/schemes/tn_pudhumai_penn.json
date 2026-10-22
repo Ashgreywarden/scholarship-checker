@@ -1,0 +1,85 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "tn_pudhumai_penn",
+  "name": "Pudhumai Penn Scheme (Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme)",
+  "provider": "Social Welfare & Women Empowerment Department, Government of Tamil Nadu",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Tamil Nadu",
+  "level": [
+    "diploma",
+    "UG"
+  ],
+  "target_group": [
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://tnsocialwelfare.tn.gov.in/en/pudhumai-penn-scheme",
+      "fetched_at": "2026-10-22T10:58Z",
+      "raw_file": "raw/tn_pudhumai_penn.txt",
+      "sha256": "859031cba002b9d1046a51873d88dc1df3d150f14f56f7127ab129ad3d23c5dc"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "quote": "All girl students who studied from Classes 6 to 12 in Government schools will be paid Rs.1,000/- per month directly into their bank account",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "Studied classes 6-12 in Tamil Nadu Government schools",
+      "quote": "paid on a monthly basis to all eligible girl students who have studied from 6th 12th Std. in Government schools.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "UG",
+        "diploma",
+        "ITI"
+      ],
+      "quote": "till the uninterrupted completion of their undergraduate degree, diploma and ITI courses",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Only first course of higher education; recognised institution; other scholarships allowed concurrently",
+      "quote": "only first course of higher education will be considered as an eligible factor",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Can be combined with other scholarships",
+      "quote": "The girl students availing other scholarships are also eligible to enroll in this scheme.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 1,000 per month via DBT till completion of first higher-education course",
+    "quote": "Cash incentive of Rs.1000/month per beneficiary as DBT will be sanctioned till the competition of their first higher education."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Rolling; apply on the Penkalvi portal",
+    "quote": "This scheme activity is implemented through online portal 'Penkalvi' wherein the girl students themselves can apply for the scheme directly.",
+    "status": "unknown"
+  },
+  "apply_url": "https://tnsocialwelfare.tn.gov.in/en/pudhumai-penn-scheme",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "no_income_limit_stated",
+    "apply_portal_url_not_on_page"
+  ]
+}

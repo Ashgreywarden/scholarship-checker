@@ -1,0 +1,151 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "pm_yasasvi_post_matric_obc",
+  "name": "PM YASASVI - Centrally Sponsored Scheme of Post-Matric Scholarship for OBC, EBC and DNT Students for studying in India",
+  "provider": "Ministry of Social Justice and Empowerment, Government of India (implemented through States/UTs)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "OBC",
+    "EBC",
+    "DNT"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/public/ckeditor/upload/65661651839791.pdf",
+      "fetched_at": "2026-10-22T10:14Z",
+      "raw_file": "raw/pm_yasasvi_guidelines.txt",
+      "sha256": "362a27748a1897a55fc2fad1265a76cb2244f3ffbce8c4ac520adc4cfd3c3e23"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "OBC",
+        "EBC",
+        "DNT"
+      ],
+      "quote": "The scholarships will be open to Indian nationals belonging to OBCs, EBCs and DNTs, as notified by the Central Govt./State Govt./ UT Admin.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "Unemployed students whose parents/guardians income from all sources does not exceed Rs. 2.50 lakh per annum will be entitled for the scholarship under the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "post-matric: Class XI-XII, ITI, diploma, UG, PG, MPhil/PhD"
+      ],
+      "quote": "Scholarships will be given for the study of all recognized post-matriculation or post- secondary courses (Intermediate/Senior Secondary, Diploma, long-term Vocational Training Certificate, Graduate, Post Graduate courses etc.)",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "note",
+      "value": "awarded by the State/UT where the student is permanently settled",
+      "quote": "These scholarships shall be available for studies in India only and will be awarded by the Government of State/Union Territory to which the applicant actually belongs, i.e. permanently settled.",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "institution must have AISHE/UDISE code",
+      "quote": "Only Institutions/Colleges with the 'AISHE Code'/UDISE' Code' shall be eligible for the scholarship scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "same-stage repeat course not eligible",
+      "quote": "Candidates who, after passing one stage of education, are studying in the same stage of education in different subject e.g. B.Sc. after B.A or B.Com.after B.A. or M.A. in a subject after M.A in another subject will not be eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max two boys per family; no limit for girls",
+      "quote": "Only two boys of the same parents/guardian will be entitled to receive scholarships. This restriction will, however, not apply to girls.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other scholarship/stipend concurrently",
+      "quote": "A scholarship holder under this Scheme will not hold any other scholarship/ stipend.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "correspondence/online students eligible (tuition fee only, no academic allowance)",
+      "quote": "Students, who pursue their studies through correspondence/online courses, are also eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "30% funds for girls, 5% for students with disabilities",
+      "quote": "12.4 30% of the funds allocated earmarked for girl students and 5% for students with disabilities.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "management/NRI quota and spot admission seats not eligible",
+      "quote": "All seats filled through arbitrary and non-transparent processes (including management quota, NRI quota, spot admissions etc.) without following the merit criteria as decided by the State Government are not eligible for these scholarships.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Yearly academic allowance plus tuition fee: Group 1 Rs 10,000 + 10,000 = 20,000; Group 2 Rs 8,000 + 5,000 = 13,000; Group 3 Rs 6,000 + 2,000 = 8,000; Group 4 Rs 5,000 (freeship card for admission without pre-payment of fees)",
+    "quote": "Group 1: Degree and Post Graduate level professional courses 10000 10000 20000 Group 2: Other Professional Courses leading to Degree, Diploma, Certificate 8000 5000 13000 Group 3: Graduate and Post Graduate courses not covered under Group I & Group II 6000 2000 8000 Group 4: All post-matriculation (Post Class X level) non-degree courses 5000 0 5000"
+  },
+  "documents": [
+    {
+      "name": "Passport size photograph",
+      "quote": "the documents may be scanned and uploaded which include: passport size photograph"
+    },
+    {
+      "name": "Certificates of all examinations passed",
+      "quote": "copy of each of the certificates for diploma, degree etc. in respect of all examinations passed"
+    },
+    {
+      "name": "Caste certificate",
+      "quote": "Caste certificate duly signed by the authorized officer"
+    },
+    {
+      "name": "Income certificate",
+      "quote": "valid Income certificate issued by the competent"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "States/UTs announce from April each year and fix the last date; applications on the State scholarship portal or NSP",
+    "quote": "All the State Governments/UT Administrations will announce starting from April, the details of the Scheme and invite applications by issuing an advertisement in the leading newspapers of the State and through their respective websites/ Scholarship portals and other modes of media.",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "no_exact_deadline_state_specific",
+    "funds_limited_scheme_state_merit_cum_means_selection",
+    "amount_rates_as_per_2021_guidelines_may_be_revised"
+  ]
+}

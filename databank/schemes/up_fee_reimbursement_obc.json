@@ -1,0 +1,86 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "up_fee_reimbursement_obc",
+  "name": "Fee Reimbursement Scheme (Other Backward Classes), Uttar Pradesh",
+  "provider": "Backward Classes Welfare Department, Government of Uttar Pradesh",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Uttar Pradesh",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "OBC"
+  ],
+  "sources": [
+    {
+      "url": "https://backwardwelfareup.gov.in/en/page/fee-reimbursement-scheme",
+      "fetched_at": "2026-10-22T10:17Z",
+      "raw_file": "raw/up_fee_reimbursement_obc.txt",
+      "sha256": "fff928048bd222f27995699953fec90d06b9e21694b9ea16a6300adc3bb5f5bb"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "OBC"
+      ],
+      "quote": "Students belonging to Other Backward Classes studying in all the government schools, aided and recognized educational institutes of the state",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Uttar Pradesh",
+      "quote": "Native and under study in Uttar Pradesh.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 200000,
+      "quote": "Annual income of parents/guardian of the student is upto Rs. 2 Lakh.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": "note",
+      "value": "cut-off merit of last year's marks, budget-limited",
+      "quote": "based on the Cut-Off merit of marks percentage of last year (upto the budget availability), are eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Fully state funded",
+      "quote": "This scheme is fully aided by the state government.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Maximum annual fee reimbursement: Group-1 Rs 50,000; Group-2 Rs 30,000; Group-3 Rs 20,000; Group-4 Rs 10,000",
+    "quote": "Group-3\tAll graduate level courses which are not included in Group-I and II, like B.A., B. Sc. and B. Com./B.T.C etc. \tRs. 20,000/-"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Online application opens 01 July each year on scholarship.up.gov.in; disbursed 02 October and 26 January",
+    "quote": "Online application by the students is started with effect from 01 July.",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarship.up.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "check_current_cycle_dates_on_scholarship.up.gov.in",
+    "cap_table_flattened"
+  ]
+}

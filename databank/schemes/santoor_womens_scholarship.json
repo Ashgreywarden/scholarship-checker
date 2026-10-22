@@ -1,0 +1,84 @@
+{
+  "id": "santoor_womens_scholarship",
+  "name": "Santoor Women's Scholarship Program 2026-27",
+  "provider": "Wipro Consumer Care and Wipro Cares",
+  "provider_type": "corporate",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "girls",
+    "low_income"
+  ],
+  "sources": [
+    {
+      "url": "https://www.santoorscholarships.com/",
+      "fetched_at": "2026-10-22T10:33Z",
+      "raw_file": "raw/santoor_womens_scholarship.txt",
+      "sha256": "383cede8a125a90f1d9702a77334a0df921ff2a69cd34e81f9318a70497335e2"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "quote": "The program intends to financially support girls from disadvantaged backgrounds, who wish to pursue higher education after grade 12.",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "in",
+      "value": [
+        "Andhra Pradesh",
+        "Maharashtra"
+      ],
+      "quote": "This year, the Santoor Scholarship will extend financial support to 1000 eligible girl students, across the states of Andhra Pradesh and Maharashtra.",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "class 10 from local government school; class 12 from government school/junior college in 2025-26",
+      "quote": "Passed class 12 from a government school/junior college in the academic year 2025-26.",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "UG programme beginning 2026-27",
+      "quote": "Enrolled in an undergraduate program beginning 2026-27.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "preference to backward districts; humanities/arts/sciences encouraged",
+      "quote": "Preference is given to students from backward districts.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 30,000 per annum till completion of the course",
+    "quote": "The students would be given Rs. 30,000 per annum till they complete their course of study."
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2026-10-15",
+    "text": "Last date to apply 15th October 2026",
+    "quote": "The last date for applying is 15th October, 2026.",
+    "status": "closed"
+  },
+  "apply_url": "https://www.santoorscholarships.com/",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "popup_text_extracted_via_js",
+    "eligible_states_change_yearly"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

@@ -1,0 +1,93 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mh_rcsm_fee_reimbursement_medical",
+  "name": "Rajarshi Chhatrapati Shahu Maharaj Fee Reimbursement Scheme (Medical Education - EBC)",
+  "provider": "Directorate of Medical Education and Research, Government of Maharashtra (via MahaDBT)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Maharashtra",
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "EBC",
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51A85D4A975C5D5142BC657258E23D57FBDAD7167545F0B41EF",
+      "fetched_at": "2026-10-22T10:30Z",
+      "raw_file": "raw/mh_rcsm_fee_reimbursement_medical.txt",
+      "sha256": "36eb1c3814a6e1128bba52efb4e2673b3316f39d7a7f689bdd1baddec4218d64"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "income_annual_inr",
+      "op": "<",
+      "value": 800000,
+      "quote": "For MBBS/BDS and other courses candidates who's Family's annual income < Rs.8,00,000.",
+      "quote_verified": true
+    },
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "general",
+        "SEBC"
+      ],
+      "quote": "Candidates are eligible those who have taken an admission under General category and SEBC Category",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "MBBS",
+        "BDS",
+        "BAMS",
+        "BHMS",
+        "BPTH",
+        "BOTH",
+        "B.Sc Nursing",
+        "BUMS",
+        "BP&O",
+        "BASLP"
+      ],
+      "quote": "Eligible Courses: MBBS, BDS, BAMS, BHMS, BPTH ,BOTH,B.SC Nursing, BUMS, BP & O, BASLP in government aided/Corporation/Private un-aided colleges.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "50% of tuition fee plus exam fee reimbursed",
+    "quote": "50% fee reimbursement (tuition fee + exam fee) will be provided."
+  },
+  "documents": [
+    {
+      "name": "Domicile certificate",
+      "quote": "Domicile Certificate"
+    },
+    {
+      "name": "Parents' income certificate",
+      "quote": "Income certificate of Parents."
+    },
+    {
+      "name": "Father's PAN card",
+      "quote": "Father's PAN card"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Apply on MahaDBT; no date on scheme page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://mahadbt2.maharashtra.gov.in/",
+  "confidence": "medium",
+  "review_flags": [
+    "no_deadline",
+    "domicile_not_explicit_in_eligibility_only_in_documents"
+  ]
+}

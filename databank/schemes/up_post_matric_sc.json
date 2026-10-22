@@ -1,0 +1,74 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "up_post_matric_sc",
+  "name": "Post Matric Scholarship Scheme for Scheduled Castes (Dashamottar Chhatravritti), Uttar Pradesh",
+  "provider": "Department of Social Welfare, Government of Uttar Pradesh",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Uttar Pradesh",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "SC"
+  ],
+  "sources": [
+    {
+      "url": "https://samajkalyan.up.gov.in/en/article/scholarship-scheme",
+      "fetched_at": "2026-10-22T10:40Z",
+      "raw_file": "raw/up_post_matric_sc_general.txt",
+      "sha256": "3556bf49f060d3410c1505b03c2f8e319c610eef69add6e3a5c53353b8b5e2e5"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC"
+      ],
+      "quote": "Under the post matric scholarship scheme for scheduled castes total annual income per family has been fixed Rs. 2,50,000/-",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "for scheduled castes total annual income per family has been fixed Rs. 2,50,000/- (Rupees Two Lakh Fifty Thousands only)",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Entire process online on scholarship.up.gov.in; paid via PFMS",
+      "quote": "Complete process of applying for the scholarship by the students till disbursement of amount is online through https://scholarship.up.gov.in",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Not stated on summary page (maintenance allowance and fee reimbursement per course group; see scanned niyamavali PDFs)",
+    "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Not stated; applications on scholarship.up.gov.in",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarship.up.gov.in",
+  "confidence": "medium",
+  "review_flags": [
+    "secondary_page",
+    "no_deadline",
+    "no_amount",
+    "rules_pdf_scanned_hindi_not_extracted",
+    "income_limit_may_have_changed_news_apr_2026_reports_doubling"
+  ]
+}

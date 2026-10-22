@@ -1,0 +1,145 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "pm_yasasvi_top_class_college_obc",
+  "name": "PM YASASVI - Central Sector Scheme of Top Class Education in College for OBC, EBC and DNT Students",
+  "provider": "Ministry of Social Justice and Empowerment, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "OBC",
+    "EBC",
+    "DNT"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/public/ckeditor/upload/65661651839791.pdf",
+      "fetched_at": "2026-10-22T10:14Z",
+      "raw_file": "raw/pm_yasasvi_guidelines.txt",
+      "sha256": "362a27748a1897a55fc2fad1265a76cb2244f3ffbce8c4ac520adc4cfd3c3e23"
+    },
+    {
+      "url": "https://socialjustice.gov.in/writereaddata/UploadFile/57331785231868.pdf",
+      "fetched_at": "2026-10-22T10:14Z",
+      "raw_file": "raw/pm_yasasvi_tc_college_2026_27.txt",
+      "sha256": "dfe0e8a91688702a047dacf851cbd34ebd6ce7c820a82813b253ca0140897d13"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "OBC",
+        "EBC",
+        "DNT"
+      ],
+      "quote": "Those OBC/EBC/DNT students having total annual family income from all sources up to Rs. 2.50 lakh and having secured admission in a full-time prescribed course in any of the notified institutions",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "having total annual family income from all sources up to Rs. 2.50 lakh",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "UG",
+        "PG"
+      ],
+      "quote": "The Scheme will cover OBC/EBC/DNT students for pursuing studies beyond class XIIth.",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "notified Top Class institutions (IIMs, IITs, IIITs, AIIMS, NITs, NIFTs, NIDs, IHMs, NLUs, other central institutions; NAAC A++/A+; NIRF top 100; INIs)"
+      ],
+      "quote": "All the IIMs / IITs/ IIITs / AIIMSs/ NITs/NIFTs/ NIDs/ Indian Institutes of Hotel Management, National Law Universities and other Central Government Institutions will be eligible to be included in the Scheme",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "selection by inter-se merit within slots allotted to institution; lower income preferred on tie",
+      "quote": "In case the number of eligible students admitted exceeds the number of slots allotted to the institution, the scholarship will be restricted to the top students in the inter-se merit list based on the admission criteria for the course",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "30% of slots reserved for girls",
+      "quote": "Thirty percent (30%) of slots allotted to the Institution shall be reserved for eligible girl",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max 2 siblings per family",
+      "quote": "The benefit of the Scheme will not be provided to more than 2 siblings in a family.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "terminated on failure to be promoted; preference to OBC",
+      "quote": "The scholarship will be terminated if the student fails to get promoted to the next semester/class.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "apply every year on NSP including renewal",
+      "quote": "The students are required to apply for scholarship every year even in case of renewal also.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Full tuition fee and non-refundable charges (ceiling Rs 2.00 lakh pa in private institutions; Rs 3.72 lakh for private flying clubs), living expenses Rs 3,000 per month, books and stationery Rs 5,000 pa, one-time computer/laptop up to Rs 45,000",
+    "quote": "(a) full tuition fee and non-refundable charges (there will be a ceiling of Rs. 2.00 lakh per annum per student for private sector institutions and Rs. 3.72 lakhs per annum per student for the private sector flying clubs for Commercial Pilot Training and Type Rating Courses) (b) living expenses to the beneficiary @Rs.3000/-per month per student (c) books and stationery @ Rs. 5000/- per annum per student"
+  },
+  "documents": [
+    {
+      "name": "Income certificate",
+      "quote": "upload their income certificate and caste certificate on the Portal along with details of their bank account, Admission Rank and Fee details"
+    },
+    {
+      "name": "Caste certificate",
+      "quote": "upload their income certificate and caste certificate on the Portal"
+    },
+    {
+      "name": "Affidavit that student is not the third sibling availing the scheme",
+      "quote": "The students will submit an affidavit in the Institution to certify that he/she is not the third sibling of the family who is availing benefit under the scheme."
+    }
+  ],
+  "deadline": {
+    "date": "2026-08-31",
+    "text": "2026-27: student registration 1 June 2026 to 31 August 2026; institute verification 15 September 2026; ministry verification 30 November 2026 (NSP register lists student close as 31-10-2026)",
+    "quote": "Closing Date of Application Registration by Students (For Fresh and For 31° August 2026",
+    "status": "closed"
+  },
+  "apply_url": "https://scholarships.gov.in/",
+  "confidence": "high",
+  "review_flags": [
+    "contradiction_deadline_letter_31_Aug_vs_NSP_register_31_Oct_2026",
+    "ocr_doubt_in_letter_dates",
+    "slot_allocation_phase_I_6286_slots_2026_27"
+  ]
+}

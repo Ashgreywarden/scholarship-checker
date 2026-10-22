@@ -1,0 +1,69 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "tn_higher_education_special_st",
+  "name": "Higher Education Special Scholarship Scheme (ST students in non-Government paid hostels) - Tamil Nadu",
+  "provider": "Tribal Welfare Department, Government of Tamil Nadu",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Tamil Nadu",
+  "level": [
+    "diploma",
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "ST"
+  ],
+  "sources": [
+    {
+      "url": "https://tntribalwelfare.tn.gov.in/Pages/HigherEducation.php",
+      "fetched_at": "2026-10-22T11:05Z",
+      "raw_file": "raw/tn_higher_education_special_st.txt",
+      "sha256": "d0c458c2f3221845712453dc120075e40aba013cd882c9c1b5786e570ee4f951"
+    }
+  ],
+  "cycle_named": "2025-26",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "ST"
+      ],
+      "quote": "the Government also provides a Higher Education Special Scholarship Scheme for students staying in non-Government paid hostels.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "To qualify under this scheme, the annual income of the student's parent or guardian should not exceed Rs.2.50 lakh.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Must stay in a non-Government paid hostel",
+      "quote": "The scholarship amount is directly credited to the student's Aadhaar-seeded bank account to cover hostel accommodation costs.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 7,500 pa (UG arts/science, polytechnic); Rs 8,000 pa (PG arts/science, professional)",
+    "quote": "Undergraduate Arts & Science Courses and Polytechnic Courses\n Rs.7,500/-"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Not stated",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://tntribalwelfare.tn.gov.in/Pages/HigherEducation.php",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "limited_budget_rs_50_lakh_2025_26"
+  ]
+}

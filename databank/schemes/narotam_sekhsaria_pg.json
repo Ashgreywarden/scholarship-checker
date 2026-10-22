@@ -1,0 +1,112 @@
+{
+  "id": "narotam_sekhsaria_pg",
+  "name": "Narotam Sekhsaria Foundation Postgraduate Scholarship Programme 2026",
+  "provider": "Narotam Sekhsaria Foundation",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://pg.nsfoundation.co.in/application-process/",
+      "fetched_at": "2026-10-22T10:48Z",
+      "raw_file": "raw/narotam_sekhsaria_pg.txt",
+      "sha256": "c5ddf2880790c37873a1358a5967becca93ec23adfcb621db62ae47aa8c9bdec"
+    }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "==",
+      "value": "Indian national residing in India",
+      "quote": "Applicant must be an Indian national, residing in India",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<",
+      "value": 30,
+      "quote": "Applicant must be below 30 years of age as of January 31, 2026",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "==",
+      "value": "graduate of accredited Indian university (final-year students eligible)",
+      "quote": "Applicant must have graduated from an accredited Indian University",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "in",
+      "value": [
+        "India",
+        "abroad"
+      ],
+      "quote": "Applicants planning to pursue Postgraduate studies at institutions in India and abroad from Fall 2026.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "merit-based, need-blind; repayable interest-free loan scholarship; Rs 500 application fee",
+      "quote": "The programme offers full and part scholarships as repayable interest free financial assistance.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "award subject to securing admission",
+      "quote": "The award of scholarship is subject to securing admission.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Full or part scholarship as repayable interest-free financial assistance (amount not printed)",
+    "quote": "The programme offers full and part scholarships as repayable interest free financial assistance."
+  },
+  "documents": [
+    {
+      "name": "UG/PG mark sheets (attested)",
+      "quote": "Attested copies of the mark sheets of all years of the under-graduate study and post-graduate study, if any"
+    },
+    {
+      "name": "Score cards (GRE/GMAT/CAT/GATE)",
+      "quote": "Attested copies of score cards of any qualifying examination taken. (E.g. GRE, GMAT, CAT, GATE, etc.)"
+    },
+    {
+      "name": "University acceptance letter with fee structure",
+      "quote": "University Acceptance letter with the fee structure"
+    },
+    {
+      "name": "Reference letters",
+      "quote": "Reference Letters"
+    },
+    {
+      "name": "Co-applicant ITR, passport",
+      "quote": "Latest Income Tax Returns of co-applicant"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Applications closed for 2026; invited every January",
+    "quote": "All applications for the Narotam Sekhsaria’s scholarships for post-graduation are invited by the Foundation in the month of January for every academic year.",
+    "status": "closed"
+  },
+  "apply_url": "https://pg.nsfoundation.co.in/",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "loan_scholarship_repayable",
+    "amount_not_stated",
+    "application_fee"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

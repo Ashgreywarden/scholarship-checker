@@ -1,0 +1,71 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ka_post_matric_st",
+  "name": "Postmatric Scholarship for ST Students - Karnataka SSP",
+  "provider": "Tribal Welfare Department, Government of Karnataka (via SSP)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Karnataka",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "ST"
+  ],
+  "sources": [
+    {
+      "url": "https://ssp.karnataka.gov.in/Schemes.aspx",
+      "fetched_at": "2026-10-22T10:50Z",
+      "raw_file": "raw/ka_ssp_postmatric_schemes.txt",
+      "sha256": "00c7664a8588e66bee3c348017104718636ef577c8ed1914da0b5d427f6e042b"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "ST"
+      ],
+      "quote": "Postmatric Scholarship for ST Students — Eligibility\nCaste\nScheduled Tribe\nFamily annual income\n<= Rs. 2.5 lakhs",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "Caste\nScheduled Tribe\nFamily annual income\n<= Rs. 2.5 lakhs\nCourse Type\nClass 11 and above",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "note",
+      "value": "Class 11 and above",
+      "quote": "Scheduled Tribe\nFamily annual income\n<= Rs. 2.5 lakhs\nCourse Type\nClass 11 and above\nCollege Type\nAll",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Not stated on SSP eligibility page (GoI PMS-ST rates apply)",
+    "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Applications open for FY 2026-27 on SSP",
+    "quote": "Scholarship application is open to submit applications for FY 2026-27.",
+    "status": "open"
+  },
+  "apply_url": "https://ssp.postmatric.karnataka.gov.in/post_sa_2627/login",
+  "confidence": "medium",
+  "review_flags": [
+    "no_amount",
+    "no_closing_date"
+  ]
+}

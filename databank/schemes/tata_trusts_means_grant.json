@@ -1,0 +1,128 @@
+{
+  "id": "tata_trusts_means_grant",
+  "name": "Tata Trusts Individual Grants Programme - Means Grant (Education) 2026-27",
+  "provider": "Tata Trusts (Sir Ratan Tata Trust / Sir Dorabji Tata Trust and allied trusts)",
+  "provider_type": "trust",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "UG",
+    "diploma"
+  ],
+  "target_group": [
+    "low_income",
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.tatatrusts.org/Upload/Content_Files/means-grant-programme.pdf",
+      "fetched_at": "2026-10-22T10:11Z",
+      "raw_file": "raw/tata_trusts_means_grant.txt",
+      "sha256": "9815b9e4818c743f6109b548bb1d5a614990084e92053f45dca702712a5db244"
+    },
+    {
+      "url": "https://www.tatatrusts.org/our-work/individual-grants-programme/education-grants",
+      "fetched_at": "2026-10-22T10:20Z",
+      "raw_file": "raw/tata_trusts_education_grants.txt",
+      "sha256": "8c5844ec791958b43fe3b01d91f527a6069f2e73afda3900fcb1aeb71a750300"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "==",
+      "value": "Indian resident",
+      "quote": "(i) Indian residents may apply under this scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "class",
+      "op": "in",
+      "value": [
+        "Standard VIII onwards",
+        "college up to graduation"
+      ],
+      "quote": "The scheme is open to school-going students from Standard VIII onwards and college students up to graduation, provided they are enrolled in an institution recognised by the relevant competent authority.",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "anywhere in India, recognised institution",
+      "quote": "Students pursuing studies anywhere in India are eligible to apply, provided the enrolment is in a school or college recognized by the competent authority",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": "note",
+      "value": "at least Pass class in previous exam; ATKT/grace/condonation not eligible",
+      "quote": "Students should have secured at least “Pass” class in their previous examination (2025-26). (Students who have passed with ATKT, grace marks, or condonation are not eligible to apply.)",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "note",
+      "value": "need-based; no income ceiling printed; income proof for each earning member required",
+      "quote": "The Means Grant Programme provides partial financial assistance, based on students' needs, to Indian residents pursuing their education anywhere in India.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "reimbursement basis; fees must already be paid",
+      "quote": "Since this is a reimbursement-based scheme, the fees should have been paid and the requisite fee receipt should be available with the student.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Partial financial assistance based on need (no figure printed); reimbursement of fees for the academic year",
+    "quote": "Assistance is available for the relevant academic year on a reimbursement basis, subject to the scheme's eligibility criteria and submission of the required documentation."
+  },
+  "documents": [
+    {
+      "name": "Consent form and application form",
+      "quote": "1. Consent Form click here 2. Application Form a. for college studies please click here b. for school studies please click here"
+    },
+    {
+      "name": "Attested marksheet 2025-26",
+      "quote": "Marksheet duly attested by the school or college authority for the academic year 2025–2026."
+    },
+    {
+      "name": "Fee receipts 2026-27",
+      "quote": "4. Fee receipt(s) for the academic year 2026-2027."
+    },
+    {
+      "name": "Family income proof AY 2026-27 (ITR / Form 16 / employer letter / income certificate)",
+      "quote": "5. Family Income Proof for the Assessment Year 2026-27 (Financial Year 2025- 26). We require documentary proof for each earning member in the family."
+    },
+    {
+      "name": "College/school letter on letterhead",
+      "quote": "6. College/School letter as per the shared format."
+    },
+    {
+      "name": "Aadhaar card of student",
+      "quote": "7. Aadhaar Card of the student. Masked card is preferred."
+    },
+    {
+      "name": "Cancelled cheque of parent's account",
+      "quote": "9. Cancelled cheque of parent’s bank account where the grant, if sanctioned, will be credited."
+    }
+  ],
+  "deadline": {
+    "date": "2027-03-31",
+    "text": "Apply by email any time before 31 March 2027 for AY 2026-27",
+    "quote": "For this academic year, an application may be made any time before 31 st March 2027.",
+    "status": "open"
+  },
+  "apply_url": "https://www.tatatrusts.org/our-work/individual-grants-programme/education-grants",
+  "confidence": "high",
+  "review_flags": [
+    "amount_not_stated",
+    "no_income_ceiling_stated",
+    "email_application"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

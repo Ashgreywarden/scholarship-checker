@@ -1,0 +1,125 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "pre_matric_sc",
+  "name": "Pre-Matric Scholarship Scheme for Scheduled Castes & Others",
+  "provider": "Department of Social Justice and Empowerment, Government of India (via States/UTs)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school"
+  ],
+  "target_group": [
+    "SC",
+    "children_of_unclean_occupation_workers"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/schemes/23",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/pre_matric_sc.txt",
+      "sha256": "a8567ae72e6c149d4093938523938286f548103ed8c0323130caad35c26c7b42"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "class",
+      "op": "in",
+      "value": [
+        9,
+        10
+      ],
+      "condition": "component_1",
+      "quote": "The students should be studying in class IX and X on a full time basis.",
+      "quote_verified": true
+    },
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC"
+      ],
+      "condition": "component_1",
+      "quote": "Students should belong to Scheduled Caste.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "condition": "component_1",
+      "quote": "Their Parent/Guardian's income should not exceed Rs. 2.50 lakh per annum.",
+      "quote_verified": true
+    },
+    {
+      "field": "class",
+      "op": "in",
+      "value": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "condition": "component_2",
+      "quote": "The students should be studying in classes I to X on a full time basis",
+      "quote_verified": true
+    },
+    {
+      "field": "parent_occupation",
+      "op": "in",
+      "value": [
+        "manual scavenger",
+        "tanner/flayer",
+        "waste picker",
+        "hazardous cleaning"
+      ],
+      "condition": "component_2",
+      "quote": "irrespective of their caste/religion belong to one of the following categories",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "none",
+      "value": null,
+      "condition": "component_2",
+      "quote": "Component 2 - No family income ceiling.",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "India",
+      "quote": "The Scheme is available for students pursuing studies in India only",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 3,500 (day scholar) / Rs 7,000 (hosteller) per annum, component 1; Rs 8,000 class III-X component 2",
+    "quote": "3500 7000 8000(for class III-X)"
+  },
+  "documents": [
+    {
+      "name": "Certificate of parent's occupation (component 2)",
+      "quote": "submit a certificate from District Social Welfare officer/ identified officer of Local body/ Civic Agency"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Applications invited on NSP in April every year, then on State portal",
+    "quote": "The applications will be invited on National Scholarship Portal (NSP) (https://scholarships.gov.in/) in the month of April every year",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "allowance_table_flattened_check_guidelines_pdf"
+  ]
+}

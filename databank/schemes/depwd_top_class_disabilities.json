@@ -1,0 +1,111 @@
+{
+  "id": "depwd_top_class_disabilities",
+  "name": "Scholarship for Top Class Education for Students with Disabilities (Central Sector Umbrella Scheme 'Scholarships for Students with Disabilities')",
+  "provider": "Department of Empowerment of Persons with Disabilities (Divyangjan), Ministry of Social Justice & Empowerment",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "disability"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/DEPDGuidelines_1.pdf",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/depwd_umbrella_v1.txt",
+      "sha256": "41aa479a1fa147913dfcc7ac69ae134619b163a9725902e40231e0548f637b84"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "disability",
+      "op": ">=",
+      "value": 40,
+      "quote": "All the components of scholarships are open to students with benchmark disability i.e. 40% or more disability as defined in ‘Rights of Persons with Disabilities Act, 2016",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "Top Class Education Graduate and Post- graduate Degree/ Diploma in institutes notified by DEPwD 300 (including renewal cases) Rs. 8 lakh 50%",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "Institutes of Excellence notified by DEPwD (Annexure-I)"
+      ],
+      "quote": "This is admissible only for pursuing Graduate and Post graduate Degree/Diploma courses in Institutes of Excellence in Education as notified by the Department.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "not_in",
+      "value": [
+        "distance",
+        "part-time",
+        "weekend"
+      ],
+      "quote": "Scholarship under this scheme shall not be admissible for pursuing distance- learning/part-time/week-end courses under any stream.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "awarded only once per individual",
+      "quote": "the award under this component cannot be considered for second or subsequent times as the individual can be awarded only once",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max two children with disabilities per parents",
+      "quote": "Not more than two children with disabilities of the same parents will be entitled to receive benefits of the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "300 slots incl. renewals; 50% for female candidates",
+      "quote": "Merit Criteria for Selection will be Percentage of disability as indicated in the disability certificate.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Tuition/admission fee up to Rs 1.90 lakh p.a.; misc fee up to Rs 10,000; laptop Rs 45,000 one-time; aids Rs 30,000 one-time; maintenance Rs 3,000 pm hosteller / Rs 1,500 pm day scholar; special allowance Rs 2,000 pm; books Rs 5,000 p.a.",
+    "quote": "Reimbursement of admission fee and tuition fee paid/ payable to the Institution/university Up to Rs. 1.90 lakh – per annum (subject to actual amount)."
+  },
+  "documents": [
+    {
+      "name": "Disability certificate, income certificate, fee receipt, last qualification certificate, photo, proof of age",
+      "quote": "All requisite documents like photograph, proof of age, disability certificate, income certificate of the parent, tuition fees receipt, last academic qualification certificate, etc. duly filled in the prescribed format are required to be uploaded in the on-line system."
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Scholarship For Top Class Education For Students With Disabilities (Welfare Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "guidelines_revised_25_sep_2024",
+    "institute_list_in_annexure_not_extracted"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

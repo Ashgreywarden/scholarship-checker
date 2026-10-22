@@ -1,0 +1,106 @@
+{
+  "id": "aicte_pragati_diploma",
+  "name": "AICTE Pragati Scholarship Scheme for Girl Students (Diploma)",
+  "provider": "All India Council for Technical Education (AICTE), Ministry of Education",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "diploma"
+  ],
+  "target_group": [
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/schemeGuidelines/AICTE/AICTE_2011_G.pdf",
+      "fetched_at": "2026-10-22T10:16Z",
+      "raw_file": "raw/aicte_pragati_diploma.txt",
+      "sha256": "4ad0dee32d1daeea06fe86744d1e4ff6a9346c542a4f2f95ec7061eec246b871"
+    },
+    {
+      "url": "https://dtekerala.gov.in/static/DEPTCIRCULARS/notification-aicte.pdf",
+      "fetched_at": "2026-10-22T10:21Z",
+      "raw_file": "raw/aicte_notification_2026_27.txt",
+      "sha256": "b5f35ed6fbd81974c06fe38358fad9c525200f722c9caa725a6442df5fa72c25"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "quote": "The girl candidate should be admitted to First year of Diploma level course OR Second year of Diploma level course through lateral entry in any of the AICTE approved Institution",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "in",
+      "value": [
+        1,
+        "2 (lateral entry)"
+      ],
+      "quote": "admitted to First year of Diploma level course OR Second year of Diploma level course through lateral entry",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "Family income from all sources should not be more than Rs. 8 lakh per annum during the current financial year.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max two girl children per family",
+      "quote": "Maximum two girls child per family are eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "gap after qualifying exam not more than 2 years",
+      "quote": "The gap period between the year of passing the qualifying examination and the session of admission in diploma course should not be more than two years.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "selection on class 10 marks, state-wise merit",
+      "quote": "on the basis of percentage of marks obtained in the 10 th / equivalent examination",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 50,000 per annum for every year of study (max 3 years; 2 for lateral entry)",
+    "quote": "Rs. 50,000/- per annum for every year of study i.e. maximum 3 years for first year admitted students and maximum 2 years for second year admitted students"
+  },
+  "documents": [
+    {
+      "name": "Income certificate issued by State/UT Government",
+      "quote": "A valid income certificate issued by State/ UT Government need to be enclosed."
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "AICTE notification dated 19.06.2026: last date for online applications 31.10.2026; NSP lists student application close 31-10-2026",
+    "quote": "has been opened & last date for submission of online applications is 31 .10.2026",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "guideline_pdf_is_2020_21_version_hosted_on_nsp",
+    "slot_numbers_may_have_changed"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

@@ -1,0 +1,84 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "pm_vidyalaxmi",
+  "name": "PM Vidyalaxmi (Central Sector scheme: collateral-free education loans with credit guarantee and interest subvention)",
+  "provider": "Department of Higher Education, Ministry of Education, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.pmindia.gov.in/en/news_updates/cabinet-approves-pm-vidyalaxmi-scheme-to-provide-financial-support-to-meritorious-students-so-that-financial-constraints-do-not-prevent-any-youth-of-india-from-pursuing-quality-higher-education/",
+      "fetched_at": "2026-10-22T10:27Z",
+      "raw_file": "raw/pm_vidyalaxmi.txt",
+      "sha256": "d08ddddf5f3d8a74addd720dabc21244f04c44b8e4038f178fee98cab6d9e002"
+    }
+  ],
+  "cycle_named": "2024-25 to 2030-31",
+  "rules": [
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "QHEIs: NIRF top 100 (overall/category/domain), State govt HEIs ranked 101-200, all central government institutions (860 to begin)"
+      ],
+      "quote": "ranked within the top 100 in NIRF in overall, category-specific and domain specific rankings; state government HEIs ranked in 101-200 in NIRF and all central government governed institutions.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "collateral-free, guarantor-free loan for full tuition and course expenses for anyone admitted to a QHEI",
+      "quote": "any student who gets admission in quality Higher Education Institution (QHEIs) will be eligible to get collateral free, guarantor free loan from banks and financial institutions to cover full amount of tuition fees and other expenses related to the course.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "for students having an annual family income of up to ₹ 8 lakhs, and not eligible for benefits under any other government scholarship or interest subvention schemes, 3 percent interest subvention for loan up to ₹ 10 lakhs will also be provided during moratorium period.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "interest subvention limited to 1 lakh students/year; preference to government institutions and technical/professional courses",
+      "quote": "Preference will be given to students who are from government institutions and have opted for technical/ professional courses.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "PM-USP CSIS: full interest subvention for family income up to Rs 4.5 lakh, technical/professional courses, loans up to Rs 10 lakh",
+      "quote": "students with annual family income up to ₹ 4.5 lakhs and pursuing technical/ professional courses from approved institutions get full interest subvention during moratorium period for education loans up to ₹ 10 lakhs.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "75% credit guarantee on loans up to Rs 7.5 lakh; 3% interest subvention during moratorium on loans up to Rs 10 lakh (income up to Rs 8 lakh); loan covers full tuition and course expenses",
+    "quote": "For loan amount up to ₹ 7.5 lakhs, the student will also be eligible for a credit guarantee of 75% of outstanding default."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Rolling; apply through the unified PM-Vidyalaxmi portal",
+    "quote": "The Department of Higher Education will have a unified portal “PM-Vidyalaxmi” on which students will be able to apply for the education loan as well as interest subvention",
+    "status": "unknown"
+  },
+  "apply_url": "https://www.vidyalakshmi.co.in",
+  "confidence": "medium",
+  "review_flags": [
+    "source_is_cabinet_press_release_not_scheme_guidelines",
+    "loan_scheme_not_scholarship",
+    "no_deadline",
+    "apply_url_from_prior_knowledge_verify"
+  ]
+}

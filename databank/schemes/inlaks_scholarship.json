@@ -1,0 +1,112 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "inlaks_scholarship",
+  "name": "Inlaks Shivdasani Foundation Scholarship",
+  "provider": "Inlaks Shivdasani Foundation",
+  "provider_type": "foundation",
+  "region": "abroad",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.inlaksfoundation.org/scholarships/",
+      "fetched_at": "2026-10-22T09:07Z",
+      "raw_file": "raw/inlaks_scholarship.txt",
+      "sha256": "432f073914dcd728f102d35ecff3c29e0b9206959578fe80e89e27e488b9b2d6"
+    }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "==",
+      "value": "Indian passport holder resident in India",
+      "quote": "The applicant must be an Indian passport holder who is resident in India at the time ofapplication.",
+      "quote_verified": true
+    },
+    {
+      "field": "birth_date_min",
+      "op": ">=",
+      "value": "1996-01-01",
+      "quote": "The applicant must be born on or after 1st January 1996.",
+      "quote_verified": true
+    },
+    {
+      "field": "degree",
+      "op": "note",
+      "value": "degree from recognised Indian university; final-year students may apply",
+      "quote": "The applicant must hold a degree from a recognised university in India. If you are in the final year of graduation and awaiting results, you are eligible to apply.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 65,
+      "quote": "For Social Sciences, Humanities, Law, Fine Arts, Architecture and related subjects, applicants must have a minimum academic grade of 65%, CGPA 6.8/10, or GPA 2.6/4",
+      "condition": "humanities_law_arts",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 70,
+      "quote": "For Mathematics, Sciences, Environment and related subjects, candidates must have a minimum academic grade of 70%, CGPA 7.2/10, or GPA 3/4",
+      "condition": "maths_sciences",
+      "quote_verified": true
+    },
+    {
+      "field": "admission",
+      "op": "note",
+      "value": "prior admission required",
+      "quote": "It is essential to have prior admission to the institution and course chosen at the time of the application.",
+      "quote_verified": true
+    },
+    {
+      "field": "subject_excluded",
+      "op": "not_in",
+      "value": [
+        "Business and Finance",
+        "Computer Science",
+        "Engineering",
+        "Fashion Design",
+        "Film and Film Animation",
+        "Hospitality and Tourism",
+        "Management Studies (MBA)",
+        "Medicine, Dentistry",
+        "Music"
+      ],
+      "quote": "The following subjects are not eligible for the Scholarship:",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no prior PG abroad",
+      "quote": "Applicants having a postgraduate qualification (e.g. Master’s or PhD) from an institution abroad are not eligible to apply.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Up to USD 120,000 covering tuition, living, one-way travel, visa, health",
+    "quote": "covers tuition fees, living expenses, one-way travel, visa costs and health allowance, up to USD 120,000."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Applications closed for 2026; next cycle not announced",
+    "quote": "Applications closed for 2026",
+    "status": "closed"
+  },
+  "apply_url": "https://www.inlaksfoundation.org/scholarships/",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "age_rule_moves_each_year"
+  ]
+}

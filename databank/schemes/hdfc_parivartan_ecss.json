@@ -1,0 +1,120 @@
+{
+  "id": "hdfc_parivartan_ecss",
+  "name": "HDFC Bank Parivartan's Educational Crisis Scholarship Support (ECSS) Programme 2026-27",
+  "provider": "HDFC Bank Limited (CSR programme Parivartan; implemented by Buddy4Study)",
+  "provider_type": "corporate",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "low_income",
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.parivartanecss.com/",
+      "fetched_at": "2026-10-22T11:02Z",
+      "raw_file": "raw/hdfc_parivartan_ecss.txt",
+      "sha256": "909550132b76e21c7d347c8e37ac8b2e2d39ba40aa629e5d5cea6b6a045b4b06"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "==",
+      "value": "Indian national",
+      "quote": "Open to Indian nationals only.",
+      "quote_verified": true
+    },
+    {
+      "field": "class",
+      "op": "in",
+      "value": [
+        "Class 1-12",
+        "diploma/ITI/polytechnic",
+        "UG",
+        "PG"
+      ],
+      "quote": "The opportunity is open to school students from Classes 1 to 12, as well as those pursuing diploma, ITI, polytechnic, UG, and PG (both general and professional) courses.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 55,
+      "quote": "The applicants must have passed the previous qualifying examination with at least 55% marks.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "The annual family income must be less than or equal to INR 2.5 lakh.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "preference to students who faced personal/family crisis in past three years",
+      "quote": "Preference will be given to those applicants who have experienced personal or family crises that have occurred during the past three years",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Up to Rs 75,000 (slabs vary by level)",
+    "quote": "The programme aims to provide financial assistance of up to INR 75,000 to meritorious students with limited financial means.",
+    "note": "UG/PG slabs on the application pages not separately printed"
+  },
+  "documents": [
+    {
+      "name": "Photograph",
+      "quote": "Recent passport-size photograph"
+    },
+    {
+      "name": "Previous year marksheet 2025-26",
+      "quote": "Previous year's marksheet (2025-26)"
+    },
+    {
+      "name": "Government ID proof",
+      "quote": "Government-issued identity proof of the applicant"
+    },
+    {
+      "name": "Admission proof 2026-27",
+      "quote": "Current year admission proof for 2026-27 (Fee Receipt, Admission Letter, Institution ID Card, or Bonafide Certificate)"
+    },
+    {
+      "name": "Bank details",
+      "quote": "Bank account details (copy of passbook or cancelled cheque in the applicant's or parent's name)"
+    },
+    {
+      "name": "Income certificate or affidavit",
+      "quote": "Income Certificate issued by SDM, DM, CO, or Tehsildar"
+    },
+    {
+      "name": "Crisis proof if applicable",
+      "quote": "Proof of family or personal crisis (if applicable)"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "UG and PG application deadline 31 Oct 2026 (programme runs in rounds; FAQ still shows 2025 round dates)",
+    "quote": "Application deadline: 31 Oct 2026",
+    "status": "open"
+  },
+  "apply_url": "https://www.parivartanecss.com/",
+  "confidence": "medium",
+  "review_flags": [
+    "programme_site_operated_by_buddy4study",
+    "eligibility_text_from_application_instruction_page",
+    "faq_shows_stale_2025_dates",
+    "amount_slabs_not_itemised"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

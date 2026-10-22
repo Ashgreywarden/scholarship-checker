@@ -1,0 +1,151 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "nos_sc_2026_27",
+  "name": "National Overseas Scholarship Scheme for SC etc. Candidates (Applicable from the year 2026-27)",
+  "provider": "Ministry of Social Justice and Empowerment, Government of India",
+  "provider_type": "central",
+  "region": "abroad",
+  "state": null,
+  "level": [
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "SC",
+    "DNT",
+    "landless_agricultural_labourers",
+    "traditional_artisans"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/writereaddata/UploadFile/68641776927848.pdf",
+      "fetched_at": "2026-10-22T09:09Z",
+      "raw_file": "raw/nos_sc_2026_27.txt",
+      "sha256": "005672ead529816aa6fcb19e99733d4358f541e6328b3902a574ed99d0469d49"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC",
+        "DNT",
+        "landless_agricultural_labourers",
+        "traditional_artisans"
+      ],
+      "quote": "facilitate the low income students belonging to the Scheduled Castes, Denotified, Nomadic and Semi-Nomadic Tribes, Landless Agricultural Labourers and Traditional Artisans category",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "PG",
+        "PhD"
+      ],
+      "quote": "Bachelors Level courses in any discipline are not covered under the Scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "quote": "at least 60% marks or equivalent grade in the qualifying examination would be required",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 35,
+      "quote": "Not more than 35 (Thirty Five) years, as on first day of April for selection year.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "Gross annual family income from all sources shall not exceed Rs. 8.00 lakh per annum in the last completed financial year",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "unconditional offer from QS top-500 needed for round 1",
+      "quote": "Candidates having unconditional offer of admission to top 500 ranked foreign Institutes/Universities as per the latest available QS World University Rankings for the year 2026 only will be selected for grant of scholarship during the first round of selection.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max two children per family; award once",
+      "quote": "Not more than two children of the same parents/guardians will be eligible for scholarship under the scheme",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other similar scholarship",
+      "quote": "The candidate shall be precluded from availing any other scholarship",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "30% of awards for women",
+      "quote": "30% of the awards for each year shall be earmarked for women candidates.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Annual maintenance USD 15,400 (GBP 9,900 in UK), contingency USD 1,500 (GBP 1,100), tuition at actuals, visa, insurance, air passage",
+    "quote": "Annual Maintenance Allowance 15,400 US Dollars 9900 Great Britain Pounds 2. Annual Contingency Allowance 1500 US Dollars 1100 Great Britain Pounds 3. Tuition Fees Actual as charged"
+  },
+  "documents": [
+    {
+      "name": "10th Board Certificate",
+      "quote": "1. 10 th Board Certificate"
+    },
+    {
+      "name": "Caste Certificate",
+      "quote": "2. Caste Certificate"
+    },
+    {
+      "name": "Qualifying degree / provisional certificate",
+      "quote": "6. Qualifying Degree/Provisional Certificate"
+    },
+    {
+      "name": "Mark sheet of qualifying examination",
+      "quote": "7. Mark sheet of qualifying examination"
+    },
+    {
+      "name": "Admission document from foreign university",
+      "quote": "8. Valid Document regarding admission in Foreign University"
+    },
+    {
+      "name": "Income documents of all family members",
+      "quote": "9. Income documents of all family members"
+    },
+    {
+      "name": "ITR acknowledgement",
+      "quote": "11. Income Tax Return Acknowledgement document"
+    },
+    {
+      "name": "Aadhaar card",
+      "quote": "12. Aadhar Card"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Round 1 portal April/May (40 days); round 2 September/October (40 days); selection year April-March",
+    "quote": "The portal shall be opened for calling of applications for the first round in April/May for a period of 40 days",
+    "status": "unknown"
+  },
+  "apply_url": "https://www.nosmsje.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "no_exact_deadline"
+  ]
+}

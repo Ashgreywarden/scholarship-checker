@@ -1,0 +1,135 @@
+{
+  "id": "sbi_asha_scholarship",
+  "name": "SBI Platinum Jubilee Asha Scholarship 2026-27 (School / UG / PG / Medical / IIT / IIM)",
+  "provider": "SBI Foundation (CSR arm of State Bank of India)",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "low_income",
+    "general",
+    "SC",
+    "ST",
+    "girls",
+    "disability"
+  ],
+  "sources": [
+    {
+      "url": "https://sbifoundation.in/ashascholarship",
+      "fetched_at": "2026-10-22T10:36Z",
+      "raw_file": "raw/sbi_asha_scholarship.txt",
+      "sha256": "e5c9eca09e3e643fe9fe671af48843940752bb4df1e4eeb8d7999a7a8c2ad1cf"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "==",
+      "value": "Indian national",
+      "quote": "Applicants should be Indian nationals.",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "UG/PG: top 300 NIRF institutes or NAAC A and above; Medical: AIIMS or top 50 NIRF medical colleges; IIT: top 23 IITs; IIM",
+      "condition": "UG_PG",
+      "quote": "Applicants must be pursuing an undergraduate course (any year) from a premier university/college in India, as listed in the Top 300 Institutes according to the latest NIRF rankings.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 75,
+      "quote": "Students must have secured 7.5 CGPA/75% marks or above in their previous academic year.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 65.5,
+      "condition": "SC_ST",
+      "quote": "There is a provision of 10% relaxation for students belonging to SC/ST (percentage of marks = 65.5–75%, CGPA = 6.5 and above).",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "condition": "PwBD",
+      "quote": "There is a provision of 15% relaxation for students belonging to PwdB (percentage of marks = 60%, CGPA = 6.00 and above).",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 600000,
+      "condition": "UG_PG_Medical_IIT_IIM",
+      "quote": "The gross annual family income of the applicants must be up to INR 6,00,000.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 300000,
+      "condition": "school_class_9_12",
+      "quote": "The gross annual family income of the applicants must be up to INR 3,00,000.",
+      "quote_verified": true
+    },
+    {
+      "field": "gender",
+      "op": "note",
+      "value": "50% of slots reserved for female students",
+      "quote": "50% of the total slots are reserved for female students (across all categories: SC, ST, OBC, and General).",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "School Rs 15,000; UG Rs 75,000; PG Rs 1,50,000; Medical Rs 2,00,000; IIT Rs 2,00,000; IIM Rs 5,00,000 (renewable subject to eligibility)",
+    "quote": "SBI strives to extend its financial support to students throughout their course."
+  },
+  "documents": [
+    {
+      "name": "Marksheets previous and latest year",
+      "quote": "Marksheets from the previous and latest year (Class 10 / 12 / semester marksheets, as applicable)."
+    },
+    {
+      "name": "Aadhaar and photograph",
+      "quote": "A government-issued photo ID such as Aadhaar, plus a recent passport-size photograph."
+    },
+    {
+      "name": "Family income proof and SBI passbook",
+      "quote": "Family income proof (income certificate / Form 16A / salary slips) and an SBI bank passbook."
+    },
+    {
+      "name": "Bonafide/admission proof and fee receipt",
+      "quote": "Bonafide or admission proof from your institution and the latest fee receipt or fee structure."
+    },
+    {
+      "name": "Caste certificate, family photograph",
+      "quote": "Caste certificate for reserved categories and a home / family photograph of the applicant."
+    }
+  ],
+  "deadline": {
+    "date": "2026-09-04",
+    "text": "Application 22 July 2026 to 4 September 2026",
+    "quote": "Last date to complete and submit the scholarship application.",
+    "status": "closed"
+  },
+  "apply_url": "https://sbifoundation.in/ashascholarship",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "multi_category_amounts",
+    "tab_text_extracted_via_js",
+    "applied_via_buddy4study_portal"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

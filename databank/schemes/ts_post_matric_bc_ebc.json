@@ -1,0 +1,88 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ts_post_matric_bc_ebc",
+  "name": "Post Matric Scholarship (RTF + MTF) for BC and EBC students - Telangana ePASS",
+  "provider": "BC Welfare Department, Government of Telangana (via ePASS)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Telangana",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "OBC",
+    "EBC"
+  ],
+  "sources": [
+    {
+      "url": "https://telanganaepass.cgg.gov.in/Scholarships.do",
+      "fetched_at": "2026-10-22T11:12Z",
+      "raw_file": "raw/ts_epass_post_matric.txt",
+      "sha256": "a0df05fd30fa63e5f7cc40c42f34f70eb93b4075f143de478f9219fd9a6f4182"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "BC",
+        "EBC"
+      ],
+      "quote": "BC & EBC and Minority Welfare Students who belongs to rural area their\n family income should be Rs. One Lakh Fifty Thousand or below.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 200000,
+      "quote": "BC & EBC and Minority Welfare Students who are belongs to Urban area \n family income should be Rs. Two Lakhs or below.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 150000,
+      "quote": "BC & EBC and Minority Welfare Students who belongs to rural area their\n family income should be Rs. One Lakh Fifty Thousand or below.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "EBC not eligible for Intermediate except Corporate College Admissions Scheme; no open university/distance/category B MBBS-BDS",
+      "quote": "Students of BC, EBC and DW students studying the Courses offered\n by open universities, distant mode, category B seats in MBBS,\n BDS.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 30,
+      "quote": "Level of study\n EBC/Minority/Disabled as on 1st July of the Academic Year\n SC,ST & BC as on 1st July of the Academic Year",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "RTF paid to college plus MTF per month: Group I/II Rs 1500 (CAH)/650 (DS); Group III Rs 1000/500; Group IV Rs 750/500",
+    "quote": "The fee reimbursed generally ranges from Rs.850/-for Intermediate course to Rs 6.90 lakhs for Medical courses per annum per student."
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Not stated on scheme pages; apply on ePASS",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://telanganaepass.cgg.gov.in/epassonlinelinks.do",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "income_limit_rural_1.5_lakh_urban_2_lakh",
+    "age_limit_BC_34_EBC_30"
+  ]
+}

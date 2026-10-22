@@ -1,0 +1,90 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ts_post_matric_sc",
+  "name": "Post Matric Scholarship (RTF + MTF) for SC students - Telangana ePASS",
+  "provider": "Scheduled Castes Development Department, Government of Telangana (via ePASS)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Telangana",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "SC"
+  ],
+  "sources": [
+    {
+      "url": "https://telanganaepass.cgg.gov.in/Scholarships.do",
+      "fetched_at": "2026-10-22T11:12Z",
+      "raw_file": "raw/ts_epass_post_matric.txt",
+      "sha256": "a0df05fd30fa63e5f7cc40c42f34f70eb93b4075f143de478f9219fd9a6f4182"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC"
+      ],
+      "quote": "SC Welfare Students whose annual Family income is Rs. Two Lakh Fifty Thousand or below.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "SC Welfare Students whose annual Family income is Rs. Two Lakh Fifty Thousand or below.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 34,
+      "quote": "PG & above including B.Ed, BLisc, BCJ,LLB\n 30 years\n 34 Years",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Convener quota admission; 75% attendance; no part-time/correspondence/management quota",
+      "quote": "Students admitted under Sponsored seats, Management Quota seats & Spot Admissions.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Age limits (SC/ST/BC as on 1 July): Inter 24, Graduate 29, PG 34",
+      "quote": "Intermediate\n 20 years\n 24 years\n Graduate\n 25 years\n 29 years",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Reimbursement of tuition fee (RTF) paid to college plus maintenance (MTF) per month: Group I/II Rs 1500 (CAH)/650 (DS); Group III Rs 1000/500; Group IV Rs 750/500",
+    "quote": "Maintenance Rates in Department Attached Hostels (i.e., College Hostels run by the State Govt.) enhanced and made uniform for Group-I, II, III & IV @ Rs.1500/- per month."
+  },
+  "documents": [
+    {
+      "name": "Caste, income, Aadhaar, marks memo, bonafide, ration card, bank passbook, CET allotment",
+      "quote": "Students have to register online and upload their Caste, Income, Aadhar certificates, Marks Memo, Bonafide certificate, Ration card, Copy of Bank pass book, CET allotment order in case of professional students etc.,"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Not stated on scheme pages; apply on ePASS",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://telanganaepass.cgg.gov.in/epassonlinelinks.do",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "GO_2017_rates"
+  ]
+}

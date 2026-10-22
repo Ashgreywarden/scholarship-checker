@@ -1,0 +1,82 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ts_post_matric_st",
+  "name": "Post Matric Scholarship (RTF + MTF) for ST students - Telangana ePASS",
+  "provider": "Tribal Welfare Department, Government of Telangana (via ePASS)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Telangana",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "ST"
+  ],
+  "sources": [
+    {
+      "url": "https://telanganaepass.cgg.gov.in/Scholarships.do",
+      "fetched_at": "2026-10-22T11:12Z",
+      "raw_file": "raw/ts_epass_post_matric.txt",
+      "sha256": "a0df05fd30fa63e5f7cc40c42f34f70eb93b4075f143de478f9219fd9a6f4182"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "ST"
+      ],
+      "quote": "ST Welfare Students whose annual Family income is Rs. Two Lakhs or below.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 200000,
+      "quote": "ST Welfare Students whose annual Family income is Rs. Two Lakhs or below.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 34,
+      "quote": "PG & above including B.Ed, BLisc, BCJ,LLB\n 30 years\n 34 Years",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Convener quota admission; 75% attendance for renewal",
+      "quote": "Students whose attendance is 75% at the end of each quarter & Promoted to next academic year for Renewal Students.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "RTF paid to college plus MTF per month: Group I/II Rs 1500 (CAH)/650 (DS); Group III Rs 1000/500; Group IV Rs 750/500",
+    "quote": "Group-III\n Degree\n 1000\n 500\n Group-IV\n Intermediate, ITI, Vocational, MPHW\n 750\n 500"
+  },
+  "documents": [
+    {
+      "name": "Caste, income, Aadhaar, marks memo, bonafide, ration card, bank passbook",
+      "quote": "It is made mandatory for all scholarship holders to obtain necessary caste and income certificates from MeeSeva and upload in epass."
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Not stated on scheme pages; apply on ePASS",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://telanganaepass.cgg.gov.in/epassonlinelinks.do",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline"
+  ]
+}

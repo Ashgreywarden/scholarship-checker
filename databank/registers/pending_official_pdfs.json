@@ -1,0 +1,90 @@
+[
+  {
+    "id": "pms_sc",
+    "name": "Post-Matric Scholarship for SC (PMS-SC)",
+    "landing": "https://socialjustice.gov.in/schemes/25",
+    "needs": "guideline PDF revised March 2021 (2.68 MB) linked on landing page",
+    "landing_raw": "raw/pms_sc_landing.txt"
+  },
+  {
+    "id": "top_class_sc",
+    "name": "Top Class Education for SC Students",
+    "landing": "https://socialjustice.gov.in/schemes/27",
+    "needs": "Scheme Guidelines for 2026-27 (English) PDF linked on landing page",
+    "landing_raw": "raw/top_class_sc_landing.txt"
+  },
+  {
+    "id": "aicte_pragati",
+    "name": "AICTE Pragati",
+    "landing": "https://scholarships.gov.in/All-Scholarships",
+    "needs": "aicte.gov.in PDF returns 403 to fetchers; try NSP 'Specifications' link"
+  },
+  {
+    "id": "post_matric_minorities_guidelines",
+    "name": "PMS Minorities original guidelines",
+    "landing": "minorityaffairs.gov.in",
+    "needs": "official guideline page/PDF"
+  },
+  {
+    "id": "up_post_matric_minority",
+    "name": "UP Minority Post-Matric Scholarship / Fee Reimbursement Rules - amendment Dec 2025 and 2023-24 GO",
+    "landing": "https://minoritywelfare.up.gov.in/en/page/schemes-run-by-the-state-government",
+    "needs": "PDFs https://minoritywelfare.up.gov.in/site/writereaddata/siteContent/202512311746125445Postmatric-Guideline-Revision_311225.pdf and .../202310031823428324Postmatric-1837_031023.pdf (Hindi) - Apify pdf-text-extractor failed (site unreachable from foreign IPs)",
+    "landing_raw": null
+  },
+  {
+    "id": "up_post_matric_sc_general",
+    "name": "UP Social Welfare post-matric niyamavali (SC 2021/2023; General 2023) and student guideline",
+    "landing": "https://samajkalyan.up.gov.in/en/article/scholarship-scheme",
+    "needs": "PDFs 202511271532121872anusuchit_compressed.pdf, 202511271536211779rename-Gen 2023-compressed.pdf, 202511271545057751guideline.pdf, 202511271544095020studentguid.pdf under https://samajkalyan.up.gov.in/site/writereaddata/siteContent/ - scanned Hindi images, no text layer (pdf.js in-browser returned empty); site unreachable from Apify for OCR",
+    "landing_raw": "raw/up_post_matric_sc_general.txt"
+  },
+  {
+    "id": "inspire_she",
+    "name": "INSPIRE SHE FAQs 2024 / Fellowship Guidelines 2024",
+    "landing": "https://online-inspire.gov.in/",
+    "needs": "https://online-inspire.gov.in/Content/SHEFAQs2024.pdf and https://online-inspire.gov.in/Content/GuideLine/FellowShipGuidelines2024.pdf return 'fetch failed' to Apify pdf extractor and rag-web-browser"
+  },
+  {
+    "id": "post_matric_minorities",
+    "name": "PMS Minorities guidelines (MoMA original)",
+    "landing": "https://minorityaffairs.gov.in/",
+    "needs": "https://minorityaffairs.gov.in/WriteReadData/RTF1984/5004739043.pdf fetch failed; minorityaffairs.gov.in unreachable via Apify; Meghalaya-hosted copy used instead"
+  },
+  {
+    "id": "nf_obc",
+    "name": "NF-OBC scheme document PDFs",
+    "landing": "https://socialjustice.gov.in/schemes/7",
+    "needs": "https://socialjustice.gov.in/writereaddata/UploadFile/NFS_OBC_2020-21.pdf not yet fetched"
+  },
+  {
+    "id": "pms_sc",
+    "name": "PMS-SC guidelines pages 15-18",
+    "landing": "https://socialjustice.gov.in/schemes/25",
+    "needs": "pages 1-14 OCR'd; pages 15-18 (annexures) not fetched; academic allowance table on page 8 did not OCR"
+  },
+  {
+    "id": "aicte_swanath",
+    "name": "AICTE Swanath Scholarship Scheme (Degree & Diploma)",
+    "landing": "https://www.aicte-india.org/schemes/students-development-schemes",
+    "needs": "aicte.gov.in / aicte-india.org return 403 to all fetchers; need guideline PDF AICTE-SWANATH- SCHEME-DEGREE-DIPLOMA.pdf"
+  },
+  {
+    "id": "mnre_nref",
+    "name": "National Renewable Energy Fellowship Scheme",
+    "landing": "https://mnre.gov.in/en/fellowships-for-higher-studies-and-research-in-renewable-energy/",
+    "needs": "JS-rendered page returns empty text; need scheme guideline PDF (fellowship rates, eligibility)"
+  },
+  {
+    "id": "tribal_top_class_st_guidelines",
+    "name": "National Fellowship and Scholarship for Higher Education of ST Students - guidelines",
+    "landing": "https://tribal.nic.in/DivisionsFiles/aboutSchemes/NFS.pdf",
+    "needs": "tribal.nic.in PDF fetch fails (connection); entry built from official MoTA FAQ on NSP instead"
+  },
+  {
+    "id": "labour_wards_guidelines",
+    "name": "Labour Welfare Scheme (Education) guidelines",
+    "landing": "https://labour.gov.in",
+    "needs": "labour.gov.in scheme pages/PDFs return 404; entry built from official MoLE FAQ on NSP"
+  }
+]

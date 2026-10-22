@@ -1,0 +1,100 @@
+{
+  "id": "reliance_foundation_ug",
+  "name": "Reliance Foundation Undergraduate Scholarships",
+  "provider": "Reliance Foundation",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "general",
+    "low_income",
+    "girls_preferred",
+    "disability_preferred"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.reliancefoundation.org/UG_Scholarship.aspx",
+      "fetched_at": "2026-10-22T10:07Z",
+      "raw_file": "raw/reliance_foundation_ug.txt",
+      "sha256": "f9b6a079132ce7b75e579c7545150110d7e713fce237327a22db8beaa1512b9a"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "==",
+      "value": "resident Indian citizen",
+      "quote": "Be a resident Indian citizen",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "quote": "Passed Standard 12th with minimum 60%",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "1st year UG, regular full-time, any stream",
+      "quote": "Currently enrolled in the 1st year (academic year 2026-27) in a regular full-time degree course in any stream",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<",
+      "value": 1500000,
+      "quote": "Students having House Hold income < Rs. 15 Lakhs",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "online aptitude test mandatory (60 MCQ, 60 min)",
+      "quote": "Test duration will be 60 mins and will contain 60 Multiple Choice Questions",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "not_in",
+      "value": [
+        "online/hybrid/distance/non-regular",
+        "diploma after 10th",
+        "2-year and 6-year UG courses"
+      ],
+      "quote": "Students pursuing their degree through online, hybrid, remote, distance or any other non-regular modes",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "merit-cum-means; girls and specially-abled students encouraged",
+      "quote": "The programme will also aim to encourage applications by girls and specially-abled students.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Up to Rs 2 lakh over the duration of the degree; up to 5,000 scholars a year",
+    "quote": "The total amount of scholarship available over the duration of the degree programme, will be up to Rs/INR 2 Lakhs"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Applications for 2026-27 closed; next cycle expected mid-2027",
+    "quote": "Applications for the 2026-27 scholarships are now closed.",
+    "status": "closed"
+  },
+  "apply_url": "https://scholarships.reliancefoundation.org/UG_Scholarship.aspx",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "no_deadline_date_on_page"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

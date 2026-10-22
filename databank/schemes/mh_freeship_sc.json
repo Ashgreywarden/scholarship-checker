@@ -1,0 +1,99 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mh_freeship_sc",
+  "name": "Post-Matric Tuition Fee and Examination Fee (Freeship) for SC students (Maharashtra)",
+  "provider": "Social Justice and Special Assistance Department, Government of Maharashtra (via MahaDBT)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Maharashtra",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "SC"
+  ],
+  "sources": [
+    {
+      "url": "https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51AE0CB048159E784170A4F3BD768B3A64E4772B0EF7B9990B2",
+      "fetched_at": "2026-10-22T10:28Z",
+      "raw_file": "raw/mh_freeship_sc.txt",
+      "sha256": "f7c6121eb4453135454e95ff33115b8913678998e85ca55fbaf736e487bc1e2e"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "income_annual_inr",
+      "op": ">",
+      "value": 250000,
+      "quote": "The parents / Guardian annual income above Rs. 250000.to unlimited.",
+      "quote_verified": true
+    },
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC",
+        "Neo-Buddhist"
+      ],
+      "quote": "Student category should be Scheduled caste or Neo bouddhist",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Maharashtra",
+      "quote": "Student should be resident of Maharashtra",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "Maharashtra",
+      "quote": "Institute should be located in Maharashtra & shall be government recognized.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "CAP admission for professional courses; only one failure allowed",
+      "quote": "For Professional Courses student should admit through CAP round only",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Tuition fee, exam fee and other compulsory fees reimbursed",
+    "quote": "Tuition Fees, Exam Fees & other fees which are mandatory or compulsorily payable by the student to the institution are covered under the scheme."
+  },
+  "documents": [
+    {
+      "name": "Income certificate (Tahsildar)",
+      "quote": "Income Certificate (Provided by Tahesildar)."
+    },
+    {
+      "name": "Caste validity certificate",
+      "quote": "Cast Validity Certificate"
+    },
+    {
+      "name": "CAP round allotment letter",
+      "quote": "CAP round allotment letter"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Apply on MahaDBT; no date on scheme page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://mahadbt2.maharashtra.gov.in/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "income_floor_not_ceiling_scheme_for_above_2.5_lakh"
+  ]
+}

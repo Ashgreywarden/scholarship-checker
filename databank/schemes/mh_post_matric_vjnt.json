@@ -1,0 +1,97 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mh_post_matric_vjnt",
+  "name": "Post Matric Scholarship to VJNT Students (Maharashtra)",
+  "provider": "VJNT, OBC and SBC Welfare Department, Government of Maharashtra (via MahaDBT)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Maharashtra",
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "DNT"
+  ],
+  "sources": [
+    {
+      "url": "https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51AFD83FFC8C5199983E26D3BE9645241F26E1947ED73B2823D",
+      "fetched_at": "2026-10-22T10:30Z",
+      "raw_file": "raw/mh_post_matric_vjnt.txt",
+      "sha256": "e2a546eef9132d35fada44173636366d8973803821eb1fcb3256b7d9cd765737"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "The parents/Guardians annual Income should be less than or equal to Rs.2.50 Lac.",
+      "quote_verified": true
+    },
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "VJNT"
+      ],
+      "quote": "Applicant should be belongs to VJNT category.",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Maharashtra",
+      "quote": "Applicants must be residents of Maharashtra.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "note",
+      "value": "post-matric onwards, government-approved course",
+      "quote": "Applicants must be pursuing the education course approved by the government from class Post-Matric.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "75% attendance; CAP for professional courses; max 2 boys per family",
+      "quote": "75 % attendance is mandatory for current year.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Maintenance allowance Rs 90-425 per month by course group; tuition fee, exam fee and maintenance allowance paid 100% in govt/aided/unaided institutions",
+    "quote": "Tuition Fee, Exam Fee and Maintenance allowance are paid 100% to applicants who’s studying in government/aided/non aided institutions in professional courses and non-professional courses."
+  },
+  "documents": [
+    {
+      "name": "Caste certificate",
+      "quote": "Caste certificate - should be issued by competent authority(Issued by Govt. of Maharashtra)"
+    },
+    {
+      "name": "Income certificate",
+      "quote": "Income certificate / Income Declaration - should be issued by competent authority"
+    },
+    {
+      "name": "Ration card (number of children)",
+      "quote": "Ration Card for identify number of children in family."
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Apply on MahaDBT; no date on scheme page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://mahadbt2.maharashtra.gov.in/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline"
+  ]
+}

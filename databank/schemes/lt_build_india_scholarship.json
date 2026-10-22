@@ -1,0 +1,95 @@
+{
+  "id": "lt_build_india_scholarship",
+  "name": "L&T Build India Scholarship (BIS) 2026",
+  "provider": "Larsen & Toubro Limited (L&T Construction)",
+  "provider_type": "corporate",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.lntecc.com/scholarship-for-engineering-students/",
+      "fetched_at": "2026-10-22T10:27Z",
+      "raw_file": "raw/lt_build_india_scholarship.txt",
+      "sha256": "6d6640a281b399e70959b66dc08035526503bc0c7590381608ad51655282d934"
+    }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "B.E/B.Tech core Civil Engineering",
+        "B.E/B.Tech core Electrical Engineering"
+      ],
+      "quote": "Applicants must be final-year students pursuing B.E/B.Tech in core Civil/Electrical Engineering, expected to graduate in 2026 from a recognized Indian University/Institute",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 70,
+      "quote": "with an academic aggregate of 70% or a CGPA of 7.0 (out of 10) and above.",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "final year B.E/B.Tech, graduating 2026",
+      "quote": "Please note that students from other engineering disciplines and those who graduated in 2025 or earlier are not eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "==",
+      "value": "M.Tech Construction Technology & Management at IIT Madras / IIT Delhi / NITK Surathkal / NIT Trichy",
+      "quote": "02 years full-time M.Tech degree in Construction Technology & Management (CTaM)",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Rs 12 lakh undertaking and 5-year service bond with L&T",
+      "quote": "Upon selection and before joining the course, the student is required to sign an undertaking valued at Rs. 12 lakhs.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "written test and interview",
+      "quote": "If shortlisted, you will be required to appear for a physical written test at one of our designated Test Centres.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Full tuition/sponsorship fee paid to IIT/NIT plus stipend Rs 13,400 per month for 24 months; employment at L&T on completion",
+    "quote": "Monthly stipend of Rs. 13,400 will be paid for 24 months (till the course completion)"
+  },
+  "documents": [
+    {
+      "name": "Certificates, mark sheets, photo ID, photograph, signature, CV",
+      "quote": "Documents like certificates / mark sheets / valid photo identity proof / photograph / signature / CV etc., need to be uploaded."
+    }
+  ],
+  "deadline": {
+    "date": "2026-03-25",
+    "text": "Last Date for Application 25th March 2026",
+    "quote": "Last Date for Application\n25th March 2026",
+    "status": "closed"
+  },
+  "apply_url": "https://www.lntecc.com/scholarship-for-engineering-students/",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle",
+    "service_bond",
+    "sponsored_pg_not_pure_scholarship"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

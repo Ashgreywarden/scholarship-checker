@@ -1,0 +1,126 @@
+{
+  "id": "sdef_india_scholarship",
+  "name": "SDEF India Scholarship Program 2026-27 (Swami Dayanand Education Foundation)",
+  "provider": "Swami Dayanand Education Foundation",
+  "provider_type": "foundation",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "low_income",
+    "general",
+    "first_generation",
+    "girls_preferred"
+  ],
+  "sources": [
+    {
+      "url": "https://www.swamidayanand.org/overview-and-eligibility-india",
+      "fetched_at": "2026-10-22T10:52Z",
+      "raw_file": "raw/sdef_india_scholarship.txt",
+      "sha256": "ef76dd28e44cd839bdab32ff132226e310cda7e52008de42567528cd94baa815"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": "first year full-time UG professional programme in India, 2026-27",
+      "quote": "Enroll as a first-year full-time undergraduate student in a professional programme in India for 2026–27.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "B.Tech/B.E.",
+        "MBBS",
+        "BDS",
+        "B.Sc Nursing",
+        "B.Pharm/Pharm.D",
+        "B.Arch",
+        "BVSc & AH"
+      ],
+      "quote": "Engineering & Technology — B.Tech./B.E.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 80,
+      "quote": "Have secured a minimum of 80% marks or equivalent CGPA in Class XII",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "note",
+      "value": "JEE Main AIR <= 50,000; JEE Advanced AIR <= 40,000; NEET UG AIR <= 50,000; NATA >= 100",
+      "quote": "JEE Main — AIR 50,000 or below",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 1200000,
+      "quote": "Have an annual family income of ₹12,00,000 or less from all sources.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "drop/gap year after class XII not eligible; part-time not eligible",
+      "quote": "Students who have taken a drop/gap year after Class XII.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "preference to first-generation students and meritorious girls from disadvantaged backgrounds",
+      "quote": "Preference may be given to first-generation college students.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Up to Rs 50,000 per academic year, up to Rs 2,00,000 over four years; 100-150 scholarships a year; paid to college account",
+    "quote": "Annual Award: Up to ₹50,000 per academic year"
+  },
+  "documents": [
+    {
+      "name": "Photograph, Aadhaar",
+      "quote": "Recent passport-size photograph"
+    },
+    {
+      "name": "Class X and XII marksheets",
+      "quote": "Class XII Marksheet"
+    },
+    {
+      "name": "Entrance scorecard, admission letter, college ID, fee receipt",
+      "quote": "Relevant Entrance Examination Scorecard"
+    },
+    {
+      "name": "Family income proof",
+      "quote": "Family Income Proof"
+    },
+    {
+      "name": "Utility bill and three photographs of residence",
+      "quote": "Three photographs of the applicant's residence"
+    },
+    {
+      "name": "SDEF Scholar Pledge form",
+      "quote": "SDEF Scholar Pledge Form"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "Applications open 15 Aug 2026; deadline 31 Oct 2026; notifications mid Nov 2026",
+    "quote": "Deadline\nOctober 31st, 2026",
+    "status": "open"
+  },
+  "apply_url": "https://www.swamidayanand.org/india-scholarships-2026-27",
+  "confidence": "high",
+  "review_flags": [],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

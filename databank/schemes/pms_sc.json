@@ -1,0 +1,165 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "pms_sc",
+  "name": "Scheme of Post Matric Scholarships to the Students belonging to Scheduled Castes for Studies in India (PMS-SC)",
+  "provider": "Ministry of Social Justice and Empowerment, Government of India (implemented through States/UTs; 60:40 Centre:State)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school",
+    "diploma",
+    "UG",
+    "PG",
+    "PhD"
+  ],
+  "target_group": [
+    "SC"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/writereaddata/UploadFile/PMS_for_SCs_Scheme_Guidelines.pdf",
+      "fetched_at": "2026-10-22T10:18Z",
+      "raw_file": "raw/pms_sc.txt",
+      "sha256": "59b63487d4e3ee7338d4697c8382e1f936543e438ad8648cde04a85fcadf60a6"
+    },
+    {
+      "url": "https://socialjustice.gov.in/schemes/25",
+      "fetched_at": "2026-10-22T09:19Z",
+      "raw_file": "raw/pms_sc_landing.txt",
+      "sha256": "951588c43e20d2d76060982126fbadac07d6ef237f419c3c78a5116496913ba0"
+    }
+  ],
+  "cycle_named": "2020-21 to 2025-26",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC"
+      ],
+      "quote": "Only those candidates who belong to Scheduled Castes so specified in relation to the State/Union Territory to which the applicant actually belongs /domiciled as determined by the State/UT",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "Scholarships will be paid to the students whose parents’/guardians’ income from all sources does not exceed Rs. 2,50,000/- (Rupees Two lakh Fifty thousand only) during the last Financial Year.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "post-matric: Class XI-XII, ITI, diploma, UG, PG, MPhil/PhD"
+      ],
+      "quote": "Scholarships will be given for the study of all recognized post-matriculation or post- secondary courses (Intermediate/Senior Secondary, Diploma, long-term Vocational Training Certificate, Graduate, Post Graduate courses etc.)",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Indian nationals; must have passed Matriculation/Higher Secondary or higher",
+      "quote": "who have passed the Matriculation or Higher Secondary or any higher examination of a recognized University or Board of Secondary Education will be eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "India",
+      "quote": "These scholarships are available for studies in India only and the awardees are selected by the State Government/Union Territory to which the applicant actually belongs",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "institution must have AISHE/UDISE code",
+      "quote": "Only Institutions/Colleges with the 'AISHE Code'/UDISE’ Code’ shall be eligible for the scholarship scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "same-stage repeat course not eligible",
+      "quote": "Candidates who, after passing one stage of education are studying in the same stage of education in a different subject e.g. Intermediate Science after Intermediate Arts or B.Com after B.A. or M.A in one subject after M.A in other subjects will not be eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "correspondence/online students eligible for fees only",
+      "quote": "Students, who pursue their studies through correspondence/online courses, are also eligible.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no limit on number of children per family",
+      "quote": "All the children of any parent/guardian will be entitled to receive benefits of the scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other scholarship/stipend concurrently",
+      "quote": "A scholarship holder under this scheme will not hold any other scholarship/stipend.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "management/NRI quota and spot admission seats not eligible",
+      "quote": "All seats filled through arbitrary and non-transparent processes (including management quota, NRI quota, spot admissions etc.) without following the merit criteria as decided by the State Government are not eligible for these scholarships.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "renewal needs satisfactory performance and 75% attendance",
+      "quote": "The award once made will be payable up to the completion of the course subject to satisfactory academic performance and attendance of 75% in every academic year.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Compulsory non-refundable fees (incl. tuition as fixed by State Fee Fixation Committee) plus academic allowance by course group (table not legible in OCR; 10% extra for Divyang students; allowance indexed to CPI-IW from April 2022); freeship card for admission without pre-payment",
+    "quote": "i. Compulsory non-refundable fees including tuition fee, as fixed by the Fee Fixation/Rationalization Committee of the State Government ii. Academic allowance"
+  },
+  "documents": [
+    {
+      "name": "Passport size photograph",
+      "quote": "the documents may be scanned and uploaded which include: passport size photograph"
+    },
+    {
+      "name": "Certificates of all examinations passed",
+      "quote": "copy of each of the certificates for diploma, degree etc. in respect of all examinations passed"
+    },
+    {
+      "name": "Caste certificate",
+      "quote": "Caste certificate duly signed by the authorized officer"
+    },
+    {
+      "name": "Income certificate (once, at admission)",
+      "quote": "valid Income certificate issued by the competent authority as prescribed by the State Govt."
+    },
+    {
+      "name": "Aadhaar number",
+      "quote": "register for issuance of a Freeship Card on the respective scholarship portal giving the details like the Aadhaar number"
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Portal open throughout the year; apply on the State scholarship portal / NSP on the day of admission",
+    "quote": "For the purpose of registration of Freeship Card, the portals shall remain open throughout the year.",
+    "status": "unknown"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "ocr_doubt",
+    "academic_allowance_table_not_captured_by_ocr",
+    "guidelines_period_2020_21_to_2025_26_check_continuation_for_2026_27",
+    "state_portal_deadlines_vary"
+  ]
+}

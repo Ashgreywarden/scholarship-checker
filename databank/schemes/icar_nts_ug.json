@@ -1,0 +1,98 @@
+{
+  "id": "icar_nts_ug",
+  "name": "ICAR National Talent Scholarship (NTS-UG)",
+  "provider": "Indian Council of Agricultural Research (DARE)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/public/FAQ/FAQsforICAR_NTS-UG_3103.pdf",
+      "fetched_at": "2026-10-22T10:21Z",
+      "raw_file": "raw/icar_nts_ug_faq.txt",
+      "sha256": "6e38be93f39fe83deeb7989b991a575afeddf1a631cf9fe201890e057583f330"
+    },
+    {
+      "url": "https://icar.org.in/sites/default/files/Circulars/Guidelines%20for%20ICAR%20NTS%20Scholarship.pdf",
+      "fetched_at": "2026-10-22T10:08Z",
+      "raw_file": "raw/icar_nts.txt",
+      "sha256": "dee2ae4f5dbdacd18167ab5abe2adcbc6670813ca4ab5978b0725f8b2ee3ff8a"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "CUET (ICAR-UG), ICAR All India Quota seat"
+      ],
+      "quote": "available to a student pursuing Bachelor degree programme admitted through CUET (ICAR-UG) under ICAR All India Quota (AIQ) seats in the Agricultural Universities located outside of his State of domicile",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "Agricultural University outside State of domicile",
+      "quote": "Securing admission in undergraduate programme in any non-domicile state.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "continuation needs OGPA/CGPA 7.00/10 (6.50 for SC/ST)",
+      "quote": "minimum prescribed performance [OGPA/CGPA of minimum 7.00 OUT of 10.00 (6.50/10.00 for SC/ST)]",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no separate application; automatic for AIQ admits",
+      "quote": "Candidates who appeared and admitted through CUET (ICAR-UG) under ICAR AIQ Seats are automatically eligible for the said scholarship.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "no other scholarship, whole-time study",
+      "quote": "Takes up studies on a whole time basis and docs nO( lake up any job even on pan time basis.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 3,000 per month for the entire duration of the UG degree",
+    "quote": "NTS-UG is awarded @ Rs.3000/- per month to UG students for entire duration of degree programme subject to minimum qualifying CGPA."
+  },
+  "documents": [
+    {
+      "name": "ICAR award letter",
+      "quote": "Award letter issued by the ICAR may be required."
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Icar National Talent Scholarship(Nts-Ug) (Merit Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "icar_guideline_pdf_is_2016_with_2018_rate_order",
+    "ocr_doubt"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

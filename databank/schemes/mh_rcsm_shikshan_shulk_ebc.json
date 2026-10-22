@@ -1,0 +1,110 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mh_rcsm_shikshan_shulk_ebc",
+  "name": "Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulkh Shishyavrutti Yojana (EBC/EWS) - Technical and Professional courses",
+  "provider": "Higher and Technical Education Department, Government of Maharashtra (via MahaDBT)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Maharashtra",
+  "level": [
+    "diploma",
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "EBC",
+    "general",
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51A7F4D327BDEB7125DE0BA4AE1C51180C272281017EBEF6F7C",
+      "fetched_at": "2026-10-22T10:30Z",
+      "raw_file": "raw/mh_rcsm_shikshan_shulk_ebc.txt",
+      "sha256": "739bab2643abb97a8d1cf5376e601e2951f32f4312560e5a8929ce1b1b2c8342"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "The Total Annual Income of Family / Guardian should not be more than 8 Lakhs.",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Maharashtra",
+      "quote": "Candidate should be Domicile of Maharashtra State.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "professional",
+        "technical"
+      ],
+      "quote": "admitted for Professional and Technical course (Diploma / Graduation / Post Graduation Degree) as mentioned in GR.",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "note",
+      "value": "Deemed and private universities excluded; CAP admission required",
+      "quote": "Deemed University and Private university is not applicable.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "CAP admission; no other scholarship; max 2 children per family; 50% attendance; no gap of 2+ years",
+      "quote": "Candidate should be admitted through Centralized Admission Process (CAP).",
+      "quote_verified": true
+    },
+    {
+      "field": "gender",
+      "op": "note",
+      "value": "Female students get 100% tuition and exam fee; male 50%",
+      "quote": "Female\n 100%\n 100%",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Tuition fee and exam fee: 50% for male, 100% for female students (income up to Rs 8 lakh), paid in two instalments",
+    "quote": "Through MahaDBT Portal, The Benefit of Scheme will be disbursed in two Installment in Aadhar Seeded Bank Account."
+  },
+  "documents": [
+    {
+      "name": "Marksheets from SSC onwards",
+      "quote": "Mark sheet of 10th (S.S.C) & Onwards."
+    },
+    {
+      "name": "Domicile certificate",
+      "quote": "Domicile Certificate of Maharashtra State."
+    },
+    {
+      "name": "Family income certificate",
+      "quote": "Previous Year Family Annual Income certificate."
+    },
+    {
+      "name": "CAP document",
+      "quote": "CAP Related document."
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Apply on MahaDBT; no date on scheme page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://mahadbt2.maharashtra.gov.in/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "GR_dates_cited_2017_2024"
+  ]
+}

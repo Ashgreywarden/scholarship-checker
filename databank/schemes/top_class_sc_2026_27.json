@@ -1,0 +1,103 @@
+{
+  "id": "top_class_sc_2026_27",
+  "name": "Central Sector Scholarship of Top Class Education for SC Students (Guidelines 2026-27)",
+  "provider": "Ministry of Social Justice and Empowerment, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "SC"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/writereaddata/UploadFile/81931782276781.pdf",
+      "fetched_at": "2026-10-22T09:22Z",
+      "raw_file": "raw/top_class_sc_2026_27.txt",
+      "sha256": "ee7ec4d8a7e4692a283dd299711a7297184f87bce3b0a7e0bb429e5fb06bc25a"
+    },
+    {
+      "url": "https://socialjustice.gov.in/schemes/27",
+      "fetched_at": "2026-10-22T09:19Z",
+      "raw_file": "raw/top_class_sc_landing.txt",
+      "sha256": "dbc703e094388508b9a0b846723012c42a3c9cac94ff8d9b6f6e909fa39a3106"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "SC"
+      ],
+      "quote": "Those SC students having total annual family income from all sources up to Rs. 8.00 lakh",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "total annual family income from all sources up to Rs. 8.00 lakh",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "in",
+      "value": [
+        "notified/empanelled institutions (IITs, IIMs, NITs, AIIMS, NLUs etc.)"
+      ],
+      "quote": "having secured admission in a full-time prescribed course in any of the notified institutions",
+      "quote_verified": true
+    },
+    {
+      "field": "year_of_study",
+      "op": "==",
+      "value": 1,
+      "quote": "Students of 2 nd /3 rd /4 th year will not be eligible for selection for fresh scholarship.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "30% of slots for SC girls",
+      "quote": "Thirty percent (30%) of slots allotted to the Institution shall be reserved for eligible SC girl students as per their inter-se merit.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max 2 siblings",
+      "quote": "The benefit of the Scheme will not be provided to more than 2 siblings",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Full tuition and non-refundable charges (cap Rs 2 lakh p.a. in private institutions) plus academic allowance Rs 86,000 first year and Rs 41,000 each later year",
+    "quote": "Academic allowance of Rs. 86,000 in the first year of study and Rs. 41,000 in every subsequent year"
+  },
+  "documents": [
+    {
+      "name": "Income certificate (Tehsildar or employer)",
+      "quote": "Income declaration of self-employed parents/guardian should be in the form of a certificate issued by revenue officer not below the rank of Tehsildar."
+    },
+    {
+      "name": "Caste certificate, bank details, admission rank, fee details on NSP",
+      "quote": "upload their income certificate and caste certificate on the Portal along with details of their bank account, Admission Rank and Fee details"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP lists student application close 31-10-2026; guideline sets institute verification by 31 October each year",
+    "quote": "The last date of verification of applications of the students by the institutions on NSP shall be 31 st of October every year",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

@@ -1,0 +1,112 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "chevening_scholarship",
+  "name": "Chevening Scholarship (UK)",
+  "provider": "UK Foreign, Commonwealth & Development Office",
+  "provider_type": "foreign_government",
+  "region": "abroad",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://www.chevening.org/resource-hub/guidance/eligibility/",
+      "fetched_at": "2026-10-22T09:13Z",
+      "raw_file": "raw/chevening_scholarship.txt",
+      "sha256": "44345160fdc19299ee2c0efa87dcc8ecba55ed54992c52c28a43e421a09e05a9"
+    },
+    {
+      "url": "https://www.chevening.org/scholarships/application-timeline/",
+      "fetched_at": "2026-10-22T09:19Z",
+      "raw_file": "raw/chevening_timeline.txt",
+      "sha256": "4467ebffffb5ab6cc87c81af0993bf2f08b33fe1688379f134a8dd6ccb2b53a0"
+    },
+    {
+      "url": "https://www.chevening.org/scholarships/who-can-apply/work-experience/",
+      "fetched_at": "2026-10-22T09:19Z",
+      "raw_file": "raw/chevening_work_experience.txt",
+      "sha256": "baef3545793be1296a1edf75507335685453da2957f3261bb277417bcfe8b9c3"
+    },
+    {
+      "url": "https://www.chevening.org/scholarship/india/",
+      "fetched_at": "2026-10-22T09:28Z",
+      "raw_file": "raw/chevening_india.txt",
+      "sha256": "e1d3b85e070ceb7d2de39aa1913c0afa244879bd1035184041ef48110b8b2e97"
+    }
+  ],
+  "cycle_named": "2027-28",
+  "rules": [
+    {
+      "field": "citizenship",
+      "op": "in",
+      "value": [
+        "Chevening-eligible country (India listed)"
+      ],
+      "quote": "Be a citizen of a Chevening-eligible country or territory.",
+      "quote_verified": true
+    },
+    {
+      "field": "work_experience_hours",
+      "op": ">=",
+      "value": 2800,
+      "quote": "Have at least two years’ work experience, acquired after completing your undergraduate degree, equivalent to 2,800 hours.",
+      "quote_verified": true
+    },
+    {
+      "field": "degree",
+      "op": "note",
+      "value": "UG degree finished at least two years before deadline",
+      "quote": "You must have finished your undergraduate studies at least two years before our application deadline",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "return home for two years",
+      "quote": "Commit to returning to your home country (country of award) for at least two years after your scholarship ends.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "apply to three UK courses; one unconditional offer",
+      "quote": "Apply to three different and eligible UK university courses.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "exclude",
+      "value": "UK government / British Council / partner university employees and relatives",
+      "quote": "Are an employee, an immediate relative* of an employee, or a former employee (within the last two years, from the opening of Chevening applications) of a government department, the British Council, a partner UK university",
+      "quote_verified": true
+    },
+    {
+      "field": "degree_completed_by",
+      "op": "<=",
+      "value": "2024-10",
+      "quote": "you must have completed your undergraduate degree by October 2024 to be eligible to apply.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Fully funded one-year UK master's (per chevening.org)",
+    "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "2027-28 applications closed (India page). Next cycle expected to open around August 2027.",
+    "quote": "Applications for 2027-2028 Chevening Scholarships are now closed.",
+    "status": "closed"
+  },
+  "apply_url": "https://www.chevening.org/scholarships/",
+  "confidence": "high",
+  "review_flags": [
+    "closed_cycle"
+  ]
+}

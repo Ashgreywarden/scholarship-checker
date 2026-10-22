@@ -1,0 +1,80 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "ka_sanchi_honnamma",
+  "name": "Sanchi Honnamma Scholarship (girls, govt degree colleges) - Karnataka",
+  "provider": "Department of Collegiate Education, Government of Karnataka (via SSP)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Karnataka",
+  "level": [
+    "UG"
+  ],
+  "target_group": [
+    "girls"
+  ],
+  "sources": [
+    {
+      "url": "https://ssp.karnataka.gov.in/Schemes.aspx",
+      "fetched_at": "2026-10-22T10:50Z",
+      "raw_file": "raw/ka_ssp_postmatric_schemes.txt",
+      "sha256": "00c7664a8588e66bee3c348017104718636ef577c8ed1914da0b5d427f6e042b"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "gender",
+      "op": "==",
+      "value": "female",
+      "quote": "Any other condition\nOnly girl students are eligible",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "==",
+      "value": "UG first year, general degree",
+      "quote": "Course Type\nAdmitted to 1st year UG general degree courses\nCollege Type\nGovernment colleges",
+      "quote_verified": true
+    },
+    {
+      "field": "institution",
+      "op": "==",
+      "value": "Government college, government seat",
+      "quote": "College Seat Type\nGovernment seat in Government college",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "quote": "Completed PUC with 60% marks by SC/ ST/ Category 1 students and 75% by other students",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "none",
+      "value": null,
+      "quote": "Sanchi Honnamma Scholarship — Eligibility\nCaste\nAll\nFamily annual income\nAll",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Not stated on eligibility page",
+    "quote": ""
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Applications open for FY 2026-27 on SSP",
+    "quote": "Scholarship application is open to submit applications for FY 2026-27.",
+    "status": "open"
+  },
+  "apply_url": "https://ssp.postmatric.karnataka.gov.in/post_sa_2627/login",
+  "confidence": "medium",
+  "review_flags": [
+    "no_amount",
+    "no_closing_date",
+    "marks_75pct_for_non_reserved"
+  ]
+}

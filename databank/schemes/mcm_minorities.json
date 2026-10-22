@@ -1,0 +1,145 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mcm_minorities",
+  "name": "Scheme of Merit cum Means based Scholarship for Students belonging to the Minority Communities (professional and technical courses)",
+  "provider": "Ministry of Minority Affairs, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "minority"
+  ],
+  "sources": [
+    {
+      "url": "https://megeducation.gov.in/dhte/other_docs/guidelines/Merit%20Cum%20Means%20Scholarship%20For%20Professional%20and%20Technical%20Courses%20of%20MOMA.pdf",
+      "fetched_at": "2026-10-22T10:25Z",
+      "raw_file": "raw/mcm_minorities.txt",
+      "sha256": "ac201d7d849c6c654aa175e0197354d041fec2f19a0fc024647ce3ae5d40024a"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2017-18 to 2019-20 (guidelines); NSP 2026-27",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "Muslim",
+        "Sikh",
+        "Christian",
+        "Buddhist",
+        "Jain",
+        "Parsi"
+      ],
+      "quote": "Muslims, Sikhs, Christians, Buddhists, Jain and Zoroastrians (Parsis) have been notified as minority communities under Section 2 (c) of the National Commission for Minorities Act, 1992.",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 50,
+      "quote": "Scholarship will be awarded to the students who have secured not less than 50% marks or equivalent grade in the previous final examination",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "the annual income of whose parents/guardians from all sources does not exceed Rs.2.50 lakh.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "technical and professional courses (UG and PG)"
+      ],
+      "quote": "It will cover technical and professional courses at undergraduate and post graduate level.",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "India",
+      "quote": "The scholarship is to be awarded for studies in India in a Government or private institution, selected and notified in a transparent manner by the State Government/Union Territory Administration concerned.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "30% earmarked for girls",
+      "quote": "30% scholarship is earmarked for girls students of each minority community in a State/UT",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "selection by merit (marks), income as tie-breaker; listed institutions first",
+      "quote": "Other verified applicant/student will be selected in the merit list, thereafter, on merit basis i.e. Percentage/marks of last academic course/board (higher secondary / graduation) exam. In case of similar marks, income will be taken as deciding factor.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "max two students per family across MoMA schemes",
+      "quote": "Scholarship will not be given to more than two students from a family (applicable for all three Scholarship schemes meant for minorities under this Ministry taken together).",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "only one central scholarship for SC/ST/OBC/minority",
+      "quote": "A student shall be eligible for only one scholarship out of all the available Scholarships of Central Government meant for SC/ST/OBC/minority.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "not paid during paid internship/housemanship",
+      "quote": "Scholarship will not be paid for the period of internship/housemanship in the M.B.B.S. course or for a practical training in other course if the student is in receipt of some remuneration",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Course fee up to Rs 20,000 pa (actuals); maintenance allowance Rs 1,000 pm (hosteller) / Rs 500 pm (day scholar) for 10 months; full course fee reimbursed for 85 listed institutes (2017-20 rates)",
+    "quote": "Course Fee Rs. 20,000/- per annum subject to actuals whichever is less (for both Hosteller & Day Scholar) Maintenance Allowance Rs. 1,000/- per month* for Hosteller Rs. 500/- per month* for Day Scholar Scholarship for listed institutes Full course fee is reimbursed for 85 listed Institutes."
+  },
+  "documents": [
+    {
+      "name": "Income certificate of parent/guardian",
+      "quote": "An Income Certificate, issued from a Competent Authority in the State/UT Governments is required in respect of parent/guardian of the student."
+    },
+    {
+      "name": "Self-certified community certificate",
+      "quote": "A Self-Certified Community Certificate is required from the student who has attained 18 years of age."
+    },
+    {
+      "name": "Aadhaar number",
+      "quote": "It will be necessary for the eligible applicants to provide Aadhaar number while applying for the scholarship"
+    }
+  ],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "Apply on NSP; 2026-27 NSP student close 31-10-2026 per registers/nsp_central_2026_27.csv",
+    "quote": "It is mandatory for all students to apply online on the website i.e. www.scholarships.gov.in.",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "high",
+  "review_flags": [
+    "guidelines_are_2017_20_cycle_rates_may_be_revised",
+    "guideline_pdf_hosted_by_meghalaya_govt_original_moma_site_unreachable",
+    "deadline_from_nsp_register",
+    "confirm_scheme_still_listed_on_nsp_2026_27"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "icar_nts_pg",
+  "name": "ICAR National Talent Scholarship (NTS-PG)",
+  "provider": "Indian Council of Agricultural Research (DARE)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://icar.org.in/sites/default/files/Circulars/Guidelines%20for%20ICAR%20NTS%20Scholarship.pdf",
+      "fetched_at": "2026-10-22T10:08Z",
+      "raw_file": "raw/icar_nts.txt",
+      "sha256": "dee2ae4f5dbdacd18167ab5abe2adcbc6670813ca4ab5978b0725f8b2ee3ff8a"
+    },
+    {
+      "url": "https://scholarships.gov.in/All-Scholarships",
+      "fetched_at": "2026-10-22T09:14Z",
+      "raw_file": "raw/nsp_schemes_2026_27.txt",
+      "sha256": "036dc6d806e30c486fc8736c3f550e9a557652a93f590c3a5c8344e4905ce0ff"
+    }
+  ],
+  "cycle_named": "2026-27",
+  "rules": [
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "ICAR All India Entrance Examination (PG)"
+      ],
+      "quote": "admined through All India Ent~e Ex.amination (AlEE) in the Agricultural University located outside of his Slale of domicile",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "Agricultural University outside State of domicile",
+      "quote": "takes IIdmission in the Agricultural Univcnil) located outside their State of domicile",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "whole-time study, no job, no other scholarship",
+      "quote": "Takes up studies on a whole time basis and docs nO( lake up any job even on pan time basis.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "must not change discipline or university",
+      "quote": "No scholarship will be paid if the student changes diSC\"ipline or the University.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 5,000 per month for PG (revised from Rs 3,000 w.e.f. 2018-19)",
+    "quote": "| 2 Post Graduate (PG) | Rs.3000/- per month per | Rs.5000/- per month |"
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2026-10-31",
+    "text": "NSP 2026-27 student application window closes 31-10-2026 (registers/nsp_central_2026_27.csv)",
+    "quote": "Icar National Talent Scholarship(Nts-Pg) (Merit Based Scheme) Scheme Open from : ",
+    "status": "open"
+  },
+  "apply_url": "https://scholarships.gov.in",
+  "confidence": "medium",
+  "review_flags": [
+    "ocr_doubt",
+    "icar_guideline_pdf_is_2016_with_2018_rate_order",
+    "no_deadline_in_guideline"
+  ],
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22"
+}

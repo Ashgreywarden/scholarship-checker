@@ -1,0 +1,97 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "dbt_jrf_bet",
+  "name": "DBT-Junior Research Fellowship (DBT-JRF) through Biotechnology Eligibility Test (BET) 2026",
+  "provider": "Department of Biotechnology, Government of India (nodal agency: Regional Centre for Biotechnology, Faridabad)",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "PhD"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://rcb.res.in/files/2026-03/detailed_advertisement_bet_2026.pdf",
+      "fetched_at": "2026-10-22T10:35Z",
+      "raw_file": "raw/dbt_jrf_bet_2026.txt",
+      "sha256": "33deb063a4c56b3988de791dcce803f54101b9616c2ac03d4e4d69c946076f7e"
+    }
+  ],
+  "cycle_named": "2026",
+  "rules": [
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Indian citizens residing in India; research in biotechnology in India",
+      "quote": "Applications are invited from bonafide Indian citizens, residing in India for the award of ‘DBT-Junior Research Fellowship’ (DBT-JRF) to pursue research in frontier areas of Biotechnology across the country.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "Master's (MSc/MTech/MVSc/MPharm/Integrated MSc/MTech/MBBS) or 4-year UG in Biotechnology/Life Sciences or allied disciplines"
+      ],
+      "quote": "Candidates holding a Master’s degree or equivalent (M.Sc. /M.Tech. /M.VSc./ M.Pharm. /Integrated M.Sc./M.Tech./MBBS) in Biotechnology/Life Sciences or allied disciplines",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 60,
+      "quote": "with minimum 60% of marks for General, EWS & OBC category and 55% of marks for SC/ ST/Differently Abled candidates in aggregate (or equivalent grade).",
+      "quote_verified": true
+    },
+    {
+      "field": "marks_pct",
+      "op": ">=",
+      "value": 75,
+      "quote": "For a 4 year/8 semester bachelor’s degree (with research): minimum 75% marks in aggregate or its equivalent grade on a point scale wherever the grading system is followed.",
+      "quote_verified": true
+    },
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 28,
+      "quote": "Age Limit : Upto 28 years of age as on the last date of application for General & EWS category. Age relaxation of up to 5 years (33 years) for SC/ ST/ Differently Abled/ women candidates and upto 3 years (31 years) for OBC (Non-Creamy Layer) candidates.",
+      "quote_verified": true
+    },
+    {
+      "field": "exam_qualified",
+      "op": "in",
+      "value": [
+        "BET (Biotechnology Eligibility Test) Category-I"
+      ],
+      "quote": "Candidates will be shortlisted on merit by computer-based ‘Biotechnology Eligibility Test (BET).",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "must register for PhD within 2 years of award letter",
+      "quote": "Category-I entitles a shortlisted candidate for activation of fellowship subject to joining Ph.D. Programme and subsequent registration of Ph.D. from recognized University/ Institution across India within two (2) years from the date of issuance of award letter.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "JRF Rs 37,000 pm for 2 years; SRF Rs 42,000 pm for next 3 years; HRA if applicable; contingency Rs 30,000 pa",
+    "quote": "a fellow shall be designated as ‘Senior Research Fellow’ (SRF) entitled for enhanced fellowship of Rs. 42,000/- per month for remaining duration of three (03) years. Additionally, a DBT JRF/ SRF is entitled to avail HRA (if applicable) and Rs. 30,000/- contingency per annum on pro-rata basis."
+  },
+  "documents": [],
+  "deadline": {
+    "date": "2026-04-09",
+    "text": "BET 2026 applications 19 March to 9 April 2026; exam 17 May 2026",
+    "quote": "Closing Date of submission of online application 9th April 2026 (up to 5.00 PM)",
+    "status": "closed"
+  },
+  "apply_url": "https://exams.nta.nic.in/gat-bet/",
+  "confidence": "high",
+  "review_flags": [
+    "closed_2026_cycle_next_expected_March_2027",
+    "application_fee_Rs_1300_or_650"
+  ]
+}

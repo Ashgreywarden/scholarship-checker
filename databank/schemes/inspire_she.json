@@ -1,0 +1,77 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "inspire_she",
+  "name": "INSPIRE Scholarship for Higher Education (SHE)",
+  "provider": "Department of Science & Technology (DST), Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "general"
+  ],
+  "sources": [
+    {
+      "url": "https://online-inspire.gov.in/Account/INSPIREProgramme",
+      "fetched_at": "2026-10-22T10:33Z",
+      "raw_file": "raw/inspire_she.txt",
+      "sha256": "64f3cad36332e6ec65bed92e5efa2381ff74f060ae233830ee34063ecd36ef90"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "age_max",
+      "op": "<=",
+      "value": 22,
+      "quote": "for the talented youth in the age group 17-22 years, for undertaking Bachelor and Masters level education in natural sciences.",
+      "quote_verified": true
+    },
+    {
+      "field": "course_type",
+      "op": "in",
+      "value": [
+        "Bachelor and Masters in natural sciences (BSc/integrated MSc/MSc)"
+      ],
+      "quote": "for undertaking Bachelor and Masters level education in natural sciences",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "10,000 scholarships per year; no competitive exam; selection via board/exam performance (top 1% of Class XII board or JEE/NEET ranks per DST FAQ, not captured here)",
+      "quote": "The scheme offers 10,000 Scholarship every year at Rs 0.80 lakh per year",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "mentorship support to every scholar",
+      "quote": "The main feature of the scheme is the mentorship support provided to every scholar.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Rs 80,000 per year (scholarship Rs 60,000 + mentorship/summer project Rs 20,000 per DST FAQ)",
+    "quote": "10,000 Scholarship every year at Rs 0.80 lakh per year"
+  },
+  "documents": [],
+  "deadline": {
+    "date": null,
+    "text": "Annual online call on the INSPIRE portal (2024 batch results published; current call not visible)",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://online-inspire.gov.in/",
+  "confidence": "medium",
+  "review_flags": [
+    "official_overview_page_not_full_criteria",
+    "she_faq_pdf_fetch_failed_register_pending",
+    "top_1_percent_criterion_not_quoted",
+    "no_deadline"
+  ]
+}

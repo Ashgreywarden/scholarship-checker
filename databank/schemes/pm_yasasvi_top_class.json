@@ -1,0 +1,79 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "pm_yasasvi_top_class",
+  "name": "PM Young Achievers Scholarship Award Scheme for Vibrant India (PM YASASVI) – Top Class Schools",
+  "provider": "Ministry of Social Justice and Empowerment, Government of India",
+  "provider_type": "central",
+  "region": "india",
+  "state": null,
+  "level": [
+    "school"
+  ],
+  "target_group": [
+    "OBC",
+    "EBC",
+    "DNT"
+  ],
+  "sources": [
+    {
+      "url": "https://socialjustice.gov.in/writereaddata/UploadFile/21871689329535.pdf",
+      "fetched_at": "2026-10-22T09:09Z",
+      "raw_file": "raw/pm_yasasvi_top_class.txt",
+      "sha256": "ef4540136bdbda9b6975b120a8ea4aa5634a3a18e9d564685202cd21800df2ec"
+    }
+  ],
+  "cycle_named": "2023 (YET-2023)",
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "OBC",
+        "EBC",
+        "DNT"
+      ],
+      "quote": "Other Backward Class (OBC), Economically Backward Classes (EBC) and De- Notified, Nomadic & Semi-Nomadic Tribes (DNT)",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 250000,
+      "quote": "Parents’/ guardians’/ annual Income not more than Rs. 2.50 Lakhs.",
+      "quote_verified": true
+    },
+    {
+      "field": "class",
+      "op": "in",
+      "value": [
+        9,
+        11
+      ],
+      "quote": "Studying in a Top Class School in Class 9 or 11.",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Up to Rs 75,000 p.a. (Class 9/10); Rs 1,25,000 p.a. (Class 11/12)",
+    "quote": "Upto Rs. 75,000 p.a. for Class 9/10; Rs. 1,25,000 p.a. for Class 11/12"
+  },
+  "documents": [
+    {
+      "name": "Aadhaar, Aadhaar-linked bank account, income certificate, caste certificate",
+      "quote": "Aadhar Number (UID), Aadhar linked Bank Account, Income Certificate and Caste Certificate"
+    }
+  ],
+  "deadline": {
+    "date": "2023-08-10",
+    "text": "2023 cycle: 11.07.2023 to 10.08.2023. Current cycle not on this page",
+    "quote": "Applications open from: 11.07.2023 to 10.08.2023",
+    "status": "stale_cycle"
+  },
+  "apply_url": "https://yet.nta.ac.in",
+  "confidence": "medium",
+  "review_flags": [
+    "stale_cycle",
+    "find_current_cycle_notice"
+  ]
+}

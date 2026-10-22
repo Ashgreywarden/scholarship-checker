@@ -1,0 +1,105 @@
+{
+  "extracted_by": "claude (this session), no Gemini",
+  "verified_on": "2026-10-22",
+  "id": "mh_state_minority_scholarship_dhe",
+  "name": "State Minority Scholarship Part II (DHE) - Maharashtra",
+  "provider": "Minority Development Department, Government of Maharashtra (via MahaDBT)",
+  "provider_type": "state",
+  "region": "india",
+  "state": "Maharashtra",
+  "level": [
+    "UG",
+    "PG"
+  ],
+  "target_group": [
+    "minority"
+  ],
+  "sources": [
+    {
+      "url": "https://mahadbt.maharashtra.gov.in/SchemeData/SchemeData?str=E9DDFA703C38E51A0D73B666D1DADFB476AD7228CCFCCECE862BCF76CF63E6DB",
+      "fetched_at": "2026-10-22T10:30Z",
+      "raw_file": "raw/mh_state_minority_scholarship_dhe.txt",
+      "sha256": "2c3913c16c0918fc181a64de792a148218097bed736b6c73359807cd18d1e57b"
+    }
+  ],
+  "cycle_named": null,
+  "rules": [
+    {
+      "field": "category",
+      "op": "in",
+      "value": [
+        "minority"
+      ],
+      "quote": "Post Matric- State Government scholarship for minority students studying in Arts, Commerce, Science, Law, Education Courses (part-2)",
+      "quote_verified": true
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "UG",
+        "PG"
+      ],
+      "quote": "Graduation and post-graduation can apply (arts/commerce/science/Law/Education)",
+      "quote_verified": true
+    },
+    {
+      "field": "domicile_state",
+      "op": "==",
+      "value": "Maharashtra",
+      "quote": "Domicile of Maharashtra.",
+      "quote_verified": true
+    },
+    {
+      "field": "income_annual_inr",
+      "op": "<=",
+      "value": 800000,
+      "quote": "Income should be upto Rs.8 lakhs",
+      "quote_verified": true
+    },
+    {
+      "field": "study_location",
+      "op": "==",
+      "value": "Maharashtra",
+      "quote": "Maharashtrian Students studying Out of Maharashtra cannot apply for this scheme.",
+      "quote_verified": true
+    },
+    {
+      "field": "other",
+      "op": "note",
+      "value": "Quota of 2000 fresh applicants",
+      "quote": "Only 2000 applicants will be provided quota (freshers)",
+      "quote_verified": true
+    }
+  ],
+  "amount": {
+    "text": "Annual course fee or Rs 5,000, whichever is less",
+    "quote": "Total annual course fee or 5000 whichever amount is less will be scholarship amount."
+  },
+  "documents": [
+    {
+      "name": "Domicile certificate",
+      "quote": "2)Domicile Certificate."
+    },
+    {
+      "name": "Income certificate",
+      "quote": "3) Income certificate."
+    },
+    {
+      "name": "Self-declared minority certificate",
+      "quote": "6)minority certificate self-declared."
+    }
+  ],
+  "deadline": {
+    "date": null,
+    "text": "Apply on MahaDBT; no date on scheme page",
+    "quote": "",
+    "status": "unknown"
+  },
+  "apply_url": "https://mahadbt2.maharashtra.gov.in/",
+  "confidence": "high",
+  "review_flags": [
+    "no_deadline",
+    "GR_2011_amount_may_be_outdated"
+  ]
+}
