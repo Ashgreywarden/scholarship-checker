@@ -10,6 +10,7 @@ import { z } from "zod";
 import { buildUserMessage, SYSTEM_PROMPT } from "./prompt";
 import { parseModelOutput } from "./parseOutput";
 import { ExtractionSchema, type Extraction } from "./schema";
+import { quoteAppearsIn } from "./verifyQuote";
 
 const BASE_URL = "https://openrouter.ai/api/v1";
 export const DEFAULT_MODEL = "google/gemini-3.7-flash";
@@ -153,19 +154,77 @@ async function callOpenRouter(
   throw new AiError("unavailable", "The AI service is not responding. Please try again.");
 }
 
+interface ChatMessage {
+  role: "system" | "user" | "assistant";
+  content: string;
+}
+
+// Lists every quote that is NOT found in the pasted text (plain-code check).
+function unverifiedQuotes(e: Extraction, text: string): string[] {
+  const bad: string[] = [];
+  e.criteria.forEach((c, i) => {
+    if (!quoteAppearsIn(c.quote, text)) bad.push(`criteria[${i}] (${c.id}): ${JSON.stringify(c.quote)}`);
+  });
+  e.documents.forEach((d, i) => {
+    if (!quoteAppearsIn(d.quote, text)) bad.push(`documents[${i}] (${d.name}): ${JSON.stringify(d.quote)}`);
+  });
+  e.deadlines.forEach((d, i) => {
+    if (!quoteAppearsIn(d.quote, text)) bad.push(`deadlines[${i}] (${d.label}): ${JSON.stringify(d.quote)}`);
+  });
+  return bad;
+}
+
+const REPAIR_BUDGET_MS = 30_000; // don't start a repair call after this
+
 // Reads a notice and returns the structured rules, documents and deadlines.
 // The student's profile is never passed to this function.
+//
+// If some quotes are not found in the pasted text (for example the model tidied
+// up a messy PDF table), we ask once more, naming the bad quotes. The new answer
+// is used only if it has fewer bad quotes. Whatever is still not found is
+// flagged on screen by the browser; it is never trusted.
 export async function extractNotice(noticeText: string): Promise<Extraction> {
   const startedAt = Date.now();
+  const messages: ChatMessage[] = [
+    { role: "system", content: SYSTEM_PROMPT },
+    { role: "user", content: buildUserMessage(noticeText) },
+  ];
+
+  const first = await requestExtraction(messages, startedAt);
+  const bad = unverifiedQuotes(first, noticeText);
+  if (bad.length === 0 || Date.now() - startedAt > REPAIR_BUDGET_MS) return first;
+
+  console.error(`[ai] ${bad.length} quote(s) not found; asking the model to fix them`);
+  try {
+    const repaired = await requestExtraction(
+      [
+        ...messages,
+        { role: "assistant", content: JSON.stringify(first) },
+        {
+          role: "user",
+          content: `These quotes were NOT found in the notice text, character for character:\n${bad.join("\n")}\n\nReturn the complete JSON again with the same structure. For each listed quote, replace it with the longest run of words that really sits uninterrupted in the notice (copy it exactly, even if it is short or includes a row number), or remove that item if no exact run exists. Do not change any other item.`,
+        },
+      ],
+      startedAt,
+    );
+    if (unverifiedQuotes(repaired, noticeText).length < bad.length) return repaired;
+  } catch (e) {
+    // Credits and key problems must still be shown; anything else: keep the first answer.
+    if (e instanceof AiError && (e.code === "out_of_credits" || e.code === "auth")) throw e;
+  }
+  return first;
+}
+
+async function requestExtraction(
+  messages: ChatMessage[],
+  startedAt: number,
+): Promise<Extraction> {
   const schema = z.toJSONSchema(ExtractionSchema) as Record<string, unknown>;
   delete schema.$schema;
 
   const body = {
     model: getModel(),
-    messages: [
-      { role: "system", content: SYSTEM_PROMPT },
-      { role: "user", content: buildUserMessage(noticeText) },
-    ],
+    messages,
     provider: PROVIDER,
     response_format: {
       type: "json_schema",

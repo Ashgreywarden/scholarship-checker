@@ -1,10 +1,12 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AiError, extractNotice } from "./ai";
 import { cheveningExtraction } from "./fixtures";
 import { parseModelOutput } from "./parseOutput";
 import { checkRateLimit, RATE_LIMIT, resetRateLimit } from "./rateLimit";
 
-const NOTICE = "Eligibility: applicants must be under 25 years of age. ".repeat(3);
+const NOTICE = readFileSync(path.join(__dirname, "..", "fixtures", "chevening.txt"), "utf8");
 const FAKE_KEY = "sk-or-test-key-1234567890";
 
 const okBody = (content: string) =>
@@ -107,6 +109,39 @@ describe("lib/ai.ts (OpenRouter + Gemini)", () => {
     const r = await run(extractNotice(NOTICE));
     expect((r as { e: AiError }).e.code).toBe("bad_output");
     expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  const withBadDoc = {
+    ...cheveningExtraction,
+    documents: [{ name: "Passport", quote: "Scanned copy of the passport" }], // not in the text
+  };
+
+  it("asks once more when a quote is not found, and uses the fixed answer", async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(okBody(JSON.stringify(withBadDoc)))
+      .mockResolvedValueOnce(okBody(JSON.stringify(cheveningExtraction)));
+    vi.stubGlobal("fetch", fetchMock);
+    const r = await run(extractNotice(NOTICE));
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect((r as { v: typeof cheveningExtraction }).v.documents[0].name).toBe("Two references");
+    const second = JSON.parse(fetchMock.mock.calls[1][1].body);
+    expect(JSON.stringify(second.messages)).toContain("Scanned copy of the passport");
+  });
+
+  it("keeps the first answer if the repair is no better (and never asks a third time)", async () => {
+    const fetchMock = vi.fn().mockImplementation(async () => okBody(JSON.stringify(withBadDoc)));
+    vi.stubGlobal("fetch", fetchMock);
+    const r = await run(extractNotice(NOTICE));
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect((r as { v: typeof cheveningExtraction }).v.documents[0].name).toBe("Passport");
+  });
+
+  it("does not repair when every quote is found", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(okBody(JSON.stringify(cheveningExtraction)));
+    vi.stubGlobal("fetch", fetchMock);
+    await run(extractNotice(NOTICE));
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
   it("never leaks the key in an error message", async () => {
