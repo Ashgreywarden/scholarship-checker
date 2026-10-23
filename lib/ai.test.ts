@@ -181,3 +181,45 @@ describe("rate limit", () => {
     expect(checkRateLimit("1.1.1.1", t0 + RATE_LIMIT.WINDOW_MS + 1).ok).toBe(true);
   });
 });
+
+
+describe("webSearchChat (the web-search call)", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.stubEnv("OPENROUTER_API_KEY", FAKE_KEY);
+    vi.stubEnv("OPENROUTER_MODEL", "");
+    vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it("sends our model, provider block and the native web search tool", async () => {
+    const { webSearchChat } = await import("./ai");
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ choices: [{ message: { content: "[]" }, finish_reason: "stop" }], usage: { server_tool_use_details: { web_search_requests: 4 } } }), { status: 200 }),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+    const r = await webSearchChat({ system: "s", user: "u", deadlineMs: 40_000, maxToolCalls: 3 });
+    expect(r).toEqual({ content: "[]", searches: 4, finish: "stop" });
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(body.model).toBe("google/gemini-3.7-flash");
+    expect(body.provider).toEqual({ only: ["google-vertex", "google-ai-studio"], allow_fallbacks: false });
+    expect(body.tools).toEqual([{ type: "openrouter:web_search", parameters: { engine: "native" } }]);
+    expect(body.max_tool_calls).toBe(3);
+  });
+  it("a 200 whose body can't be read counts as a timeout, and is not retried", async () => {
+    const { webSearchChat, AiError } = await import("./ai");
+    const fetchMock = vi.fn().mockResolvedValue(new Response("not json", { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+    const p = webSearchChat({ system: "s", user: "u", deadlineMs: 40_000, maxToolCalls: 3 }).catch((e) => e);
+    await vi.advanceTimersByTimeAsync(1000);
+    const err = await p;
+    expect(err).toBeInstanceOf(AiError);
+    expect((err as InstanceType<typeof AiError>).code).toBe("unavailable");
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});

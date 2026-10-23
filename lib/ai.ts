@@ -87,7 +87,10 @@ async function callOpenRouter(
   body: unknown,
   startedAt: number,
   // The notice reader uses the defaults; other callers can set a shorter deadline.
-  opts: { deadlineMs?: number; maxRetries?: number } = {},
+  // unreadableAsTimeout: a 200 whose body could not be read (the deadline cut
+  // the download) counts as a timeout. Only the web search sets it, so the
+  // notice reader's behaviour is unchanged.
+  opts: { deadlineMs?: number; maxRetries?: number; unreadableAsTimeout?: boolean } = {},
 ): Promise<Completion> {
   const key = getKey();
   const deadlineMs = opts.deadlineMs ?? OVERALL_DEADLINE_MS;
@@ -124,6 +127,7 @@ async function callOpenRouter(
     }
     lastStatus = status;
 
+    if (status === 200 && !json && opts.unreadableAsTimeout) status = 504;
     if (status === 200 && json) return json;
     if (status === 402) {
       throw new AiError(
@@ -315,7 +319,7 @@ export async function webSearchChat(opts: {
   deadlineMs: number;
   maxToolCalls: number;
   maxTokens?: number;
-}): Promise<{ content: string; searches: number | null }> {
+}): Promise<{ content: string; searches: number | null; finish: string | null }> {
   const startedAt = Date.now();
   const body = {
     model: getModel(),
@@ -336,10 +340,11 @@ export async function webSearchChat(opts: {
   const completion = await callOpenRouter(body, startedAt, {
     deadlineMs: opts.deadlineMs,
     maxRetries: 0,
+    unreadableAsTimeout: true,
   });
   const choice = completion.choices?.[0];
   const searches =
     (completion as { usage?: { server_tool_use_details?: { web_search_requests?: number } } }).usage
       ?.server_tool_use_details?.web_search_requests ?? null;
-  return { content: choice?.message?.content ?? "", searches };
+  return { content: choice?.message?.content ?? "", searches, finish: choice?.finish_reason ?? null };
 }

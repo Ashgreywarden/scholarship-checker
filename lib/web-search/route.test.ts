@@ -50,6 +50,7 @@ describe("POST /api/web-search", () => {
   it("sends the AI no gender, and labels results; verified first, never 'eligible'", async () => {
     vi.mocked(webSearchChat).mockResolvedValue({
       searches: 2,
+      finish: "stop",
       content: "```json\n" + JSON.stringify([
         { name: "A", provider: "Gov", official_url: "https://a.gov.in/s", quote: "Open to nursing students of Assam only.", deadline_text: "", why: "x" },
         { name: "B", provider: "Gov", official_url: "https://b.gov.in/s", quote: "Open to all degree students of Assam.", deadline_text: "31 Dec", why: "y" },
@@ -68,6 +69,7 @@ describe("POST /api/web-search", () => {
     expect(sent.user).not.toContain("Woman");
     expect(sent.maxToolCalls).toBe(3);
     expect(sent.deadlineMs).toBe(40_000);
+    expect(sent.maxTokens).toBe(3000);
   });
   it("a model failure gives a friendly error (the rest of the page is unaffected)", async () => {
     vi.mocked(webSearchChat).mockRejectedValue(new (AiError as unknown as new (c: string, m: string) => Error)("unavailable", "down"));
@@ -79,7 +81,7 @@ describe("POST /api/web-search", () => {
     expect(res.status).toBe(502);
   });
   it("an answer with no JSON gives an empty list with a note", async () => {
-    vi.mocked(webSearchChat).mockResolvedValue({ searches: 1, content: "Sorry, nothing found." });
+    vi.mocked(webSearchChat).mockResolvedValue({ searches: 1, finish: "stop", content: "Sorry, nothing found." });
     const data = await (await call({ profile })).json();
     expect(data).toEqual({ results: [], note: "No matching official pages found." });
   });

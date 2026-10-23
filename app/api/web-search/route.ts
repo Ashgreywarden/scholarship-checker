@@ -19,7 +19,9 @@ import {
 export const maxDuration = 60; // seconds; Vercel's default limit is higher
 
 const MODEL_TIMEOUT_MS = 40_000;
-const MAX_TOOL_CALLS = 3; // caps the number of searches (cost)
+const MAX_TOOL_CALLS = 3; // asks for at most 3 searches (Google may still run more)
+// Room for Gemini's reasoning plus up to 5 JSON items; 1,500 could cut the answer off.
+const MAX_TOKENS = 3000;
 
 export async function POST(req: Request) {
   await connection();
@@ -47,12 +49,14 @@ export async function POST(req: Request) {
   if (!profile) return fail(400, "Please fill in your profile first.");
 
   let content = "";
+  let finish: string | null = null;
   try {
-    ({ content } = await webSearchChat({
+    ({ content, finish } = await webSearchChat({
       system: WEB_SYSTEM_PROMPT,
       user: buildUserMessage(profile, new Date()),
       deadlineMs: MODEL_TIMEOUT_MS,
       maxToolCalls: MAX_TOOL_CALLS,
+      maxTokens: MAX_TOKENS,
     }));
   } catch (err) {
     // No profile in the logs.
@@ -64,7 +68,11 @@ export async function POST(req: Request) {
   }
 
   const items = extractJsonArray(content);
-  if (!items) return Response.json({ results: [], note: "No matching official pages found." });
+  if (!items) {
+    // No profile in the logs; just why the answer could not be read.
+    console.error("web-search: unreadable answer", { finish, chars: content.length });
+    return Response.json({ results: [], note: "No matching official pages found." });
+  }
 
   const candidates = pickCandidates(items);
   const results: WebResult[] = await Promise.all(
