@@ -302,3 +302,44 @@ export async function chatJson(opts: {
   }
   return choice.message.content;
 }
+
+
+// A third entry point: one question to Gemini WITH Google web search, through
+// the same OpenRouter setup (google/ models only, the two Google backends only,
+// no fallbacks, key from OPENROUTER_API_KEY, server side). Used by the "Search
+// the web for more scholarships" button. Returns the model's raw text and how
+// many searches it ran; the caller must check every result.
+export async function webSearchChat(opts: {
+  system: string;
+  user: string;
+  deadlineMs: number;
+  maxToolCalls: number;
+  maxTokens?: number;
+}): Promise<{ content: string; searches: number | null }> {
+  const startedAt = Date.now();
+  const body = {
+    model: getModel(),
+    messages: [
+      { role: "system", content: opts.system },
+      { role: "user", content: opts.user },
+    ],
+    provider: PROVIDER,
+    // Native = Google's own search for Gemini. With native search, max_results
+    // is ignored and domain filters are not supported (Google returns a 400),
+    // so aggregator sites are filtered in our code instead.
+    tools: [{ type: "openrouter:web_search", parameters: { engine: "native" } }],
+    max_tool_calls: opts.maxToolCalls,
+    max_tokens: opts.maxTokens ?? 1500,
+    temperature: 0.2,
+  };
+  // One attempt only (plus nothing on 429/5xx): every attempt runs paid searches.
+  const completion = await callOpenRouter(body, startedAt, {
+    deadlineMs: opts.deadlineMs,
+    maxRetries: 0,
+  });
+  const choice = completion.choices?.[0];
+  const searches =
+    (completion as { usage?: { server_tool_use_details?: { web_search_requests?: number } } }).usage
+      ?.server_tool_use_details?.web_search_requests ?? null;
+  return { content: choice?.message?.content ?? "", searches };
+}

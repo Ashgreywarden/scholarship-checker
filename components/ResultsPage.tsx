@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ArrowUpDown, MessageCircle, Search, SlidersHorizontal, Sparkles } from "lucide-react";
 import type { AsyncState, Scheme } from "@/lib/ui/types";
@@ -35,7 +35,10 @@ export function ResultsPage({
   rankedByAi,
   state = "success",
   onRetry,
+  webSearch,
 }: {
+  // The "Search the web for more scholarships" section, if any.
+  webSearch?: ReactNode;
   // Every scheme with its verdict from the rule checker, best code-ranked first.
   schemes: Scheme[];
   // The top picks (AI-ranked, or code-ranked as a fallback), with a reason each.
@@ -355,6 +358,10 @@ export function ResultsPage({
           </section>
         </>
       )}
+
+      {/* Live web search: below the data-bank results, above the notice link.
+          It runs on its own, so a failure there never affects the rest. */}
+      {!loading && webSearch}
 
       <aside className="mt-10 rounded-card border border-dashed border-brand/40 p-5">
         <h2 className="flex items-center gap-2 font-semibold">

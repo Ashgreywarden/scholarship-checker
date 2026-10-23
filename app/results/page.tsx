@@ -3,6 +3,8 @@
 import { useMemo } from "react";
 import { EmptyState } from "@/components/FeedbackState";
 import { ResultsPage, type BestMatch } from "@/components/ResultsPage";
+import { WebSearchResults } from "@/components/WebSearchResults";
+import { toWebSearchProfile } from "@/lib/web-search/profile";
 import { matchAll } from "@/lib/match/engine";
 import { codeRanking } from "@/lib/rank/fallback";
 import { FALLBACK_NOTE, MAX_BEST, type RankItem } from "@/lib/rank/types";
@@ -47,6 +49,10 @@ export default function ScholarshipsPage() {
     return { best, note, rankedByAi };
   }, [ranking, schemes, matches]);
 
+  // Our profile keys -> the answers the web search may use (no gender,
+  // disability or optional groups).
+  const webProfile = useMemo(() => toWebSearchProfile(profile ?? null), [profile]);
+
   if (profile === null) {
     return (
       <main id="main-content" className="page">
@@ -73,6 +79,7 @@ export default function ScholarshipsPage() {
             : "success"
       }
       onRetry={reload}
+      webSearch={<WebSearchResults profile={webProfile} />}
     />
   );
 }
