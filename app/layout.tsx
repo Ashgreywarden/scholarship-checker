@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Noto_Sans_Devanagari, Noto_Serif_Devanagari } from "next/font/google";
+import { Baloo_2, Mukta } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
-const body = Noto_Sans_Devanagari({
+// Both families are from Ek Type, an Indian type foundry, and cover Latin and Devanagari.
+const body = Mukta({
   subsets: ["latin", "devanagari"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body-nf",
   display: "swap",
 });
 
-const display = Noto_Serif_Devanagari({
+const display = Baloo_2({
   subsets: ["latin", "devanagari"],
-  weight: ["600"],
+  weight: ["600", "700"],
   variable: "--font-display-nf",
   display: "swap",
 });

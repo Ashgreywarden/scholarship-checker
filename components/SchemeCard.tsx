@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { ChevronDown, ExternalLink, FileCheck2 } from "lucide-react";
+import { ChevronDown, ExternalLink, FileCheck2, MapPin } from "lucide-react";
 import { formatDate, officialUrl } from "@/lib/ui/format";
 import { PROVIDER_LABELS } from "@/lib/ui/adapters";
 import type { Scheme } from "@/lib/ui/types";
@@ -71,12 +71,17 @@ export function SchemeCard({
 
         <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row">
           <div className="min-w-0">
-            <p className="text-sm text-muted">
-              {scheme.provider}
+            <p className="flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted">
+              <span className="font-semibold text-ink">{scheme.provider}</span>
               {scheme.provider_type !== "notice" && (
-                <> · {PROVIDER_LABELS[scheme.provider_type]}</>
+                <span>{PROVIDER_LABELS[scheme.provider_type]}</span>
               )}
-              {scheme.states.length > 0 && <> · {scheme.states.join(", ")}</>}
+              {scheme.states.length > 0 && (
+                <span className="inline-flex items-center gap-1">
+                  <MapPin size={14} aria-hidden="true" />
+                  {scheme.states.join(", ")}
+                </span>
+              )}
             </p>
             <h2
               id={titleId}
@@ -99,7 +104,7 @@ export function SchemeCard({
 
         {insight && (
           <div
-            className="mt-4 rounded-xl border border-brand/25 bg-brand-light p-3"
+            className="mt-4 rounded-lg border border-brand/25 bg-brand-light p-3"
             data-testid="insight"
           >
             <p className="text-sm font-semibold text-brand">Why it fits you</p>
@@ -114,7 +119,7 @@ export function SchemeCard({
           </div>
         )}
 
-        <div className="mt-4 rounded-xl bg-paper p-3">
+        <div className="mt-4 rounded-lg bg-paper p-3">
           <p className="text-sm text-ink" data-testid="reason">
             {scheme.summary.text}
           </p>
@@ -201,7 +206,7 @@ export function SchemeCard({
             </ul>
 
             {scheme.amount.quote && (
-              <div className="mt-4 rounded-2xl border border-line bg-white p-4">
+              <div className="mt-4 rounded-lg border border-line bg-white p-4">
                 <h3 className="font-semibold">Amount</h3>
                 <p className="mt-1 text-muted">{scheme.amount.text}</p>
                 <Quote text={scheme.amount.quote} />
@@ -209,7 +214,7 @@ export function SchemeCard({
             )}
 
             {scheme.deadlines && scheme.deadlines.length > 0 && (
-              <div className="mt-4 rounded-2xl border border-line bg-white p-4">
+              <div className="mt-4 rounded-lg border border-line bg-white p-4">
                 <h3 className="font-semibold">Deadline details</h3>
                 <ul className="mt-2 space-y-3">
                   {scheme.deadlines.map((line, index) => (
@@ -245,7 +250,7 @@ export function SchemeCard({
               </div>
             )}
 
-            <div className="mt-4 rounded-2xl border border-line bg-white p-4">
+            <div className="mt-4 rounded-lg border border-line bg-white p-4">
               <h3 className="flex items-center gap-2 font-semibold">
                 <FileCheck2 size={19} aria-hidden="true" />
                 Documents to keep ready

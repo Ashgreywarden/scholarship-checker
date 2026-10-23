@@ -78,7 +78,7 @@ export function WebSearchResults({ profile }: { profile: Record<string, string> 
           </p>
         )}
         {state === "error" && (
-          <p role="alert" className="rounded-xl bg-status-amberBg p-4 text-status-amber">
+          <p role="alert" className="rounded-lg bg-status-amberBg p-4 text-status-amber">
             {message} Your results above are still valid.
           </p>
         )}

@@ -15,7 +15,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b border-line bg-paper">
+    <header className="border-b border-line bg-white">
       <a
         href="#main-content"
         className="sr-only z-50 rounded-lg bg-brand px-4 py-3 text-white
@@ -30,10 +30,10 @@ export function SiteHeader() {
           aria-label="ScholarPath home"
           className="inline-flex min-h-11 items-center gap-2"
         >
-          <span className="flex size-10 items-center justify-center rounded-xl bg-brand text-white">
+          <span className="flex size-10 items-center justify-center rounded-lg bg-brand text-accent">
             <Route size={23} aria-hidden="true" />
           </span>
-          <span className="font-display text-xl font-semibold">ScholarPath</span>
+          <span className="font-display text-2xl font-bold tracking-tight text-brand">ScholarPath</span>
         </Link>
 
         <nav aria-label="Main navigation" className="w-full sm:w-auto">
@@ -48,7 +48,7 @@ export function SiteHeader() {
                     className={`inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-semibold ${
                       active
                         ? "bg-brand-light text-brand"
-                        : "text-muted hover:bg-white hover:text-brand"
+                        : "text-muted hover:bg-brand-light hover:text-brand"
                     }`}
                   >
                     {link.label}

@@ -63,7 +63,7 @@ export function RuleRow({ rule }: { rule: Rule }) {
         ) : null}
 
         {rule.result === "unknown" && !rule.flagged && !rule.note && rule.question && (
-          <div className="mt-3 rounded-xl bg-status-amberBg p-3 text-status-amber">
+          <div className="mt-3 rounded-lg bg-status-amberBg p-3 text-status-amber">
             <p className="font-semibold">Why can&apos;t we tell?</p>
             <p>{rule.question}</p>
           </div>

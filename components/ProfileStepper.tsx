@@ -236,7 +236,7 @@ export function ProfileStepper({
           {options.map(([value, label]) => (
             <label
               key={value}
-              className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border p-4 ${
+              className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-lg border p-4 ${
                 profile.disability === value
                   ? "border-brand bg-brand-light"
                   : "border-muted bg-white"
@@ -458,7 +458,7 @@ export function ProfileStepper({
                         {Object.entries(OTHER_GROUPS).map(([id, label]) => (
                           <label
                             key={id}
-                            className={`flex min-h-12 cursor-pointer items-start gap-3 rounded-xl border p-4 ${
+                            className={`flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border p-4 ${
                               ticked.has(id) ? "border-brand bg-brand-light" : "border-muted bg-white"
                             }`}
                           >

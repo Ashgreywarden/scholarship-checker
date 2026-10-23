@@ -7,14 +7,15 @@
   rounded-card, shadow-card, font-display, animate-enter, text-status-greenBg ...).
 */
 @theme {
-  --color-brand: #115e59;
-  --color-brand-dark: #0b4541;
-  --color-brand-light: #e8f3f0;
-  --color-accent: #f4b544;
-  --color-paper: #faf8f3;
-  --color-ink: #172b2a;
-  --color-muted: #526260;
-  --color-line: #dce3de;
+  --color-brand: #1f3a93;
+  --color-brand-dark: #152a6e;
+  --color-brand-light: #e9eefb;
+  --color-accent: #f2a71b;
+  --color-paper: #f5f6fa;
+  --color-ink: #141b2d;
+  --color-muted: #525b70;
+  --color-line: #d8deea;
+  --color-margin: #d9534f;
 
   --color-status-green: #166534;
   --color-status-greenBg: #ecfdf3;
@@ -27,8 +28,8 @@
   --color-status-blue: #075985;
   --color-status-blueBg: #f0f9ff;
 
-  --shadow-card: 0 8px 30px -16px rgba(23, 43, 42, 0.18);
-  --radius-card: 1.5rem;
+  --shadow-card: 0 1px 0 rgba(20, 27, 45, 0.05), 0 12px 24px -20px rgba(31, 58, 147, 0.35);
+  --radius-card: 0.875rem;
 
   --animate-enter: enter 180ms ease-out both;
   @keyframes enter {
@@ -46,7 +47,7 @@
 /* The next/font variables are named *-nf so they don't clash with the theme names. */
 @theme inline {
   --font-sans: var(--font-body-nf), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: var(--font-display-nf), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-display-nf), var(--font-body-nf), system-ui, sans-serif;
 }
 
 @layer base {
@@ -72,14 +73,32 @@
     font-size: 16px;
   }
 
+  progress {
+    appearance: none;
+    border: 0;
+    background-color: var(--color-brand-light);
+    color: var(--color-brand);
+  }
+  progress::-webkit-progress-bar {
+    background-color: var(--color-brand-light);
+  }
+  progress::-webkit-progress-value {
+    background-color: var(--color-brand);
+    border-radius: 9999px;
+  }
+  progress::-moz-progress-bar {
+    background-color: var(--color-brand);
+    border-radius: 9999px;
+  }
+
   :focus-visible {
-    outline: 3px solid #115e59;
+    outline: 3px solid #1f3a93;
     outline-offset: 4px;
   }
 
   ::selection {
-    background: #f4b544;
-    color: #172b2a;
+    background: #f2a71b;
+    color: #141b2d;
   }
 }
 
@@ -92,24 +111,49 @@
     @apply rounded-card border border-line bg-white shadow-card;
   }
 
+  /* A scheme card's left edge carries its verdict colour, so a list can be scanned at a glance. */
+  .card[data-verdict] {
+    border-left-width: 4px;
+  }
+  .card[data-verdict="eligible"] {
+    border-left-color: var(--color-status-green);
+  }
+  .card[data-verdict="passes_checkable"] {
+    border-left-color: var(--color-status-blue);
+  }
+  .card[data-verdict="cant_tell"] {
+    border-left-color: var(--color-accent);
+  }
+  .card[data-verdict="not_eligible"] {
+    border-left-color: var(--color-status-red);
+  }
+
   .eyebrow {
-    @apply text-sm font-semibold uppercase tracking-widest text-brand;
+    @apply text-base font-semibold text-brand;
   }
 
   .btn-primary {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 font-semibold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-brand px-5 py-3 font-semibold text-white shadow-[0_2px_0_#152a6e] transition-[background-color,transform] hover:bg-brand-dark active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-brand bg-white px-5 py-3 font-semibold text-brand transition-colors hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-brand bg-white px-5 py-3 font-semibold text-brand transition-colors hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   .field {
-    @apply min-h-12 w-full rounded-xl border border-muted bg-white px-4 py-3 text-base text-ink placeholder:text-muted;
+    @apply min-h-12 w-full rounded-lg border border-[#b9c1d3] bg-white px-4 py-3 text-base text-ink placeholder:text-muted;
   }
 
   .field-label {
     @apply mb-2 block font-semibold;
+  }
+
+  /* The landing hero's "answer sheet": ruled lines and a red margin, like an exam booklet. */
+  .ruled-sheet {
+    background-color: #fff;
+    background-image:
+      linear-gradient(to right, transparent 2.75rem, var(--color-margin) 2.75rem, var(--color-margin) calc(2.75rem + 1.5px), transparent calc(2.75rem + 1.5px)),
+      repeating-linear-gradient(to bottom, transparent 0, transparent calc(2rem - 1px), #dfe5f2 calc(2rem - 1px), #dfe5f2 2rem);
   }
 
   .text-link {
