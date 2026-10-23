@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpDown, MessageCircle, Search, SlidersHorizontal, Sparkles } from "lucide-react";
 import type { AsyncState, Scheme } from "@/lib/ui/types";
 import { SchemeCard } from "./SchemeCard";
+import { ApplicationCheck } from "./ApplicationCheck";
 import { EmptyState, ErrorState, LoadingState } from "./FeedbackState";
 
 const FILTERS = [
@@ -93,6 +94,14 @@ export function ResultsPage({
       return matchesQuery && matchesOpen && matchesLevel && matchesProvider;
     };
   }, [query, filters]);
+
+  const checkable = useMemo(
+    () => [
+      ...best.map((b) => b.scheme),
+      ...schemes.filter((s) => !bestIds.has(s.id) && s.verdict !== "not_eligible"),
+    ],
+    [best, schemes, bestIds],
+  );
 
   const bestVisible = useMemo(() => best.filter((b) => passes(b.scheme)), [best, passes]);
 
@@ -216,6 +225,11 @@ export function ResultsPage({
               </>
             )}
           </section>
+
+          {/* Weak spots in an application: schemes the rules do not rule out, best matches first. */}
+          {bestState === "ready" && checkable.length > 0 && (
+            <ApplicationCheck schemes={checkable} defaultId={best[0]?.scheme.id} />
+          )}
 
           <section aria-labelledby="more-heading" className="mt-12">
             <h2 id="more-heading" className="font-display text-2xl font-semibold">
