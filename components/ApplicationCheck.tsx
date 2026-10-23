@@ -50,6 +50,7 @@ export function ApplicationCheck({ schemes, defaultId }: { schemes: Scheme[]; de
         >
           {schemes.map((s) => (
             <option key={s.id} value={s.id}>
+              {s.verdict === "not_eligible" ? "Ruled out: " : ""}
               {s.name}
             </option>
           ))}

@@ -99,6 +99,8 @@ export function ResultsPage({
     () => [
       ...best.map((b) => b.scheme),
       ...schemes.filter((s) => !bestIds.has(s.id) && s.verdict !== "not_eligible"),
+      // Ruled-out schemes last: picking one shows exactly which rule fails.
+      ...schemes.filter((s) => s.verdict === "not_eligible"),
     ],
     [best, schemes, bestIds],
   );
@@ -226,7 +228,7 @@ export function ResultsPage({
             )}
           </section>
 
-          {/* Weak spots in an application: schemes the rules do not rule out, best matches first. */}
+          {/* Weak spots in an application: every scheme, best matches first, ruled-out last. */}
           {bestState === "ready" && checkable.length > 0 && (
             <ApplicationCheck schemes={checkable} defaultId={best[0]?.scheme.id} />
           )}
